@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# SQLite & local databases
+*.db
+*.db-journal
+
+# Environment & local secrets
+.env
+.env*.local
+*.local
+
+# Audio / voice notes (private recordings)
+*.opus
+*.mp3
+*.wav
+*.m4a
+
+# Temporary inspection scripts & dumps
+docs/*_dump.txt
+docs/inspect_*.py
+
+# Misc / OS
+.DS_Store
+*.pem
+Thumbs.db
