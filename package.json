@@ -1,0 +1,44 @@
+{
+  "name": "bhakti-grisa",
+  "version": "1.0.0",
+  "description": "> **Sistem Informasi Manajemen PKK & Tertib Administrasi Keluarga**   > Inisiatif Program Inovasi & Pengabdian Masyarakat **Bhakti Grisa**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfypych/bhakti-grisa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rfypych/bhakti-grisa/issues"
+  },
+  "homepage": "https://github.com/rfypych/bhakti-grisa#readme",
+  "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "exceljs": "^4.4.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.61.0",
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "prisma": "^6.4.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  }
+}

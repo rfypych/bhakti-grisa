@@ -109,7 +109,7 @@ bhakti-grisa/
 **Interfaces:**
 - Produces: Initialized Next.js 15 project, working Prisma Client connected to SQLite database, seed data for Dusun/RW/RT/Dasawisma hierarchy.
 
-- [ ] **Step 1: Write the failing test for Prisma database connection**
+- [x] **Step 1: Write the failing test for Prisma database connection**
 ```typescript
 // tests/setup.test.ts
 import { describe, it, expect } from 'vitest';
@@ -123,19 +123,19 @@ describe('Database Setup', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/setup.test.ts`
 Expected: FAIL (Prisma or modules not yet installed).
 
-- [ ] **Step 3: Scaffold Next.js project and install core dependencies**
+- [x] **Step 3: Scaffold Next.js project and install core dependencies**
 Install: `next`, `react`, `react-dom`, `typescript`, `@types/node`, `@types/react`, `tailwindcss`, `lucide-react`, `prisma`, `@prisma/client`, `exceljs`, `leaflet`, `@types/leaflet`, `vitest`.
 Configure `prisma/schema.prisma` with models: `Wilayah`, `Keluarga`, `AnggotaKeluarga`, `HatinyaPkk`, `IndustriRumahTangga`, `PeristiwaVital`. Run `npx prisma db push` and write `prisma/seed.ts` populating sample Dusun, RW, RT, and Dasawisma.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/setup.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add package.json tsconfig.json prisma/ src/lib/prisma.ts tests/setup.test.ts
 git commit -m "chore: scaffold Next.js 15 project and configure Prisma with SQLite"

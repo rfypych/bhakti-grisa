@@ -1,0 +1,237 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+enum Role {
+  WARGA
+  KADER_RT
+  PENGURUS_RW
+  PENGURUS_DUSUN
+  ADMIN_DESA
+}
+
+enum StatusData {
+  DRAFT
+  VERIFIKASI
+  ARSIP
+}
+
+enum JenisKelamin {
+  L
+  P
+}
+
+enum KriteriaRumah {
+  SEHAT
+  KURANG_SEHAT
+  TIDAK_SEHAT_LAYAK_HUNI
+}
+
+enum SumberAir {
+  PDAM
+  SUMUR
+  SUNGAI
+  LAINNYA
+}
+
+enum MakananPokok {
+  BERAS
+  NON_BERAS
+}
+
+enum HubunganKeluarga {
+  KEPALA_KELUARGA
+  ISTRI
+  ANAK
+  ORANG_TUA
+  MENANTU
+  CUCU
+  FAMILI_LAIN
+  PEMBANTU
+}
+
+enum StatusPerkawinan {
+  BELUM_KAWIN
+  KAWIN
+  JANDA
+  DUDA
+}
+
+enum Agama {
+  ISLAM
+  KRISTEN
+  KATHOLIK
+  HINDU
+  BUDHA
+  KHONGHUCU
+  KEPERCAYAAN_LAIN
+}
+
+enum Pendidikan {
+  TIDAK_TAMAT_SD
+  SD_MI
+  SMP_SEDERAJAT
+  SMA_SMK_SEDERAJAT
+  DIPLOMA
+  S1
+  S2
+  S3
+}
+
+enum Pekerjaan {
+  PETANI
+  PEDAGANG
+  SWASTA
+  WIRAUSAHA
+  PNS
+  TNI_POLRI
+  TIDAK_BEKERJA
+  LAINNYA
+}
+
+enum JenisPeristiwa {
+  KEHAMILAN
+  PERSALINAN_MELAHIRKAN
+  NIFAS
+  KEMATIAN_IBU
+  KELAHIRAN_BAYI
+  KEMATIAN_BAYI
+  KEMATIAN_BALITA
+  MUTASI_KELUAR
+}
+
+model Wilayah {
+  id            String      @id @default(uuid())
+  dusun         String
+  rw            String
+  rt            String
+  namaDasawisma String
+  ketuaNama     String?
+  kontak        String?
+  keluarga      Keluarga[]
+
+  @@unique([dusun, rw, rt, namaDasawisma])
+}
+
+model Keluarga {
+  id                    String                @id @default(uuid())
+  noKk                  String                @unique
+  namaKepalaRumahTangga String
+  alamat                String
+  wilayahId             String
+  wilayah               Wilayah               @relation(fields: [wilayahId], references: [id])
+  latitude              Float?
+  longitude             Float?
+  
+  // Sanitasi & Kondisi Rumah (Lampiran 4.14.2a & 4.15)
+  kriteriaRumah         KriteriaRumah         @default(SEHAT)
+  jambanKeluarga        Boolean               @default(true)
+  jumlahJamban          Int                   @default(1)
+  sumberAir             SumberAir             @default(SUMUR)
+  tempatSampah          Boolean               @default(true)
+  spal                  Boolean               @default(true)
+  stikerP4k             Boolean               @default(false)
+  makananPokok          MakananPokok          @default(BERAS)
+  jenisNonBeras         String?
+  
+  // Aktivitas Usaha
+  aktivitasUp2k         Boolean               @default(false)
+  jenisUsahaUp2k        String?
+  kegiatanKesling       Boolean               @default(false)
+  
+  statusData            StatusData            @default(VERIFIKASI)
+  catatanVerifikasi     String?
+  createdAt             DateTime              @default(now())
+  updatedAt             DateTime              @updatedAt
+
+  anggota               AnggotaKeluarga[]
+  hatinyaPkk            HatinyaPkk[]
+  industriRumahTangga   IndustriRumahTangga[]
+}
+
+model AnggotaKeluarga {
+  id                    String              @id @default(uuid())
+  keluargaId            String
+  keluarga              Keluarga            @relation(fields: [keluargaId], references: [id], onDelete: Cascade)
+  noRegistrasi          String?
+  nik                   String              @unique
+  isNikSementara        Boolean             @default(false) // Flag NIK virtual sementara (TEMP-YYYYMMDD-XXXX)
+  nama                  String
+  hubunganKeluarga      HubunganKeluarga
+  jenisKelamin          JenisKelamin
+  tempatLahir           String
+  tanggalLahir          DateTime
+  agama                 Agama               @default(ISLAM)
+  pendidikan            Pendidikan          @default(SMA_SMK_SEDERAJAT)
+  pekerjaan             Pekerjaan           @default(SWASTA)
+  statusPerkawinan      StatusPerkawinan    @default(BELUM_KAWIN)
+  jabatanPkk            String?
+  disabilitas           Boolean             @default(false)
+  jenisDisabilitas      String?
+  tigaButa              Boolean             @default(false)
+  
+  // Program Sosial (Lampiran 4.14.1a)
+  akseptorKb            Boolean             @default(false)
+  jenisKb               String?
+  posyanduAktif         Boolean             @default(false)
+  frekuensiPosyandu     Int                 @default(0)
+  bkb                   Boolean             @default(false)
+  memilikiTabungan      Boolean             @default(false)
+  kelompokBelajar       String?
+  paudSejenis           Boolean             @default(false)
+  kegiatanKoperasi      Boolean             @default(false)
+  jenisKoperasi         String?
+
+  // 10 Program Pokok PKK (Lampiran 4.14.1b & 4.15)
+  kegPancasila          Boolean             @default(false)
+  kegGotongRoyong       Boolean             @default(false)
+  kegRukunKematian      Boolean             @default(false)
+  kegKeagamaan          Boolean             @default(false)
+  kegJimpitan           Boolean             @default(false)
+  kegArisan             Boolean             @default(false)
+  kegPendidikanKeterampilan Boolean         @default(false)
+  kegKoperasi           Boolean             @default(false)
+  kegPangan             Boolean             @default(false)
+  kegSandang            Boolean             @default(false)
+  kegKesehatan          Boolean             @default(false)
+  kegPerencanaanSehat   Boolean             @default(false)
+
+  peristiwaVital        PeristiwaVital[]
+}
+
+model HatinyaPkk {
+  id                    String              @id @default(uuid())
+  keluargaId            String
+  keluarga              Keluarga            @relation(fields: [keluargaId], references: [id], onDelete: Cascade)
+  kategori              String              // peternakan, perikanan, warung hidup, toga, tanaman keras
+  komoditi              String
+  jumlah                String
+}
+
+model IndustriRumahTangga {
+  id                    String              @id @default(uuid())
+  keluargaId            String
+  keluarga              Keluarga            @relation(fields: [keluargaId], references: [id], onDelete: Cascade)
+  kategori              String              // pangan, sandang, konveksi, jasa, lain-lain
+  komoditi              String
+  volume                String
+}
+
+model PeristiwaVital {
+  id                    String              @id @default(uuid())
+  anggotaKeluargaId     String?
+  anggota               AnggotaKeluarga?    @relation(fields: [anggotaKeluargaId], references: [id], onDelete: SetNull)
+  jenisPeristiwa        JenisPeristiwa
+  tanggalPeristiwa      DateTime            @default(now())
+  namaBayi              String?
+  jenisKelaminBayi      JenisKelamin?
+  akteKelahiran         Boolean?            @default(false)
+  namaAlmarhum          String?
+  sebabKematian         String?
+  keterangan            String?
+}
