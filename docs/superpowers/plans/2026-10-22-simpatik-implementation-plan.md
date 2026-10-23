@@ -155,7 +155,7 @@ git commit -m "chore: scaffold Next.js 15 project and configure Prisma with SQLi
   - `classifyDemographics(member: { tanggalLahir: Date; jenisKelamin: 'L' | 'P'; statusPerkawinan: string; tigaButa?: boolean }): DemographicFlags`
   - `generateVirtualNik(dob: Date): string`
 
-- [ ] **Step 1: Write failing tests for age calculation and demographic classification**
+- [x] **Step 1: Write failing tests for age calculation and demographic classification**
 ```typescript
 // tests/demographics.test.ts
 import { describe, it, expect } from 'vitest';
@@ -194,19 +194,19 @@ describe('Demographics Engine', () => {
 });
 ```
 
-- [ ] **Step 2: Run demographics test to verify it fails**
+- [x] **Step 2: Run demographics test to verify it fails**
 Run: `npx vitest run tests/demographics.test.ts`
 Expected: FAIL ("cannot find module '../src/lib/demographics'").
 
-- [ ] **Step 3: Implement `calculateAge`, `classifyDemographics`, and `generateVirtualNik`**
+- [x] **Step 3: Implement `calculateAge`, `classifyDemographics`, and `generateVirtualNik`**
 In `src/lib/demographics.ts`: Implement date difference logic considering leap years; return boolean flags for `isBalita`, `isLansia`, `isWus`, `isPus`.
 In `src/lib/virtualNik.ts`: Implement `generateVirtualNik(dob: Date)` returning formatted string `TEMP-YYYYMMDD-XXXX` (using date format and 4 random alphanumeric characters).
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 Run: `npx vitest run tests/demographics.test.ts tests/virtualNik.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/lib/demographics.ts src/lib/virtualNik.ts tests/demographics.test.ts tests/virtualNik.test.ts
 git commit -m "feat: implement demographic classification and virtual temporary NIK generator"
