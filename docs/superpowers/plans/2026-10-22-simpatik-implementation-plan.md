@@ -226,7 +226,7 @@ git commit -m "feat: implement demographic classification and virtual temporary 
   - `getAggregationRT(rtId: string, filter: { tahun: number; semester?: string }): Promise<RTAggregationResult>`
   - `getAggregationDesa(filter: { tahun: number; semester?: string }): Promise<DesaAggregationResult>`
 
-- [ ] **Step 1: Write failing test for Dasawisma and RT rollups**
+- [x] **Step 1: Write failing test for Dasawisma and RT rollups**
 ```typescript
 // tests/aggregation.test.ts
 import { describe, it, expect, beforeEach } from 'vitest';
@@ -248,18 +248,18 @@ describe('Multi-Level Aggregation Engine', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/aggregation.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement aggregation queries in `src/lib/aggregation.ts`**
+- [x] **Step 3: Implement aggregation queries in `src/lib/aggregation.ts`**
 Write Prisma aggregation queries grouping families and member records. Compute summary counts: total KK, total L/P, Balita L/P, PUS, WUS, Ibu Hamil, Ibu Menyusui, Lansia, 3 Buta, Berkebutuhan Khusus, Rumah Sehat, Jamban, Sumber Air (PDAM, Sumur, Sungai, Lainnya), SPAL, Sampah, Makanan Pokok, UP2K, and Hatinya PKK.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/aggregation.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/lib/aggregation.ts tests/aggregation.test.ts
 git commit -m "feat: implement multi-level automated aggregation engine"
