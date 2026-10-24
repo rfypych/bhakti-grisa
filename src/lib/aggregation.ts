@@ -2,8 +2,10 @@ import { prisma } from './prisma';
 import { classifyDemographics } from './demographics';
 
 export interface AggregationFilter {
-  tahun: number;
+  tahun?: number;
+  year?: number;
   semester?: 'SEMESTER_1' | 'SEMESTER_2' | 'TAHUNAN' | string;
+  period?: 'SEMESTER_1' | 'SEMESTER_2' | 'TAHUNAN' | string;
 }
 
 export interface AggregationResult {
@@ -62,10 +64,12 @@ export interface RTAggregationResult extends AggregationResult {
 export interface DesaAggregationResult extends AggregationResult {}
 
 function getReferenceDate(filter: AggregationFilter): Date {
-  if (filter.semester === 'SEMESTER_1') {
-    return new Date(`${filter.tahun}-06-30T23:59:59.999Z`);
+  const y = filter.tahun || filter.year || new Date().getFullYear();
+  const s = filter.semester || filter.period;
+  if (s === 'SEMESTER_1') {
+    return new Date(`${y}-06-30T23:59:59.999Z`);
   }
-  return new Date(`${filter.tahun}-12-31T23:59:59.999Z`);
+  return new Date(`${y}-12-31T23:59:59.999Z`);
 }
 
 async function aggregateFamilies(

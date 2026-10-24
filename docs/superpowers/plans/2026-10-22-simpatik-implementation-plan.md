@@ -597,7 +597,7 @@ git commit -m "feat: implement print-ready layouts for Lampiran 4.15 and officia
 **Interfaces:**
 - Connects: Public resident input &rarr; Cadre queue approval &rarr; Lapor peristiwa birth &rarr; Realtime aggregation &rarr; Excel template injection.
 
-- [ ] **Step 1: Write end-to-end integration test exercising full lifecycle**
+- [x] **Step 1: Write end-to-end integration test exercising full lifecycle**
 ```typescript
 // tests/e2eIntegration.test.ts
 import { describe, it, expect } from 'vitest';
@@ -618,18 +618,18 @@ describe('SIMPATIK Full End-to-End Workflow', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/e2eIntegration.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Wire up pages and verify seamless pipeline execution**
+- [x] **Step 3: Wire up pages and verify seamless pipeline execution**
 Connect landing page RT selector, dashboard cards, navigation header, and verify all database transactions and export buffers pass smoothly.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/e2eIntegration.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add tests/e2eIntegration.test.ts src/app/page.tsx src/app/dashboard/page.tsx
 git commit -m "test: add full end-to-end integration test verifying complete SIMPATIK lifecycle"
