@@ -166,8 +166,10 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
     wsDataKeluarga.getCell('E14').value = countP;
     wsDataKeluarga.getCell('D16').value = 1;
 
-    // Populate Anggota Table starting at row 23
-    let rIdx = 23;
+    // Populate Anggota Table starting at row 24 (row 23 is the printed
+    // column-number row 1-10 and must stay intact, same as row 14 on
+    // the catatan keluarga sheet)
+    let rIdx = 24;
     for (let i = 0; i < primaryFamily.anggota.length; i++) {
       const m = primaryFamily.anggota[i];
       const row = wsDataKeluarga.getRow(rIdx + i);
