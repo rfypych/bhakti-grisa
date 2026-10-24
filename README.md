@@ -56,7 +56,7 @@ Sistem ini mentransformasikan berkas manual spreadsheet yang terdiri dari **31 s
 ## 🚀 Menjalankan di Produksi (Runbook)
 
 ### Prasyarat
-- Node.js 20 atau lebih baru + npm
+- Node.js 20 atau lebih baru + npm, dengan akses internet saat `npm install` (mengunduh paket dan engine Prisma)
 - **LibreOffice** terpasang di server (dipakai route PDF resmi `/api/export/pdf` untuk merender sheet Excel asli menjadi PDF; tanpa LibreOffice fitur PDF gagal tetapi ekspor Excel tetap bekerja)
 - Git
 
