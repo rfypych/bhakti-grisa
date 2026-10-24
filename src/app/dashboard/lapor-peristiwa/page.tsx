@@ -1,7 +1,7 @@
 import React from 'react';
 import { getRecentPeristiwaVital, getEligibleMothers, getAllLivingMembers } from '@/actions/peristiwaActions';
 import { PeristiwaClientWrapper } from '@/components/peristiwa/PeristiwaClientWrapper';
-import { Activity, Baby, HeartCrack, Calendar, User, FileText } from 'lucide-react';
+import { Activity, Baby, HeartCrack, Calendar, User, FileText, Heart } from 'lucide-react';
 
 export const metadata = {
   title: 'Lapor Peristiwa Vital - SIMPATIK',
@@ -21,6 +21,8 @@ export default async function LaporPeristiwaPage({
   ]);
 
   const totalKelahiran = recentEvents.filter((e) => e.jenisPeristiwa === 'KELAHIRAN_BAYI').length;
+  const totalKehamilan = recentEvents.filter((e) => e.jenisPeristiwa === 'KEHAMILAN').length;
+  const totalNifas = recentEvents.filter((e) => e.jenisPeristiwa === 'NIFAS').length;
   const totalKematian = recentEvents.filter((e) =>
     ['KEMATIAN_IBU', 'KEMATIAN_BAYI', 'KEMATIAN_BALITA', 'KEMATIAN_WARGA'].includes(e.jenisPeristiwa)
   ).length;
@@ -35,7 +37,7 @@ export default async function LaporPeristiwaPage({
             <h1 className="text-2xl font-bold text-stone-900">Modul Lapor Peristiwa</h1>
           </div>
           <p className="text-sm text-stone-600 mt-1">
-            Pencatatan cepat dinamika kependudukan: kelahiran bayi, kehamilan, dan kematian warga (Lampiran 4.18).
+            Pencatatan cepat dinamika kependudukan: kelahiran bayi, kehamilan, nifas, dan kematian warga (Lampiran 4.18).
           </p>
         </div>
 
@@ -43,34 +45,44 @@ export default async function LaporPeristiwaPage({
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
-            <Baby className="w-6 h-6" />
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+            <Baby className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs font-medium text-stone-500">Kelahiran Tercatat</p>
-            <p className="text-2xl font-bold text-stone-900">{totalKelahiran}</p>
+            <p className="text-[11px] font-medium text-stone-500">Kelahiran</p>
+            <p className="text-xl font-bold text-stone-900">{totalKelahiran}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center shrink-0">
-            <HeartCrack className="w-6 h-6" />
+        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
+            <Activity className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs font-medium text-stone-500">Kematian Tercatat</p>
-            <p className="text-2xl font-bold text-stone-900">{totalKematian}</p>
+            <p className="text-[11px] font-medium text-stone-500">Kehamilan</p>
+            <p className="text-xl font-bold text-stone-900">{totalKehamilan}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-stone-200 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-stone-50 text-stone-700 flex items-center justify-center shrink-0">
-            <FileText className="w-6 h-6" />
+        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
+            <Heart className="w-5 h-5" />
           </div>
           <div>
-            <p className="text-xs font-medium text-stone-500">Total Log Vital</p>
-            <p className="text-2xl font-bold text-stone-900">{recentEvents.length}</p>
+            <p className="text-[11px] font-medium text-stone-500">Nifas / Menyusui</p>
+            <p className="text-xl font-bold text-stone-900">{totalNifas}</p>
+          </div>
+        </div>
+
+        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center shrink-0">
+            <HeartCrack className="w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-[11px] font-medium text-stone-500">Kematian</p>
+            <p className="text-xl font-bold text-stone-900">{totalKematian}</p>
           </div>
         </div>
       </div>
@@ -116,6 +128,9 @@ export default async function LaporPeristiwaPage({
                   } else if (event.jenisPeristiwa === 'KEHAMILAN') {
                     badgeColor = 'bg-amber-50 text-amber-800 border-amber-200';
                     eventLabel = 'Kehamilan';
+                  } else if (event.jenisPeristiwa === 'NIFAS') {
+                    badgeColor = 'bg-teal-50 text-teal-800 border-teal-200';
+                    eventLabel = 'Nifas / Menyusui';
                   } else if (event.jenisPeristiwa.startsWith('KEMATIAN')) {
                     badgeColor = 'bg-rose-50 text-rose-800 border-rose-200';
                     const DEATH_LABELS: Record<string, string> = {
