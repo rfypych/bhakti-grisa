@@ -554,7 +554,7 @@ git commit -m "feat: implement interactive spatial GIS household map with catego
 - Consumes: Family data and multi-level aggregation results
 - Produces: Pixel-perfect, print-optimized layouts (A4/F4) for Lampiran 4.14.2a, Lampiran 4.15, and Lampiran 4.16 with TP PKK official letterhead and signature blocks.
 
-- [ ] **Step 1: Write test verifying print data transformer**
+- [x] **Step 1: Write test verifying print data transformer**
 ```typescript
 // tests/printLayout.test.ts
 import { describe, it, expect } from 'vitest';
@@ -569,18 +569,18 @@ describe('Print Data Formatter', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/printLayout.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement print formatters and print-optimized CSS views**
+- [x] **Step 3: Implement print formatters and print-optimized CSS views**
 Build clean tabular print views with `@media print` rules: hides navbar/buttons, forces black & white or high-contrast lines, includes Kop Surat, date, and signature spaces for Ketua Dasawisma / Ketua RT / Ketua TP PKK Desa.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/printLayout.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/components/print/ src/app/dashboard/laporan/cetak/ tests/printLayout.test.ts
 git commit -m "feat: implement print-ready layouts for Lampiran 4.15 and official reports"
