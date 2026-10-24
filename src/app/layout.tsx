@@ -2,19 +2,34 @@ import React from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
-import { Home, ClipboardList, Activity, MapPin, Layers, FileSpreadsheet, PlusCircle } from 'lucide-react';
+import {
+  Home,
+  ClipboardList,
+  Activity,
+  MapPin,
+  Layers,
+  Users,
+  FileSpreadsheet,
+  PlusCircle,
+} from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
+import { UserNavHeader } from '@/components/layout/UserNavHeader';
+import { getSessionUser } from '@/lib/auth';
 
 export const metadata: Metadata = {
   title: 'SIMPATIK - Sistem Informasi Manajemen PKK & Tertib Administrasi Keluarga',
   description: 'Inisiatif Program Inovasi & Pengabdian Masyarakat Bhakti Grisa, Desa Demaan, Kudus.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const user = await getSessionUser();
+  const isAdmin = user?.peran === 'ADMIN_DESA';
+  const canVerify = !user || user.peran === 'ADMIN_DESA' || user.peran === 'KADER_RT';
+
   return (
     <html lang="id">
       <body className="min-h-screen flex flex-col bg-stone-50">
@@ -42,13 +57,15 @@ export default function RootLayout({
                   <Home className="w-4 h-4" />
                   <span>Dashboard</span>
                 </Link>
-                <Link
-                  href="/dashboard/verifikasi"
-                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
-                >
-                  <ClipboardList className="w-4 h-4" />
-                  <span>Verifikasi</span>
-                </Link>
+                {canVerify && (
+                  <Link
+                    href="/dashboard/verifikasi"
+                    className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                  >
+                    <ClipboardList className="w-4 h-4" />
+                    <span>Verifikasi</span>
+                  </Link>
+                )}
                 <Link
                   href="/dashboard/lapor-peristiwa"
                   className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
@@ -63,16 +80,27 @@ export default function RootLayout({
                   <MapPin className="w-4 h-4" />
                   <span>Peta Spasial</span>
                 </Link>
-                <Link
-                  href="/dashboard/wilayah"
-                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
-                >
-                  <Layers className="w-4 h-4" />
-                  <span>Wilayah</span>
-                </Link>
+                {isAdmin && (
+                  <>
+                    <Link
+                      href="/dashboard/wilayah"
+                      className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                    >
+                      <Layers className="w-4 h-4" />
+                      <span>Wilayah</span>
+                    </Link>
+                    <Link
+                      href="/dashboard/pengguna"
+                      className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                    >
+                      <Users className="w-4 h-4" />
+                      <span>Pengguna</span>
+                    </Link>
+                  </>
+                )}
               </nav>
 
-              <MobileNav />
+              <MobileNav userRole={user?.peran} />
             </div>
 
             <div className="flex items-center gap-3">
@@ -81,16 +109,18 @@ export default function RootLayout({
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors border border-stone-200"
               >
                 <FileSpreadsheet className="w-4 h-4 text-emerald-700" />
-                <span>Unduh Excel (31 Sheet)</span>
+                <span>Unduh Excel</span>
               </a>
 
               <Link
                 href="/formulir"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
+                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
               >
                 <PlusCircle className="w-4 h-4" />
                 <span>Input Data Keluarga</span>
               </Link>
+
+              <UserNavHeader user={user} />
             </div>
           </div>
         </header>

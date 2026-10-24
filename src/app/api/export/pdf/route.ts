@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialPdf, ExportPdfJenis, PDF_EXPORT_CONFIGS } from '@/lib/pdfExport';
+import { getSessionUser } from '@/lib/auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -15,6 +16,14 @@ export const dynamic = 'force-dynamic';
  * - tahun: yyyy (default tahun berjalan)
  */
 export async function GET(request: NextRequest) {
+  const user = await getSessionUser();
+  if (!user) {
+    return NextResponse.json(
+      { error: 'Autentikasi diperlukan. Silakan login untuk mengunduh laporan resmi.' },
+      { status: 401 }
+    );
+  }
+
   const searchParams = request.nextUrl.searchParams;
   const jenis = (searchParams.get('jenis') || 'catatan-keluarga') as ExportPdfJenis;
   const keluargaId = searchParams.get('keluargaId');

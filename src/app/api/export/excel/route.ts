@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialExcelWorkbook } from '@/lib/excelTemplate';
+import { getSessionUser } from '@/lib/auth';
 
 export async function GET(request: NextRequest) {
+  const user = await getSessionUser();
+  if (!user) {
+    return NextResponse.json(
+      { error: 'Autentikasi diperlukan. Silakan login untuk mengunduh laporan resmi.' },
+      { status: 401 }
+    );
+  }
+
   const searchParams = request.nextUrl.searchParams;
   const tahun = parseInt(searchParams.get('tahun') || new Date().getFullYear().toString(), 10);
   const semester = searchParams.get('semester') || undefined;

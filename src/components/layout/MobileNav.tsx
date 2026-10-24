@@ -2,23 +2,41 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, ClipboardList, Activity, MapPin, Layers, Menu, X } from 'lucide-react';
+import { Home, ClipboardList, Activity, MapPin, Layers, Users, Menu, X } from 'lucide-react';
 
-const LINKS = [
-  { href: '/dashboard', label: 'Dashboard', Icon: Home },
-  { href: '/dashboard/verifikasi', label: 'Verifikasi', Icon: ClipboardList },
-  { href: '/dashboard/lapor-peristiwa', label: 'Lapor Peristiwa', Icon: Activity },
-  { href: '/dashboard/peta', label: 'Peta Spasial', Icon: MapPin },
-  { href: '/dashboard/wilayah', label: 'Wilayah', Icon: Layers },
-];
+interface MobileNavProps {
+  userRole?: string | null;
+}
 
 /**
- * Mobile navigation for the app header. The desktop nav is hidden below the
- * md breakpoint; without this menu those modules were unreachable from a
- * phone except through in-page links.
+ * Mobile navigation for the app header.
  */
-export function MobileNav() {
+export function MobileNav({ userRole }: MobileNavProps) {
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: '/dashboard', label: 'Dashboard', Icon: Home, show: true },
+    {
+      href: '/dashboard/verifikasi',
+      label: 'Verifikasi',
+      Icon: ClipboardList,
+      show: userRole === 'ADMIN_DESA' || userRole === 'KADER_RT',
+    },
+    { href: '/dashboard/lapor-peristiwa', label: 'Lapor Peristiwa', Icon: Activity, show: true },
+    { href: '/dashboard/peta', label: 'Peta Spasial', Icon: MapPin, show: true },
+    {
+      href: '/dashboard/wilayah',
+      label: 'Wilayah',
+      Icon: Layers,
+      show: userRole === 'ADMIN_DESA',
+    },
+    {
+      href: '/dashboard/pengguna',
+      label: 'Pengguna',
+      Icon: Users,
+      show: userRole === 'ADMIN_DESA',
+    },
+  ].filter((l) => l.show);
 
   return (
     <div className="relative md:hidden">
@@ -34,7 +52,7 @@ export function MobileNav() {
 
       {open && (
         <nav className="absolute left-0 top-full mt-2 w-56 bg-white border border-stone-200 rounded-xl shadow-lg p-1.5 z-50">
-          {LINKS.map(({ href, label, Icon }) => (
+          {links.map(({ href, label, Icon }) => (
             <Link
               key={href}
               href={href}

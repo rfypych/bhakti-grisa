@@ -6,6 +6,7 @@ import {
   verifySessionToken,
   getScopeWilayahIds,
 } from '../src/lib/auth';
+import { loginAction } from '../src/actions/authActions';
 import { prisma } from '../src/lib/prisma';
 import { PeranPengguna } from '@prisma/client';
 
@@ -153,6 +154,75 @@ describe('Auth & Role-Based Scope Engine', () => {
       expect(scope).toContain(wil2.id);
       expect(scope).toContain(wil4.id);
       expect(scope).not.toContain(wil3.id);
+    });
+  });
+
+  describe('Login Server Action Verification', () => {
+    beforeEach(async () => {
+      await prisma.pengguna.deleteMany();
+      await prisma.wilayah.deleteMany();
+
+      const hash = await hashPassword('KaderDemaan2026!');
+      await prisma.pengguna.create({
+        data: {
+          id: 'user-kader-test',
+          nama: 'Siti Kader',
+          username: 'kader_rt01',
+          kataSandiHash: hash,
+          peran: 'KADER_RT',
+          aktif: true,
+        },
+      });
+
+      await prisma.pengguna.create({
+        data: {
+          id: 'user-nonaktif-test',
+          nama: 'Budi Nonaktif',
+          username: 'budi_nonaktif',
+          kataSandiHash: hash,
+          peran: 'KADER_RT',
+          aktif: false,
+        },
+      });
+    });
+
+    it('authenticates user with correct credentials', async () => {
+      const res = await loginAction({
+        username: 'kader_rt01',
+        kataSandi: 'KaderDemaan2026!',
+      });
+
+      expect(res.success).toBe(true);
+    });
+
+    it('rejects login with incorrect password', async () => {
+      const res = await loginAction({
+        username: 'kader_rt01',
+        kataSandi: 'SalahSandi123',
+      });
+
+      expect(res.success).toBe(false);
+      expect(res.error).toContain('tidak valid');
+    });
+
+    it('rejects login for nonexistent username', async () => {
+      const res = await loginAction({
+        username: 'tidak_ada_user',
+        kataSandi: 'KaderDemaan2026!',
+      });
+
+      expect(res.success).toBe(false);
+      expect(res.error).toContain('tidak valid');
+    });
+
+    it('rejects login for inactive user account', async () => {
+      const res = await loginAction({
+        username: 'budi_nonaktif',
+        kataSandi: 'KaderDemaan2026!',
+      });
+
+      expect(res.success).toBe(false);
+      expect(res.error).toContain('tidak valid');
     });
   });
 });
