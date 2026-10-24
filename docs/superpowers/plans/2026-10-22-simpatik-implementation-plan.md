@@ -331,7 +331,7 @@ git commit -m "feat: implement Excel export engine using master template injecti
   - `useFormDraft<T>(storageKey: string, initialData: T): { data: T; updateField: (key: keyof T, val: any) => void; clearDraft: () => void }`
   - Server Action `saveKeluargaAction(formData: KeluargaInputData, isPublicResident: boolean): Promise<ActionResult>`
 
-- [ ] **Step 1: Write failing test for `useFormDraft` local persistence**
+- [x] **Step 1: Write failing test for `useFormDraft` local persistence**
 ```typescript
 // tests/useFormDraft.test.ts
 import { describe, it, expect, beforeEach } from 'vitest';
@@ -352,20 +352,20 @@ describe('useFormDraft Storage Helper', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/useFormDraft.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement `useFormDraft` and Multi-Step Wizard components**
+- [x] **Step 3: Implement `useFormDraft` and Multi-Step Wizard components**
 1. Implement `src/hooks/useFormDraft.ts` with window `localStorage` safety checks.
 2. Build Step 1 (Wilayah & Lokasi with GPS button), Step 2 (Sanitasi & Lingkungan), Step 3 (Anggota Keluarga with dynamic member list, DOB to age auto-calc, and "NIK Sementara" checkbox), Step 4 (Hatinya PKK & UP2K), Step 5 (Card review).
 3. Implement `src/actions/keluargaActions.ts` saving record with status `DRAFT` (if public resident) or `VERIFIKASI` (if cadre).
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/useFormDraft.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/hooks/useFormDraft.ts src/components/form/ src/actions/keluargaActions.ts tests/useFormDraft.test.ts
 git commit -m "feat: create multi-step wizard form with offline local draft persistence"
