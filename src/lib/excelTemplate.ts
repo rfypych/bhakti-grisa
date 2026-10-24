@@ -155,7 +155,9 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
     wsCatatanKeluarga.getCell('N9').value = `: ${primaryFamily.sumberAir}`;
     wsCatatanKeluarga.getCell('N10').value = `: ${primaryFamily.tempatSampah ? 'Ada' : 'Tidak'}`;
 
-    let rIdx = 14;
+    // Member rows start at row 15: rows 12-13 are the two-tier header and
+    // row 14 is the column-number row (1..19) of the official form.
+    let rIdx = 15;
     primaryFamily.anggota.forEach((m, idx) => {
       const row = wsCatatanKeluarga.getRow(rIdx + idx);
       row.getCell(1).value = idx + 1;
@@ -163,7 +165,15 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       row.getCell(3).value = m.statusPerkawinan;
       row.getCell(4).value = m.jenisKelamin;
       row.getCell(5).value = m.tempatLahir;
-      row.getCell(6).value = m.tanggalLahir ? new Date(m.tanggalLahir).toLocaleDateString('id-ID') : '';
+      if (m.tanggalLahir) {
+        const bDate = new Date(m.tanggalLahir);
+        const ref = new Date();
+        let age = ref.getFullYear() - bDate.getFullYear();
+        if (ref.getMonth() < bDate.getMonth() || (ref.getMonth() === bDate.getMonth() && ref.getDate() < bDate.getDate())) age--;
+        row.getCell(6).value = `${bDate.toLocaleDateString('id-ID')} / ${age} Th`;
+      } else {
+        row.getCell(6).value = '';
+      }
       row.getCell(7).value = m.agama;
       row.getCell(8).value = m.pendidikan;
       row.getCell(9).value = m.pekerjaan;
