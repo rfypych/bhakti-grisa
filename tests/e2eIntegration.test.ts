@@ -143,16 +143,16 @@ describe('SIMPATIK Full End-to-End Workflow', () => {
 
     // 5. Generate Official Excel Workbook (Master Template Injection)
     const excelBuffer = await generateOfficialExcelWorkbook({
-      wilayahId,
-      period: 'TAHUNAN',
-      year: 2026,
+      tahun: 2026,
+      semester: 'TAHUNAN',
+      dasawismaId: wilayahId,
     });
 
     expect(excelBuffer).toBeDefined();
     expect(excelBuffer.length).toBeGreaterThan(10000);
 
     const wb = new ExcelJS.Workbook();
-    await wb.xlsx.load(excelBuffer);
+    await wb.xlsx.load(excelBuffer as any);
 
     // Assert that the workbook contains exactly 31 sheets as per master inventory
     expect(wb.worksheets.length).toBe(31);

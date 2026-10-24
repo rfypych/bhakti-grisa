@@ -33,7 +33,7 @@ describe('Excel Template Injection Engine', () => {
     expect(buffer.length).toBeGreaterThan(0);
 
     const wb = new ExcelJS.Workbook();
-    await wb.xlsx.load(buffer);
+    await wb.xlsx.load(buffer as any);
 
     expect(wb.worksheets.length).toBe(31);
     const sheetDataWarga = wb.getWorksheet('data warga ');

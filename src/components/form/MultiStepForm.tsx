@@ -72,6 +72,11 @@ export function MultiStepForm({
     }
   );
 
+  // Step components declare a string-keyed handler; adapt the hook's generic updateField.
+  const handleFieldChange = (key: string, val: any) => {
+    updateField(key as keyof KeluargaInputData, val);
+  };
+
   const handleNext = () => {
     setSubmitError(null);
     if (currentStep === 1) {
@@ -229,18 +234,18 @@ export function MultiStepForm({
         {currentStep === 1 && (
           <Step1WilayahRumah
             formData={formData}
-            updateField={updateField}
+            updateField={handleFieldChange}
             wilayahList={wilayahList}
           />
         )}
         {currentStep === 2 && (
-          <Step2Sanitasi formData={formData} updateField={updateField} />
+          <Step2Sanitasi formData={formData} updateField={handleFieldChange} />
         )}
         {currentStep === 3 && (
-          <Step3AnggotaKeluarga formData={formData} updateField={updateField} />
+          <Step3AnggotaKeluarga formData={formData} updateField={handleFieldChange} />
         )}
         {currentStep === 4 && (
-          <Step4PekaranganUp2k formData={formData} updateField={updateField} />
+          <Step4PekaranganUp2k formData={formData} updateField={handleFieldChange} />
         )}
         {currentStep === 5 && (
           <Step5ReviewSubmit formData={formData} isPublicResident={isPublicResident} />

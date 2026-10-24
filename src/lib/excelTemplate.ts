@@ -25,7 +25,7 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
   // Safely read template file into buffer so the master file is never written or locked
   const templateBuffer = fs.readFileSync(templateFile);
   const workbook = new ExcelJS.Workbook();
-  await workbook.xlsx.load(templateBuffer);
+  await workbook.xlsx.load(templateBuffer as any); // Buffer generic differs between @types/node 26 and exceljs typings
 
   const filter = {
     tahun: options.tahun,
