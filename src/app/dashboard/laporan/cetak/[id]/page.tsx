@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import { CatatanKeluargaPrint } from '@/components/print/CatatanKeluargaPrint';
 import Link from 'next/link';
-import { Printer, ArrowLeft } from 'lucide-react';
+import { Printer, ArrowLeft, FileDown } from 'lucide-react';
 import { PrintButton } from './PrintButton';
 
 export const metadata = {
@@ -52,6 +52,13 @@ export default async function CetakLaporanPage({
         </div>
 
         <div className="flex items-center gap-3">
+          <a
+            href={`/api/export/pdf?keluargaId=${family.id}&tahun=${new Date().getFullYear()}`}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
+          >
+            <FileDown className="w-4 h-4" />
+            <span>Unduh PDF Format Resmi (Sheet Excel)</span>
+          </a>
           <PrintButton />
         </div>
       </div>
