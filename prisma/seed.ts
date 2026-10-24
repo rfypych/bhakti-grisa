@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -61,6 +62,34 @@ async function main() {
       update: {},
       create: w,
     });
+  }
+
+  console.log('Seeding initial ADMIN_DESA user...');
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD || 'admin123';
+  if (!process.env.SEED_ADMIN_PASSWORD) {
+    console.warn(
+      '⚠️  [PERINGATAN KERAS] SEED_ADMIN_PASSWORD tidak diset. Menggunakan kata sandi default "admin123". SEGERA UBAH DI PRODUCTION!'
+    );
+  }
+
+  const existingAdmin = await prisma.pengguna.findUnique({
+    where: { username: 'admin' },
+  });
+
+  if (!existingAdmin) {
+    const hash = await bcrypt.hash(adminPassword, 10);
+    await prisma.pengguna.create({
+      data: {
+        nama: 'Administrator Desa',
+        username: 'admin',
+        kataSandiHash: hash,
+        peran: 'ADMIN_DESA',
+        aktif: true,
+      },
+    });
+    console.log('Akun ADMIN_DESA pertama (username: "admin") berhasil dibuat.');
+  } else {
+    console.log('Akun ADMIN_DESA "admin" sudah ada (idempoten, tidak ditimpa).');
   }
 
   console.log('Seeding completed successfully.');
