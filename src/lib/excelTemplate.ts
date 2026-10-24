@@ -14,6 +14,73 @@ export interface ExportOptions {
   templatePath?: string;
 }
 
+// Display labels for database enum values, following the master sheet's own
+// placeholder vocabulary (e.g. kriteria rumah is "Layak huni/Tidak layak
+// huni", sumber air is "PDAM/Sumur/lainnya") and the wizard's option labels.
+// Raw enum values (SEHAT, BELUM_KAWIN, ...) must never leak into official
+// documents.
+const KRITERIA_RUMAH_LABELS: Record<string, string> = {
+  SEHAT: 'Layak huni',
+  KURANG_SEHAT: 'Tidak layak huni',
+  TIDAK_SEHAT_LAYAK_HUNI: 'Tidak layak huni',
+};
+const SUMBER_AIR_LABELS: Record<string, string> = {
+  PDAM: 'PDAM',
+  SUMUR: 'Sumur',
+  SUNGAI: 'Sungai',
+  LAINNYA: 'Lainnya',
+};
+const STATUS_PERKAWINAN_LABELS: Record<string, string> = {
+  BELUM_KAWIN: 'Belum Kawin',
+  KAWIN: 'Kawin',
+  JANDA: 'Janda',
+  DUDA: 'Duda',
+};
+const PENDIDIKAN_LABELS: Record<string, string> = {
+  TIDAK_TAMAT_SD: 'Tidak Tamat SD',
+  SD_MI: 'SD/MI',
+  SMP_SEDERAJAT: 'SMP Sederajat',
+  SMA_SMK_SEDERAJAT: 'SMA/SMK Sederajat',
+  DIPLOMA: 'Diploma',
+  S1: 'S1',
+  S2: 'S2',
+  S3: 'S3',
+};
+const PEKERJAAN_LABELS: Record<string, string> = {
+  PETANI: 'Petani',
+  PEDAGANG: 'Pedagang',
+  SWASTA: 'Swasta',
+  WIRAUSAHA: 'Wirausaha',
+  PNS: 'PNS',
+  TNI_POLRI: 'TNI/POLRI',
+  TIDAK_BEKERJA: 'Tidak Bekerja',
+  LAINNYA: 'Lainnya',
+};
+const AGAMA_LABELS: Record<string, string> = {
+  ISLAM: 'Islam',
+  KRISTEN: 'Kristen',
+  KATHOLIK: 'Katholik',
+  HINDU: 'Hindu',
+  BUDHA: 'Budha',
+  KHONGHUCU: 'Khonghucu',
+  KEPERCAYAAN_LAIN: 'Kepercayaan Lain',
+};
+const HUBUNGAN_LABELS: Record<string, string> = {
+  KEPALA_KELUARGA: 'Kepala Keluarga',
+  ISTRI: 'Istri',
+  ANAK: 'Anak',
+  ORANG_TUA: 'Orang Tua',
+  MENANTU: 'Menantu',
+  CUCU: 'Cucu',
+  FAMILI_LAIN: 'Famili Lain',
+  PEMBANTU: 'Pembantu',
+};
+
+function enumLabel(map: Record<string, string>, value?: string | null): string {
+  if (!value) return '';
+  return map[value] ?? value.replace(/_/g, ' ');
+}
+
 /**
  * Injects realtime family, member, and aggregation data into the official
  * 31-sheet master workbook template (docs/kolom dasawisma.xlsx)
@@ -107,13 +174,13 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       row.getCell(1).value = i + 1; // NO
       row.getCell(2).value = m.noRegistrasi || '-';
       row.getCell(3).value = m.nama;
-      row.getCell(4).value = m.hubunganKeluarga;
-      row.getCell(5).value = m.statusPerkawinan;
+      row.getCell(4).value = enumLabel(HUBUNGAN_LABELS, m.hubunganKeluarga);
+      row.getCell(5).value = enumLabel(STATUS_PERKAWINAN_LABELS, m.statusPerkawinan);
       row.getCell(6).value = m.jenisKelamin === 'L' ? 'L' : '';
       row.getCell(7).value = m.jenisKelamin === 'P' ? 'P' : '';
       row.getCell(8).value = m.tanggalLahir ? new Date(m.tanggalLahir).toLocaleDateString('id-ID') : '';
-      row.getCell(9).value = m.pendidikan;
-      row.getCell(10).value = m.pekerjaan;
+      row.getCell(9).value = enumLabel(PENDIDIKAN_LABELS, m.pendidikan);
+      row.getCell(10).value = enumLabel(PEKERJAAN_LABELS, m.pekerjaan);
     }
   }
 
@@ -149,10 +216,10 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
     wsCatatanKeluarga.getCell('D7').value = `: ${primaryFamily.namaKepalaRumahTangga}`;
     wsCatatanKeluarga.getCell('D8').value = `: ${primaryFamily.wilayah.namaDasawisma}`;
     wsCatatanKeluarga.getCell('D9').value = `: ${options.tahun}`;
-    wsCatatanKeluarga.getCell('N7').value = `: ${primaryFamily.kriteriaRumah}`;
+    wsCatatanKeluarga.getCell('N7').value = `: ${enumLabel(KRITERIA_RUMAH_LABELS, primaryFamily.kriteriaRumah)}`;
     wsCatatanKeluarga.getCell('N8').value = `: ${primaryFamily.jambanKeluarga ? 'Ada' : 'Tidak'}`;
     wsCatatanKeluarga.getCell('P8').value = primaryFamily.jumlahJamban;
-    wsCatatanKeluarga.getCell('N9').value = `: ${primaryFamily.sumberAir}`;
+    wsCatatanKeluarga.getCell('N9').value = `: ${enumLabel(SUMBER_AIR_LABELS, primaryFamily.sumberAir)}`;
     wsCatatanKeluarga.getCell('N10').value = `: ${primaryFamily.tempatSampah ? 'Ada' : 'Tidak'}`;
 
     // Member rows start at row 15: rows 12-13 are the two-tier header and
@@ -162,7 +229,7 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       const row = wsCatatanKeluarga.getRow(rIdx + idx);
       row.getCell(1).value = idx + 1;
       row.getCell(2).value = m.nama;
-      row.getCell(3).value = m.statusPerkawinan;
+      row.getCell(3).value = enumLabel(STATUS_PERKAWINAN_LABELS, m.statusPerkawinan);
       row.getCell(4).value = m.jenisKelamin;
       row.getCell(5).value = m.tempatLahir;
       if (m.tanggalLahir) {
@@ -174,9 +241,9 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       } else {
         row.getCell(6).value = '';
       }
-      row.getCell(7).value = m.agama;
-      row.getCell(8).value = m.pendidikan;
-      row.getCell(9).value = m.pekerjaan;
+      row.getCell(7).value = enumLabel(AGAMA_LABELS, m.agama);
+      row.getCell(8).value = enumLabel(PENDIDIKAN_LABELS, m.pendidikan);
+      row.getCell(9).value = enumLabel(PEKERJAAN_LABELS, m.pekerjaan);
       row.getCell(10).value = m.disabilitas ? m.jenisDisabilitas || 'Ya' : 'Tidak';
       // 10 Program PKK checkboxes
       row.getCell(11).value = m.kegPancasila ? 'V' : '-';

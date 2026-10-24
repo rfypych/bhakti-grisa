@@ -41,6 +41,8 @@ describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
         tempatLahir: 'Kudus',
         tanggalLahir: new Date('1987-06-14'),
         statusPerkawinan: 'KAWIN',
+        pendidikan: 'SMA_SMK_SEDERAJAT',
+        pekerjaan: 'SWASTA',
         kegGotongRoyong: true,
       },
     });
@@ -54,6 +56,7 @@ describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
         tempatLahir: 'Kudus',
         tanggalLahir: new Date('1990-03-15'),
         statusPerkawinan: 'KAWIN',
+        pekerjaan: 'TIDAK_BEKERJA',
       },
     });
   });
@@ -69,6 +72,17 @@ describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
     expect(String(ws.getCell('D7').value)).toContain('Bapak PDF Uji');
     expect(String(ws.getCell('D8').value)).toContain('Melati PDF');
     expect(String(ws.getCell('D9').value)).toContain('2026');
+
+    // Official vocabulary, not raw enum values: the master sheet's own
+    // placeholders read "Layak huni/Tidak layak huni" and "PDAM/Sumur/..."
+    expect(String(ws.getCell('N7').value)).toContain('Layak huni');
+    expect(String(ws.getCell('N7').value)).not.toContain('SEHAT');
+    expect(String(ws.getCell('N9').value)).toContain('Sumur');
+    expect(ws.getCell(15, 3).value).toBe('Kawin');
+    expect(ws.getCell(15, 7).value).toBe('Islam');
+    expect(ws.getCell(15, 8).value).toBe('SMA/SMK Sederajat');
+    expect(ws.getCell(15, 9).value).toBe('Swasta');
+    expect(ws.getCell(16, 9).value).toBe('Tidak Bekerja');
 
     // Official form structure preserved: header rows and the column-number
     // row 14 (1..19) must NOT be overwritten by member data
