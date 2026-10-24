@@ -22,6 +22,8 @@ export interface AggregationResult {
   totalIbuMenyusui: number;
   totalLansia: number;
   totalTigaButa: number;
+  totalTigaButaL: number;
+  totalTigaButaP: number;
   totalDisabilitas: number;
   totalRumahSehat: number;
   totalRumahKurangSehat: number;
@@ -59,6 +61,15 @@ export interface RTAggregationResult extends AggregationResult {
   rt: string;
   rw?: string;
   dusun?: string;
+}
+
+export interface RWAggregationResult extends AggregationResult {
+  rw: string;
+  dusun?: string;
+}
+
+export interface DusunAggregationResult extends AggregationResult {
+  dusun: string;
 }
 
 export interface DesaAggregationResult extends AggregationResult {}
@@ -115,6 +126,8 @@ async function aggregateFamilies(
     totalIbuMenyusui: 0,
     totalLansia: 0,
     totalTigaButa: 0,
+    totalTigaButaL: 0,
+    totalTigaButaP: 0,
     totalDisabilitas: 0,
     totalRumahSehat: 0,
     totalRumahKurangSehat: 0,
@@ -190,7 +203,11 @@ async function aggregateFamilies(
         if (flags.isLansia) res.totalLansia++;
         if (flags.isWus) res.totalWus++;
         if (flags.isPus && member.jenisKelamin === 'P') res.totalPus++;
-        if (flags.isTigaButa) res.totalTigaButa++;
+        if (flags.isTigaButa) {
+          res.totalTigaButa++;
+          if (member.jenisKelamin === 'L') res.totalTigaButaL++;
+          else res.totalTigaButaP++;
+        }
         if (member.disabilitas) res.totalDisabilitas++;
       }
 
@@ -253,10 +270,139 @@ export async function getAggregationRT(
 }
 
 /**
+ * Aggregates statistics for an RW (Rukun Warga).
+ */
+export async function getAggregationRW(
+  rwId: string,
+  filter: AggregationFilter,
+  extra?: { dusun?: string }
+): Promise<RWAggregationResult> {
+  const wilayahCondition: any = { rw: rwId };
+  if (extra?.dusun) wilayahCondition.dusun = extra.dusun;
+
+  const base = await aggregateFamilies({ wilayah: wilayahCondition }, filter);
+
+  return {
+    ...base,
+    rw: rwId,
+    dusun: extra?.dusun,
+  };
+}
+
+/**
+ * Aggregates statistics for a Dusun (Hamlet/Lingkungan).
+ */
+export async function getAggregationDusun(
+  dusunName: string,
+  filter: AggregationFilter
+): Promise<DusunAggregationResult> {
+  const base = await aggregateFamilies({ wilayah: { dusun: dusunName } }, filter);
+
+  return {
+    ...base,
+    dusun: dusunName,
+  };
+}
+
+/**
  * Aggregates statistics for the whole Desa (Village).
  */
 export async function getAggregationDesa(
   filter: AggregationFilter
 ): Promise<DesaAggregationResult> {
   return aggregateFamilies({}, filter);
+}
+
+export interface ActivePregnantMother {
+  ibu: any;
+  keluarga: any;
+  wilayah: any;
+  namaIbu: string;
+  namaSuami: string;
+  tanggalKehamilan: Date;
+}
+
+/**
+ * Retrieves living female members from VERIFIKASI families who currently have
+ * an active pregnancy (a KEHAMILAN event not followed by childbirth, nifas, or death).
+ */
+export async function getActivePregnantMothers(filterCondition?: {
+  wilayahId?: string;
+  rt?: string;
+  rw?: string;
+  dusun?: string;
+}): Promise<ActivePregnantMother[]> {
+  const families = await prisma.keluarga.findMany({
+    where: {
+      statusData: 'VERIFIKASI',
+      ...(filterCondition?.wilayahId ? { wilayahId: filterCondition.wilayahId } : {}),
+      ...(filterCondition?.rt || filterCondition?.rw || filterCondition?.dusun
+        ? {
+            wilayah: {
+              ...(filterCondition.rt ? { rt: filterCondition.rt } : {}),
+              ...(filterCondition.rw ? { rw: filterCondition.rw } : {}),
+              ...(filterCondition.dusun ? { dusun: filterCondition.dusun } : {}),
+            },
+          }
+        : {}),
+    },
+    include: {
+      wilayah: true,
+      anggota: {
+        where: {
+          statusKehidupan: 'HIDUP',
+        },
+        include: {
+          peristiwaVital: {
+            orderBy: { tanggalPeristiwa: 'asc' },
+          },
+        },
+      },
+    },
+  });
+
+  const pregnantMothers: ActivePregnantMother[] = [];
+
+  for (const fam of families) {
+    const husband = fam.anggota.find(
+      (m) => (m.hubunganKeluarga === 'KEPALA_KELUARGA' || (m as any).hubunganKeluarga === 'SUAMI') && m.jenisKelamin === 'L'
+    );
+    const husbandName = husband?.nama || fam.namaKepalaRumahTangga;
+
+    for (const member of fam.anggota) {
+      if (member.jenisKelamin !== 'P') continue;
+
+      const events = member.peristiwaVital;
+      let lastPregnancyDate: Date | null = null;
+      let concluded = false;
+
+      for (const ev of events) {
+        if (ev.jenisPeristiwa === 'KEHAMILAN') {
+          lastPregnancyDate = ev.tanggalPeristiwa;
+          concluded = false;
+        } else if (
+          lastPregnancyDate &&
+          (ev.jenisPeristiwa === 'PERSALINAN_MELAHIRKAN' ||
+            ev.jenisPeristiwa === 'NIFAS' ||
+            ev.jenisPeristiwa === 'KELAHIRAN_BAYI' ||
+            ev.jenisPeristiwa === 'KEMATIAN_IBU')
+        ) {
+          concluded = true;
+        }
+      }
+
+      if (lastPregnancyDate && !concluded) {
+        pregnantMothers.push({
+          ibu: member,
+          keluarga: fam,
+          wilayah: fam.wilayah,
+          namaIbu: member.nama,
+          namaSuami: husbandName,
+          tanggalKehamilan: lastPregnancyDate,
+        });
+      }
+    }
+  }
+
+  return pregnantMothers;
 }

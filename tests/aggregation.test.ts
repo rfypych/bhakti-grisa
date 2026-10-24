@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { getAggregationDasawisma, getAggregationRT, getAggregationDesa } from '../src/lib/aggregation';
+import { getAggregationDasawisma, getAggregationRT, getAggregationRW, getAggregationDusun, getAggregationDesa } from '../src/lib/aggregation';
 import { prisma } from '../src/lib/prisma';
 
 describe('Multi-Level Aggregation Engine', () => {
@@ -147,6 +147,20 @@ describe('Multi-Level Aggregation Engine', () => {
     const result = await getAggregationRT('01', { tahun: 2026 });
     expect(result.totalKeluarga).toBe(2);
     expect(result.totalBalita).toBe(2);
+  });
+
+  it('accurately aggregates data at RW level', async () => {
+    const result = await getAggregationRW('01', { tahun: 2026 });
+    expect(result.totalKeluarga).toBe(2);
+    expect(result.totalBalita).toBe(2);
+    expect(result.rw).toBe('01');
+  });
+
+  it('accurately aggregates data at Dusun level', async () => {
+    const result = await getAggregationDusun('Krajan', { tahun: 2026 });
+    expect(result.totalKeluarga).toBe(2);
+    expect(result.totalAnggota).toBe(5);
+    expect(result.dusun).toBe('Krajan');
   });
 
   it('accurately aggregates data at Desa level', async () => {
