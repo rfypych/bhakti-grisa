@@ -3,7 +3,7 @@
 > Inisiatif Program Inovasi & Pengabdian Masyarakat **Bhakti Grisa**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Status: Planning & Specification](https://img.shields.io/badge/Status-Planning%20%26%20Spec%20Ready-success.svg)]()
+[![Status: Production Ready](https://img.shields.io/badge/Status-Production%20Ready-success.svg)]()
 
 ---
 
@@ -50,6 +50,40 @@ Sistem ini mentransformasikan berkas manual spreadsheet yang terdiri dari **31 s
 - **Database & ORM**: [Prisma ORM](https://www.prisma.io/) + SQLite (Portabel untuk server lokal desa) / PostgreSQL
 - **Excel Processing**: [ExcelJS](https://github.com/exceljs/exceljs) (Master Template Injection)
 - **Testing**: [Vitest](https://vitest.dev/)
+
+---
+
+## 🚀 Menjalankan di Produksi (Runbook)
+
+### Prasyarat
+- Node.js 20 atau lebih baru + npm
+- **LibreOffice** terpasang di server (dipakai route PDF resmi `/api/export/pdf` untuk merender sheet Excel asli menjadi PDF; tanpa LibreOffice fitur PDF gagal tetapi ekspor Excel tetap bekerja)
+- Git
+
+### Langkah pemasangan
+```bash
+git clone https://github.com/rfypych/bhakti-grisa.git
+cd bhakti-grisa
+npm install
+npx prisma db push        # membuat database SQLite baru di prisma/dev.db
+npm run seed              # membuat akun Admin Desa pertama (idempoten)
+npm run build
+npm run start             # http://localhost:3000
+```
+
+### Akun pertama & keamanan
+- Seed membuat pengguna `admin` dengan kata sandi dari environment `SEED_ADMIN_PASSWORD`, atau default `admin123` bila variabel itu tidak diisi (konsol mencetak peringatan keras). **Segera ganti kata sandi default** lewat menu Pengguna di dashboard, atau jalankan seed dengan `SEED_ADMIN_PASSWORD` terisi sejak awal.
+- Atur `AUTH_SECRET` di environment dengan nilai acak yang panjang untuk menandatangani cookie sesi (bila tidak diisi, aplikasi memakai nilai bawaan pengembangan yang TIDAK aman untuk produksi).
+- Akun pengelola lain (Kader RT, Pengurus RW, Pengurus Dusun) dibuat oleh Admin Desa dari menu **Pengguna**; tidak ada pendaftaran mandiri. Warga tidak memerlukan akun: mereka mengisi lewat tautan publik per RT `/formulir?wilayahId=...`.
+
+### Konfigurasi identitas desa
+Nama desa, kecamatan, kabupaten, dan provinsi pada dokumen ekspor diatur lewat environment (default di `src/lib/siteConfig.ts`):
+`DESA_NAMA`, `DESA_KECAMATAN`, `DESA_KABUPATEN`, `DESA_PROVINSI`.
+
+### Catatan operasional
+- Database adalah file SQLite (`prisma/dev.db`, tidak ikut ter-commit). Cadangkan file ini secara berkala; seluruh data warga ada di dalamnya.
+- File master `docs/kolom dasawisma.xlsx` adalah template resmi dinas dan tidak pernah diubah aplikasi; ekspor selalu bekerja pada salinannya.
+- Pengembangan lokal: `npm run dev`. Pemeriksaan kualitas: `npx vitest run` dan `npm run build`.
 
 ---
 
