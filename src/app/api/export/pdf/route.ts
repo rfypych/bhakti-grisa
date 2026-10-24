@@ -1,34 +1,55 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateCatatanKeluargaPdf } from '@/lib/pdfExport';
+import { generateOfficialPdf, ExportPdfJenis, PDF_EXPORT_CONFIGS } from '@/lib/pdfExport';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 /**
- * Official print PDF for one family: renders the master workbook's
- * "catatan keluarga" sheet (Lampiran 4.15), injected with the family's
- * data, through LibreOffice. Query: ?keluargaId=<id>&tahun=<yyyy>
+ * Official print PDF route: renders a single master workbook sheet into PDF
+ * format using LibreOffice.
+ *
+ * Query Parameters:
+ * - jenis: 'catatan-keluarga' (default) | 'data-warga' | 'data-keluarga' | 'rekap-dasawisma' | 'rekap-desa'
+ * - keluargaId: ID keluarga (wajib untuk sheet keluarga)
+ * - wilayahId: ID wilayah (opsional untuk rekap)
+ * - tahun: yyyy (default tahun berjalan)
  */
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
+  const jenis = (searchParams.get('jenis') || 'catatan-keluarga') as ExportPdfJenis;
   const keluargaId = searchParams.get('keluargaId');
+  const wilayahId = searchParams.get('wilayahId') || undefined;
   const tahun = parseInt(searchParams.get('tahun') || new Date().getFullYear().toString(), 10);
 
-  if (!keluargaId) {
+  const config = PDF_EXPORT_CONFIGS[jenis];
+  if (!config) {
     return NextResponse.json(
-      { error: 'Parameter keluargaId wajib diisi' },
+      {
+        error: `Jenis lampiran "${jenis}" tidak valid. Pilihan: ${Object.keys(PDF_EXPORT_CONFIGS).join(', ')}`,
+      },
+      { status: 400 }
+    );
+  }
+
+  if (config.isFamilySheet && !keluargaId) {
+    return NextResponse.json(
+      { error: 'Parameter keluargaId wajib diisi untuk format lampiran keluarga' },
       { status: 400 }
     );
   }
 
   try {
-    const pdf = await generateCatatanKeluargaPdf(keluargaId, tahun);
+    const { pdfBuffer, filename } = await generateOfficialPdf(jenis, {
+      keluargaId: keluargaId || undefined,
+      tahun,
+      wilayahId,
+    });
 
-    return new NextResponse(new Uint8Array(pdf), {
+    return new NextResponse(new Uint8Array(pdfBuffer), {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="Catatan-Keluarga-Lampiran-4.15-${tahun}.pdf"`,
+        'Content-Disposition': `attachment; filename="${filename}"`,
       },
     });
   } catch (error: any) {

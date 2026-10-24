@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { buildCatatanKeluargaWorkbook } from '../src/lib/pdfExport';
+import { buildCatatanKeluargaWorkbook, buildTrimmedWorkbook } from '../src/lib/pdfExport';
 import { prisma } from '../src/lib/prisma';
 
 describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
@@ -107,5 +107,48 @@ describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
 
     // Merged ranges of the official sheet survive the trim
     expect((ws.model.merges || []).length).toBeGreaterThan(0);
+  });
+
+  it('builds trimmed data-keluarga workbook (1 sheet, row 23 is 1..10, members at row 24)', async () => {
+    const { workbook: wb, config } = await buildTrimmedWorkbook('data-keluarga', {
+      keluargaId: familyId,
+      tahun: 2026,
+    });
+
+    expect(wb.worksheets.length).toBe(1);
+    const ws = wb.worksheets[0];
+    expect(ws.name).toBe('data keluarga');
+    expect(config.lampiranNo).toBe('LAMPIRAN 4.14.2a');
+
+    // Printed column-number row 23 intact 1..10
+    expect(ws.getCell(23, 1).value).toBe(1);
+    expect(ws.getCell(23, 2).value).toBe(2);
+    expect(ws.getCell(23, 10).value).toBe(10);
+
+    // Member data starts at row 24
+    expect(ws.getCell(24, 3).value).toBe('Bapak PDF Uji');
+    expect(ws.getCell(25, 3).value).toBe('Ibu PDF Uji');
+
+    // Landscape orientation
+    expect(ws.pageSetup.orientation).toBe('landscape');
+  });
+
+  it('builds trimmed rekap-desa workbook (1 sheet, row 14 intact, data starting row 15)', async () => {
+    const { workbook: wb, config } = await buildTrimmedWorkbook('rekap-desa', {
+      tahun: 2026,
+    });
+
+    expect(wb.worksheets.length).toBe(1);
+    const ws = wb.worksheets[0];
+    expect(ws.name).toBe('rekap cat data &keg.warga desa');
+    expect(config.lampiranNo).toBe('LAMPIRAN 4.17a');
+
+    // Column number row 14 intact (1..33)
+    expect(ws.getCell(14, 1).value).toBe(1);
+    expect(ws.getCell(14, 2).value).toBe(2);
+    expect(ws.getCell(14, 33).value).toBe(33);
+
+    // Dusun data row starts at row 15
+    expect(ws.getCell(15, 2).value).toBeTruthy();
   });
 });

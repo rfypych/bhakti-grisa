@@ -51,13 +51,30 @@ export default async function CetakLaporanPage({
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2">
           <a
-            href={`/api/export/pdf?keluargaId=${family.id}&tahun=${new Date().getFullYear()}`}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
+            href={`/api/export/pdf?jenis=catatan-keluarga&keluargaId=${family.id}&tahun=${new Date().getFullYear()}`}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
+            title="Unduh Lampiran 4.15 Catatan Keluarga"
           >
-            <FileDown className="w-4 h-4" />
-            <span>Unduh PDF Format Resmi (Sheet Excel)</span>
+            <FileDown className="w-3.5 h-3.5" />
+            <span>PDF 4.15 (Catatan Keluarga)</span>
+          </a>
+          <a
+            href={`/api/export/pdf?jenis=data-keluarga&keluargaId=${family.id}&tahun=${new Date().getFullYear()}`}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-lg border border-stone-200 transition-colors"
+            title="Unduh Lampiran 4.14.2a Data Keluarga"
+          >
+            <FileDown className="w-3.5 h-3.5 text-stone-500" />
+            <span>PDF 4.14.2a (Data Keluarga)</span>
+          </a>
+          <a
+            href={`/api/export/pdf?jenis=data-warga&keluargaId=${family.id}&tahun=${new Date().getFullYear()}`}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-lg border border-stone-200 transition-colors"
+            title="Unduh Lampiran 4.14.1a Data Warga"
+          >
+            <FileDown className="w-3.5 h-3.5 text-stone-500" />
+            <span>PDF 4.14.1a (Data Warga)</span>
           </a>
           <PrintButton />
         </div>

@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   AlertTriangle,
   FileSpreadsheet,
+  FileDown,
   Activity,
   Printer,
   ChevronRight,
@@ -22,9 +23,11 @@ export const metadata = {
 export default async function DashboardPage({
   searchParams,
 }: {
-  searchParams: Promise<{ wilayahId?: string }>;
+  searchParams: Promise<{ wilayahId?: string; tahun?: string }>;
 }) {
   const resolvedParams = await searchParams; // Next 16 convention
+  const currentYear = new Date().getFullYear();
+  const activeYear = resolvedParams.tahun ? parseInt(resolvedParams.tahun, 10) || currentYear : currentYear;
 
   const [wilayahList, pendingCount, recentFamilies] = await Promise.all([
     prisma.wilayah.findMany({ orderBy: { rt: 'asc' } }),
@@ -44,10 +47,9 @@ export default async function DashboardPage({
   ]);
 
   // Compute aggregation statistics
-  const currentYear = new Date().getFullYear();
   const aggData = resolvedParams.wilayahId
-    ? await getAggregationDasawisma(resolvedParams.wilayahId, { tahun: currentYear, semester: 'TAHUNAN' })
-    : await getAggregationDesa({ tahun: currentYear, semester: 'TAHUNAN' });
+    ? await getAggregationDasawisma(resolvedParams.wilayahId, { tahun: activeYear, semester: 'TAHUNAN' })
+    : await getAggregationDesa({ tahun: activeYear, semester: 'TAHUNAN' });
 
   const activeWilayah = wilayahList.find((w) => w.id === resolvedParams.wilayahId);
 
@@ -64,33 +66,71 @@ export default async function DashboardPage({
           </h1>
           <p className="text-xs sm:text-sm text-stone-600 mt-1">
             {activeWilayah
-              ? `Rekapitulasi Wilayah: ${activeWilayah.namaDasawisma} (RT ${activeWilayah.rt} / RW ${activeWilayah.rw})`
-              : 'Rekapitulasi Agregat Seluruh Wilayah Desa Demaan (Tahun Berjalan)'}
+              ? `Rekapitulasi Wilayah: ${activeWilayah.namaDasawisma} (RT ${activeWilayah.rt} / RW ${activeWilayah.rw}) — Tahun ${activeYear}`
+              : `Rekapitulasi Agregat Seluruh Wilayah Desa Demaan (Tahun ${activeYear})`}
           </p>
         </div>
 
-        {/* Filter Wilayah Dropdown */}
-        <form method="get" className="flex items-center gap-2 self-start md:self-auto">
-          <Filter className="w-4 h-4 text-stone-400" />
-          <select
-            name="wilayahId"
-            defaultValue={resolvedParams.wilayahId || ''}
-            className="text-xs px-3 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
-          >
-            <option value="">Semua Wilayah Desa</option>
-            {wilayahList.map((w) => (
-              <option key={w.id} value={w.id}>
-                RT {w.rt} / RW {w.rw} ({w.namaDasawisma})
-              </option>
-            ))}
-          </select>
-          <button
-            type="submit"
-            className="px-3.5 py-2 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
-          >
-            Tampilkan
-          </button>
-        </form>
+        {/* Filter & Export Action Group */}
+        <div className="flex flex-col items-start md:items-end gap-3 self-start md:self-auto">
+          {/* Filter Wilayah & Tahun Form */}
+          <form method="get" className="flex flex-wrap items-center gap-2">
+            <Filter className="w-4 h-4 text-stone-400" />
+            <select
+              name="wilayahId"
+              defaultValue={resolvedParams.wilayahId || ''}
+              className="text-xs px-3 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+            >
+              <option value="">Semua Wilayah Desa</option>
+              {wilayahList.map((w) => (
+                <option key={w.id} value={w.id}>
+                  RT {w.rt} / RW {w.rw} ({w.namaDasawisma})
+                </option>
+              ))}
+            </select>
+            <input
+              type="number"
+              name="tahun"
+              defaultValue={activeYear}
+              className="w-20 text-xs px-2.5 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+              placeholder="Tahun"
+            />
+            <button
+              type="submit"
+              className="px-3.5 py-2 text-xs font-semibold bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
+            >
+              Tampilkan
+            </button>
+          </form>
+
+          {/* Quick Export Group: Excel + PDF Rekap */}
+          <div className="flex items-center gap-2 flex-wrap">
+            <a
+              href={`/api/export/excel?tahun=${activeYear}`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-200 transition-colors shadow-sm"
+              title="Unduh seluruh 31 sheet berkas master Excel"
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-700" />
+              <span>Unduh Excel</span>
+            </a>
+            <a
+              href={`/api/export/pdf?jenis=rekap-dasawisma&tahun=${activeYear}${resolvedParams.wilayahId ? `&wilayahId=${resolvedParams.wilayahId}` : ''}`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-200 transition-colors shadow-sm"
+              title="Unduh PDF Format Resmi Rekap Dasawisma (Lampiran 4.16a)"
+            >
+              <FileDown className="w-3.5 h-3.5 text-rose-600" />
+              <span>PDF Rekap Dasawisma (4.16a)</span>
+            </a>
+            <a
+              href={`/api/export/pdf?jenis=rekap-desa&tahun=${activeYear}`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-200 transition-colors shadow-sm"
+              title="Unduh PDF Format Resmi Rekap Desa (Lampiran 4.17a)"
+            >
+              <FileDown className="w-3.5 h-3.5 text-rose-600" />
+              <span>PDF Rekap Desa (4.17a)</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Verification Notification Alert Banner */}
