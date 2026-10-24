@@ -12,6 +12,11 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
+// The landing page renders live database state (RT portal list and data
+// counters). Without this, Next.js prerenders it at build time and the
+// portal/counters stay frozen at whatever the database contained then.
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
   const wilayahList = await prisma.wilayah.findMany({
     orderBy: [{ rt: 'asc' }],
