@@ -183,6 +183,10 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       row.getCell(8).value = m.tanggalLahir ? new Date(m.tanggalLahir).toLocaleDateString('id-ID') : '';
       row.getCell(9).value = enumLabel(PENDIDIKAN_LABELS, m.pendidikan);
       row.getCell(10).value = enumLabel(PEKERJAAN_LABELS, m.pekerjaan);
+      // Same fixed-width protection as the catatan keluarga member table
+      [3, 4, 5, 8, 9, 10].forEach((c) => {
+        row.getCell(c).alignment = { shrinkToFit: true };
+      });
     }
   }
 
@@ -256,6 +260,12 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       row.getCell(16).value = m.kegSandang ? 'V' : '-';
       row.getCell(17).value = m.kegKesehatan ? 'V' : '-';
       row.getCell(18).value = m.kegPerencanaanSehat ? 'V' : '-';
+      // The master sheet's column widths are fixed and some official labels
+      // are long ("SMA/SMK Sederajat", "Tidak Bekerja"); shrink-to-fit keeps
+      // them fully inside their column instead of being clipped in print.
+      [2, 3, 5, 6, 7, 8, 9].forEach((c) => {
+        row.getCell(c).alignment = { shrinkToFit: true };
+      });
     });
   }
 

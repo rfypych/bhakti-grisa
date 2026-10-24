@@ -84,6 +84,11 @@ describe('Official Catatan Keluarga workbook (for PDF rendering)', () => {
     expect(ws.getCell(15, 9).value).toBe('Swasta');
     expect(ws.getCell(16, 9).value).toBe('Tidak Bekerja');
 
+    // Long labels must shrink to fit the fixed master column widths
+    // instead of being clipped when the sheet is printed/rendered
+    expect((ws.getCell(15, 8) as any).alignment?.shrinkToFit).toBe(true);
+    expect((ws.getCell(15, 2) as any).alignment?.shrinkToFit).toBe(true);
+
     // Official form structure preserved: header rows and the column-number
     // row 14 (1..19) must NOT be overwritten by member data
     expect(String(ws.getCell('B12').value)).toContain('NAMA');
