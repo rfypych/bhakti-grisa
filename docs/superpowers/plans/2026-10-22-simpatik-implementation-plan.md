@@ -386,7 +386,7 @@ git commit -m "feat: create multi-step wizard form with offline local draft pers
   - `approveSubmissionAction(keluargaId: string): Promise<{ success: boolean }>`
   - `rejectSubmissionAction(keluargaId: string, reason: string): Promise<{ success: boolean }>`
 
-- [ ] **Step 1: Write failing test for verification approve and reject actions**
+- [x] **Step 1: Write failing test for verification approve and reject actions**
 ```typescript
 // tests/verifikasi.test.ts
 import { describe, it, expect } from 'vitest';
@@ -413,19 +413,19 @@ describe('Verification Flow', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/verifikasi.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement verification server actions and UI queue**
+- [x] **Step 3: Implement verification server actions and UI queue**
 In `src/actions/verifikasiActions.ts`: Implement `approveSubmissionAction` and `rejectSubmissionAction`.
 In `src/app/dashboard/verifikasi/page.tsx`: Render list of pending submissions with diff-view and one-click approve/reject dialogs.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/verifikasi.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/actions/verifikasiActions.ts src/app/dashboard/verifikasi/ src/components/verifikasi/ tests/verifikasi.test.ts
 git commit -m "feat: implement cadre verification queue and submission approval actions"
