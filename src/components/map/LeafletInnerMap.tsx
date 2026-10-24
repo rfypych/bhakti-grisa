@@ -1,5 +1,6 @@
 'use client';
 
+import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useRef, useState } from 'react';
 import { MapHouseholdData, getPinColor, createPinSvg, filterHouseholdsWithCoordinates } from './MapPinMarker';
 import Link from 'next/link';
@@ -121,14 +122,6 @@ export default function LeafletInnerMap({
 
   return (
     <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-stone-200 shadow-md">
-      {/* Leaflet CSS CDN link */}
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossOrigin=""
-      />
-
       <div ref={mapContainerRef} className="w-full h-full z-0" />
 
       {/* Selected Household Detail Overlay (if any) */}
