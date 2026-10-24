@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Home, ClipboardList, Activity, MapPin, Menu, X } from 'lucide-react';
+import { Home, ClipboardList, Activity, MapPin, Layers, Menu, X } from 'lucide-react';
 
 const LINKS = [
   { href: '/dashboard', label: 'Dashboard', Icon: Home },
   { href: '/dashboard/verifikasi', label: 'Verifikasi', Icon: ClipboardList },
   { href: '/dashboard/lapor-peristiwa', label: 'Lapor Peristiwa', Icon: Activity },
   { href: '/dashboard/peta', label: 'Peta Spasial', Icon: MapPin },
+  { href: '/dashboard/wilayah', label: 'Wilayah', Icon: Layers },
 ];
 
 /**

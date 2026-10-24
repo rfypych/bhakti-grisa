@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
-import { Home, ClipboardList, Activity, MapPin, FileSpreadsheet, PlusCircle } from 'lucide-react';
+import { Home, ClipboardList, Activity, MapPin, Layers, FileSpreadsheet, PlusCircle } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
 
 export const metadata: Metadata = {
@@ -62,6 +62,13 @@ export default function RootLayout({
                 >
                   <MapPin className="w-4 h-4" />
                   <span>Peta Spasial</span>
+                </Link>
+                <Link
+                  href="/dashboard/wilayah"
+                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                >
+                  <Layers className="w-4 h-4" />
+                  <span>Wilayah</span>
                 </Link>
               </nav>
 
