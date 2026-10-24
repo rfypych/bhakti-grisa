@@ -1,6 +1,7 @@
 import React from 'react';
 import { getRecentPeristiwaVital, getEligibleMothers, getAllLivingMembers } from '@/actions/peristiwaActions';
 import { PeristiwaClientWrapper } from '@/components/peristiwa/PeristiwaClientWrapper';
+import { getSessionUser } from '@/lib/auth';
 import { Activity, Baby, HeartCrack, Calendar, User, FileText, Heart } from 'lucide-react';
 
 export const metadata = {
@@ -14,10 +15,14 @@ export default async function LaporPeristiwaPage({
 }) {
   await searchParams; // Next 16 convention
 
+  const user = await getSessionUser();
+  const canReport = !user || user.peran === 'ADMIN_DESA' || user.peran === 'KADER_RT';
+  const targetWilayahId = user?.peran === 'KADER_RT' && user.wilayahId ? user.wilayahId : undefined;
+
   const [recentEvents, mothers, members] = await Promise.all([
     getRecentPeristiwaVital(30),
-    getEligibleMothers(),
-    getAllLivingMembers(),
+    canReport ? getEligibleMothers(targetWilayahId) : Promise.resolve([]),
+    canReport ? getAllLivingMembers(targetWilayahId) : Promise.resolve([]),
   ]);
 
   const totalKelahiran = recentEvents.filter((e) => e.jenisPeristiwa === 'KELAHIRAN_BAYI').length;
@@ -41,7 +46,13 @@ export default async function LaporPeristiwaPage({
           </p>
         </div>
 
-        <PeristiwaClientWrapper mothers={mothers} members={members} />
+        {canReport ? (
+          <PeristiwaClientWrapper mothers={mothers} members={members} />
+        ) : (
+          <div className="text-xs text-stone-500 bg-stone-100 border border-stone-200 px-3 py-1.5 rounded-lg font-medium self-start sm:self-center">
+            Mode Baca Log Peristiwa ({user?.peran === 'PENGURUS_RW' ? 'Pengurus RW' : 'Pengurus Dusun'})
+          </div>
+        )}
       </div>
 
       {/* KPI Cards */}

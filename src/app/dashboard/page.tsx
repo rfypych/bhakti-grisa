@@ -1,7 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
-import { getAggregationDesa, getAggregationDasawisma } from '@/lib/aggregation';
+import {
+  getAggregationDesa,
+  getAggregationDasawisma,
+  getAggregationRW,
+  getAggregationDusun,
+} from '@/lib/aggregation';
+import { getSessionUser, getScopeWilayahIds } from '@/lib/auth';
 import {
   Users,
   Home,
@@ -23,20 +29,48 @@ export const metadata = {
 export default async function DashboardPage({
   searchParams,
 }: {
-  searchParams: Promise<{ wilayahId?: string; tahun?: string }>;
+  searchParams: Promise<{ wilayahId?: string; tahun?: string; notice?: string }>;
 }) {
   const resolvedParams = await searchParams; // Next 16 convention
   const currentYear = new Date().getFullYear();
   const activeYear = resolvedParams.tahun ? parseInt(resolvedParams.tahun, 10) || currentYear : currentYear;
 
-  const [wilayahList, pendingCount, recentFamilies] = await Promise.all([
-    prisma.wilayah.findMany({ orderBy: { rt: 'asc' } }),
-    prisma.keluarga.count({ where: { statusData: 'DRAFT' } }),
+  const user = await getSessionUser();
+  const scopeWilayahIds = await getScopeWilayahIds(user);
+
+  let effectiveWilayahId = resolvedParams.wilayahId;
+  if (user?.peran === 'KADER_RT' && user.wilayahId) {
+    effectiveWilayahId = user.wilayahId;
+  } else if (scopeWilayahIds !== null && effectiveWilayahId && !scopeWilayahIds.includes(effectiveWilayahId)) {
+    effectiveWilayahId = undefined;
+  }
+
+  const allowedWilayahList =
+    scopeWilayahIds !== null
+      ? await prisma.wilayah.findMany({
+          where: { id: { in: scopeWilayahIds } },
+          orderBy: { rt: 'asc' },
+        })
+      : await prisma.wilayah.findMany({ orderBy: { rt: 'asc' } });
+
+  const familiesCondition: any = { statusData: 'VERIFIKASI' };
+  if (effectiveWilayahId) {
+    familiesCondition.wilayahId = effectiveWilayahId;
+  } else if (scopeWilayahIds !== null) {
+    familiesCondition.wilayahId = { in: scopeWilayahIds };
+  }
+
+  const pendingCondition: any = { statusData: 'DRAFT' };
+  if (effectiveWilayahId) {
+    pendingCondition.wilayahId = effectiveWilayahId;
+  } else if (scopeWilayahIds !== null) {
+    pendingCondition.wilayahId = { in: scopeWilayahIds };
+  }
+
+  const [pendingCount, recentFamilies] = await Promise.all([
+    prisma.keluarga.count({ where: pendingCondition }),
     prisma.keluarga.findMany({
-      where: {
-        statusData: 'VERIFIKASI',
-        ...(resolvedParams.wilayahId ? { wilayahId: resolvedParams.wilayahId } : {}),
-      },
+      where: familiesCondition,
       include: {
         wilayah: true,
         anggota: true,
@@ -47,14 +81,28 @@ export default async function DashboardPage({
   ]);
 
   // Compute aggregation statistics
-  const aggData = resolvedParams.wilayahId
-    ? await getAggregationDasawisma(resolvedParams.wilayahId, { tahun: activeYear, semester: 'TAHUNAN' })
-    : await getAggregationDesa({ tahun: activeYear, semester: 'TAHUNAN' });
+  let aggData;
+  if (effectiveWilayahId) {
+    aggData = await getAggregationDasawisma(effectiveWilayahId, { tahun: activeYear, semester: 'TAHUNAN' });
+  } else if (user?.peran === 'PENGURUS_RW' && user.wilayah) {
+    aggData = await getAggregationRW(user.wilayah.rw, { tahun: activeYear, semester: 'TAHUNAN' }, { dusun: user.wilayah.dusun });
+  } else if (user?.peran === 'PENGURUS_DUSUN' && user.wilayah) {
+    aggData = await getAggregationDusun(user.wilayah.dusun, { tahun: activeYear, semester: 'TAHUNAN' });
+  } else {
+    aggData = await getAggregationDesa({ tahun: activeYear, semester: 'TAHUNAN' });
+  }
 
-  const activeWilayah = wilayahList.find((w) => w.id === resolvedParams.wilayahId);
+  const activeWilayah = allowedWilayahList.find((w) => w.id === effectiveWilayahId);
 
   return (
     <div className="max-w-7xl mx-auto space-y-6 py-8 px-4 sm:px-6 lg:px-8">
+      {resolvedParams.notice && (
+        <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl flex items-center gap-2.5 text-xs text-amber-900 font-medium">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+          <span>{resolvedParams.notice}</span>
+        </div>
+      )}
+
       {/* Top Banner & Title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-stone-200 pb-6">
         <div>
@@ -67,6 +115,10 @@ export default async function DashboardPage({
           <p className="text-xs sm:text-sm text-stone-600 mt-1">
             {activeWilayah
               ? `Rekapitulasi Wilayah: ${activeWilayah.namaDasawisma} (RT ${activeWilayah.rt} / RW ${activeWilayah.rw}) — Tahun ${activeYear}`
+              : user?.peran === 'PENGURUS_RW' && user.wilayah
+              ? `Rekapitulasi Agregat RW ${user.wilayah.rw} (${user.wilayah.dusun}) — Tahun ${activeYear}`
+              : user?.peran === 'PENGURUS_DUSUN' && user.wilayah
+              ? `Rekapitulasi Agregat ${user.wilayah.dusun} — Tahun ${activeYear}`
               : `Rekapitulasi Agregat Seluruh Wilayah Desa Demaan (Tahun ${activeYear})`}
           </p>
         </div>
@@ -78,11 +130,20 @@ export default async function DashboardPage({
             <Filter className="w-4 h-4 text-stone-400" />
             <select
               name="wilayahId"
-              defaultValue={resolvedParams.wilayahId || ''}
-              className="text-xs px-3 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium"
+              disabled={user?.peran === 'KADER_RT'}
+              defaultValue={effectiveWilayahId || ''}
+              className="text-xs px-3 py-2 bg-white border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium disabled:bg-stone-100 disabled:text-stone-500"
             >
-              <option value="">Semua Wilayah Desa</option>
-              {wilayahList.map((w) => (
+              {user?.peran !== 'KADER_RT' && (
+                <option value="">
+                  {user?.peran === 'PENGURUS_RW'
+                    ? `Seluruh RW ${user.wilayah?.rw || ''}`
+                    : user?.peran === 'PENGURUS_DUSUN'
+                    ? `Seluruh ${user.wilayah?.dusun || 'Dusun'}`
+                    : 'Semua Wilayah Desa'}
+                </option>
+              )}
+              {allowedWilayahList.map((w) => (
                 <option key={w.id} value={w.id}>
                   RT {w.rt} / RW {w.rw} ({w.namaDasawisma})
                 </option>

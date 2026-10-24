@@ -1,6 +1,8 @@
 import React from 'react';
 import { getPendingSubmissions } from '@/actions/verifikasiActions';
 import { VerificationCard } from '@/components/verifikasi/VerificationCard';
+import { getSessionUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
 import { ShieldCheck, Inbox } from 'lucide-react';
 
 export const metadata = {
@@ -13,7 +15,18 @@ export default async function VerifikasiPage({
   searchParams: Promise<{ wilayahId?: string }>;
 }) {
   const resolvedParams = await searchParams;
-  const submissions = await getPendingSubmissions(resolvedParams.wilayahId);
+  const user = await getSessionUser();
+
+  if (user && user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+    redirect('/dashboard?notice=Akses+verifikasi+hanya+tersedia+untuk+Kader+RT+dan+Admin+Desa');
+  }
+
+  const targetWilayahId =
+    user?.peran === 'KADER_RT' && user.wilayahId
+      ? user.wilayahId
+      : resolvedParams.wilayahId;
+
+  const submissions = await getPendingSubmissions(targetWilayahId);
 
   return (
     <div className="max-w-5xl mx-auto space-y-6 py-6 px-4 sm:px-6">

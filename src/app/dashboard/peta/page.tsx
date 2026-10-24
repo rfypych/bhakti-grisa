@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { GisMap } from '@/components/map/GisMap';
 import { MapHouseholdData, getPinColor, filterHouseholdsWithCoordinates } from '@/components/map/MapPinMarker';
 import { calculateAge } from '@/lib/demographics';
+import { getSessionUser, getScopeWilayahIds } from '@/lib/auth';
 import { MapPin, AlertTriangle, ShieldCheck, Heart, Filter } from 'lucide-react';
 
 export const metadata = {
@@ -15,12 +16,20 @@ export default async function PetaSpasialPage({
   searchParams: Promise<{ wilayahId?: string; rt?: string }>;
 }) {
   const resolvedParams = await searchParams; // Next 16 convention
+  const user = await getSessionUser();
+  const scopeWilayahIds = await getScopeWilayahIds(user);
 
   const whereClause: any = {
     statusData: { not: 'ARSIP' },
   };
 
-  if (resolvedParams.wilayahId) {
+  if (scopeWilayahIds !== null) {
+    if (resolvedParams.wilayahId && scopeWilayahIds.includes(resolvedParams.wilayahId)) {
+      whereClause.wilayahId = resolvedParams.wilayahId;
+    } else {
+      whereClause.wilayahId = { in: scopeWilayahIds };
+    }
+  } else if (resolvedParams.wilayahId) {
     whereClause.wilayahId = resolvedParams.wilayahId;
   }
 
@@ -38,6 +47,7 @@ export default async function PetaSpasialPage({
       orderBy: { createdAt: 'desc' },
     }),
     prisma.wilayah.findMany({
+      where: scopeWilayahIds !== null ? { id: { in: scopeWilayahIds } } : {},
       orderBy: [{ rt: 'asc' }],
     }),
   ]);

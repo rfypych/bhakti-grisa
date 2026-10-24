@@ -1,6 +1,7 @@
 'use server';
 
 import { prisma } from '@/lib/prisma';
+import { getSessionUser } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
 export interface WilayahInput {
@@ -35,6 +36,11 @@ export async function getWilayahListWithCounts() {
  * Creates a new wilayah entity after verifying unique constraint.
  */
 export async function createWilayahAction(data: WilayahInput) {
+  const user = await getSessionUser();
+  if (user && user.peran !== 'ADMIN_DESA') {
+    return { success: false, error: 'Akses ditolak: Hanya Admin Desa yang dapat menambahkan wilayah.' };
+  }
+
   const dusun = data.dusun.trim();
   const rw = data.rw.trim();
   const rt = data.rt.trim();
@@ -81,6 +87,11 @@ export async function createWilayahAction(data: WilayahInput) {
  * Updates an existing wilayah entity after verifying unique constraint.
  */
 export async function updateWilayahAction(id: string, data: WilayahInput) {
+  const user = await getSessionUser();
+  if (user && user.peran !== 'ADMIN_DESA') {
+    return { success: false, error: 'Akses ditolak: Hanya Admin Desa yang dapat mengubah data wilayah.' };
+  }
+
   const dusun = data.dusun.trim();
   const rw = data.rw.trim();
   const rt = data.rt.trim();
@@ -140,6 +151,11 @@ export async function updateWilayahAction(id: string, data: WilayahInput) {
  * Deletes a wilayah entity strictly if no families are linked to it.
  */
 export async function deleteWilayahAction(id: string) {
+  const user = await getSessionUser();
+  if (user && user.peran !== 'ADMIN_DESA') {
+    return { success: false, error: 'Akses ditolak: Hanya Admin Desa yang dapat menghapus wilayah.' };
+  }
+
   const existing = await prisma.wilayah.findUnique({
     where: { id },
     include: {

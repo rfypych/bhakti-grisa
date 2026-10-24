@@ -2,6 +2,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { generateVirtualNik } from '@/lib/virtualNik';
+import { getSessionUser } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
 export interface KelahiranInput {
@@ -44,6 +45,16 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
 
   if (!mother) {
     throw new Error(`Data ibu dengan ID ${data.ibuId} tidak ditemukan.`);
+  }
+
+  const user = await getSessionUser();
+  if (user) {
+    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
+    }
+    if (user.peran === 'KADER_RT' && user.wilayahId && mother.keluarga?.wilayahId !== user.wilayahId) {
+      throw new Error('Akses ditolak: Anda hanya dapat mencatat kelahiran pada warga di wilayah Dasawisma Anda.');
+    }
   }
 
   const birthDate = new Date(data.tanggalLahir);
@@ -102,6 +113,20 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
  * Records a mortality event and creates PeristiwaVital record.
  */
 export async function laporKematianAction(data: KematianInput): Promise<{ success: boolean }> {
+  const user = await getSessionUser();
+  if (user) {
+    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
+    }
+    const targetMember = await prisma.anggotaKeluarga.findUnique({
+      where: { id: data.anggotaId },
+      include: { keluarga: true },
+    });
+    if (user.peran === 'KADER_RT' && user.wilayahId && targetMember?.keluarga?.wilayahId !== user.wilayahId) {
+      throw new Error('Akses ditolak: Anda hanya dapat mencatat kematian pada warga di wilayah Dasawisma Anda.');
+    }
+  }
+
   // Map the reporter-facing category to the structured event type. General
   // deaths are KEMATIAN_WARGA: recording them as KEMATIAN_IBU would corrupt
   // the maternal mortality counters in official recaps.
@@ -151,6 +176,20 @@ export async function laporKematianAction(data: KematianInput): Promise<{ succes
  * Records pregnancy or nursing status.
  */
 export async function laporKehamilanAction(data: KehamilanInput): Promise<{ success: boolean }> {
+  const user = await getSessionUser();
+  if (user) {
+    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
+    }
+    const targetMother = await prisma.anggotaKeluarga.findUnique({
+      where: { id: data.anggotaId },
+      include: { keluarga: true },
+    });
+    if (user.peran === 'KADER_RT' && user.wilayahId && targetMother?.keluarga?.wilayahId !== user.wilayahId) {
+      throw new Error('Akses ditolak: Anda hanya dapat mencatat kehamilan pada warga di wilayah Dasawisma Anda.');
+    }
+  }
+
   const eventDate = data.tanggalCatat ? new Date(data.tanggalCatat) : new Date();
 
   await prisma.peristiwaVital.create({
@@ -194,12 +233,15 @@ export async function getRecentPeristiwaVital(limit: number = 20) {
 /**
  * Fetches eligible mothers (married women or adult females) for birth reporting.
  */
-export async function getEligibleMothers() {
+export async function getEligibleMothers(wilayahId?: string) {
   return prisma.anggotaKeluarga.findMany({
     where: {
       jenisKelamin: 'P',
       statusKehidupan: 'HIDUP',
-      keluarga: { statusData: 'VERIFIKASI' },
+      keluarga: {
+        statusData: 'VERIFIKASI',
+        ...(wilayahId ? { wilayahId } : {}),
+      },
     },
     include: {
       keluarga: {
@@ -213,11 +255,14 @@ export async function getEligibleMothers() {
 /**
  * Fetches all members for mortality reporting.
  */
-export async function getAllLivingMembers() {
+export async function getAllLivingMembers(wilayahId?: string) {
   return prisma.anggotaKeluarga.findMany({
     where: {
       statusKehidupan: 'HIDUP',
-      keluarga: { statusData: 'VERIFIKASI' },
+      keluarga: {
+        statusData: 'VERIFIKASI',
+        ...(wilayahId ? { wilayahId } : {}),
+      },
     },
     include: {
       keluarga: {

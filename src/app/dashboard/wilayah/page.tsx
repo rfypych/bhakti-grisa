@@ -1,6 +1,8 @@
 import React from 'react';
 import { getWilayahListWithCounts } from '@/actions/wilayahActions';
 import { WilayahManager } from '@/components/wilayah/WilayahManager';
+import { getSessionUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
 import { MapPin, Layers, Home, Users } from 'lucide-react';
 
 export const metadata = {
@@ -8,6 +10,11 @@ export const metadata = {
 };
 
 export default async function WilayahPage() {
+  const user = await getSessionUser();
+  if (user && user.peran !== 'ADMIN_DESA') {
+    redirect('/dashboard?notice=Akses+modul+Wilayah+hanya+tersedia+untuk+Admin+Desa');
+  }
+
   const wilayahList = await getWilayahListWithCounts();
 
   const totalDasawisma = wilayahList.length;
