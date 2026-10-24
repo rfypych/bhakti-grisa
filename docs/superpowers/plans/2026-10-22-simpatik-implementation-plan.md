@@ -444,7 +444,7 @@ git commit -m "feat: implement cadre verification queue and submission approval 
   - `laporKelahiranAction(data: KelahiranInput): Promise<{ success: boolean; childId: string }>`
   - `laporKematianAction(data: KematianInput): Promise<{ success: boolean }>`
 
-- [ ] **Step 1: Write failing test for "Lapor Kelahiran" atomic side-effects**
+- [x] **Step 1: Write failing test for "Lapor Kelahiran" atomic side-effects**
 ```typescript
 // tests/peristiwa.test.ts
 import { describe, it, expect } from 'vitest';
@@ -469,21 +469,21 @@ describe('Event Log Actions', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/peristiwa.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement `laporKelahiranAction` and `laporKematianAction`**
+- [x] **Step 3: Implement `laporKelahiranAction` and `laporKematianAction`**
 In `src/actions/peristiwaActions.ts`:
 1. `laporKelahiranAction`: Within a Prisma transaction, create `AnggotaKeluarga` for the newborn (assigning virtual temporary NIK if unissued), create `PeristiwaVital` record, and update mother flags.
 2. `laporKematianAction`: Mark deceased member status as `ARSIP` and create `PeristiwaVital` record.
 Build fast modal interfaces in `src/components/peristiwa/`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/peristiwa.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/actions/peristiwaActions.ts src/app/dashboard/lapor-peristiwa/ src/components/peristiwa/ tests/peristiwa.test.ts
 git commit -m "feat: implement event log tracker for births, pregnancies, and mortalities"
