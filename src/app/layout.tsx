@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
 import { Home, ClipboardList, Activity, MapPin, FileSpreadsheet, PlusCircle } from 'lucide-react';
+import { MobileNav } from '@/components/layout/MobileNav';
 
 export const metadata: Metadata = {
   title: 'SIMPATIK - Sistem Informasi Manajemen PKK & Tertib Administrasi Keluarga',
@@ -63,6 +64,8 @@ export default function RootLayout({
                   <span>Peta Spasial</span>
                 </Link>
               </nav>
+
+              <MobileNav />
             </div>
 
             <div className="flex items-center gap-3">

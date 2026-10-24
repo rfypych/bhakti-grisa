@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useFormDraft } from '@/hooks/useFormDraft';
 import { Step1WilayahRumah } from './Step1WilayahRumah';
@@ -72,6 +72,32 @@ export function MultiStepForm({
     }
   );
 
+  // Persist the wizard position together with the draft data, so a cadre
+  // interrupted mid-form (very common door-to-door) resumes on the same
+  // step after a reload instead of being sent back to step 1.
+  const stepStorageKey = `${storageKey}-step`;
+
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem(stepStorageKey);
+      const n = saved ? parseInt(saved, 10) : NaN;
+      if (!Number.isNaN(n) && n >= 1 && n <= STEPS.length) {
+        setCurrentStep(n);
+      }
+    } catch {
+      // storage unavailable (private mode); wizard still works from step 1
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stepStorageKey]);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(stepStorageKey, String(currentStep));
+    } catch {
+      // ignore storage failures; the form data draft is unaffected
+    }
+  }, [currentStep, stepStorageKey]);
+
   // Step components declare a string-keyed handler; adapt the hook's generic updateField.
   const handleFieldChange = (key: string, val: any) => {
     updateField(key as keyof KeluargaInputData, val);
@@ -116,6 +142,11 @@ export function MultiStepForm({
       const res = await saveKeluargaAction(formData, isPublicResident);
       if (res.success) {
         clearDraft();
+        try {
+          window.localStorage.removeItem(stepStorageKey);
+        } catch {
+          // ignore
+        }
         setSubmitSuccess(true);
       } else {
         setSubmitError(res.error || 'Gagal menyimpan data.');
@@ -182,7 +213,7 @@ export function MultiStepForm({
             <Save className="w-3.5 h-3.5 text-emerald-600" />
             Draft tersimpan otomatis di perangkat
           </span>
-          <span>
+          <span className="whitespace-nowrap">
             Langkah {currentStep} dari {STEPS.length}
           </span>
         </div>

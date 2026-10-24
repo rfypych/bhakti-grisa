@@ -203,7 +203,7 @@ export default async function DashboardPage({
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-stone-700">
+            <table className="w-full min-w-[720px] text-left text-xs text-stone-700">
               <thead className="bg-stone-50 text-stone-600 font-semibold border-b border-stone-200">
                 <tr>
                   <th className="px-4 py-3">No. KK</th>

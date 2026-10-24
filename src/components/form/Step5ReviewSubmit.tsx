@@ -45,7 +45,7 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
           </div>
           <div className="text-xs space-y-1 text-stone-700">
             <p><span className="text-stone-500">No. KK:</span> <span className="font-mono font-semibold">{formData.noKk || '-'}</span></p>
-            <p><span className="text-stone-500">Nama Kepala RT:</span> <span className="font-semibold">{formData.namaKepalaRumahTangga || '-'}</span></p>
+            <p><span className="text-stone-500">Nama Kepala Rumah Tangga:</span> <span className="font-semibold">{formData.namaKepalaRumahTangga || '-'}</span></p>
             <p><span className="text-stone-500">Alamat:</span> {formData.alamat || '-'}</p>
             {formData.latitude && formData.longitude && (
               <p><span className="text-stone-500">Koordinat:</span> {formData.latitude.toFixed(5)}, {formData.longitude.toFixed(5)}</p>
