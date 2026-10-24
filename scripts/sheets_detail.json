@@ -1,0 +1,3451 @@
+{
+  "data warga ": {
+    "name": "data warga ",
+    "rowCount": 36,
+    "columnCount": 5,
+    "merges": [
+      "A2:E2"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "E1": "LAMPIRAN 4.14.1a"
+        }
+      },
+      {
+        "rowNumber": 2,
+        "cells": {
+          "A2": "DAFTAR WARGA TP PKK",
+          "B2": "DAFTAR WARGA TP PKK",
+          "C2": "DAFTAR WARGA TP PKK",
+          "D2": "DAFTAR WARGA TP PKK",
+          "E2": "DAFTAR WARGA TP PKK"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "Dasa Wisma",
+          "B5": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "Nama Kepala Rumah Tangga",
+          "B6": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "A7": "1. No. Registrasi",
+          "B7": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "A8": "2. No. KTP/KK",
+          "B8": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "A9": "3. Nama",
+          "B9": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 10,
+        "cells": {
+          "A10": "4. Jabatan",
+          "B10": ": …….............................................................."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "5. Jenis Kelamin",
+          "B11": ": □ Laki Laki",
+          "C11": "□ Perempuan"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "6. Tempat Lahir",
+          "B12": ": ……......................................................"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "7. Tgl. Lahir/Umur",
+          "B13": ": ……................/……../……...... Umur",
+          "C13": "Tahun"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "8. Status Perkawinan",
+          "B14": ": □ Menikah",
+          "C14": "□ Lajang",
+          "D14": "□ Janda",
+          "E14": "□ Duda"
+        }
+      },
+      {
+        "rowNumber": 15,
+        "cells": {
+          "A15": "9. Status Dalam Keluarga",
+          "B15": ": □ Kepala Rumah Tangga",
+          "C15": "□ Anggota Keluarga Status"
+        }
+      },
+      {
+        "rowNumber": 16,
+        "cells": {
+          "A16": "10. Agama",
+          "B16": ": □ Islam",
+          "C16": "□ Kristen",
+          "D16": "□ Katholik",
+          "E16": "□ Hindu"
+        }
+      },
+      {
+        "rowNumber": 17,
+        "cells": {
+          "B17": "□ Budha",
+          "C17": "□ Khonghuchu"
+        }
+      },
+      {
+        "rowNumber": 18,
+        "cells": {
+          "B18": "□ Kepercayaan lain ……........................................"
+        }
+      },
+      {
+        "rowNumber": 19,
+        "cells": {
+          "A19": "11. Alamat",
+          "B19": ": ……...................................................................................."
+        }
+      },
+      {
+        "rowNumber": 20,
+        "cells": {
+          "B20": "Desa Kel/Sejenis",
+          "C20": "……..................Kec. ……....................."
+        }
+      },
+      {
+        "rowNumber": 21,
+        "cells": {
+          "B21": "Kab/Kota ……...........................Prov. ……............................."
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "12. Pendidikan",
+          "B22": ": □ Tidak Tamat SD",
+          "C22": "□ SD/MI",
+          "D22": "□ SMP/Sederajat"
+        }
+      },
+      {
+        "rowNumber": 23,
+        "cells": {
+          "B23": "□ SMU/SMK/Sederajat"
+        }
+      },
+      {
+        "rowNumber": 24,
+        "cells": {
+          "B24": "□ Diploma",
+          "C24": "□ S1",
+          "D24": "□ S2",
+          "E24": "□ S3"
+        }
+      },
+      {
+        "rowNumber": 25,
+        "cells": {
+          "A25": "13. Pekerjaan",
+          "B25": ": □ Petani",
+          "C25": "□ Pedagang",
+          "D25": "□ Swasta",
+          "E25": "□ Wirausaha"
+        }
+      },
+      {
+        "rowNumber": 26,
+        "cells": {
+          "B26": "□ PNS",
+          "C26": "□ TNI/Polri",
+          "D26": "□ Lainnya"
+        }
+      },
+      {
+        "rowNumber": 27,
+        "cells": {
+          "A27": "14. Akseptor KB",
+          "B27": ": □ Ya",
+          "C27": "□ Tidak Jenis Akseptor KB"
+        }
+      },
+      {
+        "rowNumber": 28,
+        "cells": {
+          "A28": "15. Aktif dalam kegiatan Posyandu",
+          "B28": ": □ Ya",
+          "C28": "□ Tidak Frekuensi volume……. Kali …."
+        }
+      },
+      {
+        "rowNumber": 29,
+        "cells": {
+          "A29": "16. Mengikuti Program Bina",
+          "B29": ": □ Ya",
+          "C29": "□ Tidak"
+        }
+      },
+      {
+        "rowNumber": 30,
+        "cells": {
+          "A30": "Keluarga Balita"
+        }
+      },
+      {
+        "rowNumber": 31,
+        "cells": {
+          "A31": "17. Memiliki Tabungan",
+          "B31": ": □ Ya",
+          "C31": "□ Tidak"
+        }
+      },
+      {
+        "rowNumber": 32,
+        "cells": {
+          "A32": "18. Mengikuti Kelompok Belajar",
+          "B32": ": □ Ya",
+          "C32": "□ Tidak"
+        }
+      },
+      {
+        "rowNumber": 33,
+        "cells": {
+          "A33": "Jenis",
+          "B33": ": □ Paket A",
+          "C33": "□ Paket B",
+          "D33": "□ Paket C",
+          "E33": "□ KF"
+        }
+      },
+      {
+        "rowNumber": 34,
+        "cells": {
+          "A34": "19. Mengikuti PAUD / Sejenis",
+          "B34": ": □ Ya",
+          "C34": "□ Tidak"
+        }
+      },
+      {
+        "rowNumber": 35,
+        "cells": {
+          "A35": "20. Ikut dalam Kegiatan Koperasi",
+          "B35": ": □ Ya",
+          "C35": "□ Tidak Jenis Koperasi"
+        }
+      }
+    ]
+  },
+  "data keluarga": {
+    "name": "data keluarga",
+    "rowCount": 41,
+    "columnCount": 18,
+    "merges": [
+      "D21:D22",
+      "E21:E22",
+      "F21:G21",
+      "A3:K3",
+      "A4:K4",
+      "A21:A22",
+      "B21:B22",
+      "C21:C22",
+      "H21:H22",
+      "I21:I22",
+      "J21:J22"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "J1": "LAMPIRAN 4.14.2a"
+        }
+      },
+      {
+        "rowNumber": 3,
+        "cells": {
+          "A3": "DATA KELUARGA",
+          "B3": "DATA KELUARGA",
+          "C3": "DATA KELUARGA",
+          "D3": "DATA KELUARGA",
+          "E3": "DATA KELUARGA",
+          "F3": "DATA KELUARGA",
+          "G3": "DATA KELUARGA",
+          "H3": "DATA KELUARGA",
+          "I3": "DATA KELUARGA",
+          "J3": "DATA KELUARGA",
+          "K3": "DATA KELUARGA"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "B4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "C4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "D4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "E4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "F4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "G4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "H4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "I4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "J4": "(Diisi oleh Kader, sumber kepala keluarga/kader)",
+          "K4": "(Diisi oleh Kader, sumber kepala keluarga/kader)"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "Dasa Wisma …............................................................................................................................................................................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "A7": "RT …..............RW….............................Dusun/Lingk ….............................................................................................................................."
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "A8": "Desa/Kel ….................................................Kec …....................................................................................................................................."
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "A9": "Kab/Kota …...................................................Prov …................................................................................................................................."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "Nama Kepala Rumah Tangga :",
+          "D11": "…............................................................................................................................"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "Jumlah Anggota Keluarga :",
+          "D12": "…................................................",
+          "G12": "Orang"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "D13": "Laki-laki",
+          "E13": "…................................",
+          "G13": "Orang"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "D14": "Perempuan",
+          "E14": "…................................",
+          "G14": "Orang"
+        }
+      },
+      {
+        "rowNumber": 16,
+        "cells": {
+          "A16": "1.",
+          "B16": "Jumlah KK :",
+          "D16": "….......................................................",
+          "F16": "KK"
+        }
+      },
+      {
+        "rowNumber": 17,
+        "cells": {
+          "A17": "2.",
+          "B17": "Jumlah :",
+          "D17": "….......................................................",
+          "F17": "KK"
+        }
+      },
+      {
+        "rowNumber": 18,
+        "cells": {
+          "A18": "a) Balita",
+          "B18": "…....... anak;",
+          "C18": "b)PUS",
+          "D18": "….............orang ;",
+          "E18": "c)WUS",
+          "F18": "…............. Orang;",
+          "H18": "d)3 Buta ….... Orang"
+        }
+      },
+      {
+        "rowNumber": 19,
+        "cells": {
+          "A19": "e) Ibu Hamil ….........orang ;",
+          "C19": "f) Ibu menyusui",
+          "D19": "….............orang ;",
+          "E19": "g) Lansia",
+          "F19": "…..............orang"
+        }
+      },
+      {
+        "rowNumber": 21,
+        "cells": {
+          "A21": "NO",
+          "B21": "NO.REG",
+          "C21": "NAMA ANGGOTA KELUARGA",
+          "D21": "STATUS DLM KELUARGA",
+          "E21": "STATUS DALAM PERKAWINAN",
+          "F21": "JENIS KELAMIN",
+          "G21": "JENIS KELAMIN",
+          "H21": "TGL LAHIR/UMUR",
+          "I21": "PENDIDIKAN",
+          "J21": "PEKERJAAN"
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "NO",
+          "B22": "NO.REG",
+          "C22": "NAMA ANGGOTA KELUARGA",
+          "D22": "STATUS DLM KELUARGA",
+          "E22": "STATUS DALAM PERKAWINAN",
+          "F22": "L",
+          "G22": "P",
+          "H22": "TGL LAHIR/UMUR",
+          "I22": "PENDIDIKAN",
+          "J22": "PEKERJAAN"
+        }
+      },
+      {
+        "rowNumber": 23,
+        "cells": {
+          "A23": "1",
+          "B23": "2",
+          "C23": "3",
+          "D23": "4",
+          "E23": "5",
+          "F23": "6",
+          "G23": "7",
+          "H23": "8",
+          "I23": "9",
+          "J23": "10"
+        }
+      },
+      {
+        "rowNumber": 31,
+        "cells": {
+          "A31": "status dalam keluarga : suami, istri, anak, menantu, keluarga, dll status : kawin, tidak kawin"
+        }
+      },
+      {
+        "rowNumber": 33,
+        "cells": {
+          "A33": "3. Makanan Pokok Sehari-Hari",
+          "D33": ":",
+          "E33": "Beras",
+          "G33": "Non Beras Jenis"
+        }
+      },
+      {
+        "rowNumber": 34,
+        "cells": {
+          "A34": "4. Mempunyai Sarana MCK dan Septic Tank",
+          "D34": ":",
+          "E34": "Ya",
+          "G34": "Tidak",
+          "I34": "Jumlah",
+          "J34": "….......",
+          "K34": "buah"
+        }
+      },
+      {
+        "rowNumber": 35,
+        "cells": {
+          "A35": "5. Sumber Air Kelurga",
+          "D35": ":",
+          "E35": "PDAM",
+          "G35": "Sumur",
+          "I35": "Sungai",
+          "K35": "Lainnya"
+        }
+      },
+      {
+        "rowNumber": 36,
+        "cells": {
+          "A36": "6. Memiliki Tempat Pembuangan Sampah",
+          "D36": ":",
+          "E36": "Ya Tidak",
+          "G36": "Tidak"
+        }
+      },
+      {
+        "rowNumber": 37,
+        "cells": {
+          "A37": "7. Mempunyai SPAL dan Penyerapan Air",
+          "D37": ":",
+          "E37": "Ya Tidak",
+          "G37": "Tidak"
+        }
+      },
+      {
+        "rowNumber": 38,
+        "cells": {
+          "A38": "8. Kriteria Rumah",
+          "D38": ":",
+          "E38": "Sehat",
+          "G38": "Kurang Sehat"
+        }
+      },
+      {
+        "rowNumber": 39,
+        "cells": {
+          "A39": "9. Aktifitas UP2K",
+          "D39": ":",
+          "E39": "Ya",
+          "G39": "Tidak ; Jenis Usaha"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "A40": "10. Aktifitas Kegiatan Usaha Kesehatan Lingkungan",
+          "D40": ":",
+          "E40": "Ya Tidak",
+          "G40": "Tidak"
+        }
+      }
+    ]
+  },
+  "hatinya pkk": {
+    "name": "hatinya pkk",
+    "rowCount": 17,
+    "columnCount": 4,
+    "merges": [
+      "A3:D3"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "D1": "LAMPIRAN 4.14.2b"
+        }
+      },
+      {
+        "rowNumber": 3,
+        "cells": {
+          "A3": "PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK",
+          "B3": "PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK",
+          "C3": "PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK",
+          "D3": "PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "NO",
+          "B5": "KATEGORI",
+          "C5": "KOMODITI",
+          "D5": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "1",
+          "B6": "2",
+          "C6": "3",
+          "D6": "4"
+        }
+      },
+      {
+        "rowNumber": 17,
+        "cells": {
+          "A17": "Kategori : (peternakan, perikanan, warung hidup, toga, tanaman keras, lainnya)"
+        }
+      }
+    ]
+  },
+  "industri rumah tangga": {
+    "name": "industri rumah tangga",
+    "rowCount": 16,
+    "columnCount": 4,
+    "merges": [
+      "A3:D3"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "D1": "LAMPIRAN 4.14.2c"
+        }
+      },
+      {
+        "rowNumber": 3,
+        "cells": {
+          "A3": "INDUSTRI RUMAH TANGGA",
+          "B3": "INDUSTRI RUMAH TANGGA",
+          "C3": "INDUSTRI RUMAH TANGGA",
+          "D3": "INDUSTRI RUMAH TANGGA"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "NO",
+          "B5": "KATEGORI",
+          "C5": "KOMODITI",
+          "D5": "Volume"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "1",
+          "B6": "2",
+          "C6": "3",
+          "D6": "4"
+        }
+      },
+      {
+        "rowNumber": 16,
+        "cells": {
+          "A16": "Kategori : (pangan, sandang, konveksi, jasa, lain-lain)"
+        }
+      }
+    ]
+  },
+  "catatan keluarga": {
+    "name": "catatan keluarga",
+    "rowCount": 42,
+    "columnCount": 19,
+    "merges": [
+      "G12:G13",
+      "H12:H13",
+      "I12:I13",
+      "J12:J13",
+      "K12:R12",
+      "A3:S3",
+      "A12:A13",
+      "B12:B13",
+      "C12:C13",
+      "D12:D13",
+      "E12:E13",
+      "F12:F13"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "N1": "LAMPIRAN 4.15"
+        }
+      },
+      {
+        "rowNumber": 3,
+        "cells": {
+          "A3": "CATATAN KELUARGA",
+          "B3": "CATATAN KELUARGA",
+          "C3": "CATATAN KELUARGA",
+          "D3": "CATATAN KELUARGA",
+          "E3": "CATATAN KELUARGA",
+          "F3": "CATATAN KELUARGA",
+          "G3": "CATATAN KELUARGA",
+          "H3": "CATATAN KELUARGA",
+          "I3": "CATATAN KELUARGA",
+          "J3": "CATATAN KELUARGA",
+          "K3": "CATATAN KELUARGA",
+          "L3": "CATATAN KELUARGA",
+          "M3": "CATATAN KELUARGA",
+          "N3": "CATATAN KELUARGA",
+          "O3": "CATATAN KELUARGA",
+          "P3": "CATATAN KELUARGA",
+          "Q3": "CATATAN KELUARGA",
+          "R3": "CATATAN KELUARGA",
+          "S3": "CATATAN KELUARGA"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "A7": "CATATAN KELUARGA DARI",
+          "D7": ":",
+          "M7": "KRITERIA RUMAH",
+          "N7": ": Layak huni/Tidak layak huni"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "A8": "ANGGOTA KELOMPOK DASA WISMA",
+          "D8": ":",
+          "M8": "JAMBAN KELUARGA",
+          "N8": ": Ada/Tidak",
+          "O8": "jumlah :",
+          "P8": "…........",
+          "Q8": "Buah"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "A9": "TAHUN",
+          "D9": ":",
+          "M9": "SUMBER AIR",
+          "N9": ": PDAM/Sumur/lainnya"
+        }
+      },
+      {
+        "rowNumber": 10,
+        "cells": {
+          "M10": "TEMPAT SAMPAH",
+          "N10": ": Ada/Tidak"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NAMA ANGGOTA KELUARGA",
+          "C12": "STATUS PERKAWINAN",
+          "D12": "L/P",
+          "E12": "TEMPAT LAHIR",
+          "F12": "TGL/BL/TH LAHIR/UMUR",
+          "G12": "AGAMA",
+          "H12": "PENDIDIKAN",
+          "I12": "PEKERJAAN",
+          "J12": "BERKEBUTUHAN KHUSUS",
+          "K12": "KEGIATAN PKK YANG DIIKUTI",
+          "L12": "KEGIATAN PKK YANG DIIKUTI",
+          "M12": "KEGIATAN PKK YANG DIIKUTI",
+          "N12": "KEGIATAN PKK YANG DIIKUTI",
+          "O12": "KEGIATAN PKK YANG DIIKUTI",
+          "P12": "KEGIATAN PKK YANG DIIKUTI",
+          "Q12": "KEGIATAN PKK YANG DIIKUTI",
+          "R12": "KEGIATAN PKK YANG DIIKUTI"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NAMA ANGGOTA KELUARGA",
+          "C13": "STATUS PERKAWINAN",
+          "D13": "L/P",
+          "E13": "TEMPAT LAHIR",
+          "F13": "TGL/BL/TH LAHIR/UMUR",
+          "G13": "AGAMA",
+          "H13": "PENDIDIKAN",
+          "I13": "PEKERJAAN",
+          "J13": "BERKEBUTUHAN KHUSUS",
+          "K13": "PENGHAYATAN DAN PENGAMALAN PANCASILA",
+          "L13": "GOTONG ROYONG",
+          "M13": "PENDIDIKAN DAN KETRAMPILAN",
+          "N13": "PENGEMBANGAN KEHIDUPAN BERKOPERASI",
+          "O13": "PANGAN",
+          "P13": "SANDANG",
+          "Q13": "KESEHATAN",
+          "R13": "PERENCANAAN SEHAT",
+          "S13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19"
+        }
+      }
+    ]
+  },
+  "rekap cat data &keg.warga": {
+    "name": "rekap cat data &keg.warga",
+    "rowCount": 40,
+    "columnCount": 29,
+    "merges": [
+      "AC11:AC13",
+      "A4:AC4",
+      "Y11:AB11",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "T11:V11",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W11:X11",
+      "W12:W13",
+      "X12:X13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O11:S11",
+      "O12:O13",
+      "P12:P13",
+      "Q12:Q13",
+      "R12:R13",
+      "S12:S13",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:N11",
+      "D12:E12",
+      "F12:G12",
+      "H12:H13",
+      "I12:I13",
+      "J12:J13",
+      "K12:K13"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "AB1": "LAMPIRAN 4.16a"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "B4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "C4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "D4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "E4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "F4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "G4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "H4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "I4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "J4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "K4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "L4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "M4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "N4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "O4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "P4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "Q4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "R4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "S4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "T4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "U4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "V4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "W4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "X4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "Y4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "Z4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "AA4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "AB4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA",
+          "AC4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "U6": "DASA WISMA",
+          "W6": ":",
+          "X6": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "U7": "RT/RW",
+          "W7": ":",
+          "X7": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "U8": "DESA/KELURAHAN",
+          "W8": ":",
+          "X8": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "U9": "TAHUN",
+          "W9": ":",
+          "X9": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NAMA KEPALA RUMAH TANGGA",
+          "C11": "JML KK",
+          "D11": "JUMLAH ANGGOTA KELUARGA",
+          "E11": "JUMLAH ANGGOTA KELUARGA",
+          "F11": "JUMLAH ANGGOTA KELUARGA",
+          "G11": "JUMLAH ANGGOTA KELUARGA",
+          "H11": "JUMLAH ANGGOTA KELUARGA",
+          "I11": "JUMLAH ANGGOTA KELUARGA",
+          "J11": "JUMLAH ANGGOTA KELUARGA",
+          "K11": "JUMLAH ANGGOTA KELUARGA",
+          "L11": "JUMLAH ANGGOTA KELUARGA",
+          "M11": "JUMLAH ANGGOTA KELUARGA",
+          "N11": "JUMLAH ANGGOTA KELUARGA",
+          "O11": "KRITERIA RUMAH",
+          "P11": "KRITERIA RUMAH",
+          "Q11": "KRITERIA RUMAH",
+          "R11": "KRITERIA RUMAH",
+          "S11": "KRITERIA RUMAH",
+          "T11": "SUMBER AIR KELUARGA",
+          "U11": "SUMBER AIR KELUARGA",
+          "V11": "SUMBER AIR KELUARGA",
+          "W11": "MAKANAN",
+          "X11": "MAKANAN",
+          "Y11": "WARGA MENGIKUTO KEGIATAN",
+          "Z11": "WARGA MENGIKUTO KEGIATAN",
+          "AA11": "WARGA MENGIKUTO KEGIATAN",
+          "AB11": "WARGA MENGIKUTO KEGIATAN",
+          "AC11": "KET"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NAMA KEPALA RUMAH TANGGA",
+          "C12": "JML KK",
+          "D12": "TOTAL",
+          "E12": "TOTAL",
+          "F12": "BALITA",
+          "G12": "BALITA",
+          "H12": "PUS",
+          "I12": "WUS",
+          "J12": "IBU HAMIL",
+          "K12": "IBU MENYUSUI",
+          "L12": "LANSIA",
+          "M12": "3 BUTA",
+          "N12": "BERKEBUTUHAN KHUSUS",
+          "O12": "SEHAT LAYAH HUNI",
+          "P12": "TIDAK SEHAT LAYAK HUNI",
+          "Q12": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "R12": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "S12": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "T12": "PDAM",
+          "U12": "SUMUR",
+          "V12": "DLL",
+          "W12": "BERAS",
+          "X12": "NON BERAS",
+          "Y12": "UP2K",
+          "Z12": "PEMANFAATAN TANAH PEKARANGAN",
+          "AA12": "INDUSTRI RUMAH TANGGA",
+          "AB12": "KESEHATAN LINGKUNGAN",
+          "AC12": "KET"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NAMA KEPALA RUMAH TANGGA",
+          "C13": "JML KK",
+          "D13": "L",
+          "E13": "P",
+          "F13": "L",
+          "G13": "P",
+          "H13": "PUS",
+          "I13": "WUS",
+          "J13": "IBU HAMIL",
+          "K13": "IBU MENYUSUI",
+          "L13": "LANSIA",
+          "M13": "3 BUTA",
+          "N13": "BERKEBUTUHAN KHUSUS",
+          "O13": "SEHAT LAYAH HUNI",
+          "P13": "TIDAK SEHAT LAYAK HUNI",
+          "Q13": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "R13": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "S13": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "T13": "PDAM",
+          "U13": "SUMUR",
+          "V13": "DLL",
+          "W13": "BERAS",
+          "X13": "NON BERAS",
+          "Y13": "UP2K",
+          "Z13": "PEMANFAATAN TANAH PEKARANGAN",
+          "AA13": "INDUSTRI RUMAH TANGGA",
+          "AB13": "KESEHATAN LINGKUNGAN",
+          "AC13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19",
+          "T14": "20",
+          "U14": "21",
+          "V14": "22",
+          "W14": "23",
+          "X14": "24",
+          "Y14": "25",
+          "Z14": "26",
+          "AA14": "27",
+          "AB14": "28",
+          "AC14": "29"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "A40": "JUMLAH"
+        }
+      }
+    ]
+  },
+  "rekap cat data &keg.warga rt": {
+    "name": "rekap cat data &keg.warga rt",
+    "rowCount": 40,
+    "columnCount": 30,
+    "merges": [
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "C11:C13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "X12:X13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:P13",
+      "Q12:Q13",
+      "R12:R13",
+      "E12:F12",
+      "G12:H12",
+      "I12:I13",
+      "J12:J13",
+      "K12:K13",
+      "L12:L13",
+      "A4:AD4",
+      "A11:A13",
+      "B11:B13",
+      "D11:D13",
+      "E11:O11",
+      "P11:T11",
+      "U11:W11",
+      "X11:Y11",
+      "Z11:AC11",
+      "AD11:AD13"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "AC1": "LAMPIRAN 4.16a"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "B4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "C4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "D4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "E4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "F4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "G4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "H4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "I4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "J4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "K4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "L4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "M4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "N4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "O4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "P4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "Q4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "R4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "S4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "T4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "U4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "V4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "W4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "X4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "Y4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "Z4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "AA4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "AB4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "AC4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT",
+          "AD4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "V6": "DASA WISMA",
+          "X6": ":",
+          "Y6": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "V7": "RT/RW",
+          "X7": ":",
+          "Y7": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "V8": "DESA/KELURAHAN",
+          "X8": ":",
+          "Y8": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "V9": "TAHUN",
+          "X9": ":",
+          "Y9": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NAMA DASA WISMA",
+          "C11": "JML KRT",
+          "D11": "JML KK",
+          "E11": "JUMLAH ANGGOTA KELUARGA",
+          "F11": "JUMLAH ANGGOTA KELUARGA",
+          "G11": "JUMLAH ANGGOTA KELUARGA",
+          "H11": "JUMLAH ANGGOTA KELUARGA",
+          "I11": "JUMLAH ANGGOTA KELUARGA",
+          "J11": "JUMLAH ANGGOTA KELUARGA",
+          "K11": "JUMLAH ANGGOTA KELUARGA",
+          "L11": "JUMLAH ANGGOTA KELUARGA",
+          "M11": "JUMLAH ANGGOTA KELUARGA",
+          "N11": "JUMLAH ANGGOTA KELUARGA",
+          "O11": "JUMLAH ANGGOTA KELUARGA",
+          "P11": "KRITERIA RUMAH",
+          "Q11": "KRITERIA RUMAH",
+          "R11": "KRITERIA RUMAH",
+          "S11": "KRITERIA RUMAH",
+          "T11": "KRITERIA RUMAH",
+          "U11": "SUMBER AIR KELUARGA",
+          "V11": "SUMBER AIR KELUARGA",
+          "W11": "SUMBER AIR KELUARGA",
+          "X11": "MAKANAN",
+          "Y11": "MAKANAN",
+          "Z11": "WARGA MENGIKUTO KEGIATAN",
+          "AA11": "WARGA MENGIKUTO KEGIATAN",
+          "AB11": "WARGA MENGIKUTO KEGIATAN",
+          "AC11": "WARGA MENGIKUTO KEGIATAN",
+          "AD11": "KET"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NAMA DASA WISMA",
+          "C12": "JML KRT",
+          "D12": "JML KK",
+          "E12": "TOTAL",
+          "F12": "TOTAL",
+          "G12": "BALITA",
+          "H12": "BALITA",
+          "I12": "PUS",
+          "J12": "WUS",
+          "K12": "IBU HAMIL",
+          "L12": "IBU MENYUSUI",
+          "M12": "LANSIA",
+          "N12": "3 BUTA",
+          "O12": "BERKEBUTUHAN KHUSUS",
+          "P12": "SEHAT LAYAH HUNI",
+          "Q12": "TIDAK SEHAT LAYAK HUNI",
+          "R12": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "S12": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "T12": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "U12": "PDAM",
+          "V12": "SUMUR",
+          "W12": "DLL",
+          "X12": "BERAS",
+          "Y12": "NON BERAS",
+          "Z12": "UP2K",
+          "AA12": "PEMANFAATAN TANAH PEKARANGAN",
+          "AB12": "INDUSTRI RUMAH TANGGA",
+          "AC12": "KESEHATAN LINGKUNGAN",
+          "AD12": "KET"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NAMA DASA WISMA",
+          "C13": "JML KRT",
+          "D13": "JML KK",
+          "E13": "L",
+          "F13": "P",
+          "G13": "L",
+          "H13": "P",
+          "I13": "PUS",
+          "J13": "WUS",
+          "K13": "IBU HAMIL",
+          "L13": "IBU MENYUSUI",
+          "M13": "LANSIA",
+          "N13": "3 BUTA",
+          "O13": "BERKEBUTUHAN KHUSUS",
+          "P13": "SEHAT LAYAH HUNI",
+          "Q13": "TIDAK SEHAT LAYAK HUNI",
+          "R13": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "S13": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "T13": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "U13": "PDAM",
+          "V13": "SUMUR",
+          "W13": "DLL",
+          "X13": "BERAS",
+          "Y13": "NON BERAS",
+          "Z13": "UP2K",
+          "AA13": "PEMANFAATAN TANAH PEKARANGAN",
+          "AB13": "INDUSTRI RUMAH TANGGA",
+          "AC13": "KESEHATAN LINGKUNGAN",
+          "AD13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19",
+          "T14": "20",
+          "U14": "21",
+          "V14": "22",
+          "W14": "23",
+          "X14": "24",
+          "Y14": "25",
+          "Z14": "26",
+          "AA14": "27",
+          "AB14": "28",
+          "AC14": "29",
+          "AD14": "30"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "A40": "JUMLAH"
+        }
+      }
+    ]
+  },
+  "rekap cat data &keg.warga rw": {
+    "name": "rekap cat data &keg.warga rw",
+    "rowCount": 40,
+    "columnCount": 32,
+    "merges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "B11:B13",
+      "O12:P12",
+      "X12:X13",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "AF11:AF13",
+      "F12:G12",
+      "H12:I12",
+      "J12:J13",
+      "K12:K13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "Q12:Q13",
+      "A4:AF4",
+      "A11:A13",
+      "C11:C13",
+      "D11:D13",
+      "E11:E13",
+      "F11:Q11",
+      "R11:V11",
+      "W11:Y11",
+      "Z11:AA11",
+      "AB11:AE11"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "AE1": "LAMPIRAN 4.16c"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "B4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "C4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "D4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "E4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "F4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "G4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "H4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "I4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "J4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "K4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "L4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "M4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "N4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "O4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "P4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "Q4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "R4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "S4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "T4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "U4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "V4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "W4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "X4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "Y4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "Z4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AA4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AB4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AC4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AD4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AE4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW",
+          "AF4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "X6": "DASA WISMA",
+          "Z6": ":",
+          "AA6": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "X7": "RT/RW",
+          "Z7": ":",
+          "AA7": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "X8": "DESA/KELURAHAN",
+          "Z8": ":",
+          "AA8": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "X9": "TAHUN",
+          "Z9": ":",
+          "AA9": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NO RT",
+          "C11": "JML DASA WISMA",
+          "D11": "JML KRT",
+          "E11": "JML KK",
+          "F11": "JUMLAH ANGGOTA KELUARGA",
+          "G11": "JUMLAH ANGGOTA KELUARGA",
+          "H11": "JUMLAH ANGGOTA KELUARGA",
+          "I11": "JUMLAH ANGGOTA KELUARGA",
+          "J11": "JUMLAH ANGGOTA KELUARGA",
+          "K11": "JUMLAH ANGGOTA KELUARGA",
+          "L11": "JUMLAH ANGGOTA KELUARGA",
+          "M11": "JUMLAH ANGGOTA KELUARGA",
+          "N11": "JUMLAH ANGGOTA KELUARGA",
+          "O11": "JUMLAH ANGGOTA KELUARGA",
+          "P11": "JUMLAH ANGGOTA KELUARGA",
+          "Q11": "JUMLAH ANGGOTA KELUARGA",
+          "R11": "KRITERIA RUMAH",
+          "S11": "KRITERIA RUMAH",
+          "T11": "KRITERIA RUMAH",
+          "U11": "KRITERIA RUMAH",
+          "V11": "KRITERIA RUMAH",
+          "W11": "SUMBER AIR KELUARGA",
+          "X11": "SUMBER AIR KELUARGA",
+          "Y11": "SUMBER AIR KELUARGA",
+          "Z11": "MAKANAN",
+          "AA11": "MAKANAN",
+          "AB11": "WARGA MENGIKUTO KEGIATAN",
+          "AC11": "WARGA MENGIKUTO KEGIATAN",
+          "AD11": "WARGA MENGIKUTO KEGIATAN",
+          "AE11": "WARGA MENGIKUTO KEGIATAN",
+          "AF11": "KET"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NO RT",
+          "C12": "JML DASA WISMA",
+          "D12": "JML KRT",
+          "E12": "JML KK",
+          "F12": "TOTAL",
+          "G12": "TOTAL",
+          "H12": "BALITA",
+          "I12": "BALITA",
+          "J12": "PUS",
+          "K12": "WUS",
+          "L12": "IBU HAMIL",
+          "M12": "IBU MENYUSUI",
+          "N12": "LANSIA",
+          "O12": "3 BUTA",
+          "P12": "3 BUTA",
+          "Q12": "BERKEBUTUHAN KHUSUS",
+          "R12": "SEHAT LAYAH HUNI",
+          "S12": "TIDAK SEHAT LAYAK HUNI",
+          "T12": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "U12": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "V12": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "W12": "PDAM",
+          "X12": "SUMUR",
+          "Y12": "DLL",
+          "Z12": "BERAS",
+          "AA12": "NON BERAS",
+          "AB12": "UP2K",
+          "AC12": "PEMANFAATAN TANAH PEKARANGAN",
+          "AD12": "INDUSTRI RUMAH TANGGA",
+          "AE12": "KESEHATAN LINGKUNGAN",
+          "AF12": "KET"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NO RT",
+          "C13": "JML DASA WISMA",
+          "D13": "JML KRT",
+          "E13": "JML KK",
+          "F13": "L",
+          "G13": "P",
+          "H13": "L",
+          "I13": "P",
+          "J13": "PUS",
+          "K13": "WUS",
+          "L13": "IBU HAMIL",
+          "M13": "IBU MENYUSUI",
+          "N13": "LANSIA",
+          "O13": "L",
+          "P13": "P",
+          "Q13": "BERKEBUTUHAN KHUSUS",
+          "R13": "SEHAT LAYAH HUNI",
+          "S13": "TIDAK SEHAT LAYAK HUNI",
+          "T13": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "U13": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "V13": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "W13": "PDAM",
+          "X13": "SUMUR",
+          "Y13": "DLL",
+          "Z13": "BERAS",
+          "AA13": "NON BERAS",
+          "AB13": "UP2K",
+          "AC13": "PEMANFAATAN TANAH PEKARANGAN",
+          "AD13": "INDUSTRI RUMAH TANGGA",
+          "AE13": "KESEHATAN LINGKUNGAN",
+          "AF13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19",
+          "T14": "20",
+          "U14": "21",
+          "V14": "22",
+          "W14": "23",
+          "X14": "24",
+          "Y14": "25",
+          "Z14": "26",
+          "AA14": "27",
+          "AB14": "28",
+          "AC14": "29",
+          "AD14": "30",
+          "AE14": "31",
+          "AF14": "32"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "E40": "JUMLAH"
+        }
+      }
+    ]
+  },
+  "rekap cat data &keg.warga dsn": {
+    "name": "rekap cat data &keg.warga dsn",
+    "rowCount": 40,
+    "columnCount": 33,
+    "merges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "AF12:AF13",
+      "E11:E13",
+      "X12:X13",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "AC11:AF11",
+      "AG11:AG13",
+      "G12:H12",
+      "I12:J12",
+      "K12:K13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:Q12",
+      "A4:AG4",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:D13",
+      "F11:F13",
+      "G11:R11",
+      "S11:W11",
+      "X11:Z11",
+      "AA11:AB11"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "AF1": "LAMPIRAN 4.16d"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "B4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "C4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "D4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "E4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "F4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "G4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "H4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "I4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "J4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "K4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "L4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "M4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "N4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "O4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "P4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "Q4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "R4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "S4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "T4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "U4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "V4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "W4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "X4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "Y4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "Z4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AA4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AB4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AC4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AD4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AE4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AF4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "AG4": "REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "Y6": "DASA WISMA",
+          "AA6": ":",
+          "AB6": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "Y7": "RT/RW",
+          "AA7": ":",
+          "AB7": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "Y8": "DESA/KELURAHAN",
+          "AA8": ":",
+          "AB8": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "Y9": "TAHUN",
+          "AA9": ":",
+          "AB9": "…............................................"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NO RW",
+          "C11": "JMH RT",
+          "D11": "JMH DASA WISMA",
+          "E11": "JMH KRT",
+          "F11": "JMH KK",
+          "G11": "JUMLAH ANGGOTA KELUARGA",
+          "H11": "JUMLAH ANGGOTA KELUARGA",
+          "I11": "JUMLAH ANGGOTA KELUARGA",
+          "J11": "JUMLAH ANGGOTA KELUARGA",
+          "K11": "JUMLAH ANGGOTA KELUARGA",
+          "L11": "JUMLAH ANGGOTA KELUARGA",
+          "M11": "JUMLAH ANGGOTA KELUARGA",
+          "N11": "JUMLAH ANGGOTA KELUARGA",
+          "O11": "JUMLAH ANGGOTA KELUARGA",
+          "P11": "JUMLAH ANGGOTA KELUARGA",
+          "Q11": "JUMLAH ANGGOTA KELUARGA",
+          "R11": "JUMLAH ANGGOTA KELUARGA",
+          "S11": "KRITERIA RUMAH",
+          "T11": "KRITERIA RUMAH",
+          "U11": "KRITERIA RUMAH",
+          "V11": "KRITERIA RUMAH",
+          "W11": "KRITERIA RUMAH",
+          "X11": "SUMBER AIR KELUARGA",
+          "Y11": "SUMBER AIR KELUARGA",
+          "Z11": "SUMBER AIR KELUARGA",
+          "AA11": "MAKANAN",
+          "AB11": "MAKANAN",
+          "AC11": "WARGA MENGIKUTO KEGIATAN",
+          "AD11": "WARGA MENGIKUTO KEGIATAN",
+          "AE11": "WARGA MENGIKUTO KEGIATAN",
+          "AF11": "WARGA MENGIKUTO KEGIATAN",
+          "AG11": "KET"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NO RW",
+          "C12": "JMH RT",
+          "D12": "JMH DASA WISMA",
+          "E12": "JMH KRT",
+          "F12": "JMH KK",
+          "G12": "TOTAL",
+          "H12": "TOTAL",
+          "I12": "BALITA",
+          "J12": "BALITA",
+          "K12": "PUS",
+          "L12": "WUS",
+          "M12": "IBU HAMIL",
+          "N12": "IBU MENYUSUI",
+          "O12": "LANSIA",
+          "P12": "3 BUTA",
+          "Q12": "3 BUTA",
+          "R12": "BERKEBUTUHAN KHUSUS",
+          "S12": "SEHAT LAYAH HUNI",
+          "T12": "TIDAK SEHAT LAYAK HUNI",
+          "U12": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "V12": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "W12": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "X12": "PDAM",
+          "Y12": "SUMUR",
+          "Z12": "DLL",
+          "AA12": "BERAS",
+          "AB12": "NON BERAS",
+          "AC12": "UP2K",
+          "AD12": "PEMANFAATAN TANAH PEKARANGAN",
+          "AE12": "INDUSTRI RUMAH TANGGA",
+          "AF12": "KESEHATAN LINGKUNGAN",
+          "AG12": "KET"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NO RW",
+          "C13": "JMH RT",
+          "D13": "JMH DASA WISMA",
+          "E13": "JMH KRT",
+          "F13": "JMH KK",
+          "G13": "L",
+          "H13": "P",
+          "I13": "L",
+          "J13": "P",
+          "K13": "PUS",
+          "L13": "WUS",
+          "M13": "IBU HAMIL",
+          "N13": "IBU MENYUSUI",
+          "O13": "LANSIA",
+          "P13": "L",
+          "Q13": "P",
+          "R13": "BERKEBUTUHAN KHUSUS",
+          "S13": "SEHAT LAYAH HUNI",
+          "T13": "TIDAK SEHAT LAYAK HUNI",
+          "U13": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "V13": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "W13": "MEMILIKI SARANA MCK DAN SEPTIC TANK",
+          "X13": "PDAM",
+          "Y13": "SUMUR",
+          "Z13": "DLL",
+          "AA13": "BERAS",
+          "AB13": "NON BERAS",
+          "AC13": "UP2K",
+          "AD13": "PEMANFAATAN TANAH PEKARANGAN",
+          "AE13": "INDUSTRI RUMAH TANGGA",
+          "AF13": "KESEHATAN LINGKUNGAN",
+          "AG13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19",
+          "T14": "20",
+          "U14": "21",
+          "V14": "22",
+          "W14": "23",
+          "X14": "24",
+          "Y14": "25",
+          "Z14": "26",
+          "AA14": "27",
+          "AB14": "28",
+          "AC14": "29",
+          "AD14": "30",
+          "AE14": "31",
+          "AF14": "32",
+          "AG14": "33"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "F40": "JUMLAH"
+        }
+      }
+    ]
+  },
+  "rekap cat data &keg.warga desa": {
+    "name": "rekap cat data &keg.warga desa",
+    "rowCount": 40,
+    "columnCount": 33,
+    "merges": [
+      "A2:AG2",
+      "A3:AG3",
+      "AC12:AC13",
+      "AD12:AD13",
+      "AE12:AE13",
+      "AF12:AF13",
+      "F11:F13",
+      "Q12:Q13",
+      "X12:X13",
+      "Z11:Z13",
+      "V12:V13",
+      "W12:W13",
+      "Y12:Y13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "AA11:AB11",
+      "AC11:AF11",
+      "AG11:AG13",
+      "H12:I12",
+      "J12:K12",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:P13",
+      "A4:AG4",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:D13",
+      "E11:E13",
+      "G11:G13",
+      "H11:Q11",
+      "R11:U11",
+      "V11:Y11"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "AF1": "LAMPIRAN 4.17a"
+        }
+      },
+      {
+        "rowNumber": 2,
+        "cells": {
+          "A2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "B2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "C2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "D2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "E2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "F2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "G2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "H2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "I2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "J2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "K2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "L2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "M2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "N2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "O2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "P2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "Q2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "R2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "S2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "T2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "U2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "V2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "W2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "X2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "Y2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "Z2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AA2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AB2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AC2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AD2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AE2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AF2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK",
+          "AG2": "CATATAN DATA DAN KEGIATAN WARGA TP PKK"
+        }
+      },
+      {
+        "rowNumber": 3,
+        "cells": {
+          "A3": "DESA/KELURAHAN TAHUN ..........",
+          "B3": "DESA/KELURAHAN TAHUN ..........",
+          "C3": "DESA/KELURAHAN TAHUN ..........",
+          "D3": "DESA/KELURAHAN TAHUN ..........",
+          "E3": "DESA/KELURAHAN TAHUN ..........",
+          "F3": "DESA/KELURAHAN TAHUN ..........",
+          "G3": "DESA/KELURAHAN TAHUN ..........",
+          "H3": "DESA/KELURAHAN TAHUN ..........",
+          "I3": "DESA/KELURAHAN TAHUN ..........",
+          "J3": "DESA/KELURAHAN TAHUN ..........",
+          "K3": "DESA/KELURAHAN TAHUN ..........",
+          "L3": "DESA/KELURAHAN TAHUN ..........",
+          "M3": "DESA/KELURAHAN TAHUN ..........",
+          "N3": "DESA/KELURAHAN TAHUN ..........",
+          "O3": "DESA/KELURAHAN TAHUN ..........",
+          "P3": "DESA/KELURAHAN TAHUN ..........",
+          "Q3": "DESA/KELURAHAN TAHUN ..........",
+          "R3": "DESA/KELURAHAN TAHUN ..........",
+          "S3": "DESA/KELURAHAN TAHUN ..........",
+          "T3": "DESA/KELURAHAN TAHUN ..........",
+          "U3": "DESA/KELURAHAN TAHUN ..........",
+          "V3": "DESA/KELURAHAN TAHUN ..........",
+          "W3": "DESA/KELURAHAN TAHUN ..........",
+          "X3": "DESA/KELURAHAN TAHUN ..........",
+          "Y3": "DESA/KELURAHAN TAHUN ..........",
+          "Z3": "DESA/KELURAHAN TAHUN ..........",
+          "AA3": "DESA/KELURAHAN TAHUN ..........",
+          "AB3": "DESA/KELURAHAN TAHUN ..........",
+          "AC3": "DESA/KELURAHAN TAHUN ..........",
+          "AD3": "DESA/KELURAHAN TAHUN ..........",
+          "AE3": "DESA/KELURAHAN TAHUN ..........",
+          "AF3": "DESA/KELURAHAN TAHUN ..........",
+          "AG3": "DESA/KELURAHAN TAHUN .........."
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "B4": "null",
+          "C4": "null",
+          "D4": "null",
+          "E4": "null",
+          "F4": "null",
+          "G4": "null",
+          "H4": "null",
+          "I4": "null",
+          "J4": "null",
+          "K4": "null",
+          "L4": "null",
+          "M4": "null",
+          "N4": "null",
+          "O4": "null",
+          "P4": "null",
+          "Q4": "null",
+          "R4": "null",
+          "S4": "null",
+          "T4": "null",
+          "U4": "null",
+          "V4": "null",
+          "W4": "null",
+          "X4": "null",
+          "Y4": "null",
+          "Z4": "null",
+          "AA4": "null",
+          "AB4": "null",
+          "AC4": "null",
+          "AD4": "null",
+          "AE4": "null",
+          "AF4": "null",
+          "AG4": "null"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "TP PKK DESA/KEL",
+          "C5": ":",
+          "D5": "…......................................"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KECAMATAN",
+          "C6": ":",
+          "D6": "…......................................"
+        }
+      },
+      {
+        "rowNumber": 7,
+        "cells": {
+          "A7": "KAB/KOTA",
+          "C7": ":",
+          "D7": "…......................................"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "A8": "PROVINSI",
+          "C8": ":",
+          "D8": "…......................................"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NAMA DUSUN /LINGKUNGAN",
+          "C11": "JMH RW",
+          "D11": "JMH RT",
+          "E11": "JMH DASA WISMA",
+          "F11": "JMH KRT",
+          "G11": "JMH KK",
+          "H11": "JUMLAH ANGGOTA KELUARGA",
+          "I11": "JUMLAH ANGGOTA KELUARGA",
+          "J11": "JUMLAH ANGGOTA KELUARGA",
+          "K11": "JUMLAH ANGGOTA KELUARGA",
+          "L11": "JUMLAH ANGGOTA KELUARGA",
+          "M11": "JUMLAH ANGGOTA KELUARGA",
+          "N11": "JUMLAH ANGGOTA KELUARGA",
+          "O11": "JUMLAH ANGGOTA KELUARGA",
+          "P11": "JUMLAH ANGGOTA KELUARGA",
+          "Q11": "JUMLAH ANGGOTA KELUARGA",
+          "R11": "KRITERIA RUMAH",
+          "S11": "KRITERIA RUMAH",
+          "T11": "KRITERIA RUMAH",
+          "U11": "KRITERIA RUMAH",
+          "V11": "SUMBER AIR KELUARGA",
+          "W11": "SUMBER AIR KELUARGA",
+          "X11": "SUMBER AIR KELUARGA",
+          "Y11": "SUMBER AIR KELUARGA",
+          "Z11": "JUMLAH SARANA MCK",
+          "AA11": "MAKANAN POKOK",
+          "AB11": "MAKANAN POKOK",
+          "AC11": "WARGA MENGIKUTO KEGIATAN",
+          "AD11": "WARGA MENGIKUTO KEGIATAN",
+          "AE11": "WARGA MENGIKUTO KEGIATAN",
+          "AF11": "WARGA MENGIKUTO KEGIATAN",
+          "AG11": "KET"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NAMA DUSUN /LINGKUNGAN",
+          "C12": "JMH RW",
+          "D12": "JMH RT",
+          "E12": "JMH DASA WISMA",
+          "F12": "JMH KRT",
+          "G12": "JMH KK",
+          "H12": "TOTAL",
+          "I12": "TOTAL",
+          "J12": "BALITA",
+          "K12": "BALITA",
+          "L12": "PUS",
+          "M12": "WUS",
+          "N12": "IBU HAMIL",
+          "O12": "IBU MENYUSUI",
+          "P12": "LANSIA",
+          "Q12": "3 BUTA",
+          "R12": "SEHAT LAYAH HUNI",
+          "S12": "TIDAK SEHAT LAYAK HUNI",
+          "T12": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "U12": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "V12": "PDAM",
+          "W12": "SUMUR",
+          "X12": "SUNGAI",
+          "Y12": "DLL",
+          "Z12": "JUMLAH SARANA MCK",
+          "AA12": "BERAS",
+          "AB12": "NON BERAS",
+          "AC12": "UP2K",
+          "AD12": "PEMANFAATAN TANAH PEKARANGAN",
+          "AE12": "INDUSTRI RUMAH TANGGA",
+          "AF12": "KESEHATAN LINGKUNGAN",
+          "AG12": "KET"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NAMA DUSUN /LINGKUNGAN",
+          "C13": "JMH RW",
+          "D13": "JMH RT",
+          "E13": "JMH DASA WISMA",
+          "F13": "JMH KRT",
+          "G13": "JMH KK",
+          "H13": "L",
+          "I13": "P",
+          "J13": "L",
+          "K13": "P",
+          "L13": "PUS",
+          "M13": "WUS",
+          "N13": "IBU HAMIL",
+          "O13": "IBU MENYUSUI",
+          "P13": "LANSIA",
+          "Q13": "3 BUTA",
+          "R13": "SEHAT LAYAH HUNI",
+          "S13": "TIDAK SEHAT LAYAK HUNI",
+          "T13": "MEMILIKI TEMP. PEMB. SAMPAH",
+          "U13": "MEMILIKI SPAL DAN PENYERAPAN AIR",
+          "V13": "PDAM",
+          "W13": "SUMUR",
+          "X13": "SUNGAI",
+          "Y13": "DLL",
+          "Z13": "JUMLAH SARANA MCK",
+          "AA13": "BERAS",
+          "AB13": "NON BERAS",
+          "AC13": "UP2K",
+          "AD13": "PEMANFAATAN TANAH PEKARANGAN",
+          "AE13": "INDUSTRI RUMAH TANGGA",
+          "AF13": "KESEHATAN LINGKUNGAN",
+          "AG13": "KET"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17",
+          "R14": "18",
+          "S14": "19",
+          "T14": "20",
+          "U14": "21",
+          "V14": "22",
+          "W14": "23",
+          "X14": "24",
+          "Y14": "25",
+          "Z14": "26",
+          "AA14": "27",
+          "AB14": "28",
+          "AC14": "29",
+          "AD14": "30",
+          "AE14": "31",
+          "AF14": "32",
+          "AG14": "33"
+        }
+      },
+      {
+        "rowNumber": 40,
+        "cells": {
+          "A40": "JUMLAH"
+        }
+      }
+    ]
+  },
+  "rekap bumil": {
+    "name": "rekap bumil",
+    "rowCount": 42,
+    "columnCount": 17,
+    "merges": [
+      "A32:B32",
+      "A4:Q4",
+      "A5:Q5",
+      "A6:Q6",
+      "A30:B30",
+      "K19:Q19",
+      "K20:K21",
+      "L20:L21",
+      "M20:N20",
+      "O20:O21",
+      "P20:P21",
+      "Q20:Q21",
+      "A19:A21",
+      "B19:B21",
+      "C19:C21",
+      "D19:D21",
+      "E19:J19",
+      "E20:E21",
+      "F20:G20",
+      "H20:H21",
+      "I20:J20"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "O1": "LAMPIRAN 4.18a"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI DATA/BUKU CATATAN",
+          "B4": "REKAPITULASI DATA/BUKU CATATAN",
+          "C4": "REKAPITULASI DATA/BUKU CATATAN",
+          "D4": "REKAPITULASI DATA/BUKU CATATAN",
+          "E4": "REKAPITULASI DATA/BUKU CATATAN",
+          "F4": "REKAPITULASI DATA/BUKU CATATAN",
+          "G4": "REKAPITULASI DATA/BUKU CATATAN",
+          "H4": "REKAPITULASI DATA/BUKU CATATAN",
+          "I4": "REKAPITULASI DATA/BUKU CATATAN",
+          "J4": "REKAPITULASI DATA/BUKU CATATAN",
+          "K4": "REKAPITULASI DATA/BUKU CATATAN",
+          "L4": "REKAPITULASI DATA/BUKU CATATAN",
+          "M4": "REKAPITULASI DATA/BUKU CATATAN",
+          "N4": "REKAPITULASI DATA/BUKU CATATAN",
+          "O4": "REKAPITULASI DATA/BUKU CATATAN",
+          "P4": "REKAPITULASI DATA/BUKU CATATAN",
+          "Q4": "REKAPITULASI DATA/BUKU CATATAN"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "B5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "C5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "D5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "E5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "F5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "G5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "H5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "I5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "J5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "K5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "L5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "M5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "N5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "O5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "P5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "Q5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "B6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "C6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "D6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "E6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "F6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "G6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "H6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "I6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "J6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "K6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "L6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "M6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "N6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "O6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "P6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA",
+          "Q6": "KEMATIAN BALITA DALAM KELOMPOK DASAWISMA"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "D9": "KELOMPOK DASAWISMA",
+          "E9": ":",
+          "F9": "…..................................."
+        }
+      },
+      {
+        "rowNumber": 10,
+        "cells": {
+          "D10": "KELOMPOK PKK RT",
+          "E10": ": .....................................",
+          "F10": "…..................................."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "D11": "KELOMPOK PKK RW",
+          "E11": ": .....................................",
+          "F11": "…..................................."
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "D12": "DUSUN/LINGKUNGAN",
+          "E12": ": .....................................",
+          "F12": "…..................................."
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "D13": "DESA/KELURAHAN",
+          "E13": ": .....................................",
+          "F13": "…..................................."
+        }
+      },
+      {
+        "rowNumber": 15,
+        "cells": {
+          "A15": "BULAN",
+          "B15": ": ..................................."
+        }
+      },
+      {
+        "rowNumber": 16,
+        "cells": {
+          "A16": "TAHUN",
+          "B16": ": ..................................."
+        }
+      },
+      {
+        "rowNumber": 19,
+        "cells": {
+          "A19": "NO",
+          "B19": "NAMA IBU",
+          "C19": "NAMA SUAMI",
+          "D19": "STATUS (HAMIL/MELAHIRKAN/NIFAS)",
+          "E19": "CATATAN KELAHIRAN",
+          "F19": "CATATAN KELAHIRAN",
+          "G19": "CATATAN KELAHIRAN",
+          "H19": "CATATAN KELAHIRAN",
+          "I19": "CATATAN KELAHIRAN",
+          "J19": "CATATAN KELAHIRAN",
+          "K19": "CATATAN KEMATIAN",
+          "L19": "CATATAN KEMATIAN",
+          "M19": "CATATAN KEMATIAN",
+          "N19": "CATATAN KEMATIAN",
+          "O19": "CATATAN KEMATIAN",
+          "P19": "CATATAN KEMATIAN",
+          "Q19": "CATATAN KEMATIAN"
+        }
+      },
+      {
+        "rowNumber": 20,
+        "cells": {
+          "A20": "NO",
+          "B20": "NAMA IBU",
+          "C20": "NAMA SUAMI",
+          "D20": "STATUS (HAMIL/MELAHIRKAN/NIFAS)",
+          "E20": "NAMA BAYI",
+          "F20": "JENIS KELAMIN",
+          "G20": "JENIS KELAMIN",
+          "H20": "TGL. LAHIR",
+          "I20": "AKTE KELAHIRAN",
+          "J20": "AKTE KELAHIRAN",
+          "K20": "NAMA IBU/BAYI/BALITA",
+          "L20": "STATUS (IBU/BALITA/BAYI)",
+          "M20": "JENIS KELAMIN",
+          "N20": "JENIS KELAMIN",
+          "O20": "TGL. MENINGGAL",
+          "P20": "SEBAB MENINGGAL",
+          "Q20": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 21,
+        "cells": {
+          "A21": "NO",
+          "B21": "NAMA IBU",
+          "C21": "NAMA SUAMI",
+          "D21": "STATUS (HAMIL/MELAHIRKAN/NIFAS)",
+          "E21": "NAMA BAYI",
+          "F21": "L",
+          "G21": "P",
+          "H21": "TGL. LAHIR",
+          "I21": "ADA",
+          "J21": "TIDAK ADA",
+          "K21": "NAMA IBU/BAYI/BALITA",
+          "L21": "STATUS (IBU/BALITA/BAYI)",
+          "M21": "L",
+          "N21": "P",
+          "O21": "TGL. MENINGGAL",
+          "P21": "SEBAB MENINGGAL",
+          "Q21": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "1",
+          "B22": "2",
+          "C22": "3",
+          "D22": "4",
+          "E22": "5",
+          "F22": "6",
+          "H22": "7",
+          "I22": "8",
+          "J22": "9",
+          "K22": "10",
+          "L22": "11",
+          "M22": "12",
+          "N22": "13",
+          "O22": "14",
+          "P22": "15",
+          "Q22": "17"
+        }
+      },
+      {
+        "rowNumber": 30,
+        "cells": {
+          "A30": "JUMLAH",
+          "B30": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 32,
+        "cells": {
+          "A32": "CATATAN :",
+          "B32": "CATATAN :"
+        }
+      },
+      {
+        "rowNumber": 33,
+        "cells": {
+          "A33": "1",
+          "B33": "jumlah ibu hamil",
+          "C33": ":",
+          "D33": "Orang"
+        }
+      },
+      {
+        "rowNumber": 34,
+        "cells": {
+          "A34": "2",
+          "B34": "jumlah ibu melahirkan",
+          "C34": ":",
+          "D34": "Orang"
+        }
+      },
+      {
+        "rowNumber": 35,
+        "cells": {
+          "A35": "3",
+          "B35": "jumlah ibu nifas",
+          "C35": ":",
+          "D35": "Orang"
+        }
+      },
+      {
+        "rowNumber": 36,
+        "cells": {
+          "A36": "4",
+          "B36": "jumlah ibu meninggal *",
+          "C36": ":",
+          "D36": "Orang"
+        }
+      },
+      {
+        "rowNumber": 37,
+        "cells": {
+          "A37": "5",
+          "B37": "jumlah bayi lahir",
+          "C37": ":",
+          "D37": "Orang"
+        }
+      },
+      {
+        "rowNumber": 38,
+        "cells": {
+          "A38": "6",
+          "B38": "jumlah bayi meninggal",
+          "C38": ":",
+          "D38": "Orang"
+        }
+      },
+      {
+        "rowNumber": 39,
+        "cells": {
+          "A39": "7",
+          "B39": "jumlah ibu meninggal",
+          "C39": ":",
+          "D39": "Orang"
+        }
+      },
+      {
+        "rowNumber": 41,
+        "cells": {
+          "A41": "*Ibu meninggal karena hamil/melahirkan/nifas"
+        }
+      }
+    ]
+  },
+  "rekap bumil rt": {
+    "name": "rekap bumil rt",
+    "rowCount": 41,
+    "columnCount": 15,
+    "merges": [
+      "M19:N20",
+      "O19:O21",
+      "A30:B30",
+      "A9:B9",
+      "A10:B10",
+      "A11:B11",
+      "A12:B12",
+      "A13:B13",
+      "I20:J20",
+      "C19:F20",
+      "G19:L19",
+      "K20:L20",
+      "G20:H20",
+      "A4:O4",
+      "A5:O5",
+      "A6:O6",
+      "A19:A21",
+      "B19:B21"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "O1": "LAMPIRAN 4.18b"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI DATA/BUKU CATATAN",
+          "B4": "REKAPITULASI DATA/BUKU CATATAN",
+          "C4": "REKAPITULASI DATA/BUKU CATATAN",
+          "D4": "REKAPITULASI DATA/BUKU CATATAN",
+          "E4": "REKAPITULASI DATA/BUKU CATATAN",
+          "F4": "REKAPITULASI DATA/BUKU CATATAN",
+          "G4": "REKAPITULASI DATA/BUKU CATATAN",
+          "H4": "REKAPITULASI DATA/BUKU CATATAN",
+          "I4": "REKAPITULASI DATA/BUKU CATATAN",
+          "J4": "REKAPITULASI DATA/BUKU CATATAN",
+          "K4": "REKAPITULASI DATA/BUKU CATATAN",
+          "L4": "REKAPITULASI DATA/BUKU CATATAN",
+          "M4": "REKAPITULASI DATA/BUKU CATATAN",
+          "N4": "REKAPITULASI DATA/BUKU CATATAN",
+          "O4": "REKAPITULASI DATA/BUKU CATATAN"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "B5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "C5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "D5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "E5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "F5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "G5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "H5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "I5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "J5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "K5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "L5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "M5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "N5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "O5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "B6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "C6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "D6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "E6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "F6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "G6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "H6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "I6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "J6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "K6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "L6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "M6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "N6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT",
+          "O6": "KEMATIAN BALITA DALAM KELOMPOK PKK RT"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "L8": "BULAN",
+          "M8": ":",
+          "N8": "…............................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "A9": "RT/RW/DSN/LING",
+          "B9": "RT/RW/DSN/LING",
+          "C9": ": ….............................................",
+          "L9": "TAHUN",
+          "M9": ":",
+          "N9": "…................."
+        }
+      },
+      {
+        "rowNumber": 10,
+        "cells": {
+          "A10": "DESA/KELURAHAN",
+          "B10": "DESA/KELURAHAN",
+          "C10": ": …............................................."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "KECAMATAN",
+          "B11": "KECAMATAN",
+          "C11": ": …............................................."
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "KAB / KOTA",
+          "B12": "KAB / KOTA",
+          "C12": ": …............................................."
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "PROVINSI",
+          "B13": "PROVINSI",
+          "C13": ": …............................................."
+        }
+      },
+      {
+        "rowNumber": 19,
+        "cells": {
+          "A19": "NO",
+          "B19": "NAMA KELOMPOK DASA WISMA",
+          "C19": "JUMLAH IBU",
+          "D19": "JUMLAH IBU",
+          "E19": "JUMLAH IBU",
+          "F19": "JUMLAH IBU",
+          "G19": "JUMLAH BAYI",
+          "H19": "JUMLAH BAYI",
+          "I19": "JUMLAH BAYI",
+          "J19": "JUMLAH BAYI",
+          "K19": "JUMLAH BAYI",
+          "L19": "JUMLAH BAYI",
+          "M19": "JUMLAH BALITA MENINGGAL",
+          "N19": "JUMLAH BALITA MENINGGAL",
+          "O19": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 20,
+        "cells": {
+          "A20": "NO",
+          "B20": "NAMA KELOMPOK DASA WISMA",
+          "C20": "JUMLAH IBU",
+          "D20": "JUMLAH IBU",
+          "E20": "JUMLAH IBU",
+          "F20": "JUMLAH IBU",
+          "G20": "LAHIR",
+          "H20": "LAHIR",
+          "I20": "AKTE KELAHIRAN",
+          "J20": "AKTE KELAHIRAN",
+          "K20": "MENINGGAL",
+          "L20": "MENINGGAL",
+          "M20": "JUMLAH BALITA MENINGGAL",
+          "N20": "JUMLAH BALITA MENINGGAL",
+          "O20": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 21,
+        "cells": {
+          "A21": "NO",
+          "B21": "NAMA KELOMPOK DASA WISMA",
+          "C21": "HAMIL",
+          "D21": "MELAHIRKAN",
+          "E21": "NIFAS",
+          "F21": "MENINGGAL",
+          "G21": "L",
+          "H21": "P",
+          "I21": "ADA",
+          "J21": "TIDAK ADA",
+          "K21": "L",
+          "L21": "P",
+          "M21": "L",
+          "N21": "P",
+          "O21": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "1",
+          "B22": "2",
+          "C22": "3",
+          "D22": "4",
+          "E22": "5",
+          "F22": "6",
+          "G22": "7",
+          "H22": "8",
+          "I22": "9",
+          "J22": "10",
+          "K22": "11",
+          "L22": "12",
+          "M22": "13",
+          "N22": "14",
+          "O22": "15"
+        }
+      },
+      {
+        "rowNumber": 30,
+        "cells": {
+          "A30": "JUMLAH",
+          "B30": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 32,
+        "cells": {
+          "A32": "*Ibu meninggal karena hamil/melahirkan/nifas"
+        }
+      }
+    ]
+  },
+  "rekap bumil rw": {
+    "name": "rekap bumil rw",
+    "rowCount": 32,
+    "columnCount": 16,
+    "merges": [
+      "A22:B22",
+      "N11:O12",
+      "P11:P13",
+      "H12:I12",
+      "J12:K12",
+      "L12:M12",
+      "B11:B13",
+      "A9:C9",
+      "A11:A13",
+      "C11:C13",
+      "D11:G12",
+      "H11:M11",
+      "A4:P4",
+      "A5:P5",
+      "A6:P6"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "P1": "LAMPIRAN 4.18c"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI DATA/BUKU CATATAN",
+          "B4": "REKAPITULASI DATA/BUKU CATATAN",
+          "C4": "REKAPITULASI DATA/BUKU CATATAN",
+          "D4": "REKAPITULASI DATA/BUKU CATATAN",
+          "E4": "REKAPITULASI DATA/BUKU CATATAN",
+          "F4": "REKAPITULASI DATA/BUKU CATATAN",
+          "G4": "REKAPITULASI DATA/BUKU CATATAN",
+          "H4": "REKAPITULASI DATA/BUKU CATATAN",
+          "I4": "REKAPITULASI DATA/BUKU CATATAN",
+          "J4": "REKAPITULASI DATA/BUKU CATATAN",
+          "K4": "REKAPITULASI DATA/BUKU CATATAN",
+          "L4": "REKAPITULASI DATA/BUKU CATATAN",
+          "M4": "REKAPITULASI DATA/BUKU CATATAN",
+          "N4": "REKAPITULASI DATA/BUKU CATATAN",
+          "O4": "REKAPITULASI DATA/BUKU CATATAN",
+          "P4": "REKAPITULASI DATA/BUKU CATATAN"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "B5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "C5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "D5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "E5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "F5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "G5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "H5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "I5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "J5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "K5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "L5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "M5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "N5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "O5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "P5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "B6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "C6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "D6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "E6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "F6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "G6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "H6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "I6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "J6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "K6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "L6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "M6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "N6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "O6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW",
+          "P6": "KEMATIAN BALITA DALAM KELOMPOK PKK RW"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "A9": "PROVINSI",
+          "B9": "PROVINSI",
+          "C9": "PROVINSI",
+          "D9": ": …............................................."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NOMOR RT",
+          "C11": "JMH DASA WISMA",
+          "D11": "JUMLAH IBU",
+          "E11": "JUMLAH IBU",
+          "F11": "JUMLAH IBU",
+          "G11": "JUMLAH IBU",
+          "H11": "JUMLAH BAYI",
+          "I11": "JUMLAH BAYI",
+          "J11": "JUMLAH BAYI",
+          "K11": "JUMLAH BAYI",
+          "L11": "JUMLAH BAYI",
+          "M11": "JUMLAH BAYI",
+          "N11": "JUMLAH BALITA MENINGGAL",
+          "O11": "JUMLAH BALITA MENINGGAL",
+          "P11": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NOMOR RT",
+          "C12": "JMH DASA WISMA",
+          "D12": "JUMLAH IBU",
+          "E12": "JUMLAH IBU",
+          "F12": "JUMLAH IBU",
+          "G12": "JUMLAH IBU",
+          "H12": "LAHIR",
+          "I12": "LAHIR",
+          "J12": "AKTE KELAHIRAN",
+          "K12": "AKTE KELAHIRAN",
+          "L12": "MENINGGAL",
+          "M12": "MENINGGAL",
+          "N12": "JUMLAH BALITA MENINGGAL",
+          "O12": "JUMLAH BALITA MENINGGAL",
+          "P12": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NOMOR RT",
+          "C13": "JMH DASA WISMA",
+          "D13": "HAMIL",
+          "E13": "MELAHIRKAN",
+          "F13": "NIFAS",
+          "G13": "MENINGGAL",
+          "H13": "L",
+          "I13": "P",
+          "J13": "ADA",
+          "K13": "TIDAK ADA",
+          "L13": "L",
+          "M13": "P",
+          "N13": "L",
+          "O13": "P",
+          "P13": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16"
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "JUMLAH",
+          "B22": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 23,
+        "cells": {
+          "A23": "*Ibu meninggal karena hamil/melahirkan/nifas"
+        }
+      }
+    ]
+  },
+  "rekap bumil dsn": {
+    "name": "rekap bumil dsn",
+    "rowCount": 32,
+    "columnCount": 17,
+    "merges": [
+      "Q11:Q13",
+      "I12:J12",
+      "K12:L12",
+      "M12:N12",
+      "A22:B22",
+      "C11:D12",
+      "A4:Q4",
+      "A5:Q5",
+      "A6:Q6",
+      "A9:D9",
+      "A11:A13",
+      "B11:B13",
+      "E11:H12",
+      "I11:N11",
+      "O11:P12"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "Q1": "LAMPIRAN 4.18d"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI DATA/BUKU CATATAN",
+          "B4": "REKAPITULASI DATA/BUKU CATATAN",
+          "C4": "REKAPITULASI DATA/BUKU CATATAN",
+          "D4": "REKAPITULASI DATA/BUKU CATATAN",
+          "E4": "REKAPITULASI DATA/BUKU CATATAN",
+          "F4": "REKAPITULASI DATA/BUKU CATATAN",
+          "G4": "REKAPITULASI DATA/BUKU CATATAN",
+          "H4": "REKAPITULASI DATA/BUKU CATATAN",
+          "I4": "REKAPITULASI DATA/BUKU CATATAN",
+          "J4": "REKAPITULASI DATA/BUKU CATATAN",
+          "K4": "REKAPITULASI DATA/BUKU CATATAN",
+          "L4": "REKAPITULASI DATA/BUKU CATATAN",
+          "M4": "REKAPITULASI DATA/BUKU CATATAN",
+          "N4": "REKAPITULASI DATA/BUKU CATATAN",
+          "O4": "REKAPITULASI DATA/BUKU CATATAN",
+          "P4": "REKAPITULASI DATA/BUKU CATATAN",
+          "Q4": "REKAPITULASI DATA/BUKU CATATAN"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "B5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "C5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "D5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "E5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "F5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "G5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "H5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "I5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "J5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "K5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "L5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "M5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "N5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "O5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "P5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "Q5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "B6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "C6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "D6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "E6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "F6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "G6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "H6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "I6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "J6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "K6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "L6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "M6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "N6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "O6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "P6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN",
+          "Q6": "KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "B9": "null",
+          "C9": "null",
+          "D9": "null"
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "NO",
+          "B11": "NOMOR RW",
+          "C11": "JUMLAH",
+          "D11": "JUMLAH",
+          "E11": "JUMLAH IBU",
+          "F11": "JUMLAH IBU",
+          "G11": "JUMLAH IBU",
+          "H11": "JUMLAH IBU",
+          "I11": "JUMLAH BAYI",
+          "J11": "JUMLAH BAYI",
+          "K11": "JUMLAH BAYI",
+          "L11": "JUMLAH BAYI",
+          "M11": "JUMLAH BAYI",
+          "N11": "JUMLAH BAYI",
+          "O11": "JUMLAH BALITA MENINGGAL",
+          "P11": "JUMLAH BALITA MENINGGAL",
+          "Q11": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "NO",
+          "B12": "NOMOR RW",
+          "C12": "JUMLAH",
+          "D12": "JUMLAH",
+          "E12": "JUMLAH IBU",
+          "F12": "JUMLAH IBU",
+          "G12": "JUMLAH IBU",
+          "H12": "JUMLAH IBU",
+          "I12": "LAHIR",
+          "J12": "LAHIR",
+          "K12": "AKTE KELAHIRAN",
+          "L12": "AKTE KELAHIRAN",
+          "M12": "MENINGGAL",
+          "N12": "MENINGGAL",
+          "O12": "JUMLAH BALITA MENINGGAL",
+          "P12": "JUMLAH BALITA MENINGGAL",
+          "Q12": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "NO",
+          "B13": "NOMOR RW",
+          "C13": "RT",
+          "D13": "DASA WISMA",
+          "E13": "HAMIL",
+          "F13": "MELAHIRKAN",
+          "G13": "NIFAS",
+          "H13": "MENINGGAL",
+          "I13": "L",
+          "J13": "P",
+          "K13": "ADA",
+          "L13": "TIDAK ADA",
+          "M13": "L",
+          "N13": "P",
+          "O13": "L",
+          "P13": "P",
+          "Q13": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 14,
+        "cells": {
+          "A14": "1",
+          "B14": "2",
+          "C14": "3",
+          "D14": "4",
+          "E14": "5",
+          "F14": "6",
+          "G14": "7",
+          "H14": "8",
+          "I14": "9",
+          "J14": "10",
+          "K14": "11",
+          "L14": "12",
+          "M14": "13",
+          "N14": "14",
+          "O14": "15",
+          "P14": "16",
+          "Q14": "17"
+        }
+      },
+      {
+        "rowNumber": 22,
+        "cells": {
+          "A22": "JUMLAH",
+          "B22": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 23,
+        "cells": {
+          "A23": "*Ibu meninggal karena hamil/melahirkan/nifas"
+        }
+      }
+    ]
+  },
+  "rekap bumil desakelurahan": {
+    "name": "rekap bumil desakelurahan",
+    "rowCount": 37,
+    "columnCount": 18,
+    "merges": [
+      "R16:R18",
+      "J17:K17",
+      "L17:M17",
+      "N17:O17",
+      "A27:B27",
+      "A4:R4",
+      "A5:R5",
+      "A6:R6",
+      "A16:A18",
+      "B16:B18",
+      "C16:E17",
+      "F16:I17",
+      "J16:O16",
+      "P16:Q17"
+    ],
+    "rows": [
+      {
+        "rowNumber": 1,
+        "cells": {
+          "R1": "LAMPIRAN 4.19a"
+        }
+      },
+      {
+        "rowNumber": 4,
+        "cells": {
+          "A4": "REKAPITULASI DATA / BUKU CATATAN",
+          "B4": "REKAPITULASI DATA / BUKU CATATAN",
+          "C4": "REKAPITULASI DATA / BUKU CATATAN",
+          "D4": "REKAPITULASI DATA / BUKU CATATAN",
+          "E4": "REKAPITULASI DATA / BUKU CATATAN",
+          "F4": "REKAPITULASI DATA / BUKU CATATAN",
+          "G4": "REKAPITULASI DATA / BUKU CATATAN",
+          "H4": "REKAPITULASI DATA / BUKU CATATAN",
+          "I4": "REKAPITULASI DATA / BUKU CATATAN",
+          "J4": "REKAPITULASI DATA / BUKU CATATAN",
+          "K4": "REKAPITULASI DATA / BUKU CATATAN",
+          "L4": "REKAPITULASI DATA / BUKU CATATAN",
+          "M4": "REKAPITULASI DATA / BUKU CATATAN",
+          "N4": "REKAPITULASI DATA / BUKU CATATAN",
+          "O4": "REKAPITULASI DATA / BUKU CATATAN",
+          "P4": "REKAPITULASI DATA / BUKU CATATAN",
+          "Q4": "REKAPITULASI DATA / BUKU CATATAN",
+          "R4": "REKAPITULASI DATA / BUKU CATATAN"
+        }
+      },
+      {
+        "rowNumber": 5,
+        "cells": {
+          "A5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "B5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "C5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "D5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "E5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "F5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "G5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "H5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "I5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "J5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "K5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "L5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "M5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "N5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "O5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "P5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "Q5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN",
+          "R5": "IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+        }
+      },
+      {
+        "rowNumber": 6,
+        "cells": {
+          "A6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "B6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "C6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "D6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "E6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "F6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "G6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "H6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "I6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "J6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "K6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "L6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "M6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "N6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "O6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "P6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "Q6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN",
+          "R6": "KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN"
+        }
+      },
+      {
+        "rowNumber": 8,
+        "cells": {
+          "O8": "BULAN",
+          "P8": ":",
+          "Q8": "…......................................"
+        }
+      },
+      {
+        "rowNumber": 9,
+        "cells": {
+          "O9": "TAHUN",
+          "P9": ":",
+          "Q9": "….............................."
+        }
+      },
+      {
+        "rowNumber": 10,
+        "cells": {
+          "A10": "DESA/KELURAHAN",
+          "C10": ":",
+          "E10": "….............."
+        }
+      },
+      {
+        "rowNumber": 11,
+        "cells": {
+          "A11": "KECAMATAN",
+          "C11": ":",
+          "E11": "….............."
+        }
+      },
+      {
+        "rowNumber": 12,
+        "cells": {
+          "A12": "KAB/KOTA",
+          "C12": ":",
+          "E12": "….............."
+        }
+      },
+      {
+        "rowNumber": 13,
+        "cells": {
+          "A13": "PROVINSI",
+          "C13": ":",
+          "E13": "….............."
+        }
+      },
+      {
+        "rowNumber": 16,
+        "cells": {
+          "A16": "NO",
+          "B16": "NAMA DUSUN/LINGKUNGAN",
+          "C16": "JUMLAH",
+          "D16": "JUMLAH",
+          "E16": "JUMLAH",
+          "F16": "JUMLAH IBU",
+          "G16": "JUMLAH IBU",
+          "H16": "JUMLAH IBU",
+          "I16": "JUMLAH IBU",
+          "J16": "JUMLAH BAYI",
+          "K16": "JUMLAH BAYI",
+          "L16": "JUMLAH BAYI",
+          "M16": "JUMLAH BAYI",
+          "N16": "JUMLAH BAYI",
+          "O16": "JUMLAH BAYI",
+          "P16": "JUMLAH BALITA MENINGGAL",
+          "Q16": "JUMLAH BALITA MENINGGAL",
+          "R16": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 17,
+        "cells": {
+          "A17": "NO",
+          "B17": "NAMA DUSUN/LINGKUNGAN",
+          "C17": "JUMLAH",
+          "D17": "JUMLAH",
+          "E17": "JUMLAH",
+          "F17": "JUMLAH IBU",
+          "G17": "JUMLAH IBU",
+          "H17": "JUMLAH IBU",
+          "I17": "JUMLAH IBU",
+          "J17": "LAHIR",
+          "K17": "LAHIR",
+          "L17": "AKTE KELAHIRAN",
+          "M17": "AKTE KELAHIRAN",
+          "N17": "MENINGGAL",
+          "O17": "MENINGGAL",
+          "P17": "JUMLAH BALITA MENINGGAL",
+          "Q17": "JUMLAH BALITA MENINGGAL",
+          "R17": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 18,
+        "cells": {
+          "A18": "NO",
+          "B18": "NAMA DUSUN/LINGKUNGAN",
+          "C18": "RW",
+          "D18": "RT",
+          "E18": "DASA WISMA",
+          "F18": "HAMIL",
+          "G18": "MELAHIRKAN",
+          "H18": "NIFAS",
+          "I18": "MENINGGAL",
+          "J18": "L",
+          "K18": "P",
+          "L18": "ADA",
+          "M18": "TIDAK ADA",
+          "N18": "L",
+          "O18": "P",
+          "P18": "L",
+          "Q18": "P",
+          "R18": "KETERANGAN"
+        }
+      },
+      {
+        "rowNumber": 19,
+        "cells": {
+          "A19": "1",
+          "B19": "2",
+          "C19": "3",
+          "D19": "4",
+          "E19": "5",
+          "F19": "6",
+          "G19": "7",
+          "H19": "8",
+          "I19": "9",
+          "J19": "10",
+          "K19": "11",
+          "L19": "12",
+          "M19": "13",
+          "N19": "14",
+          "O19": "15",
+          "P19": "16",
+          "Q19": "17",
+          "R19": "18"
+        }
+      },
+      {
+        "rowNumber": 27,
+        "cells": {
+          "A27": "JUMLAH",
+          "B27": "JUMLAH"
+        }
+      },
+      {
+        "rowNumber": 28,
+        "cells": {
+          "A28": "*Ibu meninggal karena hamil/melahirkan/nifas"
+        }
+      }
+    ]
+  }
+}

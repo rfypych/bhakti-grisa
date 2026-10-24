@@ -277,7 +277,7 @@ git commit -m "feat: implement multi-level automated aggregation engine"
 - Consumes: `docs/kolom dasawisma.xlsx`, `src/lib/aggregation.ts`
 - Produces: `generateOfficialExcelWorkbook(options: ExportOptions): Promise<Buffer>`
 
-- [ ] **Step 1: Write failing test for Excel template injection**
+- [x] **Step 1: Write failing test for Excel template injection**
 ```typescript
 // tests/excelTemplate.test.ts
 import { describe, it, expect } from 'vitest';
@@ -296,11 +296,11 @@ describe('Excel Template Injection Engine', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/excelTemplate.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement `generateOfficialExcelWorkbook` using `exceljs`**
+- [x] **Step 3: Implement `generateOfficialExcelWorkbook` using `exceljs`**
 In `src/lib/excelTemplate.ts`:
 1. Load master file `docs/kolom dasawisma.xlsx` into `ExcelJS.Workbook`.
 2. Fetch aggregation and family data from `src/lib/aggregation.ts`.
@@ -308,11 +308,11 @@ In `src/lib/excelTemplate.ts`:
 4. Export as buffer.
 In `src/app/api/export/excel/route.ts`: Expose GET route with content-disposition attachment.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/excelTemplate.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/lib/excelTemplate.ts src/app/api/export/excel/route.ts tests/excelTemplate.test.ts
 git commit -m "feat: implement Excel export engine using master template injection"

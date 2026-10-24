@@ -1,0 +1,2488 @@
+[
+  {
+    "idx": 1,
+    "name": "data warga ",
+    "ourStats": {
+      "rowCount": 36,
+      "maxR": 35,
+      "columnCount": 5,
+      "maxC": 5,
+      "filled": 91,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 1,
+      "name": "data warga ",
+      "rows": 36,
+      "cols": 5,
+      "filled": 91,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A2:E2"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "E1:LAMPIRAN 4.14.1a"
+      },
+      {
+        "row": 2,
+        "text": "A2:DAFTAR WARGA TP PKK | B2:DAFTAR WARGA TP PKK | C2:DAFTAR WARGA TP PKK | D2:DAFTAR WARGA TP PKK | E2:DAFTAR WARGA TP PKK"
+      },
+      {
+        "row": 5,
+        "text": "A5:Dasa Wisma | B5:: …….............................................................."
+      },
+      {
+        "row": 6,
+        "text": "A6:Nama Kepala Rumah Tangga | B6:: …….............................................................."
+      },
+      {
+        "row": 7,
+        "text": "A7:1. No. Registrasi | B7:: …….............................................................."
+      },
+      {
+        "row": 8,
+        "text": "A8:2. No. KTP/KK | B8:: …….............................................................."
+      },
+      {
+        "row": 9,
+        "text": "A9:3. Nama | B9:: …….............................................................."
+      },
+      {
+        "row": 10,
+        "text": "A10:4. Jabatan | B10:: …….............................................................."
+      },
+      {
+        "row": 11,
+        "text": "A11:5. Jenis Kelamin | B11:: □ Laki Laki | C11:□ Perempuan"
+      },
+      {
+        "row": 12,
+        "text": "A12:6. Tempat Lahir | B12:: ……......................................................"
+      },
+      {
+        "row": 13,
+        "text": "A13:7. Tgl. Lahir/Umur | B13:: ……................/……../……...... Umur | C13:Tahun"
+      },
+      {
+        "row": 14,
+        "text": "A14:8. Status Perkawinan | B14:: □ Menikah | C14:□ Lajang | D14:□ Janda | E14:□ Duda"
+      },
+      {
+        "row": 15,
+        "text": "A15:9. Status Dalam Keluarga | B15:: □ Kepala Rumah Tangga | C15:□ Anggota Keluarga Status"
+      },
+      {
+        "row": 16,
+        "text": "A16:10. Agama | B16:: □ Islam | C16:□ Kristen | D16:□ Katholik | E16:□ Hindu"
+      }
+    ]
+  },
+  {
+    "idx": 2,
+    "name": "cara pengisian data warga",
+    "ourStats": {
+      "rowCount": 27,
+      "maxR": 27,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 52,
+      "merges": 3,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 2,
+      "name": "cara pengisian data warga",
+      "rows": 27,
+      "cols": 2,
+      "filled": 52,
+      "merges": 3,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A4:A5",
+      "A6:A7",
+      "A23:A24"
+    ],
+    "headers": [
+      {
+        "row": 2,
+        "text": "A2:POINT/ISIAN | B2:PENJELASAN"
+      },
+      {
+        "row": 3,
+        "text": "A3:Dasa Wisma | B3:Di isi sesuai dengan nama dasawisma yang diikuti warga yang bersangkutan"
+      },
+      {
+        "row": 4,
+        "text": "A4:Nama Kepala Rumah Tangga | B4:Di isi dengan nama Kepala Rumah Tangga pada rumah yang didata. Kepala Rumah"
+      },
+      {
+        "row": 5,
+        "text": "A5:Nama Kepala Rumah Tangga | B5:Tangga adalah yang bertanggung jawab atas segala sesuatu yang terkait dengan kegiatan di dalam rumah yang sedang didata"
+      },
+      {
+        "row": 6,
+        "text": "A6:1 | B6:Nomor Registrasi diisi dengan nomor urutan sesuai wilayah, misalnya: 020103042009001, dengan rincian: 02; prop; 01:kab/kota; 03:kec; 04:desa/kelurahan;"
+      },
+      {
+        "row": 7,
+        "text": "A7:1 | B7:2009:th masuk; 001 : nomor pendataan"
+      },
+      {
+        "row": 8,
+        "text": "A8:2 | B8:Di isi dengan nomor KTP yang saat pendataan masih berlaku"
+      },
+      {
+        "row": 9,
+        "text": "A9:3 | B9:Cukup Jelas"
+      },
+      {
+        "row": 10,
+        "text": "A10:4 | B10:Jabatan yang bersangkutan pada di struktural TP PKK"
+      },
+      {
+        "row": 11,
+        "text": "A11:5 | B11:Cukup Jelas"
+      },
+      {
+        "row": 12,
+        "text": "A12:6 | B12:Kota/Kabupaten tempat lahir yang bersangkutan"
+      },
+      {
+        "row": 13,
+        "text": "A13:7 | B13:Cukup Jelas"
+      },
+      {
+        "row": 14,
+        "text": "A14:8 | B14:Cukup Jelas"
+      },
+      {
+        "row": 15,
+        "text": "A15:9 | B15:Diisi sesuai status yang bersangkutan didalam rumah yang sedang di data."
+      },
+      {
+        "row": 16,
+        "text": "A16:10 | B16:Cukup Jelas"
+      }
+    ]
+  },
+  {
+    "idx": 3,
+    "name": "kegiatan warga",
+    "ourStats": {
+      "rowCount": 11,
+      "maxR": 11,
+      "columnCount": 4,
+      "maxC": 4,
+      "filled": 23,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 3,
+      "name": "kegiatan warga",
+      "rows": 11,
+      "cols": 4,
+      "filled": 23,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A2:D2"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "D1:LAMPIRAN 4.14.1b"
+      },
+      {
+        "row": 2,
+        "text": "A2:KEGIATAN WARGA | B2:KEGIATAN WARGA | C2:KEGIATAN WARGA | D2:KEGIATAN WARGA"
+      },
+      {
+        "row": 4,
+        "text": "A4:NO | B4:KEGIATAN | C4:AKTIVITAS (Y/T) | D4:KETERANGAN (JENIS KEGIATAN YANG DIIKUTI)"
+      },
+      {
+        "row": 5,
+        "text": "A5:1. | B5:Penghayatan dan Pengamalan Pancasila"
+      },
+      {
+        "row": 6,
+        "text": "A6:2. | B6:Kerjabakti"
+      },
+      {
+        "row": 7,
+        "text": "A7:3. | B7:Rukun Kematian"
+      },
+      {
+        "row": 8,
+        "text": "A8:4. | B8:Kegiatan Keagamaan"
+      },
+      {
+        "row": 9,
+        "text": "A9:5. | B9:Jimpitan"
+      },
+      {
+        "row": 10,
+        "text": "A10:6. | B10:Arisan"
+      },
+      {
+        "row": 11,
+        "text": "A11:7. | B11:Lain Lain"
+      }
+    ]
+  },
+  {
+    "idx": 4,
+    "name": "cara pengisian data keg.warga",
+    "ourStats": {
+      "rowCount": 12,
+      "maxR": 12,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 19,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 4,
+      "name": "cara pengisian data keg.warga",
+      "rows": 12,
+      "cols": 2,
+      "filled": 19,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A3:B3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.14.1b"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN DATA KEGIATAN WARGA | B3:CARA PENGISIAN DATA KEGIATAN WARGA"
+      },
+      {
+        "row": 5,
+        "text": "A5:POINT/ISIAN | B5:PENJELASAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:1 | B6:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan program Penghayatan dan pengamalan pancasila, dengan menyebutkan jenis kegiatannya pada kolom keterangan"
+      },
+      {
+        "row": 7,
+        "text": "A7:2 | B7:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan Kerja bakti, dengan menyebutkan jenis kegiatannya pada kolom keterangan."
+      },
+      {
+        "row": 8,
+        "text": "A8:3 | B8:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan Rukun Kematian, dengan menyebutkan jenis kegiatannya pada kolom keterangan."
+      },
+      {
+        "row": 9,
+        "text": "A9:4 | B9:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan Keagamaan. Dengan menyebutkan jenis kegiatannya pada kolom keterangan."
+      },
+      {
+        "row": 10,
+        "text": "A10:5 | B10:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan Jimpitan dengan menyebutkan jenis kegiatannya pada kolom keterangan."
+      },
+      {
+        "row": 11,
+        "text": "A11:6 | B11:Diisi bila warga yang bersangkutan pernah mengikuti kegiatan Arisan dengan menyebutkan jenis kegiatannya pada kolom keterangan."
+      },
+      {
+        "row": 12,
+        "text": "A12:7 | B12:Diisi apabila ada keterangan yang perlu ditambahkan"
+      }
+    ]
+  },
+  {
+    "idx": 5,
+    "name": "data keluarga",
+    "ourStats": {
+      "rowCount": 41,
+      "maxR": 40,
+      "columnCount": 18,
+      "maxC": 11,
+      "filled": 126,
+      "merges": 11,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 5,
+      "name": "data keluarga",
+      "rows": 41,
+      "cols": 18,
+      "filled": 126,
+      "merges": 11,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "D21:D22",
+      "E21:E22",
+      "F21:G21",
+      "A3:K3",
+      "A4:K4",
+      "A21:A22",
+      "B21:B22",
+      "C21:C22",
+      "H21:H22",
+      "I21:I22",
+      "J21:J22"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "J1:LAMPIRAN 4.14.2a"
+      },
+      {
+        "row": 3,
+        "text": "A3:DATA KELUARGA | B3:DATA KELUARGA | C3:DATA KELUARGA | D3:DATA KELUARGA | E3:DATA KELUARGA | F3:DATA KELUARGA | G3:DATA KELUARGA | H3:DATA KELUARGA | I3:DATA KELUARGA | J3:DATA KELUARGA"
+      },
+      {
+        "row": 4,
+        "text": "A4:(Diisi oleh Kader, sumber kepala keluarga/kader) | B4:(Diisi oleh Kader, sumber kepala keluarga/kader) | C4:(Diisi oleh Kader, sumber kepala keluarga/kader) | D4:(Diisi oleh Kader, sumber kepala keluarga/kader) | E4:(Diisi oleh Kader, sumber kepala keluarga/kader) | F4:(Diisi oleh Kader, sumber kepala keluarga/kader) | G4:(Diisi oleh Kader, sumber kepala keluarga/kader) | H4:(Diisi oleh Kader, sumber kepala keluarga/kader) | I4:(Diisi oleh Kader, sumber kepala keluarga/kader) | J4:(Diisi oleh Kader, sumber kepala keluarga/kader)"
+      },
+      {
+        "row": 6,
+        "text": "A6:Dasa Wisma …............................................................................................................................................................................................"
+      },
+      {
+        "row": 7,
+        "text": "A7:RT …..............RW….............................Dusun/Lingk ….............................................................................................................................."
+      },
+      {
+        "row": 8,
+        "text": "A8:Desa/Kel ….................................................Kec …....................................................................................................................................."
+      },
+      {
+        "row": 9,
+        "text": "A9:Kab/Kota …...................................................Prov …................................................................................................................................."
+      },
+      {
+        "row": 11,
+        "text": "A11:Nama Kepala Rumah Tangga : | D11:…............................................................................................................................"
+      },
+      {
+        "row": 12,
+        "text": "A12:Jumlah Anggota Keluarga : | D12:…................................................ | G12:Orang"
+      },
+      {
+        "row": 13,
+        "text": "D13:Laki-laki | E13:…................................ | G13:Orang"
+      },
+      {
+        "row": 14,
+        "text": "D14:Perempuan | E14:…................................ | G14:Orang"
+      },
+      {
+        "row": 16,
+        "text": "A16:1. | B16:Jumlah KK : | D16:…....................................................... | F16:KK"
+      }
+    ]
+  },
+  {
+    "idx": 6,
+    "name": "cara pengisisan data keluarga",
+    "ourStats": {
+      "rowCount": 20,
+      "maxR": 20,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 38,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 6,
+      "name": "cara pengisisan data keluarga",
+      "rows": 20,
+      "cols": 2,
+      "filled": 38,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A2:B2"
+    ],
+    "headers": [
+      {
+        "row": 2,
+        "text": "A2:CARA PENGISIAN DATA KELUARGA | B2:CARA PENGISIAN DATA KELUARGA"
+      },
+      {
+        "row": 3,
+        "text": "A3:POINT/ISIAN | B3:PENJELASAN"
+      },
+      {
+        "row": 4,
+        "text": "A4:Dasa Wisma | B4:Cukup Jelas"
+      },
+      {
+        "row": 5,
+        "text": "A5:RT, RW, Dusun/Lingkungan, Desa/kel, Kec, Kab/Kota, Prov | B5:Cukup Jelas"
+      },
+      {
+        "row": 6,
+        "text": "A6:Nama Kepala Rumah Tangga | B6:Di isi dengan nama Kepala Rumah Tangga pada rumah yang didata. Kepala Rumah Tangga adalah yang bertanggung jawab atas segala sesuatu yang terkait dengan kegiatan didalam rumah yang sedang didata."
+      },
+      {
+        "row": 7,
+        "text": "A7:Jumlah Anggota Keluarga | B7:Cukup Jelas"
+      },
+      {
+        "row": 8,
+        "text": "A8:1 | B8:Diisi dengan jumlah KK yang ada pada rumah yang sedang didata"
+      },
+      {
+        "row": 9,
+        "text": "A9:2.a | B9:Diisi dengan jumlah Balita yang ada pada rumah yang sedang didata"
+      },
+      {
+        "row": 10,
+        "text": "A10:2.b | B10:Diisi dengan jumlah Pasangan Usia Subur yang ada pada rumah yang sedang didata"
+      },
+      {
+        "row": 11,
+        "text": "A11:2.c | B11:Diisi dengan jumlah Wanita Usia Subur yakni Usia antara 14 tahun hingga 50 tahun pada rumah yang sedang didata kecuali ada keterangan khusus. Misalnya terjadi manopouse dini karena penyakit tertentu, dll."
+      },
+      {
+        "row": 12,
+        "text": "A12:2.d | B12:Diisi dengan jumlah anggota rumah yang sedang didata yang mengalami ‘3 Buta’ pada usia diatas 13 tahun"
+      },
+      {
+        "row": 13,
+        "text": "A13:2.e | B13:Diisi dengan jumlah ibu hamil pada rumah yang sedang didata"
+      },
+      {
+        "row": 14,
+        "text": "A14:2.f | B14:Diisi dengan jumlah ibu yang sedang menyusui bayi pada rumah yang sedang didata"
+      },
+      {
+        "row": 15,
+        "text": "A15:2.g | B15:Diisi dengan jumlah orang tua lanjut usia pada rumah yang sedang didata"
+      },
+      {
+        "row": 16,
+        "text": "A16:Tabel Matrik Anggota Keluarga | B16:Diisi berdasarkan rekapitulasi data warga (lampiran 14-1a) per rumah yang sedang didata"
+      }
+    ]
+  },
+  {
+    "idx": 7,
+    "name": "hatinya pkk",
+    "ourStats": {
+      "rowCount": 17,
+      "maxR": 17,
+      "columnCount": 4,
+      "maxC": 4,
+      "filled": 14,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 7,
+      "name": "hatinya pkk",
+      "rows": 17,
+      "cols": 4,
+      "filled": 14,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A3:D3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "D1:LAMPIRAN 4.14.2b"
+      },
+      {
+        "row": 3,
+        "text": "A3:PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK | B3:PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK | C3:PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK | D3:PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA PKK"
+      },
+      {
+        "row": 5,
+        "text": "A5:NO | B5:KATEGORI | C5:KOMODITI | D5:JUMLAH"
+      },
+      {
+        "row": 6,
+        "text": "A6:1 | B6:2 | C6:3 | D6:4"
+      }
+    ]
+  },
+  {
+    "idx": 8,
+    "name": "cara pengisian hatinya pkk",
+    "ourStats": {
+      "rowCount": 10,
+      "maxR": 10,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 13,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 8,
+      "name": "cara pengisian hatinya pkk",
+      "rows": 10,
+      "cols": 2,
+      "filled": 13,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A3:B3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.14.2b"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN PEMANFAATAN TANAH PEKARANGAN/HATINYA PKK | B3:CARA PENGISIAN PEMANFAATAN TANAH PEKARANGAN/HATINYA PKK"
+      },
+      {
+        "row": 6,
+        "text": "A6:KOLOM | B6:PENJELASAN"
+      },
+      {
+        "row": 7,
+        "text": "A7:1 | B7:Diisi dengan nomor urut pencatatan"
+      },
+      {
+        "row": 8,
+        "text": "A8:2 | B8:Diisi dengan kategori jenis pemanfaatan lahan (missal: peternakan, perikanan, warung hidup, toga, tahaman keras, dll)"
+      },
+      {
+        "row": 9,
+        "text": "A9:3 | B9:Diisi dengan komoditi yang di budidayakan (misal: kopi, ayam, lele, wortel, sawi dll)"
+      },
+      {
+        "row": 10,
+        "text": "A10:4 | B10:Jumlah komoditi yang dibudidayakan (misalnya: 100 ekor, 10 pohon, dll)"
+      }
+    ]
+  },
+  {
+    "idx": 9,
+    "name": "industri rumah tangga",
+    "ourStats": {
+      "rowCount": 16,
+      "maxR": 16,
+      "columnCount": 4,
+      "maxC": 4,
+      "filled": 14,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 9,
+      "name": "industri rumah tangga",
+      "rows": 16,
+      "cols": 4,
+      "filled": 14,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A3:D3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "D1:LAMPIRAN 4.14.2c"
+      },
+      {
+        "row": 3,
+        "text": "A3:INDUSTRI RUMAH TANGGA | B3:INDUSTRI RUMAH TANGGA | C3:INDUSTRI RUMAH TANGGA | D3:INDUSTRI RUMAH TANGGA"
+      },
+      {
+        "row": 5,
+        "text": "A5:NO | B5:KATEGORI | C5:KOMODITI | D5:Volume"
+      },
+      {
+        "row": 6,
+        "text": "A6:1 | B6:2 | C6:3 | D6:4"
+      },
+      {
+        "row": 16,
+        "text": "A16:Kategori : (pangan, sandang, konveksi, jasa, lain-lain)"
+      }
+    ]
+  },
+  {
+    "idx": 10,
+    "name": "cara pengisian industri rmh tgg",
+    "ourStats": {
+      "rowCount": 10,
+      "maxR": 10,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 13,
+      "merges": 1,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 10,
+      "name": "cara pengisian industri rmh tgg",
+      "rows": 10,
+      "cols": 2,
+      "filled": 13,
+      "merges": 1,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A3:B3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.14.2c"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN INDUSTRI RUMAH TANGGA | B3:CARA PENGISIAN INDUSTRI RUMAH TANGGA"
+      },
+      {
+        "row": 6,
+        "text": "A6:KOLOM | B6:PENJELASAN"
+      },
+      {
+        "row": 7,
+        "text": "A7:1 | B7:Diisi dengan nomor urut pencatatan"
+      },
+      {
+        "row": 8,
+        "text": "A8:2 | B8:Diisi dengan kategori jenis industri rumah tangga yang diusahakan (misal: pangan, sandang, konveksi, jasa, lain- lain)"
+      },
+      {
+        "row": 9,
+        "text": "A9:3 | B9:Diisi dengan komoditi yang di usahakan (misal: catering, beras, pakaian jadi)"
+      },
+      {
+        "row": 10,
+        "text": "A10:4 | B10:Jumlah komoditi yang dikelola (misalnya: 100 porsi, 10 ton, 10 lusin, dll)"
+      }
+    ]
+  },
+  {
+    "idx": 11,
+    "name": "catatan keluarga",
+    "ourStats": {
+      "rowCount": 42,
+      "maxR": 14,
+      "columnCount": 19,
+      "maxC": 19,
+      "filled": 93,
+      "merges": 12,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 11,
+      "name": "catatan keluarga",
+      "rows": 42,
+      "cols": 19,
+      "filled": 93,
+      "merges": 12,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "G12:G13",
+      "H12:H13",
+      "I12:I13",
+      "J12:J13",
+      "K12:R12",
+      "A3:S3",
+      "A12:A13",
+      "B12:B13",
+      "C12:C13",
+      "D12:D13",
+      "E12:E13",
+      "F12:F13"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "N1:LAMPIRAN 4.15"
+      },
+      {
+        "row": 3,
+        "text": "A3:CATATAN KELUARGA | B3:CATATAN KELUARGA | C3:CATATAN KELUARGA | D3:CATATAN KELUARGA | E3:CATATAN KELUARGA | F3:CATATAN KELUARGA | G3:CATATAN KELUARGA | H3:CATATAN KELUARGA | I3:CATATAN KELUARGA | J3:CATATAN KELUARGA"
+      },
+      {
+        "row": 7,
+        "text": "A7:CATATAN KELUARGA DARI | D7:: | M7:KRITERIA RUMAH | N7:: Layak huni/Tidak layak huni"
+      },
+      {
+        "row": 8,
+        "text": "A8:ANGGOTA KELOMPOK DASA WISMA | D8:: | M8:JAMBAN KELUARGA | N8:: Ada/Tidak | O8:jumlah : | P8:…........ | Q8:Buah"
+      },
+      {
+        "row": 9,
+        "text": "A9:TAHUN | D9:: | M9:SUMBER AIR | N9:: PDAM/Sumur/lainnya"
+      },
+      {
+        "row": 10,
+        "text": "M10:TEMPAT SAMPAH | N10:: Ada/Tidak"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NAMA ANGGOTA KELUARGA | C12:STATUS PERKAWINAN | D12:L/P | E12:TEMPAT LAHIR | F12:TGL/BL/TH LAHIR/UMUR | G12:AGAMA | H12:PENDIDIKAN | I12:PEKERJAAN | J12:BERKEBUTUHAN KHUSUS"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NAMA ANGGOTA KELUARGA | C13:STATUS PERKAWINAN | D13:L/P | E13:TEMPAT LAHIR | F13:TGL/BL/TH LAHIR/UMUR | G13:AGAMA | H13:PENDIDIKAN | I13:PEKERJAAN | J13:BERKEBUTUHAN KHUSUS"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 12,
+    "name": "cara pengisian catatan keluarga",
+    "ourStats": {
+      "rowCount": 33,
+      "maxR": 31,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 54,
+      "merges": 5,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 12,
+      "name": "cara pengisian catatan keluarga",
+      "rows": 33,
+      "cols": 2,
+      "filled": 54,
+      "merges": 5,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "B11:B12",
+      "A14:A15",
+      "A28:A29",
+      "A4:B4",
+      "A11:A12"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.15"
+      },
+      {
+        "row": 4,
+        "text": "A4:CARA PENGISIAN CATATAN KELUARGA | B4:CARA PENGISIAN CATATAN KELUARGA"
+      },
+      {
+        "row": 6,
+        "text": "A6:Tabel Catatan Keluarga, merupakan rekapitulasi dari Data Warga TP PKK (lampiran 14-1a) dan Data Kegiatan Warga (Lampiran 14-1b)."
+      },
+      {
+        "row": 7,
+        "text": "A7:KOLOM | B7:PENJELASAN"
+      },
+      {
+        "row": 8,
+        "text": "A8:Catatan Keluarga dari | B8:Di isi dengan nama Kepala Rumah Tangga pada Rumah yang di data"
+      },
+      {
+        "row": 9,
+        "text": "A9:Anggota Kelompok Dasa Wisma | B9:Di isi sesuai dengan nama dasawisma yang diikuti warga yang bersangkutan (lampiran 14-1a)"
+      },
+      {
+        "row": 10,
+        "text": "A10:1 | B10:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 11,
+        "text": "A11:2 | B11:[object Object]"
+      },
+      {
+        "row": 12,
+        "text": "A12:2 | B12:[object Object]"
+      },
+      {
+        "row": 13,
+        "text": "A13:3 | B13:[object Object]"
+      },
+      {
+        "row": 14,
+        "text": "A14:4 | B14:[object Object]"
+      },
+      {
+        "row": 15,
+        "text": "A15:4 | B15:[object Object]"
+      },
+      {
+        "row": 16,
+        "text": "A16:5 | B16:[object Object]"
+      }
+    ]
+  },
+  {
+    "idx": 13,
+    "name": "rekap cat data &keg.warga",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 29,
+      "maxC": 29,
+      "filled": 159,
+      "merges": 33,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 13,
+      "name": "rekap cat data &keg.warga",
+      "rows": 40,
+      "cols": 29,
+      "filled": 159,
+      "merges": 33,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "AC11:AC13",
+      "A4:AC4",
+      "Y11:AB11",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "T11:V11",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W11:X11",
+      "W12:W13",
+      "X12:X13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O11:S11",
+      "O12:O13",
+      "P12:P13",
+      "Q12:Q13",
+      "R12:R13",
+      "S12:S13",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:N11",
+      "D12:E12",
+      "F12:G12",
+      "H12:H13",
+      "I12:I13",
+      "J12:J13",
+      "K12:K13"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "AB1:LAMPIRAN 4.16a"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | B4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | C4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | D4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | E4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | F4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | G4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | H4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | I4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA | J4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASA WISMA"
+      },
+      {
+        "row": 6,
+        "text": "U6:DASA WISMA | W6:: | X6:…............................................"
+      },
+      {
+        "row": 7,
+        "text": "U7:RT/RW | W7:: | X7:…............................................"
+      },
+      {
+        "row": 8,
+        "text": "U8:DESA/KELURAHAN | W8:: | X8:…............................................"
+      },
+      {
+        "row": 9,
+        "text": "U9:TAHUN | W9:: | X9:…............................................"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NAMA KEPALA RUMAH TANGGA | C11:JML KK | D11:JUMLAH ANGGOTA KELUARGA | E11:JUMLAH ANGGOTA KELUARGA | F11:JUMLAH ANGGOTA KELUARGA | G11:JUMLAH ANGGOTA KELUARGA | H11:JUMLAH ANGGOTA KELUARGA | I11:JUMLAH ANGGOTA KELUARGA | J11:JUMLAH ANGGOTA KELUARGA"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NAMA KEPALA RUMAH TANGGA | C12:JML KK | D12:TOTAL | E12:TOTAL | F12:BALITA | G12:BALITA | H12:PUS | I12:WUS | J12:IBU HAMIL"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NAMA KEPALA RUMAH TANGGA | C13:JML KK | D13:L | E13:P | F13:L | G13:P | H13:PUS | I13:WUS | J13:IBU HAMIL"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 14,
+    "name": "cara pengisian rekap data & keg",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 67,
+      "merges": 7,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 14,
+      "name": "cara pengisian rekap data & keg",
+      "rows": 40,
+      "cols": 2,
+      "filled": 67,
+      "merges": 7,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A5:B5",
+      "B9:B10",
+      "A18:A19",
+      "A20:A21",
+      "A24:A25",
+      "A32:A33",
+      "A36:A37"
+    ],
+    "headers": [
+      {
+        "row": 2,
+        "text": "B2:LAMPIRAN 4.16a"
+      },
+      {
+        "row": 5,
+        "text": "A5:CARA PENGISIAN REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASAWISMA | B5:CARA PENGISIAN REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK DASAWISMA"
+      },
+      {
+        "row": 6,
+        "text": "A6:Tabel Catatan Data dan Kegiatan Warga Kelompok Dasawisma, merupakan rekapitulasi dari Data Keluarga (lampiran 14-2a,b,c) pada tingkatan Kelompok Dasawisma."
+      },
+      {
+        "row": 8,
+        "text": "A8:KOLOM | B8:PENJELASAN"
+      },
+      {
+        "row": 9,
+        "text": "A9:Dasa Wisma, RT, RW, Dusun/ Lingkungan, | B9:Diisi nama dasa wisma, RT, RW, Dusun/Lingkungan, Desa/Kelurahan dan tahun saat pendataan"
+      },
+      {
+        "row": 10,
+        "text": "A10:Desa/Kel, Tahun | B10:Diisi nama dasa wisma, RT, RW, Dusun/Lingkungan, Desa/Kelurahan dan tahun saat pendataan"
+      },
+      {
+        "row": 11,
+        "text": "A11:1 | B11:Diisi dengan nomor urut penulisan"
+      },
+      {
+        "row": 12,
+        "text": "A12:2 | B12:[object Object]"
+      },
+      {
+        "row": 13,
+        "text": "A13:3 | B13:[object Object]"
+      },
+      {
+        "row": 14,
+        "text": "B14:Diisi dengan jumlah anggota keluarga laki laki"
+      },
+      {
+        "row": 15,
+        "text": "A15:Mon May 04 2026 07:00:00 GMT+0700 (Western Indonesia Time) | B15:[object Object]"
+      },
+      {
+        "row": 16,
+        "text": "B16:Diisi dengan jumlah balita laki laki maupun perempuan yang ada dalam rumah tersebut."
+      }
+    ]
+  },
+  {
+    "idx": 15,
+    "name": "rekap cat data &keg.warga rt",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 30,
+      "maxC": 30,
+      "filled": 164,
+      "merges": 34,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 15,
+      "name": "rekap cat data &keg.warga rt",
+      "rows": 40,
+      "cols": 30,
+      "filled": 164,
+      "merges": 34,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "C11:C13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "X12:X13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:P13",
+      "Q12:Q13",
+      "R12:R13",
+      "E12:F12",
+      "G12:H12",
+      "I12:I13",
+      "J12:J13",
+      "K12:K13",
+      "L12:L13",
+      "A4:AD4",
+      "A11:A13",
+      "B11:B13",
+      "D11:D13",
+      "E11:O11",
+      "P11:T11",
+      "U11:W11",
+      "X11:Y11",
+      "Z11:AC11",
+      "AD11:AD13"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "AC1:LAMPIRAN 4.16a"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | B4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | C4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | D4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | E4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | F4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | G4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | H4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | I4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | J4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT"
+      },
+      {
+        "row": 6,
+        "text": "V6:DASA WISMA | X6:: | Y6:…............................................"
+      },
+      {
+        "row": 7,
+        "text": "V7:RT/RW | X7:: | Y7:…............................................"
+      },
+      {
+        "row": 8,
+        "text": "V8:DESA/KELURAHAN | X8:: | Y8:…............................................"
+      },
+      {
+        "row": 9,
+        "text": "V9:TAHUN | X9:: | Y9:…............................................"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NAMA DASA WISMA | C11:JML KRT | D11:JML KK | E11:JUMLAH ANGGOTA KELUARGA | F11:JUMLAH ANGGOTA KELUARGA | G11:JUMLAH ANGGOTA KELUARGA | H11:JUMLAH ANGGOTA KELUARGA | I11:JUMLAH ANGGOTA KELUARGA | J11:JUMLAH ANGGOTA KELUARGA"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NAMA DASA WISMA | C12:JML KRT | D12:JML KK | E12:TOTAL | F12:TOTAL | G12:BALITA | H12:BALITA | I12:PUS | J12:WUS"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NAMA DASA WISMA | C13:JML KRT | D13:JML KK | E13:L | F13:P | G13:L | H13:P | I13:PUS | J13:WUS"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 16,
+    "name": "cara pengisian rekap rt",
+    "ourStats": {
+      "rowCount": 18,
+      "maxR": 18,
+      "columnCount": 15,
+      "maxC": 2,
+      "filled": 26,
+      "merges": 5,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 16,
+      "name": "cara pengisian rekap rt",
+      "rows": 18,
+      "cols": 15,
+      "filled": 26,
+      "merges": 5,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A12:A13",
+      "B14:B15",
+      "A3:B3",
+      "A4:B4",
+      "A14:A15"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.16b"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN | B3:CARA PENGISIAN"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT | B4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RT"
+      },
+      {
+        "row": 6,
+        "text": "A6:Tabel Catatan Data dan Kegiatan Warga Kelompok PKK RT, merupakan rekapitulasi dari Tabel Catatan Data dan Kegiatan Warga Kelompok Dasawisma (Lampiran 4.16a)"
+      },
+      {
+        "row": 8,
+        "text": "A8:KOLOM | B8:PENJELASAN"
+      },
+      {
+        "row": 9,
+        "text": "A9:RT, RW, Dusun/Lingkungan, Desa/Kel, Tahun | B9:Diisi nama RT, RW, Dusun/Lingkungan, Desa/Kelurahan dan Tahun saat pendataan"
+      },
+      {
+        "row": 10,
+        "text": "A10:1 | B10:Diisi dengan nomor urut penulisan."
+      },
+      {
+        "row": 11,
+        "text": "A11:2 | B11:Diisi nama-nama kelompok Dasawisma yang ada dalam Kelompok PKK RT."
+      },
+      {
+        "row": 12,
+        "text": "A12:3 | B12:Diisi jumlah Kepala Rumah Tangga (KRT) dari masing-masing kelompok Dasawisma dalam lingkungan"
+      },
+      {
+        "row": 13,
+        "text": "A13:3 | B13:Kelompok PKK RT yang bersangkutan."
+      },
+      {
+        "row": 14,
+        "text": "A14:4–29 | B14:Diisi dengan total jumlah catatan data dan kegiatan warga masing-masing kelompok Dasawisma yang terdapat di Kelompok PKK RT yang bersangkutan."
+      },
+      {
+        "row": 15,
+        "text": "A15:4–29 | B15:Diisi dengan total jumlah catatan data dan kegiatan warga masing-masing kelompok Dasawisma yang terdapat di Kelompok PKK RT yang bersangkutan."
+      },
+      {
+        "row": 16,
+        "text": "A16:30 | B16:Diisi dengan hal-hal yang belum tercantum dalam kolom-kolom lainnya."
+      }
+    ]
+  },
+  {
+    "idx": 17,
+    "name": "rekap cat data &keg.warga rw",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 32,
+      "maxC": 32,
+      "filled": 174,
+      "merges": 35,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 17,
+      "name": "rekap cat data &keg.warga rw",
+      "rows": 40,
+      "cols": 32,
+      "filled": 174,
+      "merges": 35,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "B11:B13",
+      "O12:P12",
+      "X12:X13",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "AF11:AF13",
+      "F12:G12",
+      "H12:I12",
+      "J12:J13",
+      "K12:K13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "Q12:Q13",
+      "A4:AF4",
+      "A11:A13",
+      "C11:C13",
+      "D11:D13",
+      "E11:E13",
+      "F11:Q11",
+      "R11:V11",
+      "W11:Y11",
+      "Z11:AA11",
+      "AB11:AE11"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "AE1:LAMPIRAN 4.16c"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | B4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | C4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | D4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | E4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | F4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | G4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | H4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | I4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | J4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW"
+      },
+      {
+        "row": 6,
+        "text": "X6:DASA WISMA | Z6:: | AA6:…............................................"
+      },
+      {
+        "row": 7,
+        "text": "X7:RT/RW | Z7:: | AA7:…............................................"
+      },
+      {
+        "row": 8,
+        "text": "X8:DESA/KELURAHAN | Z8:: | AA8:…............................................"
+      },
+      {
+        "row": 9,
+        "text": "X9:TAHUN | Z9:: | AA9:…............................................"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NO RT | C11:JML DASA WISMA | D11:JML KRT | E11:JML KK | F11:JUMLAH ANGGOTA KELUARGA | G11:JUMLAH ANGGOTA KELUARGA | H11:JUMLAH ANGGOTA KELUARGA | I11:JUMLAH ANGGOTA KELUARGA | J11:JUMLAH ANGGOTA KELUARGA"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NO RT | C12:JML DASA WISMA | D12:JML KRT | E12:JML KK | F12:TOTAL | G12:TOTAL | H12:BALITA | I12:BALITA | J12:PUS"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NO RT | C13:JML DASA WISMA | D13:JML KRT | E13:JML KK | F13:L | G13:P | H13:L | I13:P | J13:PUS"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 18,
+    "name": "cara pengisian rekap rw",
+    "ourStats": {
+      "rowCount": 18,
+      "maxR": 18,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 23,
+      "merges": 3,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 18,
+      "name": "cara pengisian rekap rw",
+      "rows": 18,
+      "cols": 2,
+      "filled": 23,
+      "merges": 3,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A4:B4",
+      "A5:B5",
+      "A7:B7"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.16c"
+      },
+      {
+        "row": 4,
+        "text": "A4:CARA PENGISIAN | B4:CARA PENGISIAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW | B5:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK RW"
+      },
+      {
+        "row": 7,
+        "text": "A7:Tabel Catatan Data dan Kegiatan Warga Kelompok PKK RW, merupakan rekapitulasi dari Tabel Catatan Data dan Kegiatan Warga Kelompok PKK RT (Lampiran IV-16b) | B7:Tabel Catatan Data dan Kegiatan Warga Kelompok PKK RW, merupakan rekapitulasi dari Tabel Catatan Data dan Kegiatan Warga Kelompok PKK RT (Lampiran IV-16b)"
+      },
+      {
+        "row": 9,
+        "text": "A9:Kolom | B9:Penjelasan"
+      },
+      {
+        "row": 10,
+        "text": "A10:RW, Dusun/ Lingkungan, Desa/ Kel, Tahun | B10:Di isi nama RW, Dusun/Lingkungan, Desa/Kelurahan dan Tahun saat pendataan"
+      },
+      {
+        "row": 11,
+        "text": "A11:1 | B11:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 12,
+        "text": "A12:2 | B12:Di isi Nama nama/Nomor Kelompok PKK RT yang ada dalam Kelompok PKK RW"
+      },
+      {
+        "row": 13,
+        "text": "A13:3 | B13:Di isi jumlah Dasawisma dari masing masing Kelompok PKK RT dalam lingkungan Kelompok PKK RW yang bersangkutan."
+      },
+      {
+        "row": 14,
+        "text": "A14:4 – 31 | B14:Di isi dengan total jumlah catatan data dan kegiatan warga masing masing Kelompok PKK RT yang terdapat di Kelompok PKK RW yang bersangkutan."
+      },
+      {
+        "row": 15,
+        "text": "A15:32 | B15:Diisi dengan hal-hal yang belum tercantum dalam kolom- kolom lainnya."
+      }
+    ]
+  },
+  {
+    "idx": 19,
+    "name": "rekap cat data &keg.warga dsn",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 33,
+      "maxC": 33,
+      "filled": 179,
+      "merges": 36,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 19,
+      "name": "rekap cat data &keg.warga dsn",
+      "rows": 40,
+      "cols": 33,
+      "filled": 179,
+      "merges": 36,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "AF12:AF13",
+      "E11:E13",
+      "X12:X13",
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "V12:V13",
+      "W12:W13",
+      "AC11:AF11",
+      "AG11:AG13",
+      "G12:H12",
+      "I12:J12",
+      "K12:K13",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:Q12",
+      "A4:AG4",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:D13",
+      "F11:F13",
+      "G11:R11",
+      "S11:W11",
+      "X11:Z11",
+      "AA11:AB11"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "AF1:LAMPIRAN 4.16d"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | B4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | C4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | D4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | E4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | F4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | G4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | H4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | I4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN | J4:REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA KELOMPOK PKK DUSUN /LINGKUNGAN"
+      },
+      {
+        "row": 6,
+        "text": "Y6:DASA WISMA | AA6:: | AB6:…............................................"
+      },
+      {
+        "row": 7,
+        "text": "Y7:RT/RW | AA7:: | AB7:…............................................"
+      },
+      {
+        "row": 8,
+        "text": "Y8:DESA/KELURAHAN | AA8:: | AB8:…............................................"
+      },
+      {
+        "row": 9,
+        "text": "Y9:TAHUN | AA9:: | AB9:…............................................"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NO RW | C11:JMH RT | D11:JMH DASA WISMA | E11:JMH KRT | F11:JMH KK | G11:JUMLAH ANGGOTA KELUARGA | H11:JUMLAH ANGGOTA KELUARGA | I11:JUMLAH ANGGOTA KELUARGA | J11:JUMLAH ANGGOTA KELUARGA"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NO RW | C12:JMH RT | D12:JMH DASA WISMA | E12:JMH KRT | F12:JMH KK | G12:TOTAL | H12:TOTAL | I12:BALITA | J12:BALITA"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NO RW | C13:JMH RT | D13:JMH DASA WISMA | E13:JMH KRT | F13:JMH KK | G13:L | H13:P | I13:L | J13:P"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 20,
+    "name": "rekap cat data &keg.warga desa",
+    "ourStats": {
+      "rowCount": 40,
+      "maxR": 40,
+      "columnCount": 33,
+      "maxC": 33,
+      "filled": 244,
+      "merges": 39,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 20,
+      "name": "rekap cat data &keg.warga desa",
+      "rows": 40,
+      "cols": 33,
+      "filled": 244,
+      "merges": 39,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A2:AG2",
+      "A3:AG3",
+      "AC12:AC13",
+      "AD12:AD13",
+      "AE12:AE13",
+      "AF12:AF13",
+      "F11:F13",
+      "Q12:Q13",
+      "X12:X13",
+      "Z11:Z13",
+      "V12:V13",
+      "W12:W13",
+      "Y12:Y13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "R12:R13",
+      "S12:S13",
+      "T12:T13",
+      "U12:U13",
+      "AA11:AB11",
+      "AC11:AF11",
+      "AG11:AG13",
+      "H12:I12",
+      "J12:K12",
+      "L12:L13",
+      "M12:M13",
+      "N12:N13",
+      "O12:O13",
+      "P12:P13",
+      "A4:AG4",
+      "A11:A13",
+      "B11:B13",
+      "C11:C13",
+      "D11:D13",
+      "E11:E13",
+      "G11:G13",
+      "H11:Q11",
+      "R11:U11",
+      "V11:Y11"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "AF1:LAMPIRAN 4.17a"
+      },
+      {
+        "row": 2,
+        "text": "A2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | B2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | C2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | D2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | E2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | F2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | G2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | H2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | I2:CATATAN DATA DAN KEGIATAN WARGA TP PKK | J2:CATATAN DATA DAN KEGIATAN WARGA TP PKK"
+      },
+      {
+        "row": 3,
+        "text": "A3:DESA/KELURAHAN TAHUN .......... | B3:DESA/KELURAHAN TAHUN .......... | C3:DESA/KELURAHAN TAHUN .......... | D3:DESA/KELURAHAN TAHUN .......... | E3:DESA/KELURAHAN TAHUN .......... | F3:DESA/KELURAHAN TAHUN .......... | G3:DESA/KELURAHAN TAHUN .......... | H3:DESA/KELURAHAN TAHUN .......... | I3:DESA/KELURAHAN TAHUN .......... | J3:DESA/KELURAHAN TAHUN .........."
+      },
+      {
+        "row": 4,
+        "text": "B4:null | C4:null | D4:null | E4:null | F4:null | G4:null | H4:null | I4:null | J4:null | K4:null"
+      },
+      {
+        "row": 5,
+        "text": "A5:TP PKK DESA/KEL | C5:: | D5:…......................................"
+      },
+      {
+        "row": 6,
+        "text": "A6:KECAMATAN | C6:: | D6:…......................................"
+      },
+      {
+        "row": 7,
+        "text": "A7:KAB/KOTA | C7:: | D7:…......................................"
+      },
+      {
+        "row": 8,
+        "text": "A8:PROVINSI | C8:: | D8:…......................................"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NAMA DUSUN /LINGKUNGAN | C11:JMH RW | D11:JMH RT | E11:JMH DASA WISMA | F11:JMH KRT | G11:JMH KK | H11:JUMLAH ANGGOTA KELUARGA | I11:JUMLAH ANGGOTA KELUARGA | J11:JUMLAH ANGGOTA KELUARGA"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NAMA DUSUN /LINGKUNGAN | C12:JMH RW | D12:JMH RT | E12:JMH DASA WISMA | F12:JMH KRT | G12:JMH KK | H12:TOTAL | I12:TOTAL | J12:BALITA"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NAMA DUSUN /LINGKUNGAN | C13:JMH RW | D13:JMH RT | E13:JMH DASA WISMA | F13:JMH KRT | G13:JMH KK | H13:L | I13:P | J13:L"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 21,
+    "name": "cara pengisian rekap desa",
+    "ourStats": {
+      "rowCount": 15,
+      "maxR": 15,
+      "columnCount": 6,
+      "maxC": 6,
+      "filled": 26,
+      "merges": 2,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 21,
+      "name": "cara pengisian rekap desa",
+      "rows": 15,
+      "cols": 6,
+      "filled": 26,
+      "merges": 2,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "C5:C13",
+      "A7:A8"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "F1:LAMPIRAN 4.17a"
+      },
+      {
+        "row": 3,
+        "text": "A3:Tabel Catatan Data dan Kegiatan Warga TP PKK Desa/Kelurahan, merupakan rekapitulasi dari Tabel Catatan Data dan Kegiatan Warga Kelompok PKK Dusun/Lingkungan (Lampiran 4.16d)"
+      },
+      {
+        "row": 6,
+        "text": "A6:Kolom | B6:Penjelasan | C6:null"
+      },
+      {
+        "row": 7,
+        "text": "A7:Desa/Kel, Kec, Kab/Kota,Prov, Tahun | C7:null"
+      },
+      {
+        "row": 8,
+        "text": "A8:Desa/Kel, Kec, Kab/Kota,Prov, Tahun | B8:Di isi nama Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi dan Tahun saat pendataan | C8:null"
+      },
+      {
+        "row": 9,
+        "text": "A9:1 | B9:Di isi dengan nomor urut penulisan | C9:null"
+      },
+      {
+        "row": 10,
+        "text": "A10:2 | B10:Di isi Nama nama/Nomor kelompok Kelompok PKK Dusun/Lingkungan yang ada pada wilayah Desa/Kelurahan tersebut | C10:null"
+      },
+      {
+        "row": 11,
+        "text": "A11:3 | B11:Di isi jumlah Kelompok PKK RW dari masing masing kelompok PKK Dusun/Lingkungan dalam lingkungan TP PKK Desa/Kelurahan tersebut. | C11:null"
+      },
+      {
+        "row": 12,
+        "text": "A12:4 – 32 | B12:Diisi dengan total jumlah catatan data dan kegiatan warga masing masing kelompok Dusun/Lingkungan yang terdapat di Desa/Kelurahan yang bersangkutan. | C12:null"
+      },
+      {
+        "row": 13,
+        "text": "A13:33 | B13:Di isi dengan hal hal yang belum tercantum dalam kolom kolom lainnya. | C13:null"
+      },
+      {
+        "row": 15,
+        "text": "A15:Catatan : Apabila ada perubahan data, maka dilaporkan kepada TP PKK satu tingkat diatasnya pada saat pertemuan atau sesuai dengan jadwal pelaporan yang telah ditetapkan."
+      }
+    ]
+  },
+  {
+    "idx": 22,
+    "name": "rekap bumil",
+    "ourStats": {
+      "rowCount": 42,
+      "maxR": 41,
+      "columnCount": 17,
+      "maxC": 17,
+      "filled": 171,
+      "merges": 21,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 22,
+      "name": "rekap bumil",
+      "rows": 42,
+      "cols": 17,
+      "filled": 171,
+      "merges": 21,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A32:B32",
+      "A4:Q4",
+      "A5:Q5",
+      "A6:Q6",
+      "A30:B30",
+      "K19:Q19",
+      "K20:K21",
+      "L20:L21",
+      "M20:N20",
+      "O20:O21",
+      "P20:P21",
+      "Q20:Q21",
+      "A19:A21",
+      "B19:B21",
+      "C19:C21",
+      "D19:D21",
+      "E19:J19",
+      "E20:E21",
+      "F20:G20",
+      "H20:H21",
+      "I20:J20"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "O1:LAMPIRAN 4.18a"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA/BUKU CATATAN | B4:REKAPITULASI DATA/BUKU CATATAN | C4:REKAPITULASI DATA/BUKU CATATAN | D4:REKAPITULASI DATA/BUKU CATATAN | E4:REKAPITULASI DATA/BUKU CATATAN | F4:REKAPITULASI DATA/BUKU CATATAN | G4:REKAPITULASI DATA/BUKU CATATAN | H4:REKAPITULASI DATA/BUKU CATATAN | I4:REKAPITULASI DATA/BUKU CATATAN | J4:REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | C5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | D5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | E5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | F5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | G5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | H5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | I5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | J5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | B6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | C6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | D6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | E6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | F6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | G6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | H6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | I6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA | J6:KEMATIAN BALITA DALAM KELOMPOK DASAWISMA"
+      },
+      {
+        "row": 9,
+        "text": "D9:KELOMPOK DASAWISMA | E9:: | F9:…..................................."
+      },
+      {
+        "row": 10,
+        "text": "D10:KELOMPOK PKK RT | E10:: ..................................... | F10:…..................................."
+      },
+      {
+        "row": 11,
+        "text": "D11:KELOMPOK PKK RW | E11:: ..................................... | F11:…..................................."
+      },
+      {
+        "row": 12,
+        "text": "D12:DUSUN/LINGKUNGAN | E12:: ..................................... | F12:…..................................."
+      },
+      {
+        "row": 13,
+        "text": "D13:DESA/KELURAHAN | E13:: ..................................... | F13:…..................................."
+      },
+      {
+        "row": 15,
+        "text": "A15:BULAN | B15:: ..................................."
+      },
+      {
+        "row": 16,
+        "text": "A16:TAHUN | B16:: ..................................."
+      }
+    ]
+  },
+  {
+    "idx": 23,
+    "name": "cara pengisian rekap bumil",
+    "ourStats": {
+      "rowCount": 24,
+      "maxR": 24,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 41,
+      "merges": 3,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 23,
+      "name": "cara pengisian rekap bumil",
+      "rows": 24,
+      "cols": 2,
+      "filled": 41,
+      "merges": 3,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "B7:B8",
+      "A3:B3",
+      "A4:B4"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.18a"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN BUKU CATATAN | B3:CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "row": 4,
+        "text": "A4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA, DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS DALAM KELOMPOK DASAWISMA | B4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA, DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS DALAM KELOMPOK DASAWISMA"
+      },
+      {
+        "row": 6,
+        "text": "A6:KOLOM | B6:PENJELASAN"
+      },
+      {
+        "row": 7,
+        "text": "A7:Dasa wisma, RT, RW. Dusun/ | B7:Diisi nama sesuai dengan Dasawisma, RT, RW, Dusun/ Lingkungan, Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi, Bulan, Tahun saat Pendataan"
+      },
+      {
+        "row": 8,
+        "text": "A8:Lingkungan, Desa/Kel, Bulan, Tahun | B8:Diisi nama sesuai dengan Dasawisma, RT, RW, Dusun/ Lingkungan, Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi, Bulan, Tahun saat Pendataan"
+      },
+      {
+        "row": 9,
+        "text": "A9:1 | B9:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 10,
+        "text": "A10:2 | B10:Di isi dengan nama ibu hamil, melahirkan dan nifas"
+      },
+      {
+        "row": 11,
+        "text": "A11:3 | B11:Di isi dengan nama suami/ayah si bayi"
+      },
+      {
+        "row": 12,
+        "text": "A12:4 | B12:Di isi dengan status (hamil, melahirkan atau nifas)"
+      },
+      {
+        "row": 13,
+        "text": "A13:5 | B13:Di isi dengan nama bayi yang dilahirkan"
+      },
+      {
+        "row": 14,
+        "text": "A14:Mon Jul 06 2026 07:00:00 GMT+0700 (Western Indonesia Time) | B14:Di isi dengan jenis kelamin bayi yang lahir"
+      },
+      {
+        "row": 15,
+        "text": "A15:8 | B15:Di isi dengan tanggal, bulan, tahun lahirnya bayi"
+      },
+      {
+        "row": 16,
+        "text": "A16:Fri Oct 09 2026 07:00:00 GMT+0700 (Western Indonesia Time) | B16:Di isi dengan apakah bayi sudah mempunyai akte kelahiran atau belum"
+      }
+    ]
+  },
+  {
+    "idx": 24,
+    "name": "rekap bumil rt",
+    "ourStats": {
+      "rowCount": 41,
+      "maxR": 32,
+      "columnCount": 15,
+      "maxC": 15,
+      "filled": 130,
+      "merges": 18,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 24,
+      "name": "rekap bumil rt",
+      "rows": 41,
+      "cols": 15,
+      "filled": 130,
+      "merges": 18,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "M19:N20",
+      "O19:O21",
+      "A30:B30",
+      "A9:B9",
+      "A10:B10",
+      "A11:B11",
+      "A12:B12",
+      "A13:B13",
+      "I20:J20",
+      "C19:F20",
+      "G19:L19",
+      "K20:L20",
+      "G20:H20",
+      "A4:O4",
+      "A5:O5",
+      "A6:O6",
+      "A19:A21",
+      "B19:B21"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "O1:LAMPIRAN 4.18b"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA/BUKU CATATAN | B4:REKAPITULASI DATA/BUKU CATATAN | C4:REKAPITULASI DATA/BUKU CATATAN | D4:REKAPITULASI DATA/BUKU CATATAN | E4:REKAPITULASI DATA/BUKU CATATAN | F4:REKAPITULASI DATA/BUKU CATATAN | G4:REKAPITULASI DATA/BUKU CATATAN | H4:REKAPITULASI DATA/BUKU CATATAN | I4:REKAPITULASI DATA/BUKU CATATAN | J4:REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | C5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | D5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | E5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | F5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | G5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | H5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | I5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | J5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | B6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | C6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | D6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | E6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | F6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | G6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | H6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | I6:KEMATIAN BALITA DALAM KELOMPOK PKK RT | J6:KEMATIAN BALITA DALAM KELOMPOK PKK RT"
+      },
+      {
+        "row": 8,
+        "text": "L8:BULAN | M8:: | N8:…............................"
+      },
+      {
+        "row": 9,
+        "text": "A9:RT/RW/DSN/LING | B9:RT/RW/DSN/LING | C9:: …............................................. | L9:TAHUN | M9:: | N9:…................."
+      },
+      {
+        "row": 10,
+        "text": "A10:DESA/KELURAHAN | B10:DESA/KELURAHAN | C10:: …............................................."
+      },
+      {
+        "row": 11,
+        "text": "A11:KECAMATAN | B11:KECAMATAN | C11:: …............................................."
+      },
+      {
+        "row": 12,
+        "text": "A12:KAB / KOTA | B12:KAB / KOTA | C12:: …............................................."
+      },
+      {
+        "row": 13,
+        "text": "A13:PROVINSI | B13:PROVINSI | C13:: …............................................."
+      }
+    ]
+  },
+  {
+    "idx": 25,
+    "name": "cara pengisian rekap bumil rt",
+    "ourStats": {
+      "rowCount": 21,
+      "maxR": 21,
+      "columnCount": 2,
+      "maxC": 2,
+      "filled": 28,
+      "merges": 2,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 25,
+      "name": "cara pengisian rekap bumil rt",
+      "rows": 21,
+      "cols": 2,
+      "filled": 28,
+      "merges": 2,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A4:B4",
+      "A5:B5"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "B1:LAMPIRAN 4.18b"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA/BUKU CATATAN | B4:REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN KEMATIAN BALITA DALAM KELOMPOK PKK RT | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN KEMATIAN BALITA DALAM KELOMPOK PKK RT"
+      },
+      {
+        "row": 7,
+        "text": "A7:Penjelasan:"
+      },
+      {
+        "row": 8,
+        "text": "A8:[object Object]"
+      },
+      {
+        "row": 10,
+        "text": "A10:KOLOM | B10:PENJELASAN"
+      },
+      {
+        "row": 11,
+        "text": "A11:RT,RW, Dusun/Lingkungan, Desa/Kelurahan, Bulan, Tahun | B11:Di isi nama sesuai dengan RT, RW, Dusun/Lingkungan, Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi, Bulan dan Tahun saat Pendataan"
+      },
+      {
+        "row": 12,
+        "text": "A12:1 | B12:Diisi dengan nomor urut penulisan"
+      },
+      {
+        "row": 13,
+        "text": "A13:2 | B13:Diisi dengan nama kelompok kelompok Dasawisma dalam wilayah RT tersebut"
+      },
+      {
+        "row": 14,
+        "text": "A14:3 – 6 | B14:Diisi dengan jumlah ibu hamil, melahirkan, nifas dan meninggal dari setiap kelompok Dasawisma"
+      },
+      {
+        "row": 15,
+        "text": "A15:7 – 8 | B15:Diisi jumlah bayi yang baru lahir sesuai jenis kelaminnya"
+      },
+      {
+        "row": 16,
+        "text": "A16:9 – 10 | B16:Diisi dengan jumlah bayi yang sudah atau belum mempunyai akte kelahiran"
+      }
+    ]
+  },
+  {
+    "idx": 26,
+    "name": "rekap bumil rw",
+    "ourStats": {
+      "rowCount": 32,
+      "maxR": 23,
+      "columnCount": 16,
+      "maxC": 16,
+      "filled": 120,
+      "merges": 15,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 26,
+      "name": "rekap bumil rw",
+      "rows": 32,
+      "cols": 16,
+      "filled": 120,
+      "merges": 15,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A22:B22",
+      "N11:O12",
+      "P11:P13",
+      "H12:I12",
+      "J12:K12",
+      "L12:M12",
+      "B11:B13",
+      "A9:C9",
+      "A11:A13",
+      "C11:C13",
+      "D11:G12",
+      "H11:M11",
+      "A4:P4",
+      "A5:P5",
+      "A6:P6"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "P1:LAMPIRAN 4.18c"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA/BUKU CATATAN | B4:REKAPITULASI DATA/BUKU CATATAN | C4:REKAPITULASI DATA/BUKU CATATAN | D4:REKAPITULASI DATA/BUKU CATATAN | E4:REKAPITULASI DATA/BUKU CATATAN | F4:REKAPITULASI DATA/BUKU CATATAN | G4:REKAPITULASI DATA/BUKU CATATAN | H4:REKAPITULASI DATA/BUKU CATATAN | I4:REKAPITULASI DATA/BUKU CATATAN | J4:REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | C5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | D5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | E5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | F5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | G5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | H5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | I5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | J5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | B6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | C6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | D6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | E6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | F6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | G6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | H6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | I6:KEMATIAN BALITA DALAM KELOMPOK PKK RW | J6:KEMATIAN BALITA DALAM KELOMPOK PKK RW"
+      },
+      {
+        "row": 9,
+        "text": "A9:PROVINSI | B9:PROVINSI | C9:PROVINSI | D9:: …............................................."
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NOMOR RT | C11:JMH DASA WISMA | D11:JUMLAH IBU | E11:JUMLAH IBU | F11:JUMLAH IBU | G11:JUMLAH IBU | H11:JUMLAH BAYI | I11:JUMLAH BAYI | J11:JUMLAH BAYI"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NOMOR RT | C12:JMH DASA WISMA | D12:JUMLAH IBU | E12:JUMLAH IBU | F12:JUMLAH IBU | G12:JUMLAH IBU | H12:LAHIR | I12:LAHIR | J12:AKTE KELAHIRAN"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NOMOR RT | C13:JMH DASA WISMA | D13:HAMIL | E13:MELAHIRKAN | F13:NIFAS | G13:MENINGGAL | H13:L | I13:P | J13:ADA"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 27,
+    "name": "cara pengisian rekap bumil rw",
+    "ourStats": {
+      "rowCount": 21,
+      "maxR": 21,
+      "columnCount": 6,
+      "maxC": 6,
+      "filled": 27,
+      "merges": 2,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 27,
+      "name": "cara pengisian rekap bumil rw",
+      "rows": 21,
+      "cols": 6,
+      "filled": 27,
+      "merges": 2,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A16:A17",
+      "A4:E4"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "F1:LAMPIRAN 4.18c"
+      },
+      {
+        "row": 4,
+        "text": "A4:CARA PENGISIAN BUKU CATATAN | B4:CARA PENGISIAN BUKU CATATAN | C4:CARA PENGISIAN BUKU CATATAN | D4:CARA PENGISIAN BUKU CATATAN | E4:CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS DALAM KELOMPOK PKK RW"
+      },
+      {
+        "row": 8,
+        "text": "A8:[object Object]"
+      },
+      {
+        "row": 10,
+        "text": "A10:Kolom | B10:Penjelasan"
+      },
+      {
+        "row": 11,
+        "text": "A11:RW, Dusun/Lingkungan, Desa/Kel., | B11:Di isi nama sesuai dengan RW, Dusun/Lingkungan, Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi,"
+      },
+      {
+        "row": 12,
+        "text": "A12:Bulan, Tahun | B12:Bulan dan Tahun saat pendataan"
+      },
+      {
+        "row": 13,
+        "text": "A13:1 | B13:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 14,
+        "text": "A14:2 | B14:Diisi nomor RT yang ada dalam wilayah RW tersebut"
+      },
+      {
+        "row": 15,
+        "text": "A15:3 | B15:Di isi dengan jumlah Kelompok Dasawisma yang ada dalam wilayah RT tersebut"
+      },
+      {
+        "row": 16,
+        "text": "A16:4 – 15 | B16:Diisi dengan jumlah data yang diambil dari penjumlahan yang ada pada buku catatan ibu hamil, kelahiran,"
+      }
+    ]
+  },
+  {
+    "idx": 28,
+    "name": "rekap bumil dsn",
+    "ourStats": {
+      "rowCount": 32,
+      "maxR": 23,
+      "columnCount": 17,
+      "maxC": 17,
+      "filled": 126,
+      "merges": 15,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 28,
+      "name": "rekap bumil dsn",
+      "rows": 32,
+      "cols": 17,
+      "filled": 126,
+      "merges": 15,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "Q11:Q13",
+      "I12:J12",
+      "K12:L12",
+      "M12:N12",
+      "A22:B22",
+      "C11:D12",
+      "A4:Q4",
+      "A5:Q5",
+      "A6:Q6",
+      "A9:D9",
+      "A11:A13",
+      "B11:B13",
+      "E11:H12",
+      "I11:N11",
+      "O11:P12"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "Q1:LAMPIRAN 4.18d"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA/BUKU CATATAN | B4:REKAPITULASI DATA/BUKU CATATAN | C4:REKAPITULASI DATA/BUKU CATATAN | D4:REKAPITULASI DATA/BUKU CATATAN | E4:REKAPITULASI DATA/BUKU CATATAN | F4:REKAPITULASI DATA/BUKU CATATAN | G4:REKAPITULASI DATA/BUKU CATATAN | H4:REKAPITULASI DATA/BUKU CATATAN | I4:REKAPITULASI DATA/BUKU CATATAN | J4:REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | C5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | D5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | E5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | F5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | G5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | H5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | I5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | J5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | B6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | C6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | D6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | E6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | F6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | G6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | H6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | I6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN | J6:KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN /LINGKUNGAN"
+      },
+      {
+        "row": 9,
+        "text": "B9:null | C9:null | D9:null"
+      },
+      {
+        "row": 11,
+        "text": "A11:NO | B11:NOMOR RW | C11:JUMLAH | D11:JUMLAH | E11:JUMLAH IBU | F11:JUMLAH IBU | G11:JUMLAH IBU | H11:JUMLAH IBU | I11:JUMLAH BAYI | J11:JUMLAH BAYI"
+      },
+      {
+        "row": 12,
+        "text": "A12:NO | B12:NOMOR RW | C12:JUMLAH | D12:JUMLAH | E12:JUMLAH IBU | F12:JUMLAH IBU | G12:JUMLAH IBU | H12:JUMLAH IBU | I12:LAHIR | J12:LAHIR"
+      },
+      {
+        "row": 13,
+        "text": "A13:NO | B13:NOMOR RW | C13:RT | D13:DASA WISMA | E13:HAMIL | F13:MELAHIRKAN | G13:NIFAS | H13:MENINGGAL | I13:L | J13:P"
+      },
+      {
+        "row": 14,
+        "text": "A14:1 | B14:2 | C14:3 | D14:4 | E14:5 | F14:6 | G14:7 | H14:8 | I14:9 | J14:10"
+      }
+    ]
+  },
+  {
+    "idx": 29,
+    "name": "cara pengisian rekap bumil dsn",
+    "ourStats": {
+      "rowCount": 17,
+      "maxR": 17,
+      "columnCount": 4,
+      "maxC": 4,
+      "filled": 24,
+      "merges": 2,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 29,
+      "name": "cara pengisian rekap bumil dsn",
+      "rows": 17,
+      "cols": 4,
+      "filled": 24,
+      "merges": 2,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A12:A13",
+      "A3:D3"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "D1:LAMPIRAN 4.18d"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN BUKU CATATAN | B3:CARA PENGISIAN BUKU CATATAN | C3:CARA PENGISIAN BUKU CATATAN | D3:CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "row": 4,
+        "text": "A4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS DALAM KELOMPOK PKK DUSUN/LINGKUNGAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:[object Object]"
+      },
+      {
+        "row": 7,
+        "text": "A7:Kolom | B7:Penjelasan"
+      },
+      {
+        "row": 8,
+        "text": "A8:Dusun/Lingkungan, Desa/Kel., Bulan, Tahun | B8:Di isi nama sesuai dengan Dusun/Lingkungan, Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi, Bulan dan Tahun saat pendataan"
+      },
+      {
+        "row": 9,
+        "text": "A9:1 | B9:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 10,
+        "text": "A10:2 | B10:Diisi dengan nomor RW yang ada dalam Dusun/Lingkungan"
+      },
+      {
+        "row": 11,
+        "text": "A11:3 | B11:Di isi dengan jumlah Kelompok PKK RT yang ada dilingkungan RW tersebut"
+      },
+      {
+        "row": 12,
+        "text": "A12:4 – 16 | B12:Diisi dengan jumlah data yang diambil dari penjumlahan yang ada pada buku catatan ibu hamil, kelahiran, kematian bayi,"
+      },
+      {
+        "row": 13,
+        "text": "A13:4 – 16 | B13:kematian balita dan kematian ibu hamil, melahirkan dan nifas di Kelompok PKK RW tersebut"
+      },
+      {
+        "row": 14,
+        "text": "A14:17 | B14:Di isi dengan hal-hal yang belum tercantum dalam kolom-kolom lainnya."
+      }
+    ]
+  },
+  {
+    "idx": 30,
+    "name": "rekap bumil desakelurahan",
+    "ourStats": {
+      "rowCount": 37,
+      "maxR": 28,
+      "columnCount": 18,
+      "maxC": 18,
+      "filled": 148,
+      "merges": 14,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 30,
+      "name": "rekap bumil desakelurahan",
+      "rows": 37,
+      "cols": 18,
+      "filled": 148,
+      "merges": 14,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "R16:R18",
+      "J17:K17",
+      "L17:M17",
+      "N17:O17",
+      "A27:B27",
+      "A4:R4",
+      "A5:R5",
+      "A6:R6",
+      "A16:A18",
+      "B16:B18",
+      "C16:E17",
+      "F16:I17",
+      "J16:O16",
+      "P16:Q17"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "R1:LAMPIRAN 4.19a"
+      },
+      {
+        "row": 4,
+        "text": "A4:REKAPITULASI DATA / BUKU CATATAN | B4:REKAPITULASI DATA / BUKU CATATAN | C4:REKAPITULASI DATA / BUKU CATATAN | D4:REKAPITULASI DATA / BUKU CATATAN | E4:REKAPITULASI DATA / BUKU CATATAN | F4:REKAPITULASI DATA / BUKU CATATAN | G4:REKAPITULASI DATA / BUKU CATATAN | H4:REKAPITULASI DATA / BUKU CATATAN | I4:REKAPITULASI DATA / BUKU CATATAN | J4:REKAPITULASI DATA / BUKU CATATAN"
+      },
+      {
+        "row": 5,
+        "text": "A5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | B5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | C5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | D5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | E5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | F5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | G5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | H5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | I5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN | J5:IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENINGGAL, KELAHIRAN BAYI, BAYI MENINGGAL DAN"
+      },
+      {
+        "row": 6,
+        "text": "A6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | B6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | C6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | D6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | E6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | F6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | G6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | H6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | I6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN | J6:KEMATIAN BALITA PADA TINGKAT TP PKK DESA / KELURAHAN"
+      },
+      {
+        "row": 8,
+        "text": "O8:BULAN | P8:: | Q8:…......................................"
+      },
+      {
+        "row": 9,
+        "text": "O9:TAHUN | P9:: | Q9:….............................."
+      },
+      {
+        "row": 10,
+        "text": "A10:DESA/KELURAHAN | C10:: | E10:….............."
+      },
+      {
+        "row": 11,
+        "text": "A11:KECAMATAN | C11:: | E11:….............."
+      },
+      {
+        "row": 12,
+        "text": "A12:KAB/KOTA | C12:: | E12:….............."
+      },
+      {
+        "row": 13,
+        "text": "A13:PROVINSI | C13:: | E13:….............."
+      },
+      {
+        "row": 16,
+        "text": "A16:NO | B16:NAMA DUSUN/LINGKUNGAN | C16:JUMLAH | D16:JUMLAH | E16:JUMLAH | F16:JUMLAH IBU | G16:JUMLAH IBU | H16:JUMLAH IBU | I16:JUMLAH IBU | J16:JUMLAH BAYI"
+      }
+    ]
+  },
+  {
+    "idx": 31,
+    "name": "cara pengisian rekap bumil desa",
+    "ourStats": {
+      "rowCount": 21,
+      "maxR": 21,
+      "columnCount": 8,
+      "maxC": 8,
+      "filled": 37,
+      "merges": 4,
+      "formulas": 0
+    },
+    "refStats": {
+      "idx": 31,
+      "name": "cara pengisian rekap bumil desa",
+      "rows": 21,
+      "cols": 8,
+      "filled": 37,
+      "merges": 4,
+      "formulas": 0
+    },
+    "diffs": [],
+    "merges": [
+      "A16:A17",
+      "A3:F3",
+      "A4:F4",
+      "A5:F5"
+    ],
+    "headers": [
+      {
+        "row": 1,
+        "text": "H1:LAMPIRAN 4.19a"
+      },
+      {
+        "row": 3,
+        "text": "A3:CARA PENGISIAN BUKU CATATAN | B3:CARA PENGISIAN BUKU CATATAN | C3:CARA PENGISIAN BUKU CATATAN | D3:CARA PENGISIAN BUKU CATATAN | E3:CARA PENGISIAN BUKU CATATAN | F3:CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "row": 4,
+        "text": "A4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS | B4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS | C4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS | D4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS | E4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS | F4:IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEMATIAN BALITA DAN KEMATIAN IBU HAMIL, MELAHIRKAN DAN NIFAS"
+      },
+      {
+        "row": 5,
+        "text": "A5:DALAM KELOMPOK PKK DESA/KELURAHAN | B5:DALAM KELOMPOK PKK DESA/KELURAHAN | C5:DALAM KELOMPOK PKK DESA/KELURAHAN | D5:DALAM KELOMPOK PKK DESA/KELURAHAN | E5:DALAM KELOMPOK PKK DESA/KELURAHAN | F5:DALAM KELOMPOK PKK DESA/KELURAHAN"
+      },
+      {
+        "row": 9,
+        "text": "A9:[object Object]"
+      },
+      {
+        "row": 11,
+        "text": "A11:Kolom | B11:Penjelasan"
+      },
+      {
+        "row": 12,
+        "text": "A12:Desa/Kel., Kecamatan, Kab/Kota, Provinsi, Bulan, Tahun | B12:Di isi nama sesuai dengan Desa/Kelurahan, Kecamatan, Kabupaten/Kota, Provinsi, Bulan dan Tahun saat pendataan"
+      },
+      {
+        "row": 13,
+        "text": "A13:1 | B13:Di isi dengan nomor urut penulisan"
+      },
+      {
+        "row": 14,
+        "text": "A14:2 | B14:Diisi dengan nama Dusun/Lingkungan yang ada di wilayah Desa/Lingkungan tersebut"
+      },
+      {
+        "row": 15,
+        "text": "A15:3 | B15:Di isi dengan jumlah Kelompok PKK RW yang ada dilingkungan Dusun/Lingkungan tersebut"
+      },
+      {
+        "row": 16,
+        "text": "A16:4 – 17 | B16:Diisi dengan jumlah data yang diambil dari penjumlahan yang ada pada buku catatan ibu hamil, kelahiran, kematian bayi, kematian balita dan kematian ibu hamil, melahirkan dan nifas di Kelompok Dusun/Lingkungan"
+      }
+    ]
+  }
+]

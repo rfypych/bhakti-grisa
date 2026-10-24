@@ -1,0 +1,2537 @@
+[
+  {
+    "index": 1,
+    "name": "data warga ",
+    "rowCount": 36,
+    "actualMaxRow": 35,
+    "columnCount": 5,
+    "actualMaxCol": 5,
+    "filledCells": 91,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A2:E2"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "E1=LAMPIRAN 4.14.1a"
+      },
+      {
+        "rowNumber": 2,
+        "text": "A2=DAFTAR WARGA TP PKK ; B2=DAFTAR WARGA TP PKK ; C2=DAFTAR WARGA TP PKK ; D2=DAFTAR WARGA TP PKK ; E2=DAFTAR WARGA TP PKK"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=Dasa Wisma ; B5=: ……...................................."
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Nama Kepala Rumah Tangga ; B6=: ……...................................."
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=1. No. Registrasi ; B7=: ……...................................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=2. No. KTP/KK ; B8=: ……...................................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=3. Nama ; B9=: ……...................................."
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=4. Jabatan ; B10=: ……...................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=5. Jenis Kelamin ; B11=: □ Laki Laki ; C11=□ Perempuan"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=6. Tempat Lahir ; B12=: ……...................................."
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=7. Tgl. Lahir/Umur ; B13=: ……................/……../……...... Umur ; C13=Tahun"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=8. Status Perkawinan ; B14=: □ Menikah ; C14=□ Lajang ; D14=□ Janda ; E14=□ Duda"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=9. Status Dalam Keluarga ; B15=: □ Kepala Rumah Tangga ; C15=□ Anggota Keluarga Status"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=10. Agama ; B16=: □ Islam ; C16=□ Kristen ; D16=□ Katholik ; E16=□ Hindu"
+      },
+      {
+        "rowNumber": 17,
+        "text": "B17=□ Budha ; C17=□ Khonghuchu"
+      },
+      {
+        "rowNumber": 18,
+        "text": "B18=□ Kepercayaan lain ……..................."
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=11. Alamat ; B19=: ……...................................."
+      },
+      {
+        "rowNumber": 20,
+        "text": "B20=Desa Kel/Sejenis ; C20=……..................Kec. ……............."
+      },
+      {
+        "rowNumber": 21,
+        "text": "B21=Kab/Kota ……...........................Pr"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=12. Pendidikan ; B22=: □ Tidak Tamat SD ; C22=□ SD/MI ; D22=□ SMP/Sederajat"
+      },
+      {
+        "rowNumber": 23,
+        "text": "B23=□ SMU/SMK/Sederajat"
+      },
+      {
+        "rowNumber": 24,
+        "text": "B24=□ Diploma ; C24=□ S1 ; D24=□ S2 ; E24=□ S3"
+      },
+      {
+        "rowNumber": 25,
+        "text": "A25=13. Pekerjaan ; B25=: □ Petani ; C25=□ Pedagang ; D25=□ Swasta ; E25=□ Wirausaha"
+      },
+      {
+        "rowNumber": 26,
+        "text": "B26=□ PNS ; C26=□ TNI/Polri ; D26=□ Lainnya"
+      },
+      {
+        "rowNumber": 27,
+        "text": "A27=14. Akseptor KB ; B27=: □ Ya ; C27=□ Tidak Jenis Akseptor KB"
+      },
+      {
+        "rowNumber": 28,
+        "text": "A28=15. Aktif dalam kegiatan Posyandu ; B28=: □ Ya ; C28=□ Tidak Frekuensi volume……. Kali …."
+      },
+      {
+        "rowNumber": 29,
+        "text": "A29=16. Mengikuti Program Bina ; B29=: □ Ya ; C29=□ Tidak"
+      },
+      {
+        "rowNumber": 30,
+        "text": "A30=Keluarga Balita"
+      },
+      {
+        "rowNumber": 31,
+        "text": "A31=17. Memiliki Tabungan ; B31=: □ Ya ; C31=□ Tidak"
+      },
+      {
+        "rowNumber": 32,
+        "text": "A32=18. Mengikuti Kelompok Belajar ; B32=: □ Ya ; C32=□ Tidak"
+      },
+      {
+        "rowNumber": 33,
+        "text": "A33=Jenis ; B33=: □ Paket A ; C33=□ Paket B ; D33=□ Paket C ; E33=□ KF"
+      },
+      {
+        "rowNumber": 34,
+        "text": "A34=19. Mengikuti PAUD / Sejenis ; B34=: □ Ya ; C34=□ Tidak"
+      },
+      {
+        "rowNumber": 35,
+        "text": "A35=20. Ikut dalam Kegiatan Koperasi ; B35=: □ Ya ; C35=□ Tidak Jenis Koperasi"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "name": "cara pengisian data warga",
+    "rowCount": 27,
+    "actualMaxRow": 27,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 52,
+    "mergeCount": 3,
+    "sampleMerges": [
+      "A4:A5",
+      "A6:A7",
+      "A23:A24"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 2,
+        "text": "A2=POINT/ISIAN ; B2=PENJELASAN"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=Dasa Wisma ; B3=Di isi sesuai dengan nama dasawisma yang"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=Nama Kepala Rumah Tangga ; B4=Di isi dengan nama Kepala Rumah Tangga p"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=Nama Kepala Rumah Tangga ; B5=Tangga adalah yang bertanggung jawab ata"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=1 ; B6=Nomor Registrasi diisi dengan nomor urut"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=1 ; B7=2009:th masuk; 001 : nomor pendataan"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=2 ; B8=Di isi dengan nomor KTP yang saat pendat"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=3 ; B9=Cukup Jelas"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=4 ; B10=Jabatan yang bersangkutan pada di strukt"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=5 ; B11=Cukup Jelas"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=6 ; B12=Kota/Kabupaten tempat lahir yang bersang"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=7 ; B13=Cukup Jelas"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=8 ; B14=Cukup Jelas"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=9 ; B15=Diisi sesuai status yang bersangkutan di"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=10 ; B16=Cukup Jelas"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=11 ; B17=Cukup Jelas"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=12 ; B18=Cukup Jelas"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=13 ; B19=Cukup Jelas"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=14 ; B20=Diisi dengan apakah yang bersangkutan me"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=15 ; B21=Cukup Jelas"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=16 ; B22=Cukup Jelas"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=17 ; B23=Cukup Jelas, Tabungan tidak hanya berupa"
+      },
+      {
+        "rowNumber": 24,
+        "text": "A24=17 ; B24=sesuai dengan situasi kondisi masing-mas"
+      },
+      {
+        "rowNumber": 25,
+        "text": "A25=18 ; B25=Cukup Jelas"
+      },
+      {
+        "rowNumber": 26,
+        "text": "A26=19 ; B26=Cukup Jelas"
+      },
+      {
+        "rowNumber": 27,
+        "text": "A27=20 ; B27=Cukup Jelas"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "name": "kegiatan warga",
+    "rowCount": 11,
+    "actualMaxRow": 11,
+    "columnCount": 4,
+    "actualMaxCol": 4,
+    "filledCells": 23,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A2:D2"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "D1=LAMPIRAN 4.14.1b"
+      },
+      {
+        "rowNumber": 2,
+        "text": "A2=KEGIATAN WARGA ; B2=KEGIATAN WARGA ; C2=KEGIATAN WARGA ; D2=KEGIATAN WARGA"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=NO ; B4=KEGIATAN ; C4=AKTIVITAS (Y/T) ; D4=KETERANGAN (JENIS KEGIATAN YANG DIIKUTI)"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=1. ; B5=Penghayatan dan Pengamalan Pancasila"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=2. ; B6=Kerjabakti"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=3. ; B7=Rukun Kematian"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=4. ; B8=Kegiatan Keagamaan"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=5. ; B9=Jimpitan"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=6. ; B10=Arisan"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=7. ; B11=Lain Lain"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "name": "cara pengisian data keg.warga",
+    "rowCount": 12,
+    "actualMaxRow": 12,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 19,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A3:B3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.14.1b"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN DATA KEGIATAN WARGA ; B3=CARA PENGISIAN DATA KEGIATAN WARGA"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=POINT/ISIAN ; B5=PENJELASAN"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=1 ; B6=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=2 ; B7=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=3 ; B8=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=4 ; B9=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=5 ; B10=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=6 ; B11=Diisi bila warga yang bersangkutan perna"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=7 ; B12=Diisi apabila ada keterangan yang perlu "
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "name": "data keluarga",
+    "rowCount": 41,
+    "actualMaxRow": 40,
+    "columnCount": 18,
+    "actualMaxCol": 11,
+    "filledCells": 126,
+    "mergeCount": 11,
+    "sampleMerges": [
+      "D21:D22",
+      "E21:E22",
+      "F21:G21",
+      "A3:K3",
+      "A4:K4"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 23,
+    "dataStartRow": 24,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "J1=LAMPIRAN 4.14.2a"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=DATA KELUARGA ; B3=DATA KELUARGA ; C3=DATA KELUARGA ; D3=DATA KELUARGA ; E3=DATA KELUARGA ; F3=DATA KELUARGA ; G3=DATA KELUARGA ; H3=DATA KELUARGA ; I3=DATA KELUARGA ; J3=DATA KELUARGA ; K3=DATA KELUARGA"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=(Diisi oleh Kader, sumber kepala keluarg ; B4=(Diisi oleh Kader, sumber kepala keluarg ; C4=(Diisi oleh Kader, sumber kepala keluarg ; D4=(Diisi oleh Kader, sumber kepala keluarg ; E4=(Diisi oleh Kader, sumber kepala keluarg ; F4=(Diisi oleh Kader, sumber kepala keluarg ; G4=(Diisi oleh Kader, sumber kepala keluarg ; H4=(Diisi oleh Kader, sumber kepala keluarg ; I4=(Diisi oleh Kader, sumber kepala keluarg ; J4=(Diisi oleh Kader, sumber kepala keluarg ; K4=(Diisi oleh Kader, sumber kepala keluarg"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Dasa Wisma …............................"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=RT …..............RW…..................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=Desa/Kel ….............................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=Kab/Kota ….............................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=Nama Kepala Rumah Tangga : ; D11=…......................................."
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=Jumlah Anggota Keluarga : ; D12=…....................................... ; G12=Orang"
+      },
+      {
+        "rowNumber": 13,
+        "text": "D13=Laki-laki ; E13=…................................ ; G13=Orang"
+      },
+      {
+        "rowNumber": 14,
+        "text": "D14=Perempuan ; E14=…................................ ; G14=Orang"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=1. ; B16=Jumlah KK : ; D16=…....................................... ; F16=KK"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=2. ; B17=Jumlah : ; D17=…....................................... ; F17=KK"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=a) Balita ; B18=…....... anak; ; C18=b)PUS ; D18=….............orang ; ; E18=c)WUS ; F18=…............. Orang; ; H18=d)3 Buta ….... Orang"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=e) Ibu Hamil ….........orang ; ; C19=f) Ibu menyusui ; D19=….............orang ; ; E19=g) Lansia ; F19=…..............orang"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=NO ; B21=NO.REG ; C21=NAMA ANGGOTA KELUARGA ; D21=STATUS DLM KELUARGA ; E21=STATUS DALAM PERKAWINAN ; F21=JENIS KELAMIN ; G21=JENIS KELAMIN ; H21=TGL LAHIR/UMUR ; I21=PENDIDIKAN ; J21=PEKERJAAN"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=NO ; B22=NO.REG ; C22=NAMA ANGGOTA KELUARGA ; D22=STATUS DLM KELUARGA ; E22=STATUS DALAM PERKAWINAN ; F22=L ; G22=P ; H22=TGL LAHIR/UMUR ; I22=PENDIDIKAN ; J22=PEKERJAAN"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=1 ; B23=2 ; C23=3 ; D23=4 ; E23=5 ; F23=6 ; G23=7 ; H23=8 ; I23=9 ; J23=10"
+      },
+      {
+        "rowNumber": 31,
+        "text": "A31=status dalam keluarga : suami, istri, an"
+      },
+      {
+        "rowNumber": 33,
+        "text": "A33=3. Makanan Pokok Sehari-Hari ; D33=: ; E33=Beras ; G33=Non Beras Jenis"
+      },
+      {
+        "rowNumber": 34,
+        "text": "A34=4. Mempunyai Sarana MCK dan Septic Tank ; D34=: ; E34=Ya ; G34=Tidak ; I34=Jumlah ; J34=…....... ; K34=buah"
+      },
+      {
+        "rowNumber": 35,
+        "text": "A35=5. Sumber Air Kelurga ; D35=: ; E35=PDAM ; G35=Sumur ; I35=Sungai ; K35=Lainnya"
+      },
+      {
+        "rowNumber": 36,
+        "text": "A36=6. Memiliki Tempat Pembuangan Sampah ; D36=: ; E36=Ya Tidak ; G36=Tidak"
+      },
+      {
+        "rowNumber": 37,
+        "text": "A37=7. Mempunyai SPAL dan Penyerapan Air ; D37=: ; E37=Ya Tidak ; G37=Tidak"
+      },
+      {
+        "rowNumber": 38,
+        "text": "A38=8. Kriteria Rumah ; D38=: ; E38=Sehat ; G38=Kurang Sehat"
+      },
+      {
+        "rowNumber": 39,
+        "text": "A39=9. Aktifitas UP2K ; D39=: ; E39=Ya ; G39=Tidak ; Jenis Usaha"
+      },
+      {
+        "rowNumber": 40,
+        "text": "A40=10. Aktifitas Kegiatan Usaha Kesehatan L ; D40=: ; E40=Ya Tidak ; G40=Tidak"
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "name": "cara pengisisan data keluarga",
+    "rowCount": 20,
+    "actualMaxRow": 20,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 38,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A2:B2"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 2,
+        "text": "A2=CARA PENGISIAN DATA KELUARGA ; B2=CARA PENGISIAN DATA KELUARGA"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=POINT/ISIAN ; B3=PENJELASAN"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=Dasa Wisma ; B4=Cukup Jelas"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=RT, RW, Dusun/Lingkungan, Desa/kel, Kec, ; B5=Cukup Jelas"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Nama Kepala Rumah Tangga ; B6=Di isi dengan nama Kepala Rumah Tangga p"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Jumlah Anggota Keluarga ; B7=Cukup Jelas"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=1 ; B8=Diisi dengan jumlah KK yang ada pada rum"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=2.a ; B9=Diisi dengan jumlah Balita yang ada pada"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=2.b ; B10=Diisi dengan jumlah Pasangan Usia Subur "
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=2.c ; B11=Diisi dengan jumlah Wanita Usia Subur ya"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=2.d ; B12=Diisi dengan jumlah anggota rumah yang s"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=2.e ; B13=Diisi dengan jumlah ibu hamil pada rumah"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=2.f ; B14=Diisi dengan jumlah ibu yang sedang meny"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=2.g ; B15=Diisi dengan jumlah orang tua lanjut usi"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=Tabel Matrik Anggota Keluarga ; B16=Diisi berdasarkan rekapitulasi data warg"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=3 ; B17=Diisi dengan jenis makanan yang menjadi "
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=4 s.d 7 ; B18=Cukup Jelas"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=8 ; B19=Kriteria Rumah sehat diisi sendiri oleh "
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=9 & 10 ; B20=Cukup Jelas"
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "name": "hatinya pkk",
+    "rowCount": 17,
+    "actualMaxRow": 17,
+    "columnCount": 4,
+    "actualMaxCol": 4,
+    "filledCells": 14,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A3:D3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 6,
+    "dataStartRow": 7,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "D1=LAMPIRAN 4.14.2b"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA ; B3=PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA ; C3=PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA ; D3=PEMANFAATAN TANAH PEKARANGAN/AKU HATINYA"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=NO ; B5=KATEGORI ; C5=KOMODITI ; D5=JUMLAH"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=1 ; B6=2 ; C6=3 ; D6=4"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=Kategori : (peternakan, perikanan, warun"
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "name": "cara pengisian hatinya pkk",
+    "rowCount": 10,
+    "actualMaxRow": 10,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 13,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A3:B3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.14.2b"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN PEMANFAATAN TANAH PEKARAN ; B3=CARA PENGISIAN PEMANFAATAN TANAH PEKARAN"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KOLOM ; B6=PENJELASAN"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=1 ; B7=Diisi dengan nomor urut pencatatan"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=2 ; B8=Diisi dengan kategori jenis pemanfaatan "
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=3 ; B9=Diisi dengan komoditi yang di budidayaka"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=4 ; B10=Jumlah komoditi yang dibudidayakan (misa"
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "name": "industri rumah tangga",
+    "rowCount": 16,
+    "actualMaxRow": 16,
+    "columnCount": 4,
+    "actualMaxCol": 4,
+    "filledCells": 14,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A3:D3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 6,
+    "dataStartRow": 7,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "D1=LAMPIRAN 4.14.2c"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=INDUSTRI RUMAH TANGGA ; B3=INDUSTRI RUMAH TANGGA ; C3=INDUSTRI RUMAH TANGGA ; D3=INDUSTRI RUMAH TANGGA"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=NO ; B5=KATEGORI ; C5=KOMODITI ; D5=Volume"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=1 ; B6=2 ; C6=3 ; D6=4"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=Kategori : (pangan, sandang, konveksi, j"
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "name": "cara pengisian industri rmh tgg",
+    "rowCount": 10,
+    "actualMaxRow": 10,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 13,
+    "mergeCount": 1,
+    "sampleMerges": [
+      "A3:B3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.14.2c"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN INDUSTRI RUMAH TANGGA ; B3=CARA PENGISIAN INDUSTRI RUMAH TANGGA"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KOLOM ; B6=PENJELASAN"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=1 ; B7=Diisi dengan nomor urut pencatatan"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=2 ; B8=Diisi dengan kategori jenis industri rum"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=3 ; B9=Diisi dengan komoditi yang di usahakan ("
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=4 ; B10=Jumlah komoditi yang dikelola (misalnya:"
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "name": "catatan keluarga",
+    "rowCount": 42,
+    "actualMaxRow": 14,
+    "columnCount": 19,
+    "actualMaxCol": 19,
+    "filledCells": 93,
+    "mergeCount": 12,
+    "sampleMerges": [
+      "G12:G13",
+      "H12:H13",
+      "I12:I13",
+      "J12:J13",
+      "K12:R12"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "N1=LAMPIRAN 4.15"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CATATAN KELUARGA ; B3=CATATAN KELUARGA ; C3=CATATAN KELUARGA ; D3=CATATAN KELUARGA ; E3=CATATAN KELUARGA ; F3=CATATAN KELUARGA ; G3=CATATAN KELUARGA ; H3=CATATAN KELUARGA ; I3=CATATAN KELUARGA ; J3=CATATAN KELUARGA ; K3=CATATAN KELUARGA ; L3=CATATAN KELUARGA ; M3=CATATAN KELUARGA ; N3=CATATAN KELUARGA ; O3=CATATAN KELUARGA ; P3=CATATAN KELUARGA ; Q3=CATATAN KELUARGA ; R3=CATATAN KELUARGA ; S3=CATATAN KELUARGA"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=CATATAN KELUARGA DARI ; D7=: ; M7=KRITERIA RUMAH ; N7=: Layak huni/Tidak layak huni"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=ANGGOTA KELOMPOK DASA WISMA ; D8=: ; M8=JAMBAN KELUARGA ; N8=: Ada/Tidak ; O8=jumlah : ; P8=…........ ; Q8=Buah"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=TAHUN ; D9=: ; M9=SUMBER AIR ; N9=: PDAM/Sumur/lainnya"
+      },
+      {
+        "rowNumber": 10,
+        "text": "M10=TEMPAT SAMPAH ; N10=: Ada/Tidak"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NAMA ANGGOTA KELUARGA ; C12=STATUS PERKAWINAN ; D12=L/P ; E12=TEMPAT LAHIR ; F12=TGL/BL/TH LAHIR/UMUR ; G12=AGAMA ; H12=PENDIDIKAN ; I12=PEKERJAAN ; J12=BERKEBUTUHAN KHUSUS ; K12=KEGIATAN PKK YANG DIIKUTI ; L12=KEGIATAN PKK YANG DIIKUTI ; M12=KEGIATAN PKK YANG DIIKUTI ; N12=KEGIATAN PKK YANG DIIKUTI ; O12=KEGIATAN PKK YANG DIIKUTI ; P12=KEGIATAN PKK YANG DIIKUTI ; Q12=KEGIATAN PKK YANG DIIKUTI ; R12=KEGIATAN PKK YANG DIIKUTI"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NAMA ANGGOTA KELUARGA ; C13=STATUS PERKAWINAN ; D13=L/P ; E13=TEMPAT LAHIR ; F13=TGL/BL/TH LAHIR/UMUR ; G13=AGAMA ; H13=PENDIDIKAN ; I13=PEKERJAAN ; J13=BERKEBUTUHAN KHUSUS ; K13=PENGHAYATAN DAN PENGAMALAN PANCASILA ; L13=GOTONG ROYONG ; M13=PENDIDIKAN DAN KETRAMPILAN ; N13=PENGEMBANGAN KEHIDUPAN BERKOPERASI ; O13=PANGAN ; P13=SANDANG ; Q13=KESEHATAN ; R13=PERENCANAAN SEHAT ; S13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19"
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "name": "cara pengisian catatan keluarga",
+    "rowCount": 33,
+    "actualMaxRow": 31,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 54,
+    "mergeCount": 5,
+    "sampleMerges": [
+      "B11:B12",
+      "A14:A15",
+      "A28:A29",
+      "A4:B4",
+      "A11:A12"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.15"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=CARA PENGISIAN CATATAN KELUARGA ; B4=CARA PENGISIAN CATATAN KELUARGA"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Tabel Catatan Keluarga, merupakan rekapi"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=KOLOM ; B7=PENJELASAN"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=Catatan Keluarga dari ; B8=Di isi dengan nama Kepala Rumah Tangga p"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=Anggota Kelompok Dasa Wisma ; B9=Di isi sesuai dengan nama dasawisma yang"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=1 ; B10=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=2 ; B11=[object Object]"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=2 ; B12=[object Object]"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=3 ; B13=[object Object]"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=4 ; B14=[object Object]"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=4 ; B15=[object Object]"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=5 ; B16=[object Object]"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=6 ; B17=[object Object]"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=7 ; B18=[object Object]"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=8 ; B19=[object Object]"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=9 ; B20=[object Object]"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=10 ; B21=[object Object]"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=11 ; B22=[object Object]"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=12 ; B23=[object Object]"
+      },
+      {
+        "rowNumber": 24,
+        "text": "A24=13 ; B24=[object Object]"
+      },
+      {
+        "rowNumber": 25,
+        "text": "A25=14 ; B25=[object Object]"
+      },
+      {
+        "rowNumber": 26,
+        "text": "A26=15 ; B26=[object Object]"
+      },
+      {
+        "rowNumber": 27,
+        "text": "A27=16 ; B27=[object Object]"
+      },
+      {
+        "rowNumber": 28,
+        "text": "A28=17 ; B28=[object Object]"
+      },
+      {
+        "rowNumber": 29,
+        "text": "A29=17 ; B29=[object Object]"
+      },
+      {
+        "rowNumber": 30,
+        "text": "A30=18 ; B30=[object Object]"
+      },
+      {
+        "rowNumber": 31,
+        "text": "A31=19 ; B31=Di isi dengan keterangan keterangan bila"
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "name": "rekap cat data &keg.warga",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 29,
+    "actualMaxCol": 29,
+    "filledCells": 159,
+    "mergeCount": 33,
+    "sampleMerges": [
+      "AC11:AC13",
+      "A4:AC4",
+      "Y11:AB11",
+      "Y12:Y13",
+      "Z12:Z13"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "AB1=LAMPIRAN 4.16a"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; C4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; D4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; E4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; F4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; G4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; H4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; I4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; J4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; K4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; L4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; M4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; N4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; O4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; P4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Q4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; R4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; S4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; T4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; U4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; V4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; W4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; X4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Y4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Z4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AA4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AB4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AC4=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 6,
+        "text": "U6=DASA WISMA ; W6=: ; X6=…......................................."
+      },
+      {
+        "rowNumber": 7,
+        "text": "U7=RT/RW ; W7=: ; X7=…......................................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "U8=DESA/KELURAHAN ; W8=: ; X8=…......................................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "U9=TAHUN ; W9=: ; X9=…......................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NAMA KEPALA RUMAH TANGGA ; C11=JML KK ; D11=JUMLAH ANGGOTA KELUARGA ; E11=JUMLAH ANGGOTA KELUARGA ; F11=JUMLAH ANGGOTA KELUARGA ; G11=JUMLAH ANGGOTA KELUARGA ; H11=JUMLAH ANGGOTA KELUARGA ; I11=JUMLAH ANGGOTA KELUARGA ; J11=JUMLAH ANGGOTA KELUARGA ; K11=JUMLAH ANGGOTA KELUARGA ; L11=JUMLAH ANGGOTA KELUARGA ; M11=JUMLAH ANGGOTA KELUARGA ; N11=JUMLAH ANGGOTA KELUARGA ; O11=KRITERIA RUMAH ; P11=KRITERIA RUMAH ; Q11=KRITERIA RUMAH ; R11=KRITERIA RUMAH ; S11=KRITERIA RUMAH ; T11=SUMBER AIR KELUARGA ; U11=SUMBER AIR KELUARGA ; V11=SUMBER AIR KELUARGA ; W11=MAKANAN ; X11=MAKANAN ; Y11=WARGA MENGIKUTO KEGIATAN ; Z11=WARGA MENGIKUTO KEGIATAN ; AA11=WARGA MENGIKUTO KEGIATAN ; AB11=WARGA MENGIKUTO KEGIATAN ; AC11=KET"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NAMA KEPALA RUMAH TANGGA ; C12=JML KK ; D12=TOTAL ; E12=TOTAL ; F12=BALITA ; G12=BALITA ; H12=PUS ; I12=WUS ; J12=IBU HAMIL ; K12=IBU MENYUSUI ; L12=LANSIA ; M12=3 BUTA ; N12=BERKEBUTUHAN KHUSUS ; O12=SEHAT LAYAH HUNI ; P12=TIDAK SEHAT LAYAK HUNI ; Q12=MEMILIKI TEMP. PEMB. SAMPAH ; R12=MEMILIKI SPAL DAN PENYERAPAN AIR ; S12=MEMILIKI SARANA MCK DAN SEPTIC TANK ; T12=PDAM ; U12=SUMUR ; V12=DLL ; W12=BERAS ; X12=NON BERAS ; Y12=UP2K ; Z12=PEMANFAATAN TANAH PEKARANGAN ; AA12=INDUSTRI RUMAH TANGGA ; AB12=KESEHATAN LINGKUNGAN ; AC12=KET"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NAMA KEPALA RUMAH TANGGA ; C13=JML KK ; D13=L ; E13=P ; F13=L ; G13=P ; H13=PUS ; I13=WUS ; J13=IBU HAMIL ; K13=IBU MENYUSUI ; L13=LANSIA ; M13=3 BUTA ; N13=BERKEBUTUHAN KHUSUS ; O13=SEHAT LAYAH HUNI ; P13=TIDAK SEHAT LAYAK HUNI ; Q13=MEMILIKI TEMP. PEMB. SAMPAH ; R13=MEMILIKI SPAL DAN PENYERAPAN AIR ; S13=MEMILIKI SARANA MCK DAN SEPTIC TANK ; T13=PDAM ; U13=SUMUR ; V13=DLL ; W13=BERAS ; X13=NON BERAS ; Y13=UP2K ; Z13=PEMANFAATAN TANAH PEKARANGAN ; AA13=INDUSTRI RUMAH TANGGA ; AB13=KESEHATAN LINGKUNGAN ; AC13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19 ; T14=20 ; U14=21 ; V14=22 ; W14=23 ; X14=24 ; Y14=25 ; Z14=26 ; AA14=27 ; AB14=28 ; AC14=29"
+      },
+      {
+        "rowNumber": 40,
+        "text": "A40=JUMLAH"
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "name": "cara pengisian rekap data & keg",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 67,
+    "mergeCount": 7,
+    "sampleMerges": [
+      "A5:B5",
+      "B9:B10",
+      "A18:A19",
+      "A20:A21",
+      "A24:A25"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 2,
+        "text": "B2=LAMPIRAN 4.16a"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=CARA PENGISIAN REKAPITULASI CATATAN DATA ; B5=CARA PENGISIAN REKAPITULASI CATATAN DATA"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Tabel Catatan Data dan Kegiatan Warga Ke"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=KOLOM ; B8=PENJELASAN"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=Dasa Wisma, RT, RW, Dusun/ Lingkungan, ; B9=Diisi nama dasa wisma, RT, RW, Dusun/Lin"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=Desa/Kel, Tahun ; B10=Diisi nama dasa wisma, RT, RW, Dusun/Lin"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=1 ; B11=Diisi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=2 ; B12=[object Object]"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=3 ; B13=[object Object]"
+      },
+      {
+        "rowNumber": 14,
+        "text": "B14=Diisi dengan jumlah anggota keluarga lak"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=Mon May 04 2026 07:00:00 GMT+0700 (Weste ; B15=[object Object]"
+      },
+      {
+        "rowNumber": 16,
+        "text": "B16=Diisi dengan jumlah balita laki laki mau"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=Mon Jul 06 2026 07:00:00 GMT+0700 (Weste ; B17=(lampiran 4.14-2a poin 2.a)"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=8 ; B18=Diisi dengan jumlah Pasangan Usia Subur "
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=8 ; B19=[object Object]"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=9 ; B20=Diisi dengan jumlah Wanita Usia Subur (W"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=9 ; B21=(lampiran 4.14-2a poin 2.c)"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=10 ; B22=[object Object]"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=11 ; B23=[object Object]"
+      },
+      {
+        "rowNumber": 24,
+        "text": "A24=12 ; B24=[object Object]"
+      },
+      {
+        "rowNumber": 25,
+        "text": "A25=12 ; B25=2.g)"
+      },
+      {
+        "rowNumber": 26,
+        "text": "A26=13 ; B26=[object Object]"
+      },
+      {
+        "rowNumber": 27,
+        "text": "A27=14 ; B27=Diisi dengan jumlah warga laki laki maup"
+      },
+      {
+        "rowNumber": 28,
+        "text": "A28=15 ; B28=Diisi dengan Kreteria Rumah Sehat Layak "
+      },
+      {
+        "rowNumber": 29,
+        "text": "A29=16 ; B29=Diisi dg Kreteria Rumah tidak Sehat Laya"
+      },
+      {
+        "rowNumber": 30,
+        "text": "A30=17 ; B30=[object Object]"
+      },
+      {
+        "rowNumber": 31,
+        "text": "A31=18 ; B31=Diisi apabila rumah yang didata memiliki"
+      },
+      {
+        "rowNumber": 32,
+        "text": "A32=19 ; B32=Diisi apabila rumah yang didata memiliki"
+      },
+      {
+        "rowNumber": 33,
+        "text": "A33=19 ; B33=4.14-2a point 4)"
+      },
+      {
+        "rowNumber": 34,
+        "text": "A34=20-22 ; B34=[object Object]"
+      },
+      {
+        "rowNumber": 35,
+        "text": "A35=23-24 ; B35=[object Object]"
+      },
+      {
+        "rowNumber": 36,
+        "text": "A36=25 ; B36=[object Object]"
+      },
+      {
+        "rowNumber": 37,
+        "text": "A37=25 ; B37=4.14-2a point 9)"
+      },
+      {
+        "rowNumber": 38,
+        "text": "B38=[object Object]"
+      },
+      {
+        "rowNumber": 39,
+        "text": "A39=27-28 ; B39=4.14-2b )"
+      },
+      {
+        "rowNumber": 40,
+        "text": "A40=29 ; B40=Diisi dengan keterangan yang diperlukan "
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "name": "rekap cat data &keg.warga rt",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 30,
+    "actualMaxCol": 30,
+    "filledCells": 164,
+    "mergeCount": 34,
+    "sampleMerges": [
+      "Y12:Y13",
+      "Z12:Z13",
+      "AA12:AA13",
+      "AB12:AB13",
+      "AC12:AC13"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "AC1=LAMPIRAN 4.16a"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; C4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; D4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; E4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; F4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; G4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; H4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; I4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; J4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; K4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; L4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; M4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; N4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; O4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; P4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Q4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; R4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; S4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; T4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; U4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; V4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; W4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; X4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Y4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Z4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AA4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AB4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AC4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AD4=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 6,
+        "text": "V6=DASA WISMA ; X6=: ; Y6=…......................................."
+      },
+      {
+        "rowNumber": 7,
+        "text": "V7=RT/RW ; X7=: ; Y7=…......................................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "V8=DESA/KELURAHAN ; X8=: ; Y8=…......................................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "V9=TAHUN ; X9=: ; Y9=…......................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NAMA DASA WISMA ; C11=JML KRT ; D11=JML KK ; E11=JUMLAH ANGGOTA KELUARGA ; F11=JUMLAH ANGGOTA KELUARGA ; G11=JUMLAH ANGGOTA KELUARGA ; H11=JUMLAH ANGGOTA KELUARGA ; I11=JUMLAH ANGGOTA KELUARGA ; J11=JUMLAH ANGGOTA KELUARGA ; K11=JUMLAH ANGGOTA KELUARGA ; L11=JUMLAH ANGGOTA KELUARGA ; M11=JUMLAH ANGGOTA KELUARGA ; N11=JUMLAH ANGGOTA KELUARGA ; O11=JUMLAH ANGGOTA KELUARGA ; P11=KRITERIA RUMAH ; Q11=KRITERIA RUMAH ; R11=KRITERIA RUMAH ; S11=KRITERIA RUMAH ; T11=KRITERIA RUMAH ; U11=SUMBER AIR KELUARGA ; V11=SUMBER AIR KELUARGA ; W11=SUMBER AIR KELUARGA ; X11=MAKANAN ; Y11=MAKANAN ; Z11=WARGA MENGIKUTO KEGIATAN ; AA11=WARGA MENGIKUTO KEGIATAN ; AB11=WARGA MENGIKUTO KEGIATAN ; AC11=WARGA MENGIKUTO KEGIATAN ; AD11=KET"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NAMA DASA WISMA ; C12=JML KRT ; D12=JML KK ; E12=TOTAL ; F12=TOTAL ; G12=BALITA ; H12=BALITA ; I12=PUS ; J12=WUS ; K12=IBU HAMIL ; L12=IBU MENYUSUI ; M12=LANSIA ; N12=3 BUTA ; O12=BERKEBUTUHAN KHUSUS ; P12=SEHAT LAYAH HUNI ; Q12=TIDAK SEHAT LAYAK HUNI ; R12=MEMILIKI TEMP. PEMB. SAMPAH ; S12=MEMILIKI SPAL DAN PENYERAPAN AIR ; T12=MEMILIKI SARANA MCK DAN SEPTIC TANK ; U12=PDAM ; V12=SUMUR ; W12=DLL ; X12=BERAS ; Y12=NON BERAS ; Z12=UP2K ; AA12=PEMANFAATAN TANAH PEKARANGAN ; AB12=INDUSTRI RUMAH TANGGA ; AC12=KESEHATAN LINGKUNGAN ; AD12=KET"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NAMA DASA WISMA ; C13=JML KRT ; D13=JML KK ; E13=L ; F13=P ; G13=L ; H13=P ; I13=PUS ; J13=WUS ; K13=IBU HAMIL ; L13=IBU MENYUSUI ; M13=LANSIA ; N13=3 BUTA ; O13=BERKEBUTUHAN KHUSUS ; P13=SEHAT LAYAH HUNI ; Q13=TIDAK SEHAT LAYAK HUNI ; R13=MEMILIKI TEMP. PEMB. SAMPAH ; S13=MEMILIKI SPAL DAN PENYERAPAN AIR ; T13=MEMILIKI SARANA MCK DAN SEPTIC TANK ; U13=PDAM ; V13=SUMUR ; W13=DLL ; X13=BERAS ; Y13=NON BERAS ; Z13=UP2K ; AA13=PEMANFAATAN TANAH PEKARANGAN ; AB13=INDUSTRI RUMAH TANGGA ; AC13=KESEHATAN LINGKUNGAN ; AD13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19 ; T14=20 ; U14=21 ; V14=22 ; W14=23 ; X14=24 ; Y14=25 ; Z14=26 ; AA14=27 ; AB14=28 ; AC14=29 ; AD14=30"
+      },
+      {
+        "rowNumber": 40,
+        "text": "A40=JUMLAH"
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "name": "cara pengisian rekap rt",
+    "rowCount": 18,
+    "actualMaxRow": 18,
+    "columnCount": 15,
+    "actualMaxCol": 2,
+    "filledCells": 26,
+    "mergeCount": 5,
+    "sampleMerges": [
+      "A12:A13",
+      "B14:B15",
+      "A3:B3",
+      "A4:B4",
+      "A14:A15"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.16b"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN ; B3=CARA PENGISIAN"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B4=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Tabel Catatan Data dan Kegiatan Warga Ke"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=KOLOM ; B8=PENJELASAN"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=RT, RW, Dusun/Lingkungan, Desa/Kel, Tahu ; B9=Diisi nama RT, RW, Dusun/Lingkungan, Des"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=1 ; B10=Diisi dengan nomor urut penulisan."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=2 ; B11=Diisi nama-nama kelompok Dasawisma yang "
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=3 ; B12=Diisi jumlah Kepala Rumah Tangga (KRT) d"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=3 ; B13=Kelompok PKK RT yang bersangkutan."
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=4–29 ; B14=Diisi dengan total jumlah catatan data d"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=4–29 ; B15=Diisi dengan total jumlah catatan data d"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=30 ; B16=Diisi dengan hal-hal yang belum tercantu"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=Catatan:"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=Apabila ada perubahan data, maka dilapor"
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "name": "rekap cat data &keg.warga rw",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 32,
+    "actualMaxCol": 32,
+    "filledCells": 174,
+    "mergeCount": 35,
+    "sampleMerges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "B11:B13",
+      "O12:P12",
+      "X12:X13"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "AE1=LAMPIRAN 4.16c"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; C4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; D4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; E4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; F4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; G4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; H4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; I4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; J4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; K4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; L4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; M4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; N4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; O4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; P4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Q4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; R4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; S4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; T4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; U4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; V4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; W4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; X4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Y4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Z4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AA4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AB4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AC4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AD4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AE4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AF4=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 6,
+        "text": "X6=DASA WISMA ; Z6=: ; AA6=…......................................."
+      },
+      {
+        "rowNumber": 7,
+        "text": "X7=RT/RW ; Z7=: ; AA7=…......................................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "X8=DESA/KELURAHAN ; Z8=: ; AA8=…......................................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "X9=TAHUN ; Z9=: ; AA9=…......................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NO RT ; C11=JML DASA WISMA ; D11=JML KRT ; E11=JML KK ; F11=JUMLAH ANGGOTA KELUARGA ; G11=JUMLAH ANGGOTA KELUARGA ; H11=JUMLAH ANGGOTA KELUARGA ; I11=JUMLAH ANGGOTA KELUARGA ; J11=JUMLAH ANGGOTA KELUARGA ; K11=JUMLAH ANGGOTA KELUARGA ; L11=JUMLAH ANGGOTA KELUARGA ; M11=JUMLAH ANGGOTA KELUARGA ; N11=JUMLAH ANGGOTA KELUARGA ; O11=JUMLAH ANGGOTA KELUARGA ; P11=JUMLAH ANGGOTA KELUARGA ; Q11=JUMLAH ANGGOTA KELUARGA ; R11=KRITERIA RUMAH ; S11=KRITERIA RUMAH ; T11=KRITERIA RUMAH ; U11=KRITERIA RUMAH ; V11=KRITERIA RUMAH ; W11=SUMBER AIR KELUARGA ; X11=SUMBER AIR KELUARGA ; Y11=SUMBER AIR KELUARGA ; Z11=MAKANAN ; AA11=MAKANAN ; AB11=WARGA MENGIKUTO KEGIATAN ; AC11=WARGA MENGIKUTO KEGIATAN ; AD11=WARGA MENGIKUTO KEGIATAN ; AE11=WARGA MENGIKUTO KEGIATAN ; AF11=KET"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NO RT ; C12=JML DASA WISMA ; D12=JML KRT ; E12=JML KK ; F12=TOTAL ; G12=TOTAL ; H12=BALITA ; I12=BALITA ; J12=PUS ; K12=WUS ; L12=IBU HAMIL ; M12=IBU MENYUSUI ; N12=LANSIA ; O12=3 BUTA ; P12=3 BUTA ; Q12=BERKEBUTUHAN KHUSUS ; R12=SEHAT LAYAH HUNI ; S12=TIDAK SEHAT LAYAK HUNI ; T12=MEMILIKI TEMP. PEMB. SAMPAH ; U12=MEMILIKI SPAL DAN PENYERAPAN AIR ; V12=MEMILIKI SARANA MCK DAN SEPTIC TANK ; W12=PDAM ; X12=SUMUR ; Y12=DLL ; Z12=BERAS ; AA12=NON BERAS ; AB12=UP2K ; AC12=PEMANFAATAN TANAH PEKARANGAN ; AD12=INDUSTRI RUMAH TANGGA ; AE12=KESEHATAN LINGKUNGAN ; AF12=KET"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NO RT ; C13=JML DASA WISMA ; D13=JML KRT ; E13=JML KK ; F13=L ; G13=P ; H13=L ; I13=P ; J13=PUS ; K13=WUS ; L13=IBU HAMIL ; M13=IBU MENYUSUI ; N13=LANSIA ; O13=L ; P13=P ; Q13=BERKEBUTUHAN KHUSUS ; R13=SEHAT LAYAH HUNI ; S13=TIDAK SEHAT LAYAK HUNI ; T13=MEMILIKI TEMP. PEMB. SAMPAH ; U13=MEMILIKI SPAL DAN PENYERAPAN AIR ; V13=MEMILIKI SARANA MCK DAN SEPTIC TANK ; W13=PDAM ; X13=SUMUR ; Y13=DLL ; Z13=BERAS ; AA13=NON BERAS ; AB13=UP2K ; AC13=PEMANFAATAN TANAH PEKARANGAN ; AD13=INDUSTRI RUMAH TANGGA ; AE13=KESEHATAN LINGKUNGAN ; AF13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19 ; T14=20 ; U14=21 ; V14=22 ; W14=23 ; X14=24 ; Y14=25 ; Z14=26 ; AA14=27 ; AB14=28 ; AC14=29 ; AD14=30 ; AE14=31 ; AF14=32"
+      },
+      {
+        "rowNumber": 40,
+        "text": "E40=JUMLAH"
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "name": "cara pengisian rekap rw",
+    "rowCount": 18,
+    "actualMaxRow": 18,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 23,
+    "mergeCount": 3,
+    "sampleMerges": [
+      "A4:B4",
+      "A5:B5",
+      "A7:B7"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.16c"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=CARA PENGISIAN ; B4=CARA PENGISIAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B5=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Tabel Catatan Data dan Kegiatan Warga Ke ; B7=Tabel Catatan Data dan Kegiatan Warga Ke"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=Kolom ; B9=Penjelasan"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=RW, Dusun/ Lingkungan, Desa/ Kel, Tahun ; B10=Di isi nama RW, Dusun/Lingkungan, Desa/K"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=1 ; B11=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=2 ; B12=Di isi Nama nama/Nomor Kelompok PKK RT y"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=3 ; B13=Di isi jumlah Dasawisma dari masing masi"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=4 – 31 ; B14=Di isi dengan total jumlah catatan data "
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=32 ; B15=Diisi dengan hal-hal yang belum tercantu"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=Catatan :"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=Apabila ada perubahan data, maka dilapor"
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "name": "rekap cat data &keg.warga dsn",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 33,
+    "actualMaxCol": 33,
+    "filledCells": 179,
+    "mergeCount": 36,
+    "sampleMerges": [
+      "AD12:AD13",
+      "AE12:AE13",
+      "AF12:AF13",
+      "E11:E13",
+      "X12:X13"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "AF1=LAMPIRAN 4.16d"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; B4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; C4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; D4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; E4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; F4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; G4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; H4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; I4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; J4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; K4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; L4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; M4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; N4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; O4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; P4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Q4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; R4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; S4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; T4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; U4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; V4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; W4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; X4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Y4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; Z4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AA4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AB4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AC4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AD4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AE4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AF4=REKAPITULASI CATATAN DATA DAN KEGIATAN W ; AG4=REKAPITULASI CATATAN DATA DAN KEGIATAN W"
+      },
+      {
+        "rowNumber": 6,
+        "text": "Y6=DASA WISMA ; AA6=: ; AB6=…......................................."
+      },
+      {
+        "rowNumber": 7,
+        "text": "Y7=RT/RW ; AA7=: ; AB7=…......................................."
+      },
+      {
+        "rowNumber": 8,
+        "text": "Y8=DESA/KELURAHAN ; AA8=: ; AB8=…......................................."
+      },
+      {
+        "rowNumber": 9,
+        "text": "Y9=TAHUN ; AA9=: ; AB9=…......................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NO RW ; C11=JMH RT ; D11=JMH DASA WISMA ; E11=JMH KRT ; F11=JMH KK ; G11=JUMLAH ANGGOTA KELUARGA ; H11=JUMLAH ANGGOTA KELUARGA ; I11=JUMLAH ANGGOTA KELUARGA ; J11=JUMLAH ANGGOTA KELUARGA ; K11=JUMLAH ANGGOTA KELUARGA ; L11=JUMLAH ANGGOTA KELUARGA ; M11=JUMLAH ANGGOTA KELUARGA ; N11=JUMLAH ANGGOTA KELUARGA ; O11=JUMLAH ANGGOTA KELUARGA ; P11=JUMLAH ANGGOTA KELUARGA ; Q11=JUMLAH ANGGOTA KELUARGA ; R11=JUMLAH ANGGOTA KELUARGA ; S11=KRITERIA RUMAH ; T11=KRITERIA RUMAH ; U11=KRITERIA RUMAH ; V11=KRITERIA RUMAH ; W11=KRITERIA RUMAH ; X11=SUMBER AIR KELUARGA ; Y11=SUMBER AIR KELUARGA ; Z11=SUMBER AIR KELUARGA ; AA11=MAKANAN ; AB11=MAKANAN ; AC11=WARGA MENGIKUTO KEGIATAN ; AD11=WARGA MENGIKUTO KEGIATAN ; AE11=WARGA MENGIKUTO KEGIATAN ; AF11=WARGA MENGIKUTO KEGIATAN ; AG11=KET"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NO RW ; C12=JMH RT ; D12=JMH DASA WISMA ; E12=JMH KRT ; F12=JMH KK ; G12=TOTAL ; H12=TOTAL ; I12=BALITA ; J12=BALITA ; K12=PUS ; L12=WUS ; M12=IBU HAMIL ; N12=IBU MENYUSUI ; O12=LANSIA ; P12=3 BUTA ; Q12=3 BUTA ; R12=BERKEBUTUHAN KHUSUS ; S12=SEHAT LAYAH HUNI ; T12=TIDAK SEHAT LAYAK HUNI ; U12=MEMILIKI TEMP. PEMB. SAMPAH ; V12=MEMILIKI SPAL DAN PENYERAPAN AIR ; W12=MEMILIKI SARANA MCK DAN SEPTIC TANK ; X12=PDAM ; Y12=SUMUR ; Z12=DLL ; AA12=BERAS ; AB12=NON BERAS ; AC12=UP2K ; AD12=PEMANFAATAN TANAH PEKARANGAN ; AE12=INDUSTRI RUMAH TANGGA ; AF12=KESEHATAN LINGKUNGAN ; AG12=KET"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NO RW ; C13=JMH RT ; D13=JMH DASA WISMA ; E13=JMH KRT ; F13=JMH KK ; G13=L ; H13=P ; I13=L ; J13=P ; K13=PUS ; L13=WUS ; M13=IBU HAMIL ; N13=IBU MENYUSUI ; O13=LANSIA ; P13=L ; Q13=P ; R13=BERKEBUTUHAN KHUSUS ; S13=SEHAT LAYAH HUNI ; T13=TIDAK SEHAT LAYAK HUNI ; U13=MEMILIKI TEMP. PEMB. SAMPAH ; V13=MEMILIKI SPAL DAN PENYERAPAN AIR ; W13=MEMILIKI SARANA MCK DAN SEPTIC TANK ; X13=PDAM ; Y13=SUMUR ; Z13=DLL ; AA13=BERAS ; AB13=NON BERAS ; AC13=UP2K ; AD13=PEMANFAATAN TANAH PEKARANGAN ; AE13=INDUSTRI RUMAH TANGGA ; AF13=KESEHATAN LINGKUNGAN ; AG13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19 ; T14=20 ; U14=21 ; V14=22 ; W14=23 ; X14=24 ; Y14=25 ; Z14=26 ; AA14=27 ; AB14=28 ; AC14=29 ; AD14=30 ; AE14=31 ; AF14=32 ; AG14=33"
+      },
+      {
+        "rowNumber": 40,
+        "text": "F40=JUMLAH"
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "name": "rekap cat data &keg.warga desa",
+    "rowCount": 40,
+    "actualMaxRow": 40,
+    "columnCount": 33,
+    "actualMaxCol": 33,
+    "filledCells": 244,
+    "mergeCount": 39,
+    "sampleMerges": [
+      "A2:AG2",
+      "A3:AG3",
+      "AC12:AC13",
+      "AD12:AD13",
+      "AE12:AE13"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "AF1=LAMPIRAN 4.17a"
+      },
+      {
+        "rowNumber": 2,
+        "text": "A2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; B2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; C2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; D2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; E2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; F2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; G2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; H2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; I2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; J2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; K2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; L2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; M2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; N2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; O2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; P2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; Q2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; R2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; S2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; T2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; U2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; V2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; W2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; X2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; Y2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; Z2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AA2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AB2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AC2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AD2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AE2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AF2=CATATAN DATA DAN KEGIATAN WARGA TP PKK ; AG2=CATATAN DATA DAN KEGIATAN WARGA TP PKK"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=DESA/KELURAHAN TAHUN .......... ; B3=DESA/KELURAHAN TAHUN .......... ; C3=DESA/KELURAHAN TAHUN .......... ; D3=DESA/KELURAHAN TAHUN .......... ; E3=DESA/KELURAHAN TAHUN .......... ; F3=DESA/KELURAHAN TAHUN .......... ; G3=DESA/KELURAHAN TAHUN .......... ; H3=DESA/KELURAHAN TAHUN .......... ; I3=DESA/KELURAHAN TAHUN .......... ; J3=DESA/KELURAHAN TAHUN .......... ; K3=DESA/KELURAHAN TAHUN .......... ; L3=DESA/KELURAHAN TAHUN .......... ; M3=DESA/KELURAHAN TAHUN .......... ; N3=DESA/KELURAHAN TAHUN .......... ; O3=DESA/KELURAHAN TAHUN .......... ; P3=DESA/KELURAHAN TAHUN .......... ; Q3=DESA/KELURAHAN TAHUN .......... ; R3=DESA/KELURAHAN TAHUN .......... ; S3=DESA/KELURAHAN TAHUN .......... ; T3=DESA/KELURAHAN TAHUN .......... ; U3=DESA/KELURAHAN TAHUN .......... ; V3=DESA/KELURAHAN TAHUN .......... ; W3=DESA/KELURAHAN TAHUN .......... ; X3=DESA/KELURAHAN TAHUN .......... ; Y3=DESA/KELURAHAN TAHUN .......... ; Z3=DESA/KELURAHAN TAHUN .......... ; AA3=DESA/KELURAHAN TAHUN .......... ; AB3=DESA/KELURAHAN TAHUN .......... ; AC3=DESA/KELURAHAN TAHUN .......... ; AD3=DESA/KELURAHAN TAHUN .......... ; AE3=DESA/KELURAHAN TAHUN .......... ; AF3=DESA/KELURAHAN TAHUN .......... ; AG3=DESA/KELURAHAN TAHUN .........."
+      },
+      {
+        "rowNumber": 4,
+        "text": ""
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=TP PKK DESA/KEL ; C5=: ; D5=…......................................"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KECAMATAN ; C6=: ; D6=…......................................"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=KAB/KOTA ; C7=: ; D7=…......................................"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=PROVINSI ; C8=: ; D8=…......................................"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NAMA DUSUN /LINGKUNGAN ; C11=JMH RW ; D11=JMH RT ; E11=JMH DASA WISMA ; F11=JMH KRT ; G11=JMH KK ; H11=JUMLAH ANGGOTA KELUARGA ; I11=JUMLAH ANGGOTA KELUARGA ; J11=JUMLAH ANGGOTA KELUARGA ; K11=JUMLAH ANGGOTA KELUARGA ; L11=JUMLAH ANGGOTA KELUARGA ; M11=JUMLAH ANGGOTA KELUARGA ; N11=JUMLAH ANGGOTA KELUARGA ; O11=JUMLAH ANGGOTA KELUARGA ; P11=JUMLAH ANGGOTA KELUARGA ; Q11=JUMLAH ANGGOTA KELUARGA ; R11=KRITERIA RUMAH ; S11=KRITERIA RUMAH ; T11=KRITERIA RUMAH ; U11=KRITERIA RUMAH ; V11=SUMBER AIR KELUARGA ; W11=SUMBER AIR KELUARGA ; X11=SUMBER AIR KELUARGA ; Y11=SUMBER AIR KELUARGA ; Z11=JUMLAH SARANA MCK ; AA11=MAKANAN POKOK ; AB11=MAKANAN POKOK ; AC11=WARGA MENGIKUTO KEGIATAN ; AD11=WARGA MENGIKUTO KEGIATAN ; AE11=WARGA MENGIKUTO KEGIATAN ; AF11=WARGA MENGIKUTO KEGIATAN ; AG11=KET"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NAMA DUSUN /LINGKUNGAN ; C12=JMH RW ; D12=JMH RT ; E12=JMH DASA WISMA ; F12=JMH KRT ; G12=JMH KK ; H12=TOTAL ; I12=TOTAL ; J12=BALITA ; K12=BALITA ; L12=PUS ; M12=WUS ; N12=IBU HAMIL ; O12=IBU MENYUSUI ; P12=LANSIA ; Q12=3 BUTA ; R12=SEHAT LAYAH HUNI ; S12=TIDAK SEHAT LAYAK HUNI ; T12=MEMILIKI TEMP. PEMB. SAMPAH ; U12=MEMILIKI SPAL DAN PENYERAPAN AIR ; V12=PDAM ; W12=SUMUR ; X12=SUNGAI ; Y12=DLL ; Z12=JUMLAH SARANA MCK ; AA12=BERAS ; AB12=NON BERAS ; AC12=UP2K ; AD12=PEMANFAATAN TANAH PEKARANGAN ; AE12=INDUSTRI RUMAH TANGGA ; AF12=KESEHATAN LINGKUNGAN ; AG12=KET"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NAMA DUSUN /LINGKUNGAN ; C13=JMH RW ; D13=JMH RT ; E13=JMH DASA WISMA ; F13=JMH KRT ; G13=JMH KK ; H13=L ; I13=P ; J13=L ; K13=P ; L13=PUS ; M13=WUS ; N13=IBU HAMIL ; O13=IBU MENYUSUI ; P13=LANSIA ; Q13=3 BUTA ; R13=SEHAT LAYAH HUNI ; S13=TIDAK SEHAT LAYAK HUNI ; T13=MEMILIKI TEMP. PEMB. SAMPAH ; U13=MEMILIKI SPAL DAN PENYERAPAN AIR ; V13=PDAM ; W13=SUMUR ; X13=SUNGAI ; Y13=DLL ; Z13=JUMLAH SARANA MCK ; AA13=BERAS ; AB13=NON BERAS ; AC13=UP2K ; AD13=PEMANFAATAN TANAH PEKARANGAN ; AE13=INDUSTRI RUMAH TANGGA ; AF13=KESEHATAN LINGKUNGAN ; AG13=KET"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17 ; R14=18 ; S14=19 ; T14=20 ; U14=21 ; V14=22 ; W14=23 ; X14=24 ; Y14=25 ; Z14=26 ; AA14=27 ; AB14=28 ; AC14=29 ; AD14=30 ; AE14=31 ; AF14=32 ; AG14=33"
+      },
+      {
+        "rowNumber": 40,
+        "text": "A40=JUMLAH"
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "name": "cara pengisian rekap desa",
+    "rowCount": 15,
+    "actualMaxRow": 15,
+    "columnCount": 6,
+    "actualMaxCol": 6,
+    "filledCells": 26,
+    "mergeCount": 2,
+    "sampleMerges": [
+      "C5:C13",
+      "A7:A8"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "F1=LAMPIRAN 4.17a"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=Tabel Catatan Data dan Kegiatan Warga TP"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=Kolom ; B6=Penjelasan"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Desa/Kel, Kec, Kab/Kota,Prov, Tahun"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=Desa/Kel, Kec, Kab/Kota,Prov, Tahun ; B8=Di isi nama Desa/Kelurahan, Kecamatan, K"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=1 ; B9=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=2 ; B10=Di isi Nama nama/Nomor kelompok Kelompok"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=3 ; B11=Di isi jumlah Kelompok PKK RW dari masin"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=4 – 32 ; B12=Diisi dengan total jumlah catatan data d"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=33 ; B13=Di isi dengan hal hal yang belum tercant"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=Catatan : Apabila ada perubahan data, ma"
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "name": "rekap bumil",
+    "rowCount": 42,
+    "actualMaxRow": 41,
+    "columnCount": 17,
+    "actualMaxCol": 17,
+    "filledCells": 171,
+    "mergeCount": 21,
+    "sampleMerges": [
+      "A32:B32",
+      "A4:Q4",
+      "A5:Q5",
+      "A6:Q6",
+      "A30:B30"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 22,
+    "dataStartRow": 23,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "O1=LAMPIRAN 4.18a"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA/BUKU CATATAN ; B4=REKAPITULASI DATA/BUKU CATATAN ; C4=REKAPITULASI DATA/BUKU CATATAN ; D4=REKAPITULASI DATA/BUKU CATATAN ; E4=REKAPITULASI DATA/BUKU CATATAN ; F4=REKAPITULASI DATA/BUKU CATATAN ; G4=REKAPITULASI DATA/BUKU CATATAN ; H4=REKAPITULASI DATA/BUKU CATATAN ; I4=REKAPITULASI DATA/BUKU CATATAN ; J4=REKAPITULASI DATA/BUKU CATATAN ; K4=REKAPITULASI DATA/BUKU CATATAN ; L4=REKAPITULASI DATA/BUKU CATATAN ; M4=REKAPITULASI DATA/BUKU CATATAN ; N4=REKAPITULASI DATA/BUKU CATATAN ; O4=REKAPITULASI DATA/BUKU CATATAN ; P4=REKAPITULASI DATA/BUKU CATATAN ; Q4=REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; C5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; D5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; E5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; F5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; G5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; H5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; I5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; J5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; K5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; L5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; M5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; N5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; O5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; P5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; Q5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; B6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; C6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; D6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; E6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; F6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; G6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; H6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; I6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; J6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; K6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; L6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; M6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; N6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; O6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; P6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA ; Q6=KEMATIAN BALITA DALAM KELOMPOK DASAWISMA"
+      },
+      {
+        "rowNumber": 9,
+        "text": "D9=KELOMPOK DASAWISMA ; E9=: ; F9=…..................................."
+      },
+      {
+        "rowNumber": 10,
+        "text": "D10=KELOMPOK PKK RT ; E10=: ..................................... ; F10=…..................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "D11=KELOMPOK PKK RW ; E11=: ..................................... ; F11=…..................................."
+      },
+      {
+        "rowNumber": 12,
+        "text": "D12=DUSUN/LINGKUNGAN ; E12=: ..................................... ; F12=…..................................."
+      },
+      {
+        "rowNumber": 13,
+        "text": "D13=DESA/KELURAHAN ; E13=: ..................................... ; F13=…..................................."
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=BULAN ; B15=: ..................................."
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=TAHUN ; B16=: ..................................."
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=NO ; B19=NAMA IBU ; C19=NAMA SUAMI ; D19=STATUS (HAMIL/MELAHIRKAN/NIFAS) ; E19=CATATAN KELAHIRAN ; F19=CATATAN KELAHIRAN ; G19=CATATAN KELAHIRAN ; H19=CATATAN KELAHIRAN ; I19=CATATAN KELAHIRAN ; J19=CATATAN KELAHIRAN ; K19=CATATAN KEMATIAN ; L19=CATATAN KEMATIAN ; M19=CATATAN KEMATIAN ; N19=CATATAN KEMATIAN ; O19=CATATAN KEMATIAN ; P19=CATATAN KEMATIAN ; Q19=CATATAN KEMATIAN"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=NO ; B20=NAMA IBU ; C20=NAMA SUAMI ; D20=STATUS (HAMIL/MELAHIRKAN/NIFAS) ; E20=NAMA BAYI ; F20=JENIS KELAMIN ; G20=JENIS KELAMIN ; H20=TGL. LAHIR ; I20=AKTE KELAHIRAN ; J20=AKTE KELAHIRAN ; K20=NAMA IBU/BAYI/BALITA ; L20=STATUS (IBU/BALITA/BAYI) ; M20=JENIS KELAMIN ; N20=JENIS KELAMIN ; O20=TGL. MENINGGAL ; P20=SEBAB MENINGGAL ; Q20=KETERANGAN"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=NO ; B21=NAMA IBU ; C21=NAMA SUAMI ; D21=STATUS (HAMIL/MELAHIRKAN/NIFAS) ; E21=NAMA BAYI ; F21=L ; G21=P ; H21=TGL. LAHIR ; I21=ADA ; J21=TIDAK ADA ; K21=NAMA IBU/BAYI/BALITA ; L21=STATUS (IBU/BALITA/BAYI) ; M21=L ; N21=P ; O21=TGL. MENINGGAL ; P21=SEBAB MENINGGAL ; Q21=KETERANGAN"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=1 ; B22=2 ; C22=3 ; D22=4 ; E22=5 ; F22=6 ; H22=7 ; I22=8 ; J22=9 ; K22=10 ; L22=11 ; M22=12 ; N22=13 ; O22=14 ; P22=15 ; Q22=17"
+      },
+      {
+        "rowNumber": 30,
+        "text": "A30=JUMLAH ; B30=JUMLAH"
+      },
+      {
+        "rowNumber": 32,
+        "text": "A32=CATATAN : ; B32=CATATAN :"
+      },
+      {
+        "rowNumber": 33,
+        "text": "A33=1 ; B33=jumlah ibu hamil ; C33=: ; D33=Orang"
+      },
+      {
+        "rowNumber": 34,
+        "text": "A34=2 ; B34=jumlah ibu melahirkan ; C34=: ; D34=Orang"
+      },
+      {
+        "rowNumber": 35,
+        "text": "A35=3 ; B35=jumlah ibu nifas ; C35=: ; D35=Orang"
+      },
+      {
+        "rowNumber": 36,
+        "text": "A36=4 ; B36=jumlah ibu meninggal * ; C36=: ; D36=Orang"
+      },
+      {
+        "rowNumber": 37,
+        "text": "A37=5 ; B37=jumlah bayi lahir ; C37=: ; D37=Orang"
+      },
+      {
+        "rowNumber": 38,
+        "text": "A38=6 ; B38=jumlah bayi meninggal ; C38=: ; D38=Orang"
+      },
+      {
+        "rowNumber": 39,
+        "text": "A39=7 ; B39=jumlah ibu meninggal ; C39=: ; D39=Orang"
+      },
+      {
+        "rowNumber": 41,
+        "text": "A41=*Ibu meninggal karena hamil/melahirkan/n"
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "name": "cara pengisian rekap bumil",
+    "rowCount": 24,
+    "actualMaxRow": 24,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 41,
+    "mergeCount": 3,
+    "sampleMerges": [
+      "B7:B8",
+      "A3:B3",
+      "A4:B4"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.18a"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN BUKU CATATAN ; B3=CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; B4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KOLOM ; B6=PENJELASAN"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Dasa wisma, RT, RW. Dusun/ ; B7=Diisi nama sesuai dengan Dasawisma, RT, "
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=Lingkungan, Desa/Kel, Bulan, Tahun ; B8=Diisi nama sesuai dengan Dasawisma, RT, "
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=1 ; B9=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=2 ; B10=Di isi dengan nama ibu hamil, melahirkan"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=3 ; B11=Di isi dengan nama suami/ayah si bayi"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=4 ; B12=Di isi dengan status (hamil, melahirkan "
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=5 ; B13=Di isi dengan nama bayi yang dilahirkan"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=Mon Jul 06 2026 07:00:00 GMT+0700 (Weste ; B14=Di isi dengan jenis kelamin bayi yang la"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=8 ; B15=Di isi dengan tanggal, bulan, tahun lahi"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=Fri Oct 09 2026 07:00:00 GMT+0700 (Weste ; B16=Di isi dengan apakah bayi sudah mempunya"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=11 ; B17=Di isi dengan nama Ibu/Balita/Bayi yang "
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=12 ; B18=Di isi dengan status (ibu/Balita/bayi) y"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=13 - 14 ; B19=Di isi dengan jenis kelamin yang meningg"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=15 ; B20=Di isi dengan tanggal, bulan, tahun kema"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=16 ; B21=Di isi dengan penyebab yang bersangkutan"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=17 ; B22=Di isi dengan penjelasan penjelasan seba"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=Catatan :"
+      },
+      {
+        "rowNumber": 24,
+        "text": "A24=Buku catatan ini diisi setiap bulan pada"
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "name": "rekap bumil rt",
+    "rowCount": 41,
+    "actualMaxRow": 32,
+    "columnCount": 15,
+    "actualMaxCol": 15,
+    "filledCells": 130,
+    "mergeCount": 18,
+    "sampleMerges": [
+      "M19:N20",
+      "O19:O21",
+      "A30:B30",
+      "A9:B9",
+      "A10:B10"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 22,
+    "dataStartRow": 23,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "O1=LAMPIRAN 4.18b"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA/BUKU CATATAN ; B4=REKAPITULASI DATA/BUKU CATATAN ; C4=REKAPITULASI DATA/BUKU CATATAN ; D4=REKAPITULASI DATA/BUKU CATATAN ; E4=REKAPITULASI DATA/BUKU CATATAN ; F4=REKAPITULASI DATA/BUKU CATATAN ; G4=REKAPITULASI DATA/BUKU CATATAN ; H4=REKAPITULASI DATA/BUKU CATATAN ; I4=REKAPITULASI DATA/BUKU CATATAN ; J4=REKAPITULASI DATA/BUKU CATATAN ; K4=REKAPITULASI DATA/BUKU CATATAN ; L4=REKAPITULASI DATA/BUKU CATATAN ; M4=REKAPITULASI DATA/BUKU CATATAN ; N4=REKAPITULASI DATA/BUKU CATATAN ; O4=REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; C5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; D5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; E5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; F5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; G5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; H5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; I5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; J5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; K5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; L5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; M5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; N5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; O5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; B6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; C6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; D6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; E6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; F6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; G6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; H6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; I6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; J6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; K6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; L6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; M6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; N6=KEMATIAN BALITA DALAM KELOMPOK PKK RT ; O6=KEMATIAN BALITA DALAM KELOMPOK PKK RT"
+      },
+      {
+        "rowNumber": 8,
+        "text": "L8=BULAN ; M8=: ; N8=…............................"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=RT/RW/DSN/LING ; B9=RT/RW/DSN/LING ; C9=: …..................................... ; L9=TAHUN ; M9=: ; N9=…................."
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=DESA/KELURAHAN ; B10=DESA/KELURAHAN ; C10=: …....................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=KECAMATAN ; B11=KECAMATAN ; C11=: …....................................."
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=KAB / KOTA ; B12=KAB / KOTA ; C12=: …....................................."
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=PROVINSI ; B13=PROVINSI ; C13=: …....................................."
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=NO ; B19=NAMA KELOMPOK DASA WISMA ; C19=JUMLAH IBU ; D19=JUMLAH IBU ; E19=JUMLAH IBU ; F19=JUMLAH IBU ; G19=JUMLAH BAYI ; H19=JUMLAH BAYI ; I19=JUMLAH BAYI ; J19=JUMLAH BAYI ; K19=JUMLAH BAYI ; L19=JUMLAH BAYI ; M19=JUMLAH BALITA MENINGGAL ; N19=JUMLAH BALITA MENINGGAL ; O19=KETERANGAN"
+      },
+      {
+        "rowNumber": 20,
+        "text": "A20=NO ; B20=NAMA KELOMPOK DASA WISMA ; C20=JUMLAH IBU ; D20=JUMLAH IBU ; E20=JUMLAH IBU ; F20=JUMLAH IBU ; G20=LAHIR ; H20=LAHIR ; I20=AKTE KELAHIRAN ; J20=AKTE KELAHIRAN ; K20=MENINGGAL ; L20=MENINGGAL ; M20=JUMLAH BALITA MENINGGAL ; N20=JUMLAH BALITA MENINGGAL ; O20=KETERANGAN"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=NO ; B21=NAMA KELOMPOK DASA WISMA ; C21=HAMIL ; D21=MELAHIRKAN ; E21=NIFAS ; F21=MENINGGAL ; G21=L ; H21=P ; I21=ADA ; J21=TIDAK ADA ; K21=L ; L21=P ; M21=L ; N21=P ; O21=KETERANGAN"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=1 ; B22=2 ; C22=3 ; D22=4 ; E22=5 ; F22=6 ; G22=7 ; H22=8 ; I22=9 ; J22=10 ; K22=11 ; L22=12 ; M22=13 ; N22=14 ; O22=15"
+      },
+      {
+        "rowNumber": 30,
+        "text": "A30=JUMLAH ; B30=JUMLAH"
+      },
+      {
+        "rowNumber": 32,
+        "text": "A32=*Ibu meninggal karena hamil/melahirkan/n"
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "name": "cara pengisian rekap bumil rt",
+    "rowCount": 21,
+    "actualMaxRow": 21,
+    "columnCount": 2,
+    "actualMaxCol": 2,
+    "filledCells": 28,
+    "mergeCount": 2,
+    "sampleMerges": [
+      "A4:B4",
+      "A5:B5"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "B1=LAMPIRAN 4.18b"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA/BUKU CATATAN ; B4=REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Penjelasan:"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=[object Object]"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=KOLOM ; B10=PENJELASAN"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=RT,RW, Dusun/Lingkungan, Desa/Kelurahan, ; B11=Di isi nama sesuai dengan RT, RW, Dusun/"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=1 ; B12=Diisi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=2 ; B13=Diisi dengan nama kelompok kelompok Dasa"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=3 – 6 ; B14=Diisi dengan jumlah ibu hamil, melahirka"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=7 – 8 ; B15=Diisi jumlah bayi yang baru lahir sesuai"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=9 – 10 ; B16=Diisi dengan jumlah bayi yang sudah atau"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=11 – 12 ; B17=Diisi dengan jumlah bayi yang meninggal "
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=13 – 14 ; B18=Diisi dengan jumlah balita yang meningga"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=15 ; B19=Diisi dengan hal hal yang belum tercantu"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=[object Object]"
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "name": "rekap bumil rw",
+    "rowCount": 32,
+    "actualMaxRow": 23,
+    "columnCount": 16,
+    "actualMaxCol": 16,
+    "filledCells": 120,
+    "mergeCount": 15,
+    "sampleMerges": [
+      "A22:B22",
+      "N11:O12",
+      "P11:P13",
+      "H12:I12",
+      "J12:K12"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "P1=LAMPIRAN 4.18c"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA/BUKU CATATAN ; B4=REKAPITULASI DATA/BUKU CATATAN ; C4=REKAPITULASI DATA/BUKU CATATAN ; D4=REKAPITULASI DATA/BUKU CATATAN ; E4=REKAPITULASI DATA/BUKU CATATAN ; F4=REKAPITULASI DATA/BUKU CATATAN ; G4=REKAPITULASI DATA/BUKU CATATAN ; H4=REKAPITULASI DATA/BUKU CATATAN ; I4=REKAPITULASI DATA/BUKU CATATAN ; J4=REKAPITULASI DATA/BUKU CATATAN ; K4=REKAPITULASI DATA/BUKU CATATAN ; L4=REKAPITULASI DATA/BUKU CATATAN ; M4=REKAPITULASI DATA/BUKU CATATAN ; N4=REKAPITULASI DATA/BUKU CATATAN ; O4=REKAPITULASI DATA/BUKU CATATAN ; P4=REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; C5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; D5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; E5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; F5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; G5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; H5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; I5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; J5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; K5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; L5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; M5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; N5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; O5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; P5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; B6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; C6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; D6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; E6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; F6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; G6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; H6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; I6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; J6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; K6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; L6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; M6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; N6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; O6=KEMATIAN BALITA DALAM KELOMPOK PKK RW ; P6=KEMATIAN BALITA DALAM KELOMPOK PKK RW"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=PROVINSI ; B9=PROVINSI ; C9=PROVINSI ; D9=: …....................................."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NOMOR RT ; C11=JMH DASA WISMA ; D11=JUMLAH IBU ; E11=JUMLAH IBU ; F11=JUMLAH IBU ; G11=JUMLAH IBU ; H11=JUMLAH BAYI ; I11=JUMLAH BAYI ; J11=JUMLAH BAYI ; K11=JUMLAH BAYI ; L11=JUMLAH BAYI ; M11=JUMLAH BAYI ; N11=JUMLAH BALITA MENINGGAL ; O11=JUMLAH BALITA MENINGGAL ; P11=KETERANGAN"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NOMOR RT ; C12=JMH DASA WISMA ; D12=JUMLAH IBU ; E12=JUMLAH IBU ; F12=JUMLAH IBU ; G12=JUMLAH IBU ; H12=LAHIR ; I12=LAHIR ; J12=AKTE KELAHIRAN ; K12=AKTE KELAHIRAN ; L12=MENINGGAL ; M12=MENINGGAL ; N12=JUMLAH BALITA MENINGGAL ; O12=JUMLAH BALITA MENINGGAL ; P12=KETERANGAN"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NOMOR RT ; C13=JMH DASA WISMA ; D13=HAMIL ; E13=MELAHIRKAN ; F13=NIFAS ; G13=MENINGGAL ; H13=L ; I13=P ; J13=ADA ; K13=TIDAK ADA ; L13=L ; M13=P ; N13=L ; O13=P ; P13=KETERANGAN"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=JUMLAH ; B22=JUMLAH"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=*Ibu meninggal karena hamil/melahirkan/n"
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "name": "cara pengisian rekap bumil rw",
+    "rowCount": 21,
+    "actualMaxRow": 21,
+    "columnCount": 6,
+    "actualMaxCol": 6,
+    "filledCells": 27,
+    "mergeCount": 2,
+    "sampleMerges": [
+      "A16:A17",
+      "A4:E4"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "F1=LAMPIRAN 4.18c"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=CARA PENGISIAN BUKU CATATAN ; B4=CARA PENGISIAN BUKU CATATAN ; C4=CARA PENGISIAN BUKU CATATAN ; D4=CARA PENGISIAN BUKU CATATAN ; E4=CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=[object Object]"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=Kolom ; B10=Penjelasan"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=RW, Dusun/Lingkungan, Desa/Kel., ; B11=Di isi nama sesuai dengan RW, Dusun/Ling"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=Bulan, Tahun ; B12=Bulan dan Tahun saat pendataan"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=1 ; B13=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=2 ; B14=Diisi nomor RT yang ada dalam wilayah RW"
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=3 ; B15=Di isi dengan jumlah Kelompok Dasawisma "
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=4 – 15 ; B16=Diisi dengan jumlah data yang diambil da"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=4 – 15 ; B17=kematian bayi, kematian balita dan kemat"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=16 ; B18=Di isi dengan hal-hal yang belum tercant"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=[object Object]"
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "name": "rekap bumil dsn",
+    "rowCount": 32,
+    "actualMaxRow": 23,
+    "columnCount": 17,
+    "actualMaxCol": 17,
+    "filledCells": 126,
+    "mergeCount": 15,
+    "sampleMerges": [
+      "Q11:Q13",
+      "I12:J12",
+      "K12:L12",
+      "M12:N12",
+      "A22:B22"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 14,
+    "dataStartRow": 15,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "Q1=LAMPIRAN 4.18d"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA/BUKU CATATAN ; B4=REKAPITULASI DATA/BUKU CATATAN ; C4=REKAPITULASI DATA/BUKU CATATAN ; D4=REKAPITULASI DATA/BUKU CATATAN ; E4=REKAPITULASI DATA/BUKU CATATAN ; F4=REKAPITULASI DATA/BUKU CATATAN ; G4=REKAPITULASI DATA/BUKU CATATAN ; H4=REKAPITULASI DATA/BUKU CATATAN ; I4=REKAPITULASI DATA/BUKU CATATAN ; J4=REKAPITULASI DATA/BUKU CATATAN ; K4=REKAPITULASI DATA/BUKU CATATAN ; L4=REKAPITULASI DATA/BUKU CATATAN ; M4=REKAPITULASI DATA/BUKU CATATAN ; N4=REKAPITULASI DATA/BUKU CATATAN ; O4=REKAPITULASI DATA/BUKU CATATAN ; P4=REKAPITULASI DATA/BUKU CATATAN ; Q4=REKAPITULASI DATA/BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; C5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; D5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; E5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; F5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; G5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; H5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; I5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; J5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; K5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; L5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; M5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; N5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; O5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; P5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; Q5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; B6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; C6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; D6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; E6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; F6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; G6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; H6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; I6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; J6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; K6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; L6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; M6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; N6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; O6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; P6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN ; Q6=KEMATIAN BALITA DALAM KELOMPOK PKK DUSUN"
+      },
+      {
+        "rowNumber": 9,
+        "text": ""
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=NO ; B11=NOMOR RW ; C11=JUMLAH ; D11=JUMLAH ; E11=JUMLAH IBU ; F11=JUMLAH IBU ; G11=JUMLAH IBU ; H11=JUMLAH IBU ; I11=JUMLAH BAYI ; J11=JUMLAH BAYI ; K11=JUMLAH BAYI ; L11=JUMLAH BAYI ; M11=JUMLAH BAYI ; N11=JUMLAH BAYI ; O11=JUMLAH BALITA MENINGGAL ; P11=JUMLAH BALITA MENINGGAL ; Q11=KETERANGAN"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=NO ; B12=NOMOR RW ; C12=JUMLAH ; D12=JUMLAH ; E12=JUMLAH IBU ; F12=JUMLAH IBU ; G12=JUMLAH IBU ; H12=JUMLAH IBU ; I12=LAHIR ; J12=LAHIR ; K12=AKTE KELAHIRAN ; L12=AKTE KELAHIRAN ; M12=MENINGGAL ; N12=MENINGGAL ; O12=JUMLAH BALITA MENINGGAL ; P12=JUMLAH BALITA MENINGGAL ; Q12=KETERANGAN"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=NO ; B13=NOMOR RW ; C13=RT ; D13=DASA WISMA ; E13=HAMIL ; F13=MELAHIRKAN ; G13=NIFAS ; H13=MENINGGAL ; I13=L ; J13=P ; K13=ADA ; L13=TIDAK ADA ; M13=L ; N13=P ; O13=L ; P13=P ; Q13=KETERANGAN"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=1 ; B14=2 ; C14=3 ; D14=4 ; E14=5 ; F14=6 ; G14=7 ; H14=8 ; I14=9 ; J14=10 ; K14=11 ; L14=12 ; M14=13 ; N14=14 ; O14=15 ; P14=16 ; Q14=17"
+      },
+      {
+        "rowNumber": 22,
+        "text": "A22=JUMLAH ; B22=JUMLAH"
+      },
+      {
+        "rowNumber": 23,
+        "text": "A23=*Ibu meninggal karena hamil/melahirkan/n"
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "name": "cara pengisian rekap bumil dsn",
+    "rowCount": 17,
+    "actualMaxRow": 17,
+    "columnCount": 4,
+    "actualMaxCol": 4,
+    "filledCells": 24,
+    "mergeCount": 2,
+    "sampleMerges": [
+      "A12:A13",
+      "A3:D3"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "D1=LAMPIRAN 4.18d"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN BUKU CATATAN ; B3=CARA PENGISIAN BUKU CATATAN ; C3=CARA PENGISIAN BUKU CATATAN ; D3=CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=[object Object]"
+      },
+      {
+        "rowNumber": 7,
+        "text": "A7=Kolom ; B7=Penjelasan"
+      },
+      {
+        "rowNumber": 8,
+        "text": "A8=Dusun/Lingkungan, Desa/Kel., Bulan, Tahu ; B8=Di isi nama sesuai dengan Dusun/Lingkung"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=1 ; B9=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=2 ; B10=Diisi dengan nomor RW yang ada dalam Dus"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=3 ; B11=Di isi dengan jumlah Kelompok PKK RT yan"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=4 – 16 ; B12=Diisi dengan jumlah data yang diambil da"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=4 – 16 ; B13=kematian balita dan kematian ibu hamil, "
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=17 ; B14=Di isi dengan hal-hal yang belum tercant"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=[object Object]"
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "name": "rekap bumil desakelurahan",
+    "rowCount": 37,
+    "actualMaxRow": 28,
+    "columnCount": 18,
+    "actualMaxCol": 18,
+    "filledCells": 148,
+    "mergeCount": 14,
+    "sampleMerges": [
+      "R16:R18",
+      "J17:K17",
+      "L17:M17",
+      "N17:O17",
+      "A27:B27"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": 19,
+    "dataStartRow": 20,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "R1=LAMPIRAN 4.19a"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=REKAPITULASI DATA / BUKU CATATAN ; B4=REKAPITULASI DATA / BUKU CATATAN ; C4=REKAPITULASI DATA / BUKU CATATAN ; D4=REKAPITULASI DATA / BUKU CATATAN ; E4=REKAPITULASI DATA / BUKU CATATAN ; F4=REKAPITULASI DATA / BUKU CATATAN ; G4=REKAPITULASI DATA / BUKU CATATAN ; H4=REKAPITULASI DATA / BUKU CATATAN ; I4=REKAPITULASI DATA / BUKU CATATAN ; J4=REKAPITULASI DATA / BUKU CATATAN ; K4=REKAPITULASI DATA / BUKU CATATAN ; L4=REKAPITULASI DATA / BUKU CATATAN ; M4=REKAPITULASI DATA / BUKU CATATAN ; N4=REKAPITULASI DATA / BUKU CATATAN ; O4=REKAPITULASI DATA / BUKU CATATAN ; P4=REKAPITULASI DATA / BUKU CATATAN ; Q4=REKAPITULASI DATA / BUKU CATATAN ; R4=REKAPITULASI DATA / BUKU CATATAN"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; B5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; C5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; D5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; E5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; F5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; G5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; H5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; I5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; J5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; K5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; L5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; M5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; N5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; O5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; P5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; Q5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING ; R5=IBU HAMIL, MELAHIRKAN, NIFAS, IBU MENING"
+      },
+      {
+        "rowNumber": 6,
+        "text": "A6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; B6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; C6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; D6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; E6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; F6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; G6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; H6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; I6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; J6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; K6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; L6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; M6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; N6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; O6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; P6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; Q6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA ; R6=KEMATIAN BALITA PADA TINGKAT TP PKK DESA"
+      },
+      {
+        "rowNumber": 8,
+        "text": "O8=BULAN ; P8=: ; Q8=…......................................"
+      },
+      {
+        "rowNumber": 9,
+        "text": "O9=TAHUN ; P9=: ; Q9=….............................."
+      },
+      {
+        "rowNumber": 10,
+        "text": "A10=DESA/KELURAHAN ; C10=: ; E10=….............."
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=KECAMATAN ; C11=: ; E11=….............."
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=KAB/KOTA ; C12=: ; E12=….............."
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=PROVINSI ; C13=: ; E13=….............."
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=NO ; B16=NAMA DUSUN/LINGKUNGAN ; C16=JUMLAH ; D16=JUMLAH ; E16=JUMLAH ; F16=JUMLAH IBU ; G16=JUMLAH IBU ; H16=JUMLAH IBU ; I16=JUMLAH IBU ; J16=JUMLAH BAYI ; K16=JUMLAH BAYI ; L16=JUMLAH BAYI ; M16=JUMLAH BAYI ; N16=JUMLAH BAYI ; O16=JUMLAH BAYI ; P16=JUMLAH BALITA MENINGGAL ; Q16=JUMLAH BALITA MENINGGAL ; R16=KETERANGAN"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=NO ; B17=NAMA DUSUN/LINGKUNGAN ; C17=JUMLAH ; D17=JUMLAH ; E17=JUMLAH ; F17=JUMLAH IBU ; G17=JUMLAH IBU ; H17=JUMLAH IBU ; I17=JUMLAH IBU ; J17=LAHIR ; K17=LAHIR ; L17=AKTE KELAHIRAN ; M17=AKTE KELAHIRAN ; N17=MENINGGAL ; O17=MENINGGAL ; P17=JUMLAH BALITA MENINGGAL ; Q17=JUMLAH BALITA MENINGGAL ; R17=KETERANGAN"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=NO ; B18=NAMA DUSUN/LINGKUNGAN ; C18=RW ; D18=RT ; E18=DASA WISMA ; F18=HAMIL ; G18=MELAHIRKAN ; H18=NIFAS ; I18=MENINGGAL ; J18=L ; K18=P ; L18=ADA ; M18=TIDAK ADA ; N18=L ; O18=P ; P18=L ; Q18=P ; R18=KETERANGAN"
+      },
+      {
+        "rowNumber": 19,
+        "text": "A19=1 ; B19=2 ; C19=3 ; D19=4 ; E19=5 ; F19=6 ; G19=7 ; H19=8 ; I19=9 ; J19=10 ; K19=11 ; L19=12 ; M19=13 ; N19=14 ; O19=15 ; P19=16 ; Q19=17 ; R19=18"
+      },
+      {
+        "rowNumber": 27,
+        "text": "A27=JUMLAH ; B27=JUMLAH"
+      },
+      {
+        "rowNumber": 28,
+        "text": "A28=*Ibu meninggal karena hamil/melahirkan/n"
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "name": "cara pengisian rekap bumil desa",
+    "rowCount": 21,
+    "actualMaxRow": 21,
+    "columnCount": 8,
+    "actualMaxCol": 8,
+    "filledCells": 37,
+    "mergeCount": 4,
+    "sampleMerges": [
+      "A16:A17",
+      "A3:F3",
+      "A4:F4",
+      "A5:F5"
+    ],
+    "formulaCount": 0,
+    "colNumberRow": null,
+    "dataStartRow": null,
+    "rowSamples": [
+      {
+        "rowNumber": 1,
+        "text": "H1=LAMPIRAN 4.19a"
+      },
+      {
+        "rowNumber": 3,
+        "text": "A3=CARA PENGISIAN BUKU CATATAN ; B3=CARA PENGISIAN BUKU CATATAN ; C3=CARA PENGISIAN BUKU CATATAN ; D3=CARA PENGISIAN BUKU CATATAN ; E3=CARA PENGISIAN BUKU CATATAN ; F3=CARA PENGISIAN BUKU CATATAN"
+      },
+      {
+        "rowNumber": 4,
+        "text": "A4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; B4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; C4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; D4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; E4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM ; F4=IBU HAMIL, KELAHIRAN, KEMATIAN BAYI, KEM"
+      },
+      {
+        "rowNumber": 5,
+        "text": "A5=DALAM KELOMPOK PKK DESA/KELURAHAN ; B5=DALAM KELOMPOK PKK DESA/KELURAHAN ; C5=DALAM KELOMPOK PKK DESA/KELURAHAN ; D5=DALAM KELOMPOK PKK DESA/KELURAHAN ; E5=DALAM KELOMPOK PKK DESA/KELURAHAN ; F5=DALAM KELOMPOK PKK DESA/KELURAHAN"
+      },
+      {
+        "rowNumber": 9,
+        "text": "A9=[object Object]"
+      },
+      {
+        "rowNumber": 11,
+        "text": "A11=Kolom ; B11=Penjelasan"
+      },
+      {
+        "rowNumber": 12,
+        "text": "A12=Desa/Kel., Kecamatan, Kab/Kota, Provinsi ; B12=Di isi nama sesuai dengan Desa/Kelurahan"
+      },
+      {
+        "rowNumber": 13,
+        "text": "A13=1 ; B13=Di isi dengan nomor urut penulisan"
+      },
+      {
+        "rowNumber": 14,
+        "text": "A14=2 ; B14=Diisi dengan nama Dusun/Lingkungan yang "
+      },
+      {
+        "rowNumber": 15,
+        "text": "A15=3 ; B15=Di isi dengan jumlah Kelompok PKK RW yan"
+      },
+      {
+        "rowNumber": 16,
+        "text": "A16=4 – 17 ; B16=Diisi dengan jumlah data yang diambil da"
+      },
+      {
+        "rowNumber": 17,
+        "text": "A17=4 – 17 ; B17=tersebut"
+      },
+      {
+        "rowNumber": 18,
+        "text": "A18=18 ; B18=Di isi dengan hal-hal yang belum tercant"
+      },
+      {
+        "rowNumber": 21,
+        "text": "A21=[object Object]"
+      }
+    ]
+  }
+]
