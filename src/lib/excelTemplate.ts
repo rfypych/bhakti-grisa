@@ -271,7 +271,9 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
 
       const dasaAgg = await getAggregationDasawisma(firstWilayah.id, filter);
 
-      let rIdx = 14;
+      // Recap rows start at row 15: this sheet has a three-tier header
+      // (rows 11-13) and row 14 is the printed column-number row (1-29).
+      let rIdx = 15;
       families.slice(0, 10).forEach((fam, idx) => {
         const row = wsRekapDasawisma.getRow(rIdx + idx);
         row.getCell(1).value = idx + 1; // NO

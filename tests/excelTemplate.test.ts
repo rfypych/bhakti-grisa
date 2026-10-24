@@ -95,6 +95,15 @@ describe('Excel Template Injection Engine', () => {
       expect(ws!.getCell(24, 3).value).toBe('Bapak Uji Nomor');
       expect(ws!.getCell(24, 5).value).toBe('Kawin');
       expect(ws!.getCell(24, 6).value).toBe('L');
+
+      // Same guard on the dasawisma recap sheet: three-tier header
+      // (rows 11-13), printed number row 14 (1-29), data from row 15
+      const wsRekap = wb.getWorksheet('rekap cat data &keg.warga');
+      expect(wsRekap).toBeDefined();
+      for (let c = 1; c <= 29; c++) {
+        expect(wsRekap!.getCell(14, c).value).toBe(c);
+      }
+      expect(wsRekap!.getCell(15, 2).value).toBe('Bapak Uji Nomor');
     } finally {
       await prisma.keluarga.delete({ where: { id: fam.id } });
     }
