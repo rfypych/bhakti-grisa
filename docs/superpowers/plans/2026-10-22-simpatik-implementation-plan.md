@@ -501,7 +501,7 @@ git commit -m "feat: implement event log tracker for births, pregnancies, and mo
 - Consumes: Leaflet, OpenStreetMap tiles, `src/lib/prisma.ts`
 - Produces: Interactive map rendering household coordinates with Green/Yellow/Red pins and popup family summaries.
 
-- [ ] **Step 1: Write unit test for coordinate filtering and pin color classification**
+- [x] **Step 1: Write unit test for coordinate filtering and pin color classification**
 ```typescript
 // tests/mapComponent.test.ts
 import { describe, it, expect } from 'vitest';
@@ -525,18 +525,18 @@ describe('GIS Map Helper', () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 Run: `npx vitest run tests/mapComponent.test.ts`
 Expected: FAIL.
 
-- [ ] **Step 3: Implement `getPinColor` and Leaflet `GisMap` component**
+- [x] **Step 3: Implement `getPinColor` and Leaflet `GisMap` component**
 In `src/components/map/`: Implement SSR-safe dynamic import for Leaflet. Render map with custom SVG/DivIcon pins and clickable popups displaying KRT name, members count, sanitation status, and detail link.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 Run: `npx vitest run tests/mapComponent.test.ts`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 ```bash
 git add src/components/map/ src/app/dashboard/peta/ tests/mapComponent.test.ts
 git commit -m "feat: implement interactive spatial GIS household map with category pins"
