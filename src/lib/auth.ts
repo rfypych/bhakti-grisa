@@ -43,7 +43,7 @@ export async function getSessionUser(): Promise<PenggunaWithWilayah | null> {
     const sessionCookie = cookieStore.get(SESSION_COOKIE_NAME);
     if (!sessionCookie?.value) return null;
 
-    const payload = verifySessionToken(sessionCookie.value);
+    const payload = await verifySessionToken(sessionCookie.value);
     if (!payload?.userId) return null;
 
     const user = await prisma.pengguna.findUnique({

@@ -28,32 +28,32 @@ describe('Auth & Role-Based Scope Engine', () => {
   });
 
   describe('HMAC-SHA256 Signed Session Tokens', () => {
-    it('creates and verifies valid session tokens', () => {
+    it('creates and verifies valid session tokens', async () => {
       const payload = {
         userId: 'user-123',
         peran: 'KADER_RT' as PeranPengguna,
         wilayahId: 'wil-456',
       };
 
-      const token = createSessionToken(payload);
+      const token = await createSessionToken(payload);
       expect(token).toBeTruthy();
       expect(token.split('.').length).toBe(2); // data.signature
 
-      const decoded = verifySessionToken(token);
+      const decoded = await verifySessionToken(token);
       expect(decoded).not.toBeNull();
       expect(decoded?.userId).toBe('user-123');
       expect(decoded?.peran).toBe('KADER_RT');
       expect(decoded?.wilayahId).toBe('wil-456');
     });
 
-    it('rejects tampered or forged session tokens', () => {
+    it('rejects tampered or forged session tokens', async () => {
       const payload = {
         userId: 'user-123',
         peran: 'KADER_RT' as PeranPengguna,
         wilayahId: 'wil-456',
       };
 
-      const token = createSessionToken(payload);
+      const token = await createSessionToken(payload);
       const [data, sig] = token.split('.');
 
       // Tamper data payload
@@ -62,11 +62,24 @@ describe('Auth & Role-Based Scope Engine', () => {
       ).toString('base64url');
       const forgedToken = `${tamperedData}.${sig}`;
 
-      expect(verifySessionToken(forgedToken)).toBeNull();
+      expect(await verifySessionToken(forgedToken)).toBeNull();
 
       // Tamper signature
       const corruptedSigToken = `${data}.invalidsignaturexyz`;
-      expect(verifySessionToken(corruptedSigToken)).toBeNull();
+      expect(await verifySessionToken(corruptedSigToken)).toBeNull();
+    });
+
+    it('rejects expired session tokens', async () => {
+      const payload = {
+        userId: 'user-expired',
+        peran: 'KADER_RT' as PeranPengguna,
+        wilayahId: 'wil-456',
+      };
+
+      // Create token expired in the past (-1 days)
+      const token = await createSessionToken(payload, -1);
+      const decoded = await verifySessionToken(token);
+      expect(decoded).toBeNull();
     });
   });
 

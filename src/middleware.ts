@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { verifySessionToken, SESSION_COOKIE_NAME } from '@/lib/token';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Protect /dashboard/** routes
@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    const payload = verifySessionToken(sessionCookie);
+    const payload = await verifySessionToken(sessionCookie);
     if (!payload) {
       const loginUrl = new URL('/login', request.url);
       loginUrl.searchParams.set('callbackUrl', pathname);

@@ -32,7 +32,7 @@ export async function loginAction(formData: { username: string; kataSandi: strin
     return { success: false, error: 'Nama pengguna atau kata sandi tidak valid.' };
   }
 
-  const token = createSessionToken({
+  const token = await createSessionToken({
     userId: user.id,
     peran: user.peran,
     wilayahId: user.wilayahId,
