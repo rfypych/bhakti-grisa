@@ -35,12 +35,14 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
   // 1. Fetch relevant data
   const desaAgg = await getAggregationDesa(filter);
 
-  const whereFamily: any = {
-    statusData: { not: 'ARSIP' },
-  };
+  // Official exports contain VERIFIKASI families only; an explicit keluargaId
+  // export is a deliberate single-family request and bypasses the status filter.
+  const whereFamily: any = options.keluargaId
+    ? { id: options.keluargaId }
+    : { statusData: 'VERIFIKASI' };
 
   if (options.keluargaId) {
-    whereFamily.id = options.keluargaId;
+    // single-family export, whereFamily already targets the id
   } else if (options.dasawismaId) {
     whereFamily.wilayahId = options.dasawismaId;
   } else if (options.rtId && options.rtId !== 'all') {

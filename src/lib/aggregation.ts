@@ -81,7 +81,9 @@ async function aggregateFamilies(
   const families = await prisma.keluarga.findMany({
     where: {
       ...whereClause,
-      statusData: { not: 'ARSIP' },
+      // Official recaps count VERIFIKASI families only: resident self-submissions
+      // stay DRAFT and enter village recaps only after cadre verification.
+      statusData: 'VERIFIKASI',
       createdAt: { lte: refDate },
     },
     include: {
