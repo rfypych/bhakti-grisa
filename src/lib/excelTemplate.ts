@@ -665,7 +665,7 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       orderBy: { dusun: 'asc' },
     });
 
-    let rIdx = 14;
+    let rIdx = 15;
     for (let idx = 0; idx < dusunList.length && idx < 24; idx++) {
       const d = dusunList[idx];
       const dsnItemAgg = await getAggregationDusun(d.dusun, filter);
@@ -781,7 +781,8 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
       wsRekapBumil.getCell('B16').value = `: ${options.tahun}`;
 
       let rIdx = 23;
-      bumilList.slice(0, 15).forEach((m, idx) => {
+      // In Sheet 22, data rows run from row 23 to 29 (7 rows max), before JUMLAH at row 30
+      bumilList.slice(0, 7).forEach((m, idx) => {
         const row = wsRekapBumil.getRow(rIdx + idx);
         row.getCell(1).value = idx + 1;
         row.getCell(2).value = m.namaIbu;
@@ -792,7 +793,8 @@ export async function generateOfficialExcelWorkbook(options: ExportOptions): Pro
           : 'Hamil Aktif';
       });
 
-      const sumRowBumil = wsRekapBumil.getRow(39);
+      // Bottom sum row for table data is Row 30 (Row 33-39 is the CATATAN area where D39 contains "Orang")
+      const sumRowBumil = wsRekapBumil.getRow(30);
       if (sumRowBumil) {
         sumRowBumil.getCell(4).value = bumilList.length;
       }
