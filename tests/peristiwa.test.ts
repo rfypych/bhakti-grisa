@@ -96,5 +96,11 @@ describe('Event Log Actions', () => {
     });
     expect(event).toBeDefined();
     expect(event?.jenisPeristiwa).toBe('KEMATIAN_IBU');
+
+    // The deceased member is archived out of the living population.
+    const member = await prisma.anggotaKeluarga.findUnique({
+      where: { id: motherId },
+    });
+    expect(member?.statusKehidupan).toBe('MENINGGAL');
   });
 });

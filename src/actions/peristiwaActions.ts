@@ -102,13 +102,16 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
  * Records a mortality event and creates PeristiwaVital record.
  */
 export async function laporKematianAction(data: KematianInput): Promise<{ success: boolean }> {
-  let jenisPeristiwa: 'KEMATIAN_IBU' | 'KEMATIAN_BAYI' | 'KEMATIAN_BALITA' = 'KEMATIAN_IBU';
+  // Map the reporter-facing category to the structured event type. General
+  // deaths are KEMATIAN_WARGA: recording them as KEMATIAN_IBU would corrupt
+  // the maternal mortality counters in official recaps.
+  let jenisPeristiwa: 'KEMATIAN_IBU' | 'KEMATIAN_BAYI' | 'KEMATIAN_BALITA' | 'KEMATIAN_WARGA' = 'KEMATIAN_WARGA';
 
   if (data.statusAlmarhum === 'BAYI') {
     jenisPeristiwa = 'KEMATIAN_BAYI';
   } else if (data.statusAlmarhum === 'BALITA') {
     jenisPeristiwa = 'KEMATIAN_BALITA';
-  } else {
+  } else if (data.statusAlmarhum === 'IBU_HAMIL_MELAHIRKAN_NIFAS') {
     jenisPeristiwa = 'KEMATIAN_IBU';
   }
 
@@ -124,6 +127,13 @@ export async function laporKematianAction(data: KematianInput): Promise<{ succes
         sebabKematian: data.sebabKematian.trim(),
         keterangan: data.keterangan || (data.statusAlmarhum ? `Kategori: ${data.statusAlmarhum}` : undefined),
       },
+    });
+
+    // The deceased member stops counting as a living resident and must no
+    // longer be offered in the living-member lists.
+    await tx.anggotaKeluarga.update({
+      where: { id: data.anggotaId },
+      data: { statusKehidupan: 'MENINGGAL' },
     });
   });
 
@@ -188,6 +198,8 @@ export async function getEligibleMothers() {
   return prisma.anggotaKeluarga.findMany({
     where: {
       jenisKelamin: 'P',
+      statusKehidupan: 'HIDUP',
+      keluarga: { statusData: 'VERIFIKASI' },
     },
     include: {
       keluarga: {
@@ -203,6 +215,10 @@ export async function getEligibleMothers() {
  */
 export async function getAllLivingMembers() {
   return prisma.anggotaKeluarga.findMany({
+    where: {
+      statusKehidupan: 'HIDUP',
+      keluarga: { statusData: 'VERIFIKASI' },
+    },
     include: {
       keluarga: {
         include: { wilayah: true },

@@ -102,7 +102,14 @@ enum JenisPeristiwa {
   KELAHIRAN_BAYI
   KEMATIAN_BAYI
   KEMATIAN_BALITA
+  KEMATIAN_WARGA
   MUTASI_KELUAR
+}
+
+enum StatusKehidupan {
+  HIDUP
+  MENINGGAL
+  PINDAH
 }
 
 model Wilayah {
@@ -167,6 +174,7 @@ model AnggotaKeluarga {
   tempatLahir           String
   tanggalLahir          DateTime
   agama                 Agama               @default(ISLAM)
+  statusKehidupan       StatusKehidupan     @default(HIDUP)
   pendidikan            Pendidikan          @default(SMA_SMK_SEDERAJAT)
   pekerjaan             Pekerjaan           @default(SWASTA)
   statusPerkawinan      StatusPerkawinan    @default(BELUM_KAWIN)

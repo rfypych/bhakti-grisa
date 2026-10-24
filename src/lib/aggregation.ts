@@ -162,31 +162,37 @@ async function aggregateFamilies(
     if (fam.hatinyaPkk.length > 0) res.totalHatinyaPkk++;
 
     for (const member of fam.anggota) {
-      res.totalAnggota++;
-      if (member.jenisKelamin === 'L') res.totalLakiLaki++;
-      else res.totalPerempuan++;
+      // Population counters cover living residents only: a member recorded
+      // as deceased (statusKehidupan MENINGGAL) no longer counts as jiwa.
+      // Their vital events further below still count, because maternal and
+      // infant mortality are measured from the events of deceased members.
+      if (member.statusKehidupan === 'HIDUP') {
+        res.totalAnggota++;
+        if (member.jenisKelamin === 'L') res.totalLakiLaki++;
+        else res.totalPerempuan++;
 
-      const flags = classifyDemographics(
-        {
-          tanggalLahir: member.tanggalLahir,
-          jenisKelamin: member.jenisKelamin,
-          statusPerkawinan: member.statusPerkawinan,
-          tigaButa: member.tigaButa,
-        },
-        refDate
-      );
+        const flags = classifyDemographics(
+          {
+            tanggalLahir: member.tanggalLahir,
+            jenisKelamin: member.jenisKelamin,
+            statusPerkawinan: member.statusPerkawinan,
+            tigaButa: member.tigaButa,
+          },
+          refDate
+        );
 
-      if (flags.isBalita) {
-        res.totalBalita++;
-        if (member.jenisKelamin === 'L') res.totalBalitaL++;
-        else res.totalBalitaP++;
+        if (flags.isBalita) {
+          res.totalBalita++;
+          if (member.jenisKelamin === 'L') res.totalBalitaL++;
+          else res.totalBalitaP++;
+        }
+
+        if (flags.isLansia) res.totalLansia++;
+        if (flags.isWus) res.totalWus++;
+        if (flags.isPus && member.jenisKelamin === 'P') res.totalPus++;
+        if (flags.isTigaButa) res.totalTigaButa++;
+        if (member.disabilitas) res.totalDisabilitas++;
       }
-
-      if (flags.isLansia) res.totalLansia++;
-      if (flags.isWus) res.totalWus++;
-      if (flags.isPus && member.jenisKelamin === 'P') res.totalPus++;
-      if (flags.isTigaButa) res.totalTigaButa++;
-      if (member.disabilitas) res.totalDisabilitas++;
 
       for (const pv of member.peristiwaVital) {
         if (pv.jenisPeristiwa === 'KEHAMILAN') res.totalIbuHamil++;

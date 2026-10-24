@@ -22,7 +22,7 @@ export default async function LaporPeristiwaPage({
 
   const totalKelahiran = recentEvents.filter((e) => e.jenisPeristiwa === 'KELAHIRAN_BAYI').length;
   const totalKematian = recentEvents.filter((e) =>
-    ['KEMATIAN_IBU', 'KEMATIAN_BAYI', 'KEMATIAN_BALITA'].includes(e.jenisPeristiwa)
+    ['KEMATIAN_IBU', 'KEMATIAN_BAYI', 'KEMATIAN_BALITA', 'KEMATIAN_WARGA'].includes(e.jenisPeristiwa)
   ).length;
 
   return (
@@ -118,7 +118,13 @@ export default async function LaporPeristiwaPage({
                     eventLabel = 'Kehamilan';
                   } else if (event.jenisPeristiwa.startsWith('KEMATIAN')) {
                     badgeColor = 'bg-rose-50 text-rose-800 border-rose-200';
-                    eventLabel = event.jenisPeristiwa === 'KEMATIAN_IBU' ? 'Kematian Ibu' : 'Kematian Bayi/Balita';
+                    const DEATH_LABELS: Record<string, string> = {
+                      KEMATIAN_IBU: 'Kematian Ibu',
+                      KEMATIAN_BAYI: 'Kematian Bayi',
+                      KEMATIAN_BALITA: 'Kematian Balita',
+                      KEMATIAN_WARGA: 'Kematian Warga',
+                    };
+                    eventLabel = DEATH_LABELS[event.jenisPeristiwa] ?? 'Kematian Warga';
                   }
 
                   const personName = event.namaBayi || event.namaAlmarhum || event.anggota?.nama || '-';
