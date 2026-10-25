@@ -17,3 +17,17 @@ export const prisma =
   });
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+
+// SQLite tuning for concurrent data entry (several cadres may submit at the
+// same time): WAL mode lets readers and a writer work without blocking each
+// other, and busy_timeout makes a writer queue briefly instead of failing
+// with "database is locked". WAL persists in the database file once set;
+// busy_timeout applies to this client's connection. journal_mode returns a
+// result row, so it must go through $queryRawUnsafe ($executeRawUnsafe
+// rejects statements that return rows and would silently no-op here).
+// Fire-and-forget on purpose: if a pragma ever fails, SQLite defaults
+// still work correctly.
+prisma
+  .$queryRawUnsafe('PRAGMA journal_mode = WAL;')
+  .then(() => prisma.$executeRawUnsafe('PRAGMA busy_timeout = 5000;'))
+  .catch(() => {});
