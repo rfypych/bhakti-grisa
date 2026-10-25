@@ -9,7 +9,10 @@ import { Step3AnggotaKeluarga } from './Step3AnggotaKeluarga';
 import { Step4PekaranganUp2k } from './Step4PekaranganUp2k';
 import { Step5ReviewSubmit } from './Step5ReviewSubmit';
 import { saveKeluargaAction, KeluargaInputData } from '@/actions/keluargaActions';
-import { Check, ChevronRight, ChevronLeft, Save, Loader2, Sparkles } from 'lucide-react';
+import { Check, ChevronRight, ChevronLeft, Save, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 
 interface MultiStepFormProps {
   storageKey?: string;
@@ -44,11 +47,11 @@ const defaultInitialData: KeluargaInputData = {
 };
 
 const STEPS = [
-  { id: 1, title: 'Lokasi & Rumah', shortTitle: 'Lokasi' },
-  { id: 2, title: 'Sanitasi', shortTitle: 'Sanitasi' },
+  { id: 1, title: 'Wilayah & Lokasi Rumah', shortTitle: 'Lokasi' },
+  { id: 2, title: 'Sanitasi & Lingkungan', shortTitle: 'Sanitasi' },
   { id: 3, title: 'Anggota Keluarga', shortTitle: 'Warga' },
-  { id: 4, title: 'Hatinya & UP2K', shortTitle: 'Pekarangan' },
-  { id: 5, title: 'Konfirmasi', shortTitle: 'Review' },
+  { id: 4, title: 'Pekarangan & UP2K', shortTitle: 'Pekarangan' },
+  { id: 5, title: 'Ringkasan & Konfirmasi', shortTitle: 'Konfirmasi' },
 ];
 
 export function MultiStepForm({
@@ -72,9 +75,6 @@ export function MultiStepForm({
     }
   );
 
-  // Persist the wizard position together with the draft data, so a cadre
-  // interrupted mid-form (very common door-to-door) resumes on the same
-  // step after a reload instead of being sent back to step 1.
   const stepStorageKey = `${storageKey}-step`;
 
   useEffect(() => {
@@ -85,20 +85,18 @@ export function MultiStepForm({
         setCurrentStep(n);
       }
     } catch {
-      // storage unavailable (private mode); wizard still works from step 1
+      // storage unavailable
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stepStorageKey]);
 
   useEffect(() => {
     try {
       window.localStorage.setItem(stepStorageKey, String(currentStep));
     } catch {
-      // ignore storage failures; the form data draft is unaffected
+      // ignore
     }
   }, [currentStep, stepStorageKey]);
 
-  // Step components declare a string-keyed handler; adapt the hook's generic updateField.
   const handleFieldChange = (key: string, val: any) => {
     updateField(key as keyof KeluargaInputData, val);
   };
@@ -107,7 +105,7 @@ export function MultiStepForm({
     setSubmitError(null);
     if (currentStep === 1) {
       if (!formData.noKk || formData.noKk.trim().length === 0) {
-        setSubmitError('Nomor KK wajib diisi.');
+        setSubmitError('Nomor Kartu Keluarga wajib diisi.');
         return;
       }
       if (!formData.namaKepalaRumahTangga || formData.namaKepalaRumahTangga.trim().length === 0) {
@@ -149,10 +147,10 @@ export function MultiStepForm({
         }
         setSubmitSuccess(true);
       } else {
-        setSubmitError(res.error || 'Gagal menyimpan data.');
+        setSubmitError(res.error || 'Gagal menyimpan data keluarga.');
       }
     } catch (err: any) {
-      setSubmitError(err.message || 'Terjadi kesalahan sistem.');
+      setSubmitError(err.message || 'Terjadi gangguan sistem.');
     } finally {
       setIsSubmitting(false);
     }
@@ -160,105 +158,138 @@ export function MultiStepForm({
 
   if (!isLoaded) {
     return (
-      <div className="p-12 text-center text-stone-500">
-        <Loader2 className="w-6 h-6 animate-spin mx-auto mb-2 text-emerald-700" />
-        <p className="text-sm">Memuat formulir dan memulihkan draft lokal...</p>
-      </div>
+      <Card className="p-12 text-center text-muted-foreground my-8">
+        <Loader2 className="size-8 animate-spin mx-auto mb-3 text-primary" />
+        <p className="text-base font-medium text-foreground">Memuat formulir dan memulihkan draft lokal...</p>
+      </Card>
     );
   }
 
   if (submitSuccess) {
     return (
-      <div className="max-w-xl mx-auto p-8 bg-white rounded-xl border border-emerald-200 shadow-sm text-center space-y-4 my-8">
-        <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
-          <Sparkles className="w-6 h-6" />
-        </div>
-        <h2 className="text-xl font-bold text-stone-900">Data Berhasil Disimpan!</h2>
-        <p className="text-sm text-stone-600">
-          {isPublicResident
-            ? 'Terima kasih telah mengisi formulir mandiri. Data Anda berstatus DRAFT dan sedang menunggu persetujuan kader RT/Dasawisma.'
-            : 'Data keluarga baru telah tersimpan di pangkalan data SIMPATIK dan langsung terhitung dalam agregasi wilayah.'}
-        </p>
-        <div className="pt-4 flex justify-center gap-3">
-          <button
+      <Card className="max-w-xl mx-auto my-8 border-primary/30 shadow-md">
+        <CardHeader className="text-center p-8 pb-4 space-y-2">
+          <div className="size-14 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-2">
+            <CheckCircle2 className="size-8" />
+          </div>
+          <CardTitle className="text-2xl font-extrabold text-foreground">
+            Data Keluarga Berhasil Disimpan
+          </CardTitle>
+          <CardDescription className="text-base text-muted-foreground leading-relaxed">
+            {isPublicResident
+              ? 'Terima kasih telah mengisi formulir mandiri. Data Anda kini berstatus DRAFT dan sedang menunggu pemeriksaan oleh Kader Dasawisma RT setempat.'
+              : 'Data keluarga baru telah tersimpan di pangkalan data SIMPATIK dan langsung terhitung dalam rekapitulasi resmi desa.'}
+          </CardDescription>
+        </CardHeader>
+
+        <CardFooter className="p-8 pt-4 flex flex-col sm:flex-row justify-center gap-3">
+          <Button
             type="button"
+            variant="outline"
+            size="default"
             onClick={() => {
               setSubmitSuccess(false);
               setCurrentStep(1);
             }}
-            className="px-4 py-2 text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-md transition-colors"
+            className="w-full sm:w-auto min-h-touch text-base"
           >
-            Isi Keluarga Baru
-          </button>
+            Isi Formulir Keluarga Baru
+          </Button>
+
           {!isPublicResident && (
-            <button
+            <Button
               type="button"
+              size="default"
               onClick={() => router.push(onSuccessRedirect)}
-              className="px-4 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-md transition-colors"
+              className="w-full sm:w-auto min-h-touch text-base"
             >
               Lihat Daftar Keluarga
-            </button>
+            </Button>
           )}
-        </div>
-      </div>
+        </CardFooter>
+      </Card>
     );
   }
 
+  const currentStepInfo = STEPS[currentStep - 1];
+  const progressPercent = (currentStep / STEPS.length) * 100;
+
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="flex flex-col gap-6">
       {/* Wizard Header & Progress Bar */}
-      <div className="bg-white p-4 sm:p-6 rounded-xl border border-stone-200 shadow-sm space-y-4">
-        <div className="flex items-center justify-between text-xs text-stone-500 border-b border-stone-100 pb-3">
-          <span className="inline-flex items-center gap-1.5 text-emerald-800 font-medium">
-            <Save className="w-3.5 h-3.5 text-emerald-600" />
-            Draft tersimpan otomatis di perangkat
-          </span>
-          <span className="whitespace-nowrap">
-            Langkah {currentStep} dari {STEPS.length}
-          </span>
-        </div>
+      <Card className="p-5 sm:p-6 shadow-sm border-border">
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+            <span className="inline-flex items-center gap-2 text-sm text-primary font-semibold">
+              <Save className="size-4 shrink-0" />
+              <span>Draft tersimpan otomatis di perangkat</span>
+            </span>
 
-        {/* Stepper Steps */}
-        <div className="grid grid-cols-5 gap-1 sm:gap-2">
-          {STEPS.map((s) => {
-            const isCompleted = s.id < currentStep;
-            const isCurrent = s.id === currentStep;
+            {/* Progres berbunyi kata persis sesuai brief */}
+            <span className="text-sm font-bold text-foreground">
+              Langkah {currentStep} dari {STEPS.length} : {currentStepInfo.title}
+            </span>
+          </div>
 
-            return (
-              <div
-                key={s.id}
-                className={`flex flex-col items-center text-center p-2 rounded-lg transition-colors ${
-                  isCurrent
-                    ? 'bg-emerald-50 text-emerald-950 font-bold border border-emerald-200'
-                    : isCompleted
-                    ? 'text-emerald-800 font-medium'
-                    : 'text-stone-400 font-normal'
-                }`}
-              >
-                <div
-                  className={`w-6 h-6 rounded-full flex items-center justify-center text-xs mb-1 ${
-                    isCompleted
-                      ? 'bg-emerald-700 text-white'
-                      : isCurrent
-                      ? 'bg-emerald-600 text-white ring-2 ring-emerald-200'
-                      : 'bg-stone-200 text-stone-600'
+          <div className="space-y-2 pt-1">
+            <Progress value={progressPercent} className="h-2.5" />
+          </div>
+
+          {/* Stepper Step Tabs (Large touch targets) */}
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-2 pt-2">
+            {STEPS.map((s) => {
+              const isCompleted = s.id < currentStep;
+              const isCurrent = s.id === currentStep;
+
+              return (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => {
+                    // Allow navigating back to completed steps
+                    if (s.id < currentStep) {
+                      setSubmitError(null);
+                      setCurrentStep(s.id);
+                    }
+                  }}
+                  disabled={s.id > currentStep}
+                  className={`flex flex-col items-center text-center p-2 rounded-md transition-colors min-h-[56px] justify-center select-none ${
+                    isCurrent
+                      ? 'bg-primary/10 text-primary font-bold border border-primary/30'
+                      : isCompleted
+                      ? 'text-primary hover:bg-secondary cursor-pointer'
+                      : 'text-muted-foreground opacity-60 cursor-not-allowed'
                   }`}
                 >
-                  {isCompleted ? <Check className="w-3.5 h-3.5" /> : s.id}
-                </div>
-                <span className="text-[11px] hidden sm:block">{s.title}</span>
-                <span className="text-[10px] sm:hidden">{s.shortTitle}</span>
-              </div>
-            );
-          })}
+                  <div
+                    className={`size-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
+                      isCompleted
+                        ? 'bg-primary text-primary-foreground'
+                        : isCurrent
+                        ? 'bg-primary text-primary-foreground ring-2 ring-primary/30'
+                        : 'bg-muted text-muted-foreground'
+                    }`}
+                  >
+                    {isCompleted ? <Check className="size-3.5" /> : s.id}
+                  </div>
+                  <span className="text-xs font-semibold hidden md:block">{s.title}</span>
+                  <span className="text-xs font-semibold md:hidden">{s.shortTitle}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </Card>
 
       {/* Step Content Container */}
-      <div className="bg-white p-5 sm:p-8 rounded-xl border border-stone-200 shadow-sm">
+      <Card className="p-6 sm:p-8 shadow-sm border-border">
         {submitError && (
-          <div className="p-3 mb-6 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-800 font-medium">
-            {submitError}
+          <div
+            role="alert"
+            className="p-4 mb-6 bg-destructive/10 border border-destructive/30 rounded-md flex items-start gap-2.5 text-destructive text-sm font-medium"
+          >
+            <AlertCircle className="size-5 shrink-0 mt-0.5" />
+            <span className="leading-normal">{submitError}</span>
           </div>
         )}
 
@@ -282,43 +313,53 @@ export function MultiStepForm({
           <Step5ReviewSubmit formData={formData} isPublicResident={isPublicResident} />
         )}
 
-        {/* Navigation Buttons */}
-        <div className="pt-8 mt-8 border-t border-stone-100 flex items-center justify-between">
-          <button
+        {/* Navigation Buttons (48px touch targets, plain verb + object labels) */}
+        <div className="pt-8 mt-8 border-t border-border flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <Button
             type="button"
+            variant="outline"
+            size="default"
             onClick={handlePrev}
             disabled={currentStep === 1 || isSubmitting}
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 disabled:opacity-40 disabled:cursor-not-allowed rounded-md transition-colors"
+            className="min-h-touch text-base"
           >
-            <ChevronLeft className="w-4 h-4" /> Sebelumnya
-          </button>
+            <ChevronLeft className="size-5" data-icon="inline-start" />
+            <span>Kembali ke Langkah Sebelumnya</span>
+          </Button>
 
           {currentStep < 5 ? (
-            <button
+            <Button
               type="button"
+              size="default"
               onClick={handleNext}
-              className="inline-flex items-center gap-1.5 px-5 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-md transition-colors shadow-sm"
+              className="min-h-touch text-base"
             >
-              Selanjutnya <ChevronRight className="w-4 h-4" />
-            </button>
+              <span>Lanjut ke Langkah Berikutnya</span>
+              <ChevronRight className="size-5" data-icon="inline-end" />
+            </Button>
           ) : (
-            <button
+            <Button
               type="button"
+              size="default"
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="inline-flex items-center gap-1.5 px-6 py-2.5 text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 disabled:opacity-60 rounded-md transition-colors shadow-md"
+              className="min-h-touch text-base font-bold bg-primary hover:bg-primary/90"
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" /> Menyimpan Data...
+                  <Loader2 className="size-5 animate-spin" data-icon="inline-start" />
+                  <span>Menyimpan Data Keluarga...</span>
                 </>
               ) : (
-                'Kirim Data Keluarga'
+                <>
+                  <Check className="size-5" data-icon="inline-start" />
+                  <span>Kirim Data Keluarga</span>
+                </>
               )}
-            </button>
+            </Button>
           )}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

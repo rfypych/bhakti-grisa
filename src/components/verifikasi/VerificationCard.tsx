@@ -2,7 +2,23 @@
 
 import React, { useState } from 'react';
 import { approveSubmissionAction, rejectSubmissionAction } from '@/actions/verifikasiActions';
-import { Check, X, Users, Home, Droplets, AlertTriangle, Loader2 } from 'lucide-react';
+import { Check, X, Users, Home, Droplets, Clock, Loader2, AlertCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 interface VerificationCardProps {
   submission: any;
@@ -11,12 +27,11 @@ interface VerificationCardProps {
 
 export function VerificationCard({ submission, onActionComplete }: VerificationCardProps) {
   const [loading, setLoading] = useState(false);
-  const [rejecting, setRejecting] = useState(false);
   const [rejectReason, setRejectReason] = useState('');
+  const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleApprove = async () => {
-    if (!confirm(`Setujui data keluarga ${submission.namaKepalaRumahTangga}?`)) return;
     setLoading(true);
     setError(null);
     try {
@@ -27,7 +42,7 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
         setError(res.error || 'Gagal menyetujui pengajuan.');
       }
     } catch (e: any) {
-      setError(e.message || 'Kesalahan sistem.');
+      setError(e.message || 'Terjadi gangguan sistem.');
     } finally {
       setLoading(false);
     }
@@ -35,134 +50,205 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
 
   const handleReject = async () => {
     if (!rejectReason.trim()) {
-      alert('Mohon cantumkan alasan penolakan.');
       return;
     }
     setLoading(true);
     setError(null);
     try {
-      const res = await rejectSubmissionAction(submission.id, rejectReason);
+      const res = await rejectSubmissionAction(submission.id, rejectReason.trim());
       if (res.success) {
-        setRejecting(false);
+        setRejectDialogOpen(false);
+        setRejectReason('');
         onActionComplete?.();
       } else {
         setError(res.error || 'Gagal menolak pengajuan.');
       }
     } catch (e: any) {
-      setError(e.message || 'Kesalahan sistem.');
+      setError(e.message || 'Terjadi gangguan sistem.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden space-y-4 p-5 sm:p-6">
+    <Card className="border-border shadow-sm overflow-hidden">
       {error && (
-        <div className="p-3 bg-rose-50 border border-rose-200 rounded-lg text-xs text-rose-800 font-medium">
-          {error}
+        <div
+          role="alert"
+          className="m-4 p-3.5 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2.5 text-destructive text-sm font-medium"
+        >
+          <AlertCircle className="size-5 shrink-0" />
+          <span>{error}</span>
         </div>
       )}
 
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-100 text-amber-800">
-              Menunggu Verifikasi
-            </span>
-            <span className="text-xs text-stone-500 font-mono">
-              KK: {submission.noKk}
+      <CardHeader className="bg-secondary/40 p-5 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2.5">
+            <Badge variant="warning">
+              <Clock className="size-3.5" />
+              <span>Menunggu Verifikasi</span>
+            </Badge>
+            <span className="text-xs font-mono font-bold text-muted-foreground">
+              No. KK: {submission.noKk}
             </span>
           </div>
-          <h3 className="text-base font-bold text-stone-900 mt-1">
+
+          <h3 className="text-lg font-bold text-foreground mt-1">
             {submission.namaKepalaRumahTangga}
           </h3>
-          <p className="text-xs text-stone-500">
+
+          <p className="text-sm text-muted-foreground">
             {submission.alamat} &bull; Dasawisma {submission.wilayah?.namaDasawisma || '-'} (RT {submission.wilayah?.rt || '-'} / RW {submission.wilayah?.rw || '-'})
           </p>
         </div>
 
-        {/* Action Buttons */}
-        {!rejecting ? (
-          <div className="flex items-center gap-2 self-start sm:self-center">
-            <button
-              type="button"
-              disabled={loading}
-              onClick={() => setRejecting(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-md transition-colors disabled:opacity-50"
-            >
-              <X className="w-3.5 h-3.5" /> Tolak
-            </button>
-            <button
-              type="button"
-              disabled={loading}
-              onClick={handleApprove}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-md transition-colors shadow-sm disabled:opacity-50"
-            >
-              {loading ? (
-                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-              ) : (
-                <Check className="w-3.5 h-3.5" />
-              )}
-              Setujui & Verifikasi
-            </button>
-          </div>
-        ) : (
-          <div className="w-full sm:w-auto p-3 bg-rose-50 rounded-lg border border-rose-200 space-y-2 text-xs">
-            <p className="font-semibold text-rose-900">Alasan Penolakan Data:</p>
-            <input
-              type="text"
-              placeholder="Contoh: No KK tidak cocok / salah Dasawisma"
-              value={rejectReason}
-              onChange={(e) => setRejectReason(e.target.value)}
-              className="w-full rounded border border-rose-300 px-2 py-1 text-xs focus:outline-none"
-            />
-            <div className="flex justify-end gap-2">
-              <button
+        {/* Action Buttons using shadcn AlertDialogs */}
+        <div className="flex items-center gap-3 self-stretch sm:self-center">
+          {/* Tolak Dialog */}
+          <AlertDialog open={rejectDialogOpen} onOpenChange={setRejectDialogOpen}>
+            <AlertDialogTrigger asChild>
+              <Button
                 type="button"
-                onClick={() => setRejecting(false)}
-                className="px-2.5 py-1 text-stone-600 hover:bg-stone-200 rounded"
-              >
-                Batal
-              </button>
-              <button
-                type="button"
+                variant="outline"
+                size="default"
                 disabled={loading}
-                onClick={handleReject}
-                className="px-3 py-1 bg-rose-700 text-white font-semibold rounded hover:bg-rose-800"
+                className="flex-1 sm:flex-initial min-h-touch text-sm text-destructive hover:text-destructive hover:bg-destructive/10 border-border"
               >
-                Kirim Penolakan
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
+                <X className="size-4" data-icon="inline-start" />
+                <span>Tolak</span>
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Tolak Pengajuan Data Keluarga</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Pengajuan data keluarga ini akan ditolak dan dikembalikan ke warga dengan catatan alasan penolakan tanpa masuk ke buku rekapitulasi desa.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
 
-      {/* Roster & Snapshot Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-        <div className="bg-stone-50 p-3 rounded-lg border border-stone-100 space-y-1 text-stone-700">
-          <p className="font-semibold text-stone-900 flex items-center gap-1 mb-1">
-            <Home className="w-3.5 h-3.5 text-emerald-700" /> Sanitasi & PHBS
+              <div className="flex flex-col gap-2 py-2">
+                <Label htmlFor="alasanPenolakan">Alasan Penolakan Data</Label>
+                <Input
+                  id="alasanPenolakan"
+                  type="text"
+                  placeholder="Contoh: Nomor KK tidak cocok dengan domisili RT"
+                  value={rejectReason}
+                  onChange={(e) => setRejectReason(e.target.value)}
+                  className="min-h-touch text-base"
+                />
+              </div>
+
+              <AlertDialogFooter>
+                <AlertDialogCancel disabled={loading}>Batal</AlertDialogCancel>
+                <Button
+                  type="button"
+                  variant="destructive"
+                  size="default"
+                  disabled={!rejectReason.trim() || loading}
+                  onClick={handleReject}
+                  className="min-h-touch"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="size-4 animate-spin" data-icon="inline-start" />
+                      <span>Memproses...</span>
+                    </>
+                  ) : (
+                    <span>Tolak Pengajuan</span>
+                  )}
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+
+          {/* Setujui Dialog */}
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                type="button"
+                size="default"
+                disabled={loading}
+                className="flex-1 sm:flex-initial min-h-touch text-sm font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="size-4 animate-spin" data-icon="inline-start" />
+                    <span>Memproses...</span>
+                  </>
+                ) : (
+                  <>
+                    <Check className="size-4" data-icon="inline-start" />
+                    <span>Setujui Data</span>
+                  </>
+                )}
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Setujui Data Keluarga</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Data keluarga {submission.namaKepalaRumahTangga} akan disetujui, berstatus terverifikasi, dan langsung masuk ke buku rekapitulasi resmi desa.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel disabled={loading}>Batal</AlertDialogCancel>
+                <AlertDialogAction onClick={handleApprove} className="min-h-touch bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+                  Setujui Data
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
+      </CardHeader>
+
+      {/* Roster & Details */}
+      <CardContent className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-4 rounded-md border border-border bg-secondary/30 flex flex-col gap-1.5 text-sm">
+          <p className="font-bold text-foreground flex items-center gap-2 mb-1">
+            <Home className="size-4 text-primary" />
+            <span>Sanitasi &amp; Lingkungan Rumah</span>
           </p>
-          <p><span className="text-stone-500">Kriteria Rumah:</span> {submission.kriteriaRumah}</p>
-          <p><span className="text-stone-500">Jamban:</span> {submission.jambanKeluarga ? `Ada (${submission.jumlahJamban} buah)` : 'Tidak Ada'}</p>
-          <p><span className="text-stone-500">Sumber Air:</span> {submission.sumberAir}</p>
-          <p><span className="text-stone-500">Sampah / SPAL:</span> {submission.tempatSampah ? 'Ada' : 'Tidak'} / {submission.spal ? 'Ada' : 'Tidak'}</p>
+          <div className="flex justify-between border-b border-border/40 pb-1">
+            <span className="text-muted-foreground">Kriteria:</span>
+            <span className="font-semibold">{submission.kriteriaRumah || 'SEHAT'}</span>
+          </div>
+          <div className="flex justify-between border-b border-border/40 pb-1">
+            <span className="text-muted-foreground">Jamban Keluarga:</span>
+            <span>{submission.jambanKeluarga ? `Ada (${submission.jumlahJamban} buah)` : 'Tidak Ada'}</span>
+          </div>
+          <div className="flex justify-between border-b border-border/40 pb-1">
+            <span className="text-muted-foreground">Sumber Air Minum:</span>
+            <span>{submission.sumberAir}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-muted-foreground">Sampah / SPAL:</span>
+            <span>
+              {submission.tempatSampah ? 'Ada' : 'Tidak'} / {submission.spal ? 'Ada' : 'Tidak'}
+            </span>
+          </div>
         </div>
 
-        <div className="bg-stone-50 p-3 rounded-lg border border-stone-100 space-y-1 text-stone-700">
-          <p className="font-semibold text-stone-900 flex items-center gap-1 mb-1">
-            <Users className="w-3.5 h-3.5 text-emerald-700" /> Anggota Keluarga ({submission.anggota?.length || 0} Jiwa)
+        <div className="p-4 rounded-md border border-border bg-secondary/30 flex flex-col gap-1.5 text-sm">
+          <p className="font-bold text-foreground flex items-center gap-2 mb-1">
+            <Users className="size-4 text-primary" />
+            <span>Anggota Keluarga ({submission.anggota?.length || 0} Jiwa)</span>
           </p>
-          <div className="space-y-1 max-h-24 overflow-y-auto">
+          <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-1">
             {submission.anggota?.map((m: any, i: number) => (
-              <p key={i} className="truncate">
-                {i + 1}. <span className="font-medium text-stone-900">{m.nama}</span> ({m.hubunganKeluarga}) - {m.nik}
-              </p>
+              <div key={i} className="text-xs flex items-center justify-between border-b border-border/40 pb-1 last:border-0">
+                <span className="font-medium text-foreground">
+                  {i + 1}. {m.nama}
+                </span>
+                <span className="text-muted-foreground font-mono">
+                  {m.hubunganKeluarga}
+                </span>
+              </div>
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

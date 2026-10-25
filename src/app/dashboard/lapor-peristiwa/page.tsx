@@ -2,7 +2,17 @@ import React from 'react';
 import { getRecentPeristiwaVital, getEligibleMothers, getAllLivingMembers } from '@/actions/peristiwaActions';
 import { PeristiwaClientWrapper } from '@/components/peristiwa/PeristiwaClientWrapper';
 import { getSessionUser } from '@/lib/auth';
-import { Activity, Baby, HeartCrack, Calendar, User, FileText, Heart } from 'lucide-react';
+import { Activity, Baby, HeartCrack, Calendar, Heart, Truck } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 export const metadata = {
   title: 'Lapor Peristiwa Vital - SIMPATIK',
@@ -28,6 +38,7 @@ export default async function LaporPeristiwaPage({
   const totalKelahiran = recentEvents.filter((e) => e.jenisPeristiwa === 'KELAHIRAN_BAYI').length;
   const totalKehamilan = recentEvents.filter((e) => e.jenisPeristiwa === 'KEHAMILAN').length;
   const totalNifas = recentEvents.filter((e) => e.jenisPeristiwa === 'NIFAS').length;
+  const totalMutasi = recentEvents.filter((e) => e.jenisPeristiwa === 'MUTASI_KELUAR').length;
   const totalKematian = recentEvents.filter((e) =>
     ['KEMATIAN_IBU', 'KEMATIAN_BAYI', 'KEMATIAN_BALITA', 'KEMATIAN_WARGA'].includes(e.jenisPeristiwa)
   ).length;
@@ -35,94 +46,120 @@ export default async function LaporPeristiwaPage({
   return (
     <div className="max-w-6xl mx-auto space-y-6 py-6 px-4 sm:px-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5">
         <div>
           <div className="flex items-center gap-2">
-            <Activity className="w-6 h-6 text-emerald-700" />
-            <h1 className="text-2xl font-bold text-stone-900">Modul Lapor Peristiwa</h1>
+            <Activity className="size-6 text-primary" />
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">Modul Lapor Peristiwa</h1>
           </div>
-          <p className="text-sm text-stone-600 mt-1">
-            Pencatatan cepat dinamika kependudukan: kelahiran bayi, kehamilan, nifas, dan kematian warga (Lampiran 4.18).
+          <p className="text-sm text-muted-foreground mt-1">
+            Pencatatan cepat dinamika kependudukan: kelahiran bayi, kehamilan, nifas, mutasi, dan kematian warga (Lampiran 4.18).
           </p>
         </div>
 
         {canReport ? (
           <PeristiwaClientWrapper mothers={mothers} members={members} />
         ) : (
-          <div className="text-xs text-stone-500 bg-stone-100 border border-stone-200 px-3 py-1.5 rounded-lg font-medium self-start sm:self-center">
+          <div className="text-xs text-muted-foreground bg-muted border border-border px-3 py-1.5 rounded-md font-medium self-start sm:self-center">
             Mode Baca Log Peristiwa ({user?.peran === 'PENGURUS_RW' ? 'Pengurus RW' : 'Pengurus Dusun'})
           </div>
         )}
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
-            <Baby className="w-5 h-5" />
-          </div>
-          <div>
-            <p className="text-[11px] font-medium text-stone-500">Kelahiran</p>
-            <p className="text-xl font-bold text-stone-900">{totalKelahiran}</p>
-          </div>
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+        <Card>
+          <CardContent className="p-4 flex items-center gap-3">
+            <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <Baby className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground">Kelahiran</p>
+              <p className="text-xl font-bold text-foreground">{totalKelahiran}</p>
+            </div>
+          </CardContent>
+        </Card>
 
-        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0">
-            <Activity className="w-5 h-5" />
-          </div>
-          <div>
-            <p className="text-[11px] font-medium text-stone-500">Kehamilan</p>
-            <p className="text-xl font-bold text-stone-900">{totalKehamilan}</p>
-          </div>
-        </div>
+        <Card>
+          <CardContent className="p-4 flex items-center gap-3">
+            <div className="size-10 rounded-md bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
+              <Activity className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground">Kehamilan</p>
+              <p className="text-xl font-bold text-foreground">{totalKehamilan}</p>
+            </div>
+          </CardContent>
+        </Card>
 
-        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center shrink-0">
-            <Heart className="w-5 h-5" />
-          </div>
-          <div>
-            <p className="text-[11px] font-medium text-stone-500">Nifas / Menyusui</p>
-            <p className="text-xl font-bold text-stone-900">{totalNifas}</p>
-          </div>
-        </div>
+        <Card>
+          <CardContent className="p-4 flex items-center gap-3">
+            <div className="size-10 rounded-md bg-teal-500/10 text-teal-700 flex items-center justify-center shrink-0">
+              <Heart className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground">Nifas</p>
+              <p className="text-xl font-bold text-foreground">{totalNifas}</p>
+            </div>
+          </CardContent>
+        </Card>
 
-        <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center shrink-0">
-            <HeartCrack className="w-5 h-5" />
-          </div>
-          <div>
-            <p className="text-[11px] font-medium text-stone-500">Kematian</p>
-            <p className="text-xl font-bold text-stone-900">{totalKematian}</p>
-          </div>
-        </div>
+        <Card>
+          <CardContent className="p-4 flex items-center gap-3">
+            <div className="size-10 rounded-md bg-secondary text-primary flex items-center justify-center shrink-0">
+              <Truck className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground">Mutasi Pindah</p>
+              <p className="text-xl font-bold text-foreground">{totalMutasi}</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="col-span-2 sm:col-span-1">
+          <CardContent className="p-4 flex items-center gap-3">
+            <div className="size-10 rounded-md bg-destructive/10 text-destructive flex items-center justify-center shrink-0">
+              <HeartCrack className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-medium text-muted-foreground">Kematian</p>
+              <p className="text-xl font-bold text-foreground">{totalKematian}</p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Event Log Table */}
-      <div className="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-stone-100 flex items-center justify-between">
-          <h2 className="text-base font-bold text-stone-800">Catatan Peristiwa Vital Terbaru</h2>
-          <span className="text-xs text-stone-500">Menampilkan {recentEvents.length} log terakhir</span>
-        </div>
+      <Card>
+        <CardHeader className="border-b border-border py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="text-base font-bold">Catatan Peristiwa Vital Terbaru</CardTitle>
+              <CardDescription className="text-xs mt-0.5">
+                Menampilkan {recentEvents.length} catatan log peristiwa kependudukan terkini
+              </CardDescription>
+            </div>
+          </div>
+        </CardHeader>
 
         {recentEvents.length === 0 ? (
-          <div className="p-12 text-center text-stone-400 space-y-2">
-            <Calendar className="w-8 h-8 mx-auto text-stone-300" />
-            <p className="text-sm">Belum ada catatan peristiwa vital yang terekam.</p>
-          </div>
+          <CardContent className="p-12 text-center text-muted-foreground space-y-2">
+            <Calendar className="size-8 mx-auto text-muted-foreground/60" />
+            <p className="text-sm font-medium">Belum ada catatan peristiwa vital yang terekam.</p>
+          </CardContent>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[640px] text-left text-xs text-stone-700">
-              <thead className="bg-stone-50 text-stone-600 font-semibold border-b border-stone-200">
-                <tr>
-                  <th className="px-4 py-3">Tanggal</th>
-                  <th className="px-4 py-3">Jenis Peristiwa</th>
-                  <th className="px-4 py-3">Nama Terkait</th>
-                  <th className="px-4 py-3">Wilayah / Keluarga</th>
-                  <th className="px-4 py-3">Detail & Keterangan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="whitespace-nowrap">Tanggal</TableHead>
+                  <TableHead className="whitespace-nowrap">Jenis Peristiwa</TableHead>
+                  <TableHead className="whitespace-nowrap">Nama Terkait</TableHead>
+                  <TableHead className="whitespace-nowrap">Wilayah / Keluarga</TableHead>
+                  <TableHead>Detail & Keterangan</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {recentEvents.map((event) => {
                   const eventDate = new Date(event.tanggalPeristiwa).toLocaleDateString('id-ID', {
                     year: 'numeric',
@@ -130,20 +167,29 @@ export default async function LaporPeristiwaPage({
                     day: 'numeric',
                   });
 
-                  let badgeColor = 'bg-stone-100 text-stone-800 border-stone-200';
+                  let badgeVariant: 'default' | 'secondary' | 'outline' | 'destructive' = 'secondary';
                   let eventLabel = event.jenisPeristiwa.replace(/_/g, ' ');
+                  let EventIcon = Activity;
 
                   if (event.jenisPeristiwa === 'KELAHIRAN_BAYI') {
-                    badgeColor = 'bg-emerald-50 text-emerald-800 border-emerald-200';
+                    badgeVariant = 'default';
                     eventLabel = 'Kelahiran Bayi';
+                    EventIcon = Baby;
                   } else if (event.jenisPeristiwa === 'KEHAMILAN') {
-                    badgeColor = 'bg-amber-50 text-amber-800 border-amber-200';
+                    badgeVariant = 'outline';
                     eventLabel = 'Kehamilan';
+                    EventIcon = Activity;
                   } else if (event.jenisPeristiwa === 'NIFAS') {
-                    badgeColor = 'bg-teal-50 text-teal-800 border-teal-200';
+                    badgeVariant = 'outline';
                     eventLabel = 'Nifas / Menyusui';
+                    EventIcon = Heart;
+                  } else if (event.jenisPeristiwa === 'MUTASI_KELUAR') {
+                    badgeVariant = 'secondary';
+                    eventLabel = 'Mutasi Pindah';
+                    EventIcon = Truck;
                   } else if (event.jenisPeristiwa.startsWith('KEMATIAN')) {
-                    badgeColor = 'bg-rose-50 text-rose-800 border-rose-200';
+                    badgeVariant = 'destructive';
+                    EventIcon = HeartCrack;
                     const DEATH_LABELS: Record<string, string> = {
                       KEMATIAN_IBU: 'Kematian Ibu',
                       KEMATIAN_BAYI: 'Kematian Bayi',
@@ -158,41 +204,42 @@ export default async function LaporPeristiwaPage({
                   const rtInfo = event.anggota?.keluarga?.wilayah?.rt ? `RT ${event.anggota.keluarga.wilayah.rt}` : '-';
 
                   return (
-                    <tr key={event.id} className="hover:bg-stone-50/50 transition-colors">
-                      <td className="px-4 py-3 font-medium text-stone-800 whitespace-nowrap">
+                    <TableRow key={event.id}>
+                      <TableCell className="font-medium whitespace-nowrap">
                         {eventDate}
-                      </td>
-                      <td className="px-4 py-3 whitespace-nowrap">
-                        <span className={`inline-block px-2 py-0.5 rounded-full border text-[11px] font-semibold ${badgeColor}`}>
-                          {eventLabel}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-semibold text-stone-900 whitespace-nowrap">
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        <Badge variant={badgeVariant} className="gap-1 font-semibold">
+                          <EventIcon className="size-3" />
+                          <span>{eventLabel}</span>
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="font-semibold whitespace-nowrap">
                         {personName}
                         {event.jenisKelaminBayi && (
-                          <span className="ml-1 text-[11px] text-stone-400 font-normal">
+                          <span className="ml-1 text-xs text-muted-foreground font-normal">
                             ({event.jenisKelaminBayi === 'L' ? 'Laki-laki' : 'Perempuan'})
                           </span>
                         )}
-                      </td>
-                      <td className="px-4 py-3 text-stone-600 whitespace-nowrap">
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
                         <div className="font-medium">{krtName}</div>
-                        <div className="text-[11px] text-stone-400">{rtInfo}</div>
-                      </td>
-                      <td className="px-4 py-3 text-stone-600">
+                        <div className="text-xs text-muted-foreground">{rtInfo}</div>
+                      </TableCell>
+                      <TableCell>
                         {event.sebabKematian && (
-                          <span className="font-medium text-rose-700">Penyebab: {event.sebabKematian}. </span>
+                          <span className="font-medium text-destructive">Penyebab: {event.sebabKematian}. </span>
                         )}
                         {event.keterangan || '-'}
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   );
                 })}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         )}
-      </div>
+      </Card>
     </div>
   );
 }

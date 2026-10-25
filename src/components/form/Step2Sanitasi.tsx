@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 interface Step2Props {
   formData: any;
@@ -9,23 +11,22 @@ interface Step2Props {
 
 export function Step2Sanitasi({ formData, updateField }: Step2Props) {
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-xl font-bold text-emerald-950">Langkah 2: Sanitasi & Lingkungan Fisik Rumah</h2>
-        <p className="text-sm text-stone-600 mt-1">
-          Kondisi sanitasi, jamban keluarga, sumber air minum, dan indikator PHBS (Lampiran 4.14.2a & 4.15).
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1 border-b border-border pb-3">
+        <h2 className="text-xl font-bold text-foreground">Sanitasi &amp; Lingkungan Fisik Rumah</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Kondisi sanitasi, jamban keluarga, sumber air minum, dan indikator PHBS (Lampiran 4.14.2a &amp; 4.15).
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Kriteria Kelayakan Rumah
-          </label>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="kriteriaRumah">Kriteria Kelayakan Rumah</Label>
           <select
+            id="kriteriaRumah"
             value={formData.kriteriaRumah || 'SEHAT'}
             onChange={(e) => updateField('kriteriaRumah', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
           >
             <option value="SEHAT">Sehat Layak Huni</option>
             <option value="KURANG_SEHAT">Kurang Sehat</option>
@@ -33,14 +34,13 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
           </select>
         </div>
 
-        <div>
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Sumber Air Utama Keluarga
-          </label>
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="sumberAir">Sumber Air Utama Keluarga</Label>
           <select
+            id="sumberAir"
             value={formData.sumberAir || 'SUMUR'}
             onChange={(e) => updateField('sumberAir', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
           >
             <option value="PDAM">PDAM / Air Perpipaan</option>
             <option value="SUMUR">Sumur Gali / Pompa</option>
@@ -49,91 +49,108 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
           </select>
         </div>
 
-        <div className="p-4 rounded-lg border border-stone-200 bg-stone-50/50 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-stone-800">Jamban Keluarga</span>
+        {/* Checkbox Card: Jamban Keluarga */}
+        <div className="p-4 rounded-md border border-border bg-card flex flex-col gap-3">
+          <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
+            <span className="text-base font-bold text-foreground">Jamban Keluarga</span>
             <input
               type="checkbox"
               checked={formData.jambanKeluarga ?? true}
               onChange={(e) => updateField('jambanKeluarga', e.target.checked)}
-              className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+              className="size-5 rounded border-input text-primary focus:ring-ring"
             />
-          </div>
+          </label>
           {formData.jambanKeluarga && (
-            <div>
-              <label className="block text-xs text-stone-600 mb-1">Jumlah Jamban / Kloset (buah)</label>
-              <input
+            <div className="flex flex-col gap-1.5 pt-2 border-t border-border">
+              <Label htmlFor="jumlahJamban" className="text-xs text-muted-foreground font-medium">
+                Jumlah Kloset / Jamban (buah)
+              </Label>
+              <Input
+                id="jumlahJamban"
                 type="number"
                 min={1}
                 max={10}
                 value={formData.jumlahJamban || 1}
                 onChange={(e) => updateField('jumlahJamban', parseInt(e.target.value, 10) || 1)}
-                className="w-full rounded-md border border-stone-300 bg-white px-3 py-1.5 text-sm"
+                className="min-h-touch text-base"
               />
             </div>
           )}
         </div>
 
-        <div className="p-4 rounded-lg border border-stone-200 bg-stone-50/50 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-stone-800">Tempat Pembuangan Sampah</span>
+        {/* Checkbox Card: Tempat Sampah */}
+        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+          <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
+            <span className="text-base font-bold text-foreground">Tempat Pembuangan Sampah</span>
             <input
               type="checkbox"
               checked={formData.tempatSampah ?? true}
               onChange={(e) => updateField('tempatSampah', e.target.checked)}
-              className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+              className="size-5 rounded border-input text-primary focus:ring-ring"
             />
-          </div>
-          <p className="text-xs text-stone-500">Memiliki tempat sampah tertutup atau terpisah di rumah.</p>
+          </label>
+          <p className="text-xs text-muted-foreground leading-normal">
+            Memiliki bak atau tempat sampah tertutup/terpisah di lingkungan rumah.
+          </p>
         </div>
 
-        <div className="p-4 rounded-lg border border-stone-200 bg-stone-50/50 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-stone-800">Saluran Pembuangan Air Limbah (SPAL)</span>
+        {/* Checkbox Card: SPAL */}
+        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+          <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
+            <span className="text-base font-bold text-foreground">Saluran Air Limbah (SPAL)</span>
             <input
               type="checkbox"
               checked={formData.spal ?? true}
               onChange={(e) => updateField('spal', e.target.checked)}
-              className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+              className="size-5 rounded border-input text-primary focus:ring-ring"
             />
-          </div>
-          <p className="text-xs text-stone-500">Air limbah dapur/kamar mandi mengalir ke saluran/resapan tertutup.</p>
+          </label>
+          <p className="text-xs text-muted-foreground leading-normal">
+            Air limbah dapur/kamar mandi mengalir ke saluran atau resapan tertutup.
+          </p>
         </div>
 
-        <div className="p-4 rounded-lg border border-stone-200 bg-stone-50/50 space-y-3">
-          <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-stone-800">Menempelkan Stiker P4K</span>
+        {/* Checkbox Card: Stiker P4K */}
+        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+          <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
+            <span className="text-base font-bold text-foreground">Menempelkan Stiker P4K</span>
             <input
               type="checkbox"
               checked={formData.stikerP4k ?? false}
               onChange={(e) => updateField('stikerP4k', e.target.checked)}
-              className="h-4 w-4 rounded border-stone-300 text-emerald-600 focus:ring-emerald-500"
+              className="size-5 rounded border-input text-primary focus:ring-ring"
             />
-          </div>
-          <p className="text-xs text-stone-500">Program Perencanaan Persalinan dan Pencegahan Komplikasi.</p>
+          </label>
+          <p className="text-xs text-muted-foreground leading-normal">
+            Program Perencanaan Persalinan dan Pencegahan Komplikasi di depan rumah.
+          </p>
         </div>
 
-        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          <div>
-            <label className="block text-sm font-semibold text-stone-800 mb-1">Makanan Pokok Utama</label>
+        {/* Makanan Pokok */}
+        <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-5 pt-2 border-t border-border">
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="makananPokok">Makanan Pokok Utama</Label>
             <select
+              id="makananPokok"
               value={formData.makananPokok || 'BERAS'}
               onChange={(e) => updateField('makananPokok', e.target.value)}
-              className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+              className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
             >
               <option value="BERAS">Beras</option>
               <option value="NON_BERAS">Non Beras (Jagung, Singkong, dll.)</option>
             </select>
           </div>
+
           {formData.makananPokok === 'NON_BERAS' && (
-            <div>
-              <label className="block text-sm font-semibold text-stone-800 mb-1">Jenis Non Beras</label>
-              <input
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="jenisNonBeras">Jenis Makanan Pokok Non Beras</Label>
+              <Input
+                id="jenisNonBeras"
                 type="text"
-                placeholder="misal: Jagung, Tiwul, Umbi-umbian"
+                placeholder="Contoh: Jagung, Tiwul, Umbi-umbian"
                 value={formData.jenisNonBeras || ''}
                 onChange={(e) => updateField('jenisNonBeras', e.target.value)}
-                className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm"
+                className="min-h-touch text-base"
               />
             </div>
           )}

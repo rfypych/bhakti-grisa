@@ -2,7 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import { laporKehamilanAction } from '@/actions/peristiwaActions';
-import { Activity, Heart, X, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Activity, Heart, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface MotherOption {
   id: string;
@@ -36,7 +47,9 @@ export function LaporKehamilanModal({
 }: LaporKehamilanModalProps) {
   const [anggotaId, setAnggotaId] = useState('');
   const [status, setStatus] = useState<'KEHAMILAN' | 'NIFAS'>(defaultStatus);
-  const [tanggalCatat, setTanggalCatat] = useState(new Date().toISOString().split('T')[0]);
+  const [tanggalCatat, setTanggalCatat] = useState(
+    new Date().toISOString().split('T')[0]
+  );
   const [keterangan, setKeterangan] = useState('');
 
   const [loading, setLoading] = useState(false);
@@ -50,9 +63,6 @@ export function LaporKehamilanModal({
   if (!isOpen) return null;
 
   const isNifas = status === 'NIFAS';
-  const themeBg = isNifas ? 'bg-teal-50' : 'bg-amber-50';
-  const themeBtn = isNifas ? 'bg-teal-700 hover:bg-teal-800' : 'bg-amber-600 hover:bg-amber-700';
-  const themeIconBg = isNifas ? 'bg-teal-600' : 'bg-amber-600';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,8 +90,6 @@ export function LaporKehamilanModal({
         if (onSuccess) onSuccess();
         setTimeout(() => {
           setSuccessResult(null);
-          setAnggotaId('');
-          setKeterangan('');
           onClose();
         }, 1500);
       }
@@ -92,160 +100,154 @@ export function LaporKehamilanModal({
     }
   };
 
+  const selectedMother = mothers.find((m) => m.id === anggotaId);
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl shadow-xl border border-stone-200 max-w-lg w-full overflow-hidden transition-all my-8">
-        {/* Header */}
-        <div className={`flex items-center justify-between px-6 py-4 border-b border-stone-100 ${themeBg}`}>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="border-b border-border pb-3">
           <div className="flex items-center gap-2.5">
-            <div className={`w-9 h-9 rounded-xl ${themeIconBg} text-white flex items-center justify-center shadow-sm`}>
-              {isNifas ? <Heart className="w-5 h-5" /> : <Activity className="w-5 h-5" />}
+            <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              {isNifas ? <Heart className="size-5" /> : <Activity className="size-5" />}
             </div>
-            <div>
-              <h2 className="text-lg font-bold text-stone-900">
-                {isNifas ? 'Lapor Nifas / Menyusui' : 'Lapor Kehamilan'}
-              </h2>
-              <p className="text-xs text-stone-600">
-                {isNifas
-                  ? 'Catat masa nifas dan pemberian ASI (Lampiran 4.18 & Rekap Bumil)'
-                  : 'Catat kehamilan ibu warga pada Dasawisma (Lampiran 4.18 & Rekap Bumil)'}
-              </p>
-            </div>
+            <DialogTitle className="text-lg font-bold text-foreground">
+              {isNifas ? 'Lapor Status Nifas / Menyusui' : 'Lapor Peristiwa Kehamilan Warga'}
+            </DialogTitle>
           </div>
-          <button
-            onClick={onClose}
-            className="p-1.5 text-stone-400 hover:text-stone-700 hover:bg-stone-100 rounded-lg transition-colors"
+          <DialogDescription className="text-sm text-muted-foreground">
+            {isNifas
+              ? 'Pencatatan ibu dalam masa nifas dan menyusui untuk pemutakhiran indikator kesehatan balita (Lampiran 4.18).'
+              : 'Pencatatan ibu hamil untuk pemantauan kesehatan ibu dan janin serta rekapitulasi bumil desa (Lampiran 4.18).'}
+          </DialogDescription>
+        </DialogHeader>
+
+        {error && (
+          <div
+            role="alert"
+            className="p-3 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2 text-destructive text-sm font-medium"
           >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
+            <AlertCircle className="size-4 shrink-0" />
+            <span>{error}</span>
+          </div>
+        )}
 
-        {/* Content Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {error && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2 text-red-700 text-xs">
-              <AlertCircle className="w-4 h-4 shrink-0" />
-              <span>{error}</span>
-            </div>
-          )}
-
-          {successResult && (
-            <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-2 text-emerald-800 text-xs font-semibold">
-              <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-              <span>{successResult}</span>
-            </div>
-          )}
-
-          {/* Status Selection Switch */}
-          <div>
-            <label className="block text-xs font-semibold text-stone-700 mb-1">
-              Kategori Status
-            </label>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => setStatus('KEHAMILAN')}
-                className={`py-2 px-3 text-xs font-semibold rounded-lg border text-center transition-colors ${
-                  status === 'KEHAMILAN'
-                    ? 'bg-amber-50 border-amber-500 text-amber-900'
-                    : 'bg-white border-stone-200 text-stone-600 hover:bg-stone-50'
-                }`}
+        {successResult ? (
+          <div className="py-8 text-center flex flex-col items-center gap-3">
+            <CheckCircle2 className="size-12 text-primary animate-bounce" />
+            <p className="text-base font-bold text-foreground">{successResult}</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-2">
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="ibuStatusSelect">
+                Pilih Nama Ibu <span className="text-destructive">*</span>
+              </Label>
+              <select
+                id="ibuStatusSelect"
+                value={anggotaId}
+                onChange={(e) => setAnggotaId(e.target.value)}
+                required
+                className="flex min-h-touch w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Kehamilan
-              </button>
-              <button
-                type="button"
-                onClick={() => setStatus('NIFAS')}
-                className={`py-2 px-3 text-xs font-semibold rounded-lg border text-center transition-colors ${
-                  status === 'NIFAS'
-                    ? 'bg-teal-50 border-teal-500 text-teal-900'
-                    : 'bg-white border-stone-200 text-stone-600 hover:bg-stone-50'
-                }`}
-              >
-                Nifas / Menyusui
-              </button>
+                <option value="">-- Pilih Ibu Terdaftar di Wilayah --</option>
+                {mothers.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.nama} (NIK: {m.nik}) : KK {m.keluarga.namaKepalaRumahTangga} (RT {m.keluarga.wilayah?.rt || '-'})
+                  </option>
+                ))}
+              </select>
             </div>
-          </div>
 
-          {/* Select Ibu */}
-          <div>
-            <label className="block text-xs font-semibold text-stone-700 mb-1">
-              Nama Ibu Warga <span className="text-red-500">*</span>
-            </label>
-            <select
-              value={anggotaId}
-              onChange={(e) => setAnggotaId(e.target.value)}
-              required
-              className="w-full text-xs px-3 py-2.5 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-            >
-              <option value="">-- Pilih Ibu Warga Terverifikasi --</option>
-              {mothers.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.nama} (NIK: {m.nik}) &bull; KRT: {m.keluarga?.namaKepalaRumahTangga} (RT {m.keluarga?.wilayah?.rt || '-'})
-                </option>
-              ))}
-            </select>
-            <p className="text-[11px] text-stone-400 mt-1">
-              Hanya menampilkan anggota perempuan hidup dari keluarga berstatus VERIFIKASI.
-            </p>
-          </div>
+            {selectedMother && (
+              <div className="p-3.5 bg-secondary/70 rounded-md border border-border text-xs flex flex-col gap-1 text-muted-foreground">
+                <span className="font-bold text-foreground">Nama: {selectedMother.nama}</span>
+                <span>NIK: {selectedMother.nik} &bull; KK: {selectedMother.keluarga.namaKepalaRumahTangga}</span>
+                <span>Alamat: {selectedMother.keluarga.alamat} (Dasawisma: {selectedMother.keluarga.wilayah?.namaDasawisma || '-'})</span>
+              </div>
+            )}
 
-          {/* Tanggal Pencatatan / HPHT */}
-          <div>
-            <label className="block text-xs font-semibold text-stone-700 mb-1">
-              {isNifas ? 'Tanggal Mulai Nifas / Pencatatan' : 'Tanggal Mulai Kehamilan / HPHT / Pencatatan'} <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="date"
-              value={tanggalCatat}
-              onChange={(e) => setTanggalCatat(e.target.value)}
-              required
-              className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-            />
-          </div>
+            <div className="flex flex-col gap-2">
+              <Label>Jenis Status</Label>
+              <div className="grid grid-cols-2 gap-2 min-h-touch items-center">
+                <label className="flex items-center gap-2 p-2.5 rounded-md border border-input bg-background cursor-pointer select-none text-sm font-semibold">
+                  <input
+                    type="radio"
+                    name="status_kondisi"
+                    checked={status === 'KEHAMILAN'}
+                    onChange={() => setStatus('KEHAMILAN')}
+                    className="size-4 text-primary focus:ring-ring"
+                  />
+                  <span>Ibu Hamil</span>
+                </label>
+                <label className="flex items-center gap-2 p-2.5 rounded-md border border-input bg-background cursor-pointer select-none text-sm font-semibold">
+                  <input
+                    type="radio"
+                    name="status_kondisi"
+                    checked={status === 'NIFAS'}
+                    onChange={() => setStatus('NIFAS')}
+                    className="size-4 text-primary focus:ring-ring"
+                  />
+                  <span>Nifas / Menyusui</span>
+                </label>
+              </div>
+            </div>
 
-          {/* Keterangan / Catatan Tambahan */}
-          <div>
-            <label className="block text-xs font-semibold text-stone-700 mb-1">
-              Catatan / Keterangan Medis
-            </label>
-            <textarea
-              value={keterangan}
-              onChange={(e) => setKeterangan(e.target.value)}
-              rows={2}
-              placeholder={
-                isNifas
-                  ? 'Contoh: ASI eksklusif lancar, nifas hari ke-14, rujukan bidan desa'
-                  : 'Contoh: Trimester 1, HPHT 15 Januari 2026, kehamilan kedua'
-              }
-              className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-normal resize-none"
-            />
-          </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="tglCatat">
+                Tanggal Pencatatan <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="tglCatat"
+                type="date"
+                required
+                value={tanggalCatat}
+                onChange={(e) => setTanggalCatat(e.target.value)}
+                className="min-h-touch text-base"
+              />
+            </div>
 
-          {/* Modal Actions */}
-          <div className="pt-2 flex items-center justify-end gap-3 border-t border-stone-100">
-            <button
-              type="button"
-              onClick={onClose}
-              disabled={loading}
-              className="px-4 py-2 text-xs font-semibold text-stone-600 hover:text-stone-800 hover:bg-stone-100 rounded-xl transition-colors"
-            >
-              Batal
-            </button>
-            <button
-              type="submit"
-              disabled={loading}
-              className={`px-5 py-2 text-xs font-semibold text-white ${themeBtn} rounded-xl shadow-sm transition-colors flex items-center gap-1.5`}
-            >
-              {loading ? (
-                <span>Menyimpan...</span>
-              ) : (
-                <span>{isNifas ? 'Simpan Data Nifas' : 'Simpan Data Kehamilan'}</span>
-              )}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="ketStatus">Keterangan Tambahan</Label>
+              <Input
+                id="ketStatus"
+                type="text"
+                placeholder={isNifas ? 'Contoh: Masa nifas hari ke-10, ASI eksklusif' : 'Contoh: Usia kandungan trimester 2, HPL November 2026'}
+                value={keterangan}
+                onChange={(e) => setKeterangan(e.target.value)}
+                className="min-h-touch text-base"
+              />
+            </div>
+
+            <DialogFooter className="pt-3 border-t border-border flex flex-col-reverse sm:flex-row gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                size="default"
+                onClick={onClose}
+                disabled={loading}
+                className="min-h-touch"
+              >
+                Batal
+              </Button>
+              <Button
+                type="submit"
+                size="default"
+                disabled={loading}
+                className="min-h-touch font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="size-4 animate-spin" data-icon="inline-start" />
+                    <span>Menyimpan...</span>
+                  </>
+                ) : (
+                  <span>Simpan Laporan {isNifas ? 'Nifas' : 'Kehamilan'}</span>
+                )}
+              </Button>
+            </DialogFooter>
+          </form>
+        )}
+      </DialogContent>
+    </Dialog>
   );
 }

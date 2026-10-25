@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { MapPin, Navigation } from 'lucide-react';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 interface WilayahOption {
   id: string;
@@ -35,98 +38,105 @@ export function Step1WilayahRumah({ formData, updateField, wilayahList = [] }: S
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-xl font-bold text-emerald-950">Langkah 1: Wilayah & Lokasi Rumah</h2>
-        <p className="text-sm text-stone-600 mt-1">
-          Tentukan Dasawisma binaan, identitas kepala rumah tangga, dan koordinat tempat tinggal.
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-1 border-b border-border pb-3">
+        <h2 className="text-xl font-bold text-foreground">Wilayah &amp; Lokasi Rumah</h2>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Tentukan kelompok Dasawisma binaan, identitas kepala rumah tangga, dan koordinat tempat tinggal.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Kelompok Dasawisma / Wilayah <span className="text-rose-600">*</span>
-          </label>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="wilayahId">
+            Kelompok Dasawisma / Wilayah <span className="text-destructive">*</span>
+          </Label>
           <select
+            id="wilayahId"
             value={formData.wilayahId || ''}
             onChange={(e) => updateField('wilayahId', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
           >
             <option value="">-- Pilih Kelompok Dasawisma --</option>
             {wilayahList.map((w) => (
               <option key={w.id} value={w.id}>
-                {w.namaDasawisma} (RT {w.rt} / RW {w.rw} - Dusun {w.dusun})
+                {w.namaDasawisma} (RT {w.rt} / RW {w.rw} : Dusun {w.dusun})
               </option>
             ))}
           </select>
         </div>
 
-        <div>
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Nomor Kartu Keluarga (No. KK) <span className="text-rose-600">*</span>
-          </label>
-          <input
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="noKk">
+            Nomor Kartu Keluarga (No. KK) <span className="text-destructive">*</span>
+          </Label>
+          <Input
+            id="noKk"
             type="text"
             maxLength={16}
             placeholder="16 digit nomor KK"
             value={formData.noKk || ''}
             onChange={(e) => updateField('noKk', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="min-h-touch text-base"
           />
           {formData.noKk && formData.noKk.length !== 16 && (
-            <span className="text-xs text-amber-600 mt-1 block">
+            <span className="text-xs font-semibold text-warning-foreground">
               Panjang No. KK saat ini {formData.noKk.length} digit (standar Dukcapil 16 digit).
             </span>
           )}
         </div>
 
-        <div className="md:col-span-2">
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Nama Kepala Rumah Tangga (KRT) <span className="text-rose-600">*</span>
-          </label>
-          <input
+        <div className="md:col-span-2 flex flex-col gap-2">
+          <Label htmlFor="namaKepalaRumahTangga">
+            Nama Kepala Rumah Tangga (KRT) <span className="text-destructive">*</span>
+          </Label>
+          <Input
+            id="namaKepalaRumahTangga"
             type="text"
             placeholder="Nama lengkap kepala rumah tangga"
             value={formData.namaKepalaRumahTangga || ''}
             onChange={(e) => updateField('namaKepalaRumahTangga', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="min-h-touch text-base"
           />
         </div>
 
-        <div className="md:col-span-2">
-          <label className="block text-sm font-semibold text-stone-800 mb-1">
-            Alamat Lengkap Rumah
-          </label>
+        <div className="md:col-span-2 flex flex-col gap-2">
+          <Label htmlFor="alamat">Alamat Lengkap Rumah</Label>
           <textarea
-            rows={2}
-            placeholder="Nama jalan, nomor rumah, RT/RW, gang atau patokan lingkungan"
+            id="alamat"
+            rows={3}
+            placeholder="Nama jalan, gang, nomor rumah, RT/RW, atau patokan lingkungan sekitar"
             value={formData.alamat || ''}
             onChange={(e) => updateField('alamat', e.target.value)}
-            className="w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm focus:border-emerald-600 focus:outline-none focus:ring-1 focus:ring-emerald-600"
+            className="flex min-h-[96px] w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors leading-relaxed"
           />
         </div>
 
-        <div className="md:col-span-2 p-4 bg-emerald-50/50 rounded-lg border border-emerald-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-emerald-700" />
+        <div className="md:col-span-2 p-5 bg-secondary/70 rounded-md border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <MapPin className="size-5" />
+            </div>
             <div>
-              <p className="text-sm font-medium text-stone-900">Titik Koordinat Spasial Rumah</p>
-              <p className="text-xs text-stone-600">
+              <p className="text-base font-bold text-foreground">Titik Koordinat Spasial Rumah</p>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
                 {formData.latitude && formData.longitude
-                  ? `Lat: ${formData.latitude.toFixed(6)}, Long: ${formData.longitude.toFixed(6)}`
-                  : 'Belum terdeteksi (Gunakan tombol GPS saat berada di depan rumah warga)'}
+                  ? `Lintang: ${formData.latitude.toFixed(6)}, Bujur: ${formData.longitude.toFixed(6)}`
+                  : 'Belum terdeteksi (Gunakan tombol GPS di depan rumah warga)'}
               </p>
             </div>
           </div>
-          <button
+
+          <Button
             type="button"
+            variant="outline"
+            size="default"
             onClick={handleGetLocation}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-md transition-colors shadow-sm"
+            className="min-h-touch w-full sm:w-auto text-sm bg-background border-border"
           >
-            <Navigation className="w-3.5 h-3.5" />
-            Ambil Lokasi GPS Saat Ini
-          </button>
+            <Navigation className="size-4 text-primary" data-icon="inline-start" />
+            <span>Ambil Titik Lokasi GPS</span>
+          </Button>
         </div>
       </div>
     </div>

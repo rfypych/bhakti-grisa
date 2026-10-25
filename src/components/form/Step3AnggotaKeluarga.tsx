@@ -1,9 +1,14 @@
 'use client';
 
 import React from 'react';
-import { Plus, Trash2, UserPlus, AlertCircle } from 'lucide-react';
+import { Plus, Trash2, UserPlus, AlertCircle, User } from 'lucide-react';
 import { calculateAge, classifyDemographics } from '@/lib/demographics';
 import { generateVirtualNik } from '@/lib/virtualNik';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Step3Props {
   formData: any;
@@ -62,37 +67,47 @@ export function Step3AnggotaKeluarga({ formData, updateField }: Step3Props) {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-4">
         <div>
-          <h2 className="text-xl font-bold text-emerald-950">Langkah 3: Anggota Keluarga</h2>
-          <p className="text-sm text-stone-600 mt-1">
-            Data warga individu, status demografi, akseptor KB, dan partisipasi 10 Program Pokok PKK.
+          <h2 className="text-xl font-bold text-foreground">Data Anggota Keluarga</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-1">
+            Data kependudukan individu, status demografi, akseptor KB, dan partisipasi 10 Program Pokok PKK.
           </p>
         </div>
-        <button
+        <Button
           type="button"
+          size="default"
           onClick={handleAddMember}
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-md transition-colors shadow-sm self-start sm:self-auto"
+          className="min-h-touch self-start sm:self-auto text-base"
         >
-          <UserPlus className="w-4 h-4" />
-          Tambah Anggota
-        </button>
+          <UserPlus className="size-5" data-icon="inline-start" />
+          <span>Tambah Anggota Keluarga</span>
+        </Button>
       </div>
 
       {anggotaList.length === 0 ? (
-        <div className="p-8 text-center border-2 border-dashed border-stone-200 rounded-lg bg-stone-50/50">
-          <p className="text-sm text-stone-600">Belum ada anggota keluarga yang didaftarkan.</p>
-          <button
+        <Card className="p-10 text-center border-dashed border-2 border-border bg-secondary/30">
+          <div className="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
+            <User className="size-6" />
+          </div>
+          <p className="text-base font-semibold text-foreground">Belum ada anggota keluarga yang didaftarkan.</p>
+          <p className="text-sm text-muted-foreground mt-1 max-w-sm mx-auto">
+            Klik tombol di bawah untuk mendaftarkan Kepala Keluarga atau anggota keluarga lainnya.
+          </p>
+          <Button
             type="button"
+            variant="outline"
+            size="default"
             onClick={handleAddMember}
-            className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-md border border-emerald-200"
+            className="mt-4 min-h-touch text-base"
           >
-            <Plus className="w-4 h-4" /> Tambah Kepala Keluarga
-          </button>
-        </div>
+            <Plus className="size-5 text-primary" data-icon="inline-start" />
+            <span>Tambah Kepala Keluarga</span>
+          </Button>
+        </Card>
       ) : (
-        <div className="space-y-6">
+        <div className="flex flex-col gap-6">
           {anggotaList.map((member: any, idx: number) => {
             const age = member.tanggalLahir ? calculateAge(new Date(member.tanggalLahir)) : 0;
             const flags = member.tanggalLahir
@@ -105,296 +120,314 @@ export function Step3AnggotaKeluarga({ formData, updateField }: Step3Props) {
               : null;
 
             return (
-              <div
-                key={idx}
-                className="p-5 rounded-lg border border-stone-200 bg-white shadow-sm space-y-4"
-              >
-                <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+              <Card key={idx} className="border-border shadow-sm overflow-hidden">
+                <CardHeader className="bg-secondary/40 p-4 sm:p-5 border-b border-border flex flex-row items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="size-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">
                       {idx + 1}
-                    </span>
-                    <h3 className="text-sm font-bold text-stone-900">
-                      {member.nama || 'Anggota Baru'}{' '}
-                      <span className="text-xs font-normal text-stone-500">
-                        ({member.hubunganKeluarga || 'Status Belum Dipilih'})
+                    </div>
+                    <div>
+                      <CardTitle className="text-base sm:text-lg font-bold text-foreground">
+                        {member.nama || 'Anggota Keluarga Baru'}
+                      </CardTitle>
+                      <span className="text-xs text-muted-foreground font-medium block">
+                        Hubungan: {member.hubunganKeluarga || 'Belum Dipilih'}
                       </span>
-                    </h3>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveMember(idx)}
-                    className="text-stone-400 hover:text-rose-600 transition-colors p-1"
-                    title="Hapus Anggota Ini"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Nama Lengkap <span className="text-rose-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      value={member.nama}
-                      onChange={(e) => handleUpdateMember(idx, 'nama', e.target.value)}
-                      placeholder="Nama sesuai dokumen"
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Hubungan Keluarga <span className="text-rose-600">*</span>
-                    </label>
-                    <select
-                      value={member.hubunganKeluarga}
-                      onChange={(e) => handleUpdateMember(idx, 'hubunganKeluarga', e.target.value)}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    >
-                      <option value="KEPALA_KELUARGA">Kepala Keluarga</option>
-                      <option value="ISTRI">Istri</option>
-                      <option value="ANAK">Anak</option>
-                      <option value="ORANG_TUA">Orang Tua</option>
-                      <option value="MENANTU">Menantu</option>
-                      <option value="CUCU">Cucu</option>
-                      <option value="FAMILI_LAIN">Famili Lain</option>
-                      <option value="PEMBANTU">Pembantu</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Jenis Kelamin <span className="text-rose-600">*</span>
-                    </label>
-                    <div className="flex items-center gap-4 py-1.5">
-                      <label className="inline-flex items-center gap-1.5 text-xs text-stone-700">
-                        <input
-                          type="radio"
-                          name={`jk_${idx}`}
-                          checked={member.jenisKelamin === 'L'}
-                          onChange={() => handleUpdateMember(idx, 'jenisKelamin', 'L')}
-                          className="text-emerald-600"
-                        />
-                        Laki-Laki
-                      </label>
-                      <label className="inline-flex items-center gap-1.5 text-xs text-stone-700">
-                        <input
-                          type="radio"
-                          name={`jk_${idx}`}
-                          checked={member.jenisKelamin === 'P'}
-                          onChange={() => handleUpdateMember(idx, 'jenisKelamin', 'P')}
-                          className="text-emerald-600"
-                        />
-                        Perempuan
-                      </label>
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">
-                      Tanggal Lahir <span className="text-rose-600">*</span>
-                    </label>
-                    <input
-                      type="date"
-                      value={
-                        member.tanggalLahir
-                          ? typeof member.tanggalLahir === 'string'
-                            ? member.tanggalLahir.substring(0, 10)
-                            : member.tanggalLahir.toISOString().substring(0, 10)
-                          : ''
-                      }
-                      onChange={(e) => handleUpdateMember(idx, 'tanggalLahir', e.target.value)}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    />
-                    {member.tanggalLahir && (
-                      <span className="text-[11px] text-emerald-800 font-medium mt-0.5 block">
-                        Usia: {age} tahun{' '}
-                        {flags?.isBalita && '(Balita)'}
-                        {flags?.isLansia && '(Lansia)'}
-                        {flags?.isWus && '(WUS)'}
-                        {flags?.isPus && '(PUS)'}
-                      </span>
-                    )}
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleRemoveMember(idx)}
+                    className="min-h-touch min-w-touch text-destructive hover:text-destructive hover:bg-destructive/10"
+                    title="Hapus Anggota Keluarga Ini"
+                  >
+                    <Trash2 className="size-5" />
+                    <span className="sr-only">Hapus Anggota Ini</span>
+                  </Button>
+                </CardHeader>
+
+                <CardContent className="p-5 sm:p-6 flex flex-col gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`nama_${idx}`}>
+                        Nama Lengkap Sesuai Dokumen <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id={`nama_${idx}`}
+                        type="text"
+                        value={member.nama}
+                        onChange={(e) => handleUpdateMember(idx, 'nama', e.target.value)}
+                        placeholder="Contoh: Siti Fatimah"
+                        className="min-h-touch text-base"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`hub_${idx}`}>
+                        Hubungan dalam Keluarga <span className="text-destructive">*</span>
+                      </Label>
+                      <select
+                        id={`hub_${idx}`}
+                        value={member.hubunganKeluarga}
+                        onChange={(e) => handleUpdateMember(idx, 'hubunganKeluarga', e.target.value)}
+                        className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
+                      >
+                        <option value="KEPALA_KELUARGA">Kepala Keluarga</option>
+                        <option value="ISTRI">Istri</option>
+                        <option value="ANAK">Anak</option>
+                        <option value="ORANG_TUA">Orang Tua</option>
+                        <option value="MENANTU">Menantu</option>
+                        <option value="CUCU">Cucu</option>
+                        <option value="FAMILI_LAIN">Famili Lain</option>
+                        <option value="PEMBANTU">Pembantu</option>
+                      </select>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label>
+                        Jenis Kelamin <span className="text-destructive">*</span>
+                      </Label>
+                      <div className="grid grid-cols-2 gap-2 min-h-touch items-center">
+                        <label className="flex items-center gap-2 p-2.5 rounded-md border border-input bg-background cursor-pointer select-none text-sm font-semibold">
+                          <input
+                            type="radio"
+                            name={`jk_${idx}`}
+                            checked={member.jenisKelamin === 'L'}
+                            onChange={() => handleUpdateMember(idx, 'jenisKelamin', 'L')}
+                            className="size-4 text-primary focus:ring-ring"
+                          />
+                          <span>Laki-Laki</span>
+                        </label>
+
+                        <label className="flex items-center gap-2 p-2.5 rounded-md border border-input bg-background cursor-pointer select-none text-sm font-semibold">
+                          <input
+                            type="radio"
+                            name={`jk_${idx}`}
+                            checked={member.jenisKelamin === 'P'}
+                            onChange={() => handleUpdateMember(idx, 'jenisKelamin', 'P')}
+                            className="size-4 text-primary focus:ring-ring"
+                          />
+                          <span>Perempuan</span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`tgl_${idx}`}>
+                        Tanggal Lahir <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id={`tgl_${idx}`}
+                        type="date"
+                        value={
+                          member.tanggalLahir
+                            ? typeof member.tanggalLahir === 'string'
+                              ? member.tanggalLahir.substring(0, 10)
+                              : member.tanggalLahir.toISOString().substring(0, 10)
+                            : ''
+                        }
+                        onChange={(e) => handleUpdateMember(idx, 'tanggalLahir', e.target.value)}
+                        className="min-h-touch text-base"
+                      />
+                      {member.tanggalLahir && (
+                        <div className="flex flex-wrap gap-1.5 mt-1">
+                          <Badge variant="secondary">Usia {age} th</Badge>
+                          {flags?.isBalita && <Badge variant="default">Balita</Badge>}
+                          {flags?.isLansia && <Badge variant="secondary">Lansia</Badge>}
+                          {flags?.isWus && <Badge variant="outline">WUS</Badge>}
+                          {flags?.isPus && <Badge variant="outline">PUS</Badge>}
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`tmpt_${idx}`}>Tempat Lahir</Label>
+                      <Input
+                        id={`tmpt_${idx}`}
+                        type="text"
+                        value={member.tempatLahir}
+                        onChange={(e) => handleUpdateMember(idx, 'tempatLahir', e.target.value)}
+                        placeholder="Kota / Kabupaten"
+                        className="min-h-touch text-base"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-center justify-between">
+                        <Label htmlFor={`nik_${idx}`}>Nomor Induk Kependudukan (NIK)</Label>
+                        <label className="inline-flex items-center gap-1.5 text-xs font-semibold text-warning-foreground cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={Boolean(member.isNikSementara)}
+                            onChange={(e) => handleUpdateMember(idx, 'isNikSementara', e.target.checked)}
+                            className="size-4 rounded border-input text-primary"
+                          />
+                          <span>NIK Sementara</span>
+                        </label>
+                      </div>
+                      <Input
+                        id={`nik_${idx}`}
+                        type="text"
+                        maxLength={member.isNikSementara ? 24 : 16}
+                        value={member.nik}
+                        onChange={(e) => handleUpdateMember(idx, 'nik', e.target.value)}
+                        placeholder={member.isNikSementara ? 'TEMP-YYYYMMDD-XXXX' : '16 digit NIK Dukcapil'}
+                        className="min-h-touch text-base font-mono"
+                      />
+                      {member.isNikSementara && (
+                        <span className="text-xs text-muted-foreground flex items-center gap-1.5 mt-0.5">
+                          <AlertCircle className="size-3.5 text-warning-foreground shrink-0" />
+                          <span>NIK sementara otomatis untuk bayi/warga belum memiliki KTP.</span>
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`status_kawin_${idx}`}>Status Perkawinan</Label>
+                      <select
+                        id={`status_kawin_${idx}`}
+                        value={member.statusPerkawinan}
+                        onChange={(e) => handleUpdateMember(idx, 'statusPerkawinan', e.target.value)}
+                        className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
+                      >
+                        <option value="BELUM_KAWIN">Belum Kawin / Lajang</option>
+                        <option value="KAWIN">Kawin</option>
+                        <option value="JANDA">Janda</option>
+                        <option value="DUDA">Duda</option>
+                      </select>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`pendidikan_${idx}`}>Pendidikan Terakhir</Label>
+                      <select
+                        id={`pendidikan_${idx}`}
+                        value={member.pendidikan}
+                        onChange={(e) => handleUpdateMember(idx, 'pendidikan', e.target.value)}
+                        className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
+                      >
+                        <option value="TIDAK_TAMAT_SD">Tidak Tamat SD</option>
+                        <option value="SD_MI">SD / MI</option>
+                        <option value="SMP_SEDERAJAT">SMP / Sederajat</option>
+                        <option value="SMA_SMK_SEDERAJAT">SMA / SMK / Sederajat</option>
+                        <option value="DIPLOMA">Diploma (D1-D3)</option>
+                        <option value="S1">Strata 1 (S1)</option>
+                        <option value="S2">Magister (S2)</option>
+                        <option value="S3">Doktor (S3)</option>
+                      </select>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <Label htmlFor={`pekerjaan_${idx}`}>Pekerjaan</Label>
+                      <select
+                        id={`pekerjaan_${idx}`}
+                        value={member.pekerjaan}
+                        onChange={(e) => handleUpdateMember(idx, 'pekerjaan', e.target.value)}
+                        className="flex min-h-touch w-full rounded-md border border-input bg-background px-3.5 py-2.5 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-colors"
+                      >
+                        <option value="PETANI">Petani</option>
+                        <option value="PEDAGANG">Pedagang</option>
+                        <option value="SWASTA">Karyawan Swasta</option>
+                        <option value="WIRAUSAHA">Wiraswasta / UMKM</option>
+                        <option value="PNS">PNS / ASN</option>
+                        <option value="TNI_POLRI">TNI / POLRI</option>
+                        <option value="TIDAK_BEKERJA">Tidak Bekerja / IRT</option>
+                        <option value="LAINNYA">Lainnya</option>
+                      </select>
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">Tempat Lahir</label>
-                    <input
-                      type="text"
-                      value={member.tempatLahir}
-                      onChange={(e) => handleUpdateMember(idx, 'tempatLahir', e.target.value)}
-                      placeholder="Kota / Kabupaten"
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    />
-                  </div>
-
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-stone-700">
-                        Nomor Induk Kependudukan (NIK)
-                      </label>
-                      <label className="inline-flex items-center gap-1 text-[11px] text-amber-700 cursor-pointer">
+                  {/* 10 Program Pokok PKK & Partisipasi Sosial */}
+                  <div className="pt-4 border-t border-border flex flex-col gap-2">
+                    <Label className="text-sm font-bold text-foreground">
+                      Partisipasi 10 Program Pokok PKK &amp; Kesehatan
+                    </Label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
                         <input
                           type="checkbox"
-                          checked={Boolean(member.isNikSementara)}
-                          onChange={(e) => handleUpdateMember(idx, 'isNikSementara', e.target.checked)}
-                          className="h-3 w-3 rounded border-amber-400 text-amber-600"
+                          checked={Boolean(member.akseptorKb)}
+                          onChange={(e) => handleUpdateMember(idx, 'akseptorKb', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
                         />
-                        NIK Sementara
+                        <span>Akseptor KB</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.posyanduAktif)}
+                          onChange={(e) => handleUpdateMember(idx, 'posyanduAktif', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Posyandu Aktif</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.memilikiTabungan)}
+                          onChange={(e) => handleUpdateMember(idx, 'memilikiTabungan', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Punya Tabungan</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.bkb)}
+                          onChange={(e) => handleUpdateMember(idx, 'bkb', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Ikut BKB</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.kegPancasila)}
+                          onChange={(e) => handleUpdateMember(idx, 'kegPancasila', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Keg. Pancasila</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.kegGotongRoyong)}
+                          onChange={(e) => handleUpdateMember(idx, 'kegGotongRoyong', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Gotong Royong</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.kegKeagamaan)}
+                          onChange={(e) => handleUpdateMember(idx, 'kegKeagamaan', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Keagamaan</span>
+                      </label>
+
+                      <label className="flex items-center gap-2 p-3 rounded-md border border-border bg-card cursor-pointer select-none text-xs sm:text-sm font-semibold">
+                        <input
+                          type="checkbox"
+                          checked={Boolean(member.disabilitas)}
+                          onChange={(e) => handleUpdateMember(idx, 'disabilitas', e.target.checked)}
+                          className="size-4 rounded border-input text-primary focus:ring-ring"
+                        />
+                        <span>Disabilitas</span>
                       </label>
                     </div>
-                    <input
-                      type="text"
-                      maxLength={member.isNikSementara ? 24 : 16}
-                      value={member.nik}
-                      onChange={(e) => handleUpdateMember(idx, 'nik', e.target.value)}
-                      placeholder={member.isNikSementara ? 'TEMP-YYYYMMDD-XXXX' : '16 digit NIK Dukcapil'}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs font-mono focus:border-emerald-600 focus:outline-none"
-                    />
-                    {member.isNikSementara && (
-                      <span className="text-[10px] text-amber-700 flex items-center gap-1 mt-0.5">
-                        <AlertCircle className="w-3 h-3" /> NIK virtual otomatis untuk bayi/warga belum ber-KTP.
-                      </span>
-                    )}
                   </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">Status Perkawinan</label>
-                    <select
-                      value={member.statusPerkawinan}
-                      onChange={(e) => handleUpdateMember(idx, 'statusPerkawinan', e.target.value)}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    >
-                      <option value="BELUM_KAWIN">Belum Kawin / Lajang</option>
-                      <option value="KAWIN">Kawin</option>
-                      <option value="JANDA">Janda</option>
-                      <option value="DUDA">Duda</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">Pendidikan Terakhir</label>
-                    <select
-                      value={member.pendidikan}
-                      onChange={(e) => handleUpdateMember(idx, 'pendidikan', e.target.value)}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    >
-                      <option value="TIDAK_TAMAT_SD">Tidak Tamat SD</option>
-                      <option value="SD_MI">SD / MI</option>
-                      <option value="SMP_SEDERAJAT">SMP / Sederajat</option>
-                      <option value="SMA_SMK_SEDERAJAT">SMA / SMK / Sederajat</option>
-                      <option value="DIPLOMA">Diploma (D1-D3)</option>
-                      <option value="S1">Strata 1 (S1)</option>
-                      <option value="S2">Magister (S2)</option>
-                      <option value="S3">Doktor (S3)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-stone-700 mb-1">Pekerjaan</label>
-                    <select
-                      value={member.pekerjaan}
-                      onChange={(e) => handleUpdateMember(idx, 'pekerjaan', e.target.value)}
-                      className="w-full rounded border border-stone-300 px-2.5 py-1.5 text-xs focus:border-emerald-600 focus:outline-none"
-                    >
-                      <option value="PETANI">Petani</option>
-                      <option value="PEDAGANG">Pedagang</option>
-                      <option value="SWASTA">Karyawan Swasta</option>
-                      <option value="WIRAUSAHA">Wiraswasta / UMKM</option>
-                      <option value="PNS">PNS / ASN</option>
-                      <option value="TNI_POLRI">TNI / POLRI</option>
-                      <option value="TIDAK_BEKERJA">Tidak Bekerja / IRT</option>
-                      <option value="LAINNYA">Lainnya</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Sub-section: Program Sosial & 10 Program PKK */}
-                <div className="pt-3 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.akseptorKb)}
-                      onChange={(e) => handleUpdateMember(idx, 'akseptorKb', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Akseptor KB
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.posyanduAktif)}
-                      onChange={(e) => handleUpdateMember(idx, 'posyanduAktif', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Posyandu Aktif
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.memilikiTabungan)}
-                      onChange={(e) => handleUpdateMember(idx, 'memilikiTabungan', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Punya Tabungan
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.bkb)}
-                      onChange={(e) => handleUpdateMember(idx, 'bkb', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Ikut BKB
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.kegPancasila)}
-                      onChange={(e) => handleUpdateMember(idx, 'kegPancasila', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Keg. Pancasila
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.kegGotongRoyong)}
-                      onChange={(e) => handleUpdateMember(idx, 'kegGotongRoyong', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Gotong Royong
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.kegKeagamaan)}
-                      onChange={(e) => handleUpdateMember(idx, 'kegKeagamaan', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Keagamaan
-                  </label>
-
-                  <label className="inline-flex items-center gap-1.5 text-stone-700">
-                    <input
-                      type="checkbox"
-                      checked={Boolean(member.disabilitas)}
-                      onChange={(e) => handleUpdateMember(idx, 'disabilitas', e.target.checked)}
-                      className="rounded border-stone-300 text-emerald-600"
-                    />
-                    Disabilitas
-                  </label>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             );
           })}
         </div>

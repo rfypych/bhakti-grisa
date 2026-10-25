@@ -32,6 +32,12 @@ export interface KehamilanInput {
   keterangan?: string;
 }
 
+export interface MutasiInput {
+  anggotaId: string;
+  tanggalMutasi: Date | string;
+  keterangan?: string;
+}
+
 /**
  * Records a birth event atomically:
  * 1. Inserts the newborn into AnggotaKeluarga (with Dukcapil NIK or virtual TEMP- NIK)
@@ -199,6 +205,59 @@ export async function laporKehamilanAction(data: KehamilanInput): Promise<{ succ
       tanggalPeristiwa: eventDate,
       keterangan: data.keterangan || (data.status === 'NIFAS' ? 'Ibu Nifas / Menyusui' : 'Ibu Hamil Aktif'),
     },
+  });
+
+  try {
+    revalidatePath('/dashboard/lapor-peristiwa');
+    revalidatePath('/dashboard');
+  } catch {
+    // ignore
+  }
+
+  return { success: true };
+}
+
+/**
+ * Records a relocation/mutation event (MUTASI_KELUAR).
+ */
+export async function laporMutasiAction(data: MutasiInput): Promise<{ success: boolean }> {
+  const user = await getSessionUser();
+  if (user) {
+    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
+    }
+    const targetMember = await prisma.anggotaKeluarga.findUnique({
+      where: { id: data.anggotaId },
+      include: { keluarga: true },
+    });
+    if (user.peran === 'KADER_RT' && user.wilayahId && targetMember?.keluarga?.wilayahId !== user.wilayahId) {
+      throw new Error('Akses ditolak: Anda hanya dapat mencatat mutasi pada warga di wilayah Dasawisma Anda.');
+    }
+  }
+
+  const member = await prisma.anggotaKeluarga.findUnique({
+    where: { id: data.anggotaId },
+  });
+  if (!member) {
+    throw new Error('Data warga tidak ditemukan.');
+  }
+
+  const eventDate = new Date(data.tanggalMutasi);
+
+  await prisma.$transaction(async (tx) => {
+    await tx.peristiwaVital.create({
+      data: {
+        anggotaKeluargaId: data.anggotaId,
+        jenisPeristiwa: 'MUTASI_KELUAR',
+        tanggalPeristiwa: eventDate,
+        keterangan: data.keterangan ? data.keterangan.trim() : 'Pindah domisili keluar wilayah',
+      },
+    });
+
+    await tx.anggotaKeluarga.update({
+      where: { id: data.anggotaId },
+      data: { statusKehidupan: 'PINDAH' },
+    });
   });
 
   try {

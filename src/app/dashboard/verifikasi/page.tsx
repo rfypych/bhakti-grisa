@@ -4,6 +4,8 @@ import { VerificationCard } from '@/components/verifikasi/VerificationCard';
 import { getSessionUser } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { ShieldCheck, Inbox } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 
 export const metadata = {
   title: 'Antrean Verifikasi Data Warga - SIMPATIK',
@@ -29,36 +31,39 @@ export default async function VerifikasiPage({
   const submissions = await getPendingSubmissions(targetWilayahId);
 
   return (
-    <div className="max-w-5xl mx-auto space-y-6 py-6 px-4 sm:px-6">
+    <div className="max-w-5xl mx-auto flex flex-col gap-6 py-6 px-4 sm:px-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border pb-5">
         <div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-6 h-6 text-emerald-700" />
-            <h1 className="text-2xl font-bold text-stone-900">Antrean Verifikasi Data Warga</h1>
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="size-6 text-primary" />
+            <h1 className="text-2xl font-bold text-foreground">Antrean Verifikasi Data Warga</h1>
           </div>
-          <p className="text-sm text-stone-600 mt-1">
-            Validasi pengajuan data mandiri warga via portal publik RT sebelum masuk ke agregasi resmi desa.
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+            Pemeriksaan dan validasi pengajuan mandiri warga via portal RT sebelum diintegrasikan ke buku rekapitulasi desa.
           </p>
         </div>
-        <div className="text-xs bg-emerald-50 text-emerald-900 border border-emerald-200 px-3 py-1.5 rounded-full font-semibold self-start sm:self-center">
+
+        <Badge variant={submissions.length > 0 ? 'warning' : 'secondary'} className="text-xs px-3 py-1 font-bold self-start sm:self-center">
           {submissions.length} Pengajuan Menunggu
-        </div>
+        </Badge>
       </div>
 
       {/* Queue Content */}
       {submissions.length === 0 ? (
-        <div className="p-12 text-center bg-white rounded-xl border border-stone-200 shadow-sm space-y-3">
-          <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto">
-            <Inbox className="w-6 h-6" />
-          </div>
-          <h3 className="text-base font-bold text-stone-800">Antrean Verifikasi Kosong</h3>
-          <p className="text-xs text-stone-500 max-w-sm mx-auto">
-            Semua pengajuan mandiri warga telah diverifikasi atau belum ada pengajuan baru dari tautan publik RT.
-          </p>
-        </div>
+        <Card className="p-12 text-center border-border shadow-sm">
+          <CardContent className="p-0 flex flex-col items-center gap-3">
+            <div className="size-14 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
+              <Inbox className="size-7" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground">Antrean Verifikasi Kosong</h3>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+              Semua pengajuan mandiri warga di wilayah Anda telah diverifikasi atau belum ada pengajuan baru dari tautan formulir RT.
+            </p>
+          </CardContent>
+        </Card>
       ) : (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           {submissions.map((item) => (
             <VerificationCard key={item.id} submission={item} />
           ))}
