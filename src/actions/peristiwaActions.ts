@@ -71,7 +71,7 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
         nama: data.namaBayi.trim(),
         hubunganKeluarga: 'ANAK',
         jenisKelamin: data.jenisKelamin,
-        tempatLahir: mother.keluarga?.alamat ? mother.keluarga.alamat.split(',')[0].trim() : 'Kudus',
+        tempatLahir: mother.keluarga?.alamat ? mother.keluarga.alamat.split(',')[0].trim() : 'Ngawi',
         tanggalLahir: birthDate,
         agama: mother.agama || 'ISLAM',
         pendidikan: 'TIDAK_TAMAT_SD',

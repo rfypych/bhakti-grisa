@@ -119,7 +119,7 @@ export default async function DashboardPage({
               ? `Rekapitulasi Agregat RW ${user.wilayah.rw} (${user.wilayah.dusun}) — Tahun ${activeYear}`
               : user?.peran === 'PENGURUS_DUSUN' && user.wilayah
               ? `Rekapitulasi Agregat ${user.wilayah.dusun} — Tahun ${activeYear}`
-              : `Rekapitulasi Agregat Seluruh Wilayah Desa Demaan (Tahun ${activeYear})`}
+              : `Rekapitulasi Agregat Seluruh Wilayah Desa Grudo (Tahun ${activeYear})`}
           </p>
         </div>
 

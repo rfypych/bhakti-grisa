@@ -259,7 +259,7 @@ export function CatatanKeluargaPrint({ family }: { family: PrintFamilyData }) {
         </div>
 
         <div>
-          <p className="font-medium">Kudus, {new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+          <p className="font-medium">Ngawi, {new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           <p className="font-semibold">Ketua Kelompok Dasa Wisma</p>
           <div className="h-16" />
           <p className="font-bold underline uppercase">( ............................................ )</p>

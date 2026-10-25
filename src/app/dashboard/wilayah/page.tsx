@@ -33,7 +33,7 @@ export default async function WilayahPage() {
             <h1 className="text-2xl font-bold text-stone-900">Manajemen Wilayah Administrasi</h1>
           </div>
           <p className="text-xs sm:text-sm text-stone-600 mt-1">
-            Konfigurasi hierarki wilayah: Dusun/Lingkungan, RW, RT, dan Kelompok Dasawisma Desa Demaan.
+            Konfigurasi hierarki wilayah: Dusun/Lingkungan, RW, RT, dan Kelompok Dasawisma Desa Grudo.
           </p>
         </div>
       </div>

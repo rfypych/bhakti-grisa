@@ -19,7 +19,7 @@ export function RekapDasawismaPrint({ data }: RekapDasawismaPrintProps) {
           REKAPITULASI CATATAN DATA DAN KEGIATAN WARGA
         </h1>
         <h2 className="text-sm font-bold uppercase tracking-wider">
-          KELOMPOK DASA WISMA &bull; TP PKK DESA DEMAAN
+          KELOMPOK DASA WISMA &bull; TP PKK DESA GRUDO
         </h2>
       </div>
 
@@ -38,7 +38,7 @@ export function RekapDasawismaPrint({ data }: RekapDasawismaPrintProps) {
         <div className="space-y-1">
           <div className="flex">
             <span className="w-36">DUSUN / DESA</span>
-            <span>: {data.dusun || 'Krajan'} / Demaan</span>
+            <span>: {data.dusun || 'Krajan'} / Grudo</span>
           </div>
           <div className="flex">
             <span className="w-36">TAHUN PELAPORAN</span>
@@ -143,13 +143,13 @@ export function RekapDasawismaPrint({ data }: RekapDasawismaPrintProps) {
       <div className="grid grid-cols-2 mt-8 text-xs text-center break-inside-avoid">
         <div>
           <p className="font-medium">Mengetahui,</p>
-          <p className="font-semibold">Ketua Tim Penggerak PKK Desa Demaan</p>
+          <p className="font-semibold">Ketua Tim Penggerak PKK Desa Grudo</p>
           <div className="h-16" />
           <p className="font-bold underline uppercase">( ............................................ )</p>
         </div>
 
         <div>
-          <p className="font-medium">Kudus, {new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+          <p className="font-medium">Ngawi, {new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           <p className="font-semibold">Ketua Kelompok Dasa Wisma {data.namaDasawisma || ''}</p>
           <div className="h-16" />
           <p className="font-bold underline uppercase">( ............................................ )</p>

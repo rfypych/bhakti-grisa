@@ -35,7 +35,7 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-200 text-xs font-semibold">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Inisiatif Pengabdian Masyarakat Bhakti Grisa &bull; Desa Demaan</span>
+            <span>Inisiatif Pengabdian Masyarakat Bhakti Grisa &bull; Desa Grudo</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight max-w-4xl mx-auto">

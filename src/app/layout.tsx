@@ -18,7 +18,7 @@ import { getSessionUser } from '@/lib/auth';
 
 export const metadata: Metadata = {
   title: 'SIMPATIK - Sistem Informasi Manajemen PKK & Tertib Administrasi Keluarga',
-  description: 'Inisiatif Program Inovasi & Pengabdian Masyarakat Bhakti Grisa, Desa Demaan, Kudus.',
+  description: 'Inisiatif Program Inovasi & Pengabdian Masyarakat Bhakti Grisa, Desa Grudo, Ngawi.',
 };
 
 export default async function RootLayout({
@@ -44,7 +44,7 @@ export default async function RootLayout({
                 <div>
                   <span className="font-extrabold text-stone-900 tracking-tight text-base">SIMPATIK</span>
                   <span className="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider block -mt-1">
-                    Bhakti Grisa &bull; Demaan
+                    Bhakti Grisa &bull; Grudo
                   </span>
                 </div>
               </Link>
@@ -134,7 +134,7 @@ export default async function RootLayout({
             SIMPATIK &copy; {new Date().getFullYear()} — Inisiatif Bhakti Grisa
           </p>
           <p className="text-[11px] text-stone-400 mt-1">
-            Sistem Informasi Manajemen PKK & Tertib Administrasi Kependudukan Keluarga Desa Demaan, Kudus.
+            Sistem Informasi Manajemen PKK & Tertib Administrasi Kependudukan Keluarga Desa Grudo, Ngawi.
           </p>
         </footer>
       </body>

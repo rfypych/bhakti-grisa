@@ -13,7 +13,7 @@ interface LeafletInnerMapProps {
 
 export default function LeafletInnerMap({
   households,
-  defaultCenter = [-6.8041, 110.8405], // Kudus coordinates default
+  defaultCenter = [-7.4009, 111.4272], // Grudo, Ngawi coordinates default
   defaultZoom = 15,
 }: LeafletInnerMapProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
