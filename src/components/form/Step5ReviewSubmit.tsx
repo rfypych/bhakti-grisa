@@ -33,12 +33,12 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
       </div>
 
       {/* Status Notice Banner */}
-      <div className="p-4 rounded-md bg-secondary border border-border flex items-start gap-3">
-        <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
-          {isPublicResident ? <Clock className="size-5" /> : <CheckCircle2 className="size-5" />}
+      <div className="p-4 rounded-lg bg-muted/60 border border-border flex items-start gap-3">
+        <div className="size-9 rounded-md bg-muted text-foreground flex items-center justify-center shrink-0 mt-0.5">
+          {isPublicResident ? <Clock className="size-5 text-warning-foreground" /> : <CheckCircle2 className="size-5 text-primary" />}
         </div>
         <div className="flex flex-col gap-1 text-sm text-foreground">
-          <p className="font-bold">
+          <p className="font-semibold">
             Status Pengiriman :{' '}
             {isPublicResident
               ? 'DRAFT (Menunggu Verifikasi Kader RT)'
@@ -55,20 +55,20 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Card 1: Identitas Rumah Tangga */}
         <Card className="border-border shadow-sm">
-          <CardHeader className="bg-secondary/40 p-4 border-b border-border flex flex-row items-center gap-2">
+          <CardHeader className="flex flex-row items-center gap-2 pb-3">
             <Home className="size-4 text-primary shrink-0" />
-            <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">
+            <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
               Profil Rumah Tangga
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-4 flex flex-col gap-2 text-sm text-foreground">
+          <CardContent className="pt-0 flex flex-col gap-2 text-sm text-foreground">
             <div className="flex justify-between border-b border-border/50 pb-1.5">
               <span className="text-muted-foreground">Nomor KK:</span>
-              <span className="font-mono font-bold">{formData.noKk || '-'}</span>
+              <span className="font-mono font-medium">{formData.noKk || '-'}</span>
             </div>
             <div className="flex justify-between border-b border-border/50 pb-1.5">
               <span className="text-muted-foreground">Kepala Rumah Tangga:</span>
-              <span className="font-semibold">{formData.namaKepalaRumahTangga || '-'}</span>
+              <span className="font-medium">{formData.namaKepalaRumahTangga || '-'}</span>
             </div>
             <div className="flex flex-col gap-0.5 border-b border-border/50 pb-1.5">
               <span className="text-muted-foreground">Alamat:</span>
@@ -85,13 +85,13 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
 
         {/* Card 2: Sanitasi */}
         <Card className="border-border shadow-sm">
-          <CardHeader className="bg-secondary/40 p-4 border-b border-border flex flex-row items-center gap-2">
+          <CardHeader className="flex flex-row items-center gap-2 pb-3">
             <Droplets className="size-4 text-primary shrink-0" />
-            <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">
+            <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
               Sanitasi &amp; Lingkungan
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-4 flex flex-col gap-2 text-sm text-foreground">
+          <CardContent className="pt-0 flex flex-col gap-2 text-sm text-foreground">
             <div className="flex justify-between border-b border-border/50 pb-1.5">
               <span className="text-muted-foreground">Kriteria Rumah:</span>
               <Badge variant={formData.kriteriaRumah === 'SEHAT' ? 'default' : 'secondary'}>
@@ -100,7 +100,7 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
             </div>
             <div className="flex justify-between border-b border-border/50 pb-1.5">
               <span className="text-muted-foreground">Jamban Keluarga:</span>
-              <span className="font-semibold">
+              <span className="font-medium">
                 {formData.jambanKeluarga ? `Ada (${formData.jumlahJamban || 1} buah)` : 'Tidak Ada'}
               </span>
             </div>
@@ -120,10 +120,10 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
 
       {/* Card 3: Anggota Keluarga */}
       <Card className="border-border shadow-sm">
-        <CardHeader className="bg-secondary/40 p-4 border-b border-border flex flex-row items-center justify-between gap-2">
+        <CardHeader className="flex flex-row items-center justify-between gap-2 pb-3">
           <div className="flex items-center gap-2">
             <Users className="size-4 text-primary shrink-0" />
-            <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">
+            <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
               Daftar Anggota Keluarga ({anggota.length} Jiwa)
             </CardTitle>
           </div>
@@ -171,13 +171,13 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {hatinya.length > 0 && (
             <Card className="border-border shadow-sm">
-              <CardHeader className="bg-secondary/40 p-4 border-b border-border flex flex-row items-center gap-2">
+              <CardHeader className="flex flex-row items-center gap-2 pb-3">
                 <Sprout className="size-4 text-primary shrink-0" />
-                <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">
+                <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   Pekarangan (Hatinya PKK)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-4 flex flex-col gap-1.5 text-sm text-foreground">
+              <CardContent className="pt-0 flex flex-col gap-1.5 text-sm text-foreground">
                 {hatinya.map((h: any, i: number) => (
                   <div key={i} className="flex justify-between border-b border-border/40 pb-1 last:border-0">
                     <span className="font-medium">{h.komoditi} ({h.kategori})</span>
@@ -190,13 +190,13 @@ export function Step5ReviewSubmit({ formData, isPublicResident = false }: Step5P
 
           {industri.length > 0 && (
             <Card className="border-border shadow-sm">
-              <CardHeader className="bg-secondary/40 p-4 border-b border-border flex flex-row items-center gap-2">
-                <Store className="size-4 text-amber-700 shrink-0" />
-                <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">
+              <CardHeader className="flex flex-row items-center gap-2 pb-3">
+                <Store className="size-4 text-primary shrink-0" />
+                <CardTitle className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                   Industri Rumah Tangga (UP2K)
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-4 flex flex-col gap-1.5 text-sm text-foreground">
+              <CardContent className="pt-0 flex flex-col gap-1.5 text-sm text-foreground">
                 {industri.map((ind: any, i: number) => (
                   <div key={i} className="flex justify-between border-b border-border/40 pb-1 last:border-0">
                     <span className="font-medium">{ind.komoditi} ({ind.kategori})</span>

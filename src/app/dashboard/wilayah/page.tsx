@@ -4,7 +4,7 @@ import { WilayahManager } from '@/components/wilayah/WilayahManager';
 import { getSessionUser } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { MapPin, Layers, Home, Users } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export const metadata = {
   title: 'Manajemen Wilayah & Dasawisma - SIMPATIK',
@@ -42,42 +42,57 @@ export default async function WilayahPage() {
       {/* Summary KPI Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Dusun / Lingkungan</p>
-            <p className="text-2xl font-extrabold text-foreground">{uniqueDusun}</p>
-            <span className="text-[10px] text-muted-foreground block">Unit Tingkat Desa</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Dusun</CardTitle>
+            <Layers className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueDusun}</div>
+            <p className="text-xs text-muted-foreground mt-1">Unit Tingkat Desa</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Rukun Warga (RW)</p>
-            <p className="text-2xl font-extrabold text-foreground">{uniqueRW}</p>
-            <span className="text-[10px] text-muted-foreground block">Satuan Rukun Warga</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Rukun Warga</CardTitle>
+            <MapPin className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueRW}</div>
+            <p className="text-xs text-muted-foreground mt-1">Satuan RW</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Rukun Tetangga (RT)</p>
-            <p className="text-2xl font-extrabold text-foreground">{uniqueRT}</p>
-            <span className="text-[10px] text-muted-foreground block">Satuan Rukun Tetangga</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Rukun Tetangga</CardTitle>
+            <Home className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueRT}</div>
+            <p className="text-xs text-muted-foreground mt-1">Satuan RT</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Kelompok Dasawisma</p>
-            <p className="text-2xl font-extrabold text-primary">{totalDasawisma}</p>
-            <span className="text-[10px] text-primary font-semibold block">Basis Pendataan PKK</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Dasawisma</CardTitle>
+            <Users className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-primary">{totalDasawisma}</div>
+            <p className="text-xs text-muted-foreground mt-1">Basis Pendataan PKK</p>
           </CardContent>
         </Card>
 
         <Card className="col-span-2 sm:col-span-1">
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Total KK Terdaftar</p>
-            <p className="text-2xl font-extrabold text-foreground">{totalKeluarga}</p>
-            <span className="text-[10px] text-muted-foreground block">Di Seluruh Wilayah</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">KK Terdaftar</CardTitle>
+            <Users className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalKeluarga}</div>
+            <p className="text-xs text-muted-foreground mt-1">Di Seluruh Wilayah</p>
           </CardContent>
         </Card>
       </div>

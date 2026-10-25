@@ -93,14 +93,10 @@ export function LaporMutasiModal({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader className="border-b border-border pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-secondary text-primary flex items-center justify-center shrink-0">
-              <Truck className="size-5" />
-            </div>
-            <DialogTitle className="text-lg font-bold text-foreground">
-              Lapor Mutasi Pindah Warga
-            </DialogTitle>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground">
+            <Truck className="size-5 text-primary" />
+            <span>Lapor Mutasi Pindah Warga</span>
+          </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Pencatatan perpindahan domisili warga keluar dari lingkungan Dasawisma / RT binaan.
           </DialogDescription>
@@ -144,8 +140,8 @@ export function LaporMutasiModal({
             </div>
 
             {selectedMember && (
-              <div className="p-3.5 bg-secondary/70 rounded-md border border-border text-xs flex flex-col gap-1 text-muted-foreground">
-                <span className="font-bold text-foreground">{selectedMember.nama}</span>
+              <div className="p-3.5 bg-muted/50 rounded-lg border border-border text-xs flex flex-col gap-1 text-muted-foreground">
+                <span className="font-semibold text-foreground">{selectedMember.nama}</span>
                 <span>NIK: {selectedMember.nik} &bull; KK: {selectedMember.keluarga.namaKepalaRumahTangga}</span>
                 <span>Alamat: {selectedMember.keluarga.alamat} (Dasawisma: {selectedMember.keluarga.wilayah?.namaDasawisma || '-'})</span>
               </div>

@@ -69,13 +69,11 @@ export function Step4PekaranganUp2k({ formData, updateField }: Step4Props) {
 
       {/* Bagian 1: Hatinya PKK */}
       <Card className="border-border shadow-sm">
-        <CardHeader className="bg-secondary/40 p-4 sm:p-5 border-b border-border flex flex-row items-center justify-between gap-3">
+        <CardHeader className="flex flex-row items-center justify-between gap-3 pb-4">
           <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <Sprout className="size-5" />
-            </div>
+            <Sprout className="size-5 text-primary shrink-0" />
             <div>
-              <CardTitle className="text-base sm:text-lg font-bold text-foreground">
+              <CardTitle className="text-base sm:text-lg font-semibold text-foreground">
                 Pemanfaatan Pekarangan (AKU HATINYA PKK)
               </CardTitle>
               <span className="text-xs text-muted-foreground block">
@@ -96,7 +94,7 @@ export function Step4PekaranganUp2k({ formData, updateField }: Step4Props) {
           </Button>
         </CardHeader>
 
-        <CardContent className="p-5 flex flex-col gap-3">
+        <CardContent className="pt-0 flex flex-col gap-3">
           {hatinyaList.length === 0 ? (
             <p className="text-sm text-muted-foreground italic py-2">
               Belum ada komoditi pemanfaatan pekarangan yang dicatat.
@@ -166,13 +164,11 @@ export function Step4PekaranganUp2k({ formData, updateField }: Step4Props) {
 
       {/* Bagian 2: Industri Rumah Tangga (UP2K) */}
       <Card className="border-border shadow-sm">
-        <CardHeader className="bg-secondary/40 p-4 sm:p-5 border-b border-border flex flex-row items-center justify-between gap-3">
+        <CardHeader className="flex flex-row items-center justify-between gap-3 pb-4">
           <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-              <Store className="size-5" />
-            </div>
+            <Store className="size-5 text-primary shrink-0" />
             <div>
-              <CardTitle className="text-base sm:text-lg font-bold text-foreground">
+              <CardTitle className="text-base sm:text-lg font-semibold text-foreground">
                 Industri Rumah Tangga (UP2K PKK)
               </CardTitle>
               <span className="text-xs text-muted-foreground block">
@@ -193,7 +189,7 @@ export function Step4PekaranganUp2k({ formData, updateField }: Step4Props) {
           </Button>
         </CardHeader>
 
-        <CardContent className="p-5 flex flex-col gap-3">
+        <CardContent className="pt-0 flex flex-col gap-3">
           {industriList.length === 0 ? (
             <p className="text-sm text-muted-foreground italic py-2">
               Belum ada usaha industri rumah tangga yang dicatat.

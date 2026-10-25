@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent } from '@/components/ui/empty';
 
 interface Step3Props {
   formData: any;
@@ -87,25 +88,27 @@ export function Step3AnggotaKeluarga({ formData, updateField }: Step3Props) {
       </div>
 
       {anggotaList.length === 0 ? (
-        <Card className="p-10 text-center border-dashed border-2 border-border bg-secondary/30">
-          <div className="size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
-            <User className="size-6" />
-          </div>
-          <p className="text-base font-semibold text-foreground">Belum ada anggota keluarga yang didaftarkan.</p>
-          <p className="text-sm text-muted-foreground mt-1 max-w-sm mx-auto">
-            Klik tombol di bawah untuk mendaftarkan Kepala Keluarga atau anggota keluarga lainnya.
-          </p>
-          <Button
-            type="button"
-            variant="outline"
-            size="default"
-            onClick={handleAddMember}
-            className="mt-4 min-h-touch text-base"
-          >
-            <Plus className="size-5 text-primary" data-icon="inline-start" />
-            <span>Tambah Kepala Keluarga</span>
-          </Button>
-        </Card>
+        <Empty className="border-dashed border-2 border-border py-12">
+          <EmptyMedia variant="icon">
+            <User className="size-6 text-muted-foreground" />
+          </EmptyMedia>
+          <EmptyTitle>Belum Ada Anggota Keluarga</EmptyTitle>
+          <EmptyDescription>
+            Daftarkan Kepala Keluarga atau anggota keluarga lainnya untuk melengkapi catatan kependudukan.
+          </EmptyDescription>
+          <EmptyContent>
+            <Button
+              type="button"
+              variant="outline"
+              size="default"
+              onClick={handleAddMember}
+              className="min-h-touch gap-2 text-base"
+            >
+              <Plus className="size-4 text-primary" />
+              <span>Tambah Kepala Keluarga</span>
+            </Button>
+          </EmptyContent>
+        </Empty>
       ) : (
         <div className="flex flex-col gap-6">
           {anggotaList.map((member: any, idx: number) => {
@@ -121,13 +124,13 @@ export function Step3AnggotaKeluarga({ formData, updateField }: Step3Props) {
 
             return (
               <Card key={idx} className="border-border shadow-sm overflow-hidden">
-                <CardHeader className="bg-secondary/40 p-4 sm:p-5 border-b border-border flex flex-row items-center justify-between gap-3">
+                <CardHeader className="flex flex-row items-center justify-between gap-3 pb-4">
                   <div className="flex items-center gap-3">
-                    <div className="size-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">
+                    <div className="size-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-bold shrink-0">
                       {idx + 1}
                     </div>
                     <div>
-                      <CardTitle className="text-base sm:text-lg font-bold text-foreground">
+                      <CardTitle className="text-base sm:text-lg font-semibold text-foreground">
                         {member.nama || 'Anggota Keluarga Baru'}
                       </CardTitle>
                       <span className="text-xs text-muted-foreground font-medium block">
@@ -141,15 +144,15 @@ export function Step3AnggotaKeluarga({ formData, updateField }: Step3Props) {
                     variant="ghost"
                     size="icon"
                     onClick={() => handleRemoveMember(idx)}
-                    className="min-h-touch min-w-touch text-destructive hover:text-destructive hover:bg-destructive/10"
+                    className="min-h-touch min-w-touch text-muted-foreground hover:text-destructive hover:bg-destructive/10"
                     title="Hapus Anggota Keluarga Ini"
                   >
-                    <Trash2 className="size-5" />
+                    <Trash2 className="size-4" />
                     <span className="sr-only">Hapus Anggota Ini</span>
                   </Button>
                 </CardHeader>
 
-                <CardContent className="p-5 sm:p-6 flex flex-col gap-5">
+                <CardContent className="pt-0 flex flex-col gap-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <div className="flex flex-col gap-2">
                       <Label htmlFor={`nama_${idx}`}>

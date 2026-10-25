@@ -87,7 +87,7 @@ export function MobileNav({ userRole }: MobileNavProps) {
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3 px-3.5 py-3 rounded-md text-base font-semibold text-foreground hover:bg-secondary transition-colors min-h-[48px]"
+                  className="flex items-center gap-3 px-3.5 py-3 rounded-md text-base font-medium text-foreground hover:bg-muted/80 transition-colors min-h-[48px]"
                 >
                   <Icon className="size-5 text-primary shrink-0" />
                   <span>{label}</span>

@@ -112,13 +112,13 @@ export function Step1WilayahRumah({ formData, updateField, wilayahList = [] }: S
           />
         </div>
 
-        <div className="md:col-span-2 p-5 bg-secondary/70 rounded-md border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="md:col-span-2 p-5 bg-muted/40 rounded-lg border border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start sm:items-center gap-3">
-            <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+            <div className="size-9 rounded-md bg-muted text-muted-foreground flex items-center justify-center shrink-0">
               <MapPin className="size-5" />
             </div>
             <div>
-              <p className="text-base font-bold text-foreground">Titik Koordinat Spasial Rumah</p>
+              <p className="text-base font-semibold text-foreground">Titik Koordinat Spasial Rumah</p>
               <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
                 {formData.latitude && formData.longitude
                   ? `Lintang: ${formData.latitude.toFixed(6)}, Bujur: ${formData.longitude.toFixed(6)}`
@@ -132,7 +132,7 @@ export function Step1WilayahRumah({ formData, updateField, wilayahList = [] }: S
             variant="outline"
             size="default"
             onClick={handleGetLocation}
-            className="min-h-touch w-full sm:w-auto text-sm bg-background border-border"
+            className="min-h-touch w-full sm:w-auto text-sm"
           >
             <Navigation className="size-4 text-primary" data-icon="inline-start" />
             <span>Ambil Titik Lokasi GPS</span>

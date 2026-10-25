@@ -113,14 +113,10 @@ export function LaporKematianModal({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader className="border-b border-border pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-destructive/10 text-destructive flex items-center justify-center shrink-0">
-              <HeartCrack className="size-5" />
-            </div>
-            <DialogTitle className="text-lg font-bold text-foreground">
-              Lapor Peristiwa Kematian Warga
-            </DialogTitle>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground">
+            <HeartCrack className="size-5 text-destructive" />
+            <span>Lapor Peristiwa Kematian Warga</span>
+          </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Catat peristiwa kematian ke Lampiran 4.18 PKK untuk memperbarui status kependudukan.
           </DialogDescription>
@@ -164,8 +160,8 @@ export function LaporKematianModal({
             </div>
 
             {selectedMember && (
-              <div className="p-3.5 bg-secondary/70 rounded-md border border-border text-xs flex flex-col gap-1 text-muted-foreground">
-                <span className="font-bold text-foreground">Almarhum/ah: {selectedMember.nama}</span>
+              <div className="p-3.5 bg-muted/50 rounded-lg border border-border text-xs flex flex-col gap-1 text-muted-foreground">
+                <span className="font-semibold text-foreground">Almarhum/ah: {selectedMember.nama}</span>
                 <span>Kepala RT: {selectedMember.keluarga.namaKepalaRumahTangga}</span>
                 <span>Alamat: {selectedMember.keluarga.alamat} (Dasawisma: {selectedMember.keluarga.wilayah?.namaDasawisma || '-'})</span>
               </div>

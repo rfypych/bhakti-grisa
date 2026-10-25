@@ -106,14 +106,10 @@ export function LaporKelahiranModal({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader className="border-b border-border pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <Baby className="size-5" />
-            </div>
-            <DialogTitle className="text-lg font-bold text-foreground">
-              Lapor Peristiwa Kelahiran Bayi
-            </DialogTitle>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground">
+            <Baby className="size-5 text-primary" />
+            <span>Lapor Peristiwa Kelahiran Bayi</span>
+          </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             Pencatatan kelahiran baru yang otomatis memasukkan bayi ke Kartu Keluarga (Lampiran 4.18).
           </DialogDescription>
@@ -157,8 +153,8 @@ export function LaporKelahiranModal({
             </div>
 
             {selectedMother && (
-              <div className="p-3.5 bg-secondary/70 rounded-md border border-border text-xs flex flex-col gap-1 text-muted-foreground">
-                <span className="font-bold text-foreground">Ibu: {selectedMother.nama}</span>
+              <div className="p-3.5 bg-muted/50 rounded-lg border border-border text-xs flex flex-col gap-1 text-muted-foreground">
+                <span className="font-semibold text-foreground">Ibu: {selectedMother.nama}</span>
                 <span>Kepala RT: {selectedMother.keluarga.namaKepalaRumahTangga}</span>
                 <span>Alamat: {selectedMother.keluarga.alamat} (Dasawisma: {selectedMother.keluarga.wilayah?.namaDasawisma || '-'})</span>
               </div>

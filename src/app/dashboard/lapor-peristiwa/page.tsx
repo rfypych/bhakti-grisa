@@ -5,6 +5,7 @@ import { getSessionUser } from '@/lib/auth';
 import { Activity, Baby, HeartCrack, Calendar, Heart, Truck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import {
   Table,
   TableBody,
@@ -69,62 +70,57 @@ export default async function LaporPeristiwaPage({
       {/* KPI Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <Baby className="size-5" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Kelahiran</p>
-              <p className="text-xl font-bold text-foreground">{totalKelahiran}</p>
-            </div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Kelahiran</CardTitle>
+            <Baby className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalKelahiran}</div>
+            <p className="text-xs text-muted-foreground mt-1">Bayi baru lahir</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
-              <Activity className="size-5" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Kehamilan</p>
-              <p className="text-xl font-bold text-foreground">{totalKehamilan}</p>
-            </div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Kehamilan</CardTitle>
+            <Activity className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalKehamilan}</div>
+            <p className="text-xs text-muted-foreground mt-1">Ibu hamil aktif</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-teal-500/10 text-teal-700 flex items-center justify-center shrink-0">
-              <Heart className="size-5" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Nifas</p>
-              <p className="text-xl font-bold text-foreground">{totalNifas}</p>
-            </div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Nifas</CardTitle>
+            <Heart className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalNifas}</div>
+            <p className="text-xs text-muted-foreground mt-1">Ibu menyusui</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-secondary text-primary flex items-center justify-center shrink-0">
-              <Truck className="size-5" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Mutasi Pindah</p>
-              <p className="text-xl font-bold text-foreground">{totalMutasi}</p>
-            </div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Mutasi Pindah</CardTitle>
+            <Truck className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalMutasi}</div>
+            <p className="text-xs text-muted-foreground mt-1">Pindah domisili</p>
           </CardContent>
         </Card>
 
         <Card className="col-span-2 sm:col-span-1">
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-destructive/10 text-destructive flex items-center justify-center shrink-0">
-              <HeartCrack className="size-5" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Kematian</p>
-              <p className="text-xl font-bold text-foreground">{totalKematian}</p>
-            </div>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Kematian</CardTitle>
+            <HeartCrack className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{totalKematian}</div>
+            <p className="text-xs text-muted-foreground mt-1">Warga meninggal</p>
           </CardContent>
         </Card>
       </div>
@@ -134,18 +130,25 @@ export default async function LaporPeristiwaPage({
         <CardHeader className="border-b border-border py-4">
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-base font-bold">Catatan Peristiwa Vital Terbaru</CardTitle>
+              <CardTitle className="text-base font-semibold">Catatan Peristiwa Vital Terbaru</CardTitle>
               <CardDescription className="text-xs mt-0.5">
-                Menampilkan {recentEvents.length} catatan log peristiwa kependudukan terkini
+                Menampilkan {recentEvents.length} catatan log peristiwa kependudukan terkini (Lampiran 4.18)
               </CardDescription>
             </div>
           </div>
         </CardHeader>
 
         {recentEvents.length === 0 ? (
-          <CardContent className="p-12 text-center text-muted-foreground space-y-2">
-            <Calendar className="size-8 mx-auto text-muted-foreground/60" />
-            <p className="text-sm font-medium">Belum ada catatan peristiwa vital yang terekam.</p>
+          <CardContent className="py-12">
+            <Empty>
+              <EmptyMedia variant="icon">
+                <Calendar className="size-6 text-muted-foreground" />
+              </EmptyMedia>
+              <EmptyTitle>Belum Ada Catatan</EmptyTitle>
+              <EmptyDescription>
+                Belum ada catatan peristiwa vital yang terekam di wilayah ini.
+              </EmptyDescription>
+            </Empty>
           </CardContent>
         ) : (
           <div className="overflow-x-auto">

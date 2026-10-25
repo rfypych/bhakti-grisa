@@ -37,26 +37,26 @@ export default async function RootLayout({
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         {/* Navigation Bar (Hidden in print mode) */}
         <header className="sticky top-0 z-40 bg-card border-b border-border print:hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
             <div className="flex items-center gap-6">
               <Link href="/" className="flex items-center gap-3">
-                <div className="size-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-black text-base shadow-sm shrink-0">
+                <div className="size-9 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-sm shrink-0">
                   SP
                 </div>
                 <div>
-                  <span className="font-extrabold text-foreground tracking-tight text-lg block leading-none">
+                  <span className="font-bold text-foreground tracking-tight text-base block leading-none">
                     SIMPATIK
                   </span>
-                  <span className="text-xs text-primary font-semibold uppercase tracking-wider block mt-1">
+                  <span className="text-[11px] text-primary font-medium uppercase tracking-wider block mt-1">
                     Bhakti Grisa &bull; Desa Grudo
                   </span>
                 </div>
               </Link>
 
-              <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-muted-foreground shrink-0">
+              <nav className="hidden xl:flex items-center gap-1 text-sm font-medium text-muted-foreground shrink-0">
                 <Link
                   href="/dashboard"
-                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
                   <LayoutDashboard className="size-4 text-primary shrink-0" />
                   <span className="whitespace-nowrap">Dashboard</span>
@@ -64,7 +64,7 @@ export default async function RootLayout({
                 {canVerify && (
                   <Link
                     href="/dashboard/verifikasi"
-                    className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                    className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                   >
                     <ClipboardList className="size-4 text-primary shrink-0" />
                     <span className="whitespace-nowrap">Verifikasi</span>
@@ -72,14 +72,14 @@ export default async function RootLayout({
                 )}
                 <Link
                   href="/dashboard/lapor-peristiwa"
-                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
                   <Activity className="size-4 text-primary shrink-0" />
                   <span className="whitespace-nowrap">Lapor Peristiwa</span>
                 </Link>
                 <Link
                   href="/dashboard/peta"
-                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
                   <MapPin className="size-4 text-primary shrink-0" />
                   <span className="whitespace-nowrap">Peta Spasial</span>
@@ -88,14 +88,14 @@ export default async function RootLayout({
                   <>
                     <Link
                       href="/dashboard/wilayah"
-                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                     >
                       <Layers className="size-4 text-primary shrink-0" />
                       <span className="whitespace-nowrap">Wilayah</span>
                     </Link>
                     <Link
                       href="/dashboard/pengguna"
-                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
+                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-muted/80 transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                     >
                       <Users className="size-4 text-primary shrink-0" />
                       <span className="whitespace-nowrap">Pengguna</span>

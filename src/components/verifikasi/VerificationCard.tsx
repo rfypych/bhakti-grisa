@@ -83,19 +83,19 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
       )}
 
       {/* Header Info */}
-      <CardHeader className="bg-secondary/40 p-5 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2.5">
+      <CardHeader className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4">
+        <div className="flex flex-col gap-1.5">
+          <div className="flex flex-wrap items-center gap-2">
             <Badge variant="warning">
-              <Clock className="size-3.5" />
+              <Clock className="size-3" />
               <span>Menunggu Verifikasi</span>
             </Badge>
-            <span className="text-xs font-mono font-bold text-muted-foreground">
+            <span className="text-xs font-mono font-medium text-muted-foreground">
               No. KK: {submission.noKk}
             </span>
           </div>
 
-          <h3 className="text-lg font-bold text-foreground mt-1">
+          <h3 className="text-lg font-semibold text-foreground tracking-tight">
             {submission.namaKepalaRumahTangga}
           </h3>
 
@@ -105,7 +105,7 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
         </div>
 
         {/* Action Buttons using shadcn AlertDialogs */}
-        <div className="flex items-center gap-3 self-stretch sm:self-center">
+        <div className="flex items-center gap-2 self-stretch sm:self-auto shrink-0">
           {/* Tolak Dialog */}
           <AlertDialog open={rejectDialogOpen} onOpenChange={setRejectDialogOpen}>
             <AlertDialogTrigger asChild>
@@ -168,9 +168,10 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
             <AlertDialogTrigger asChild>
               <Button
                 type="button"
+                variant="default"
                 size="default"
                 disabled={loading}
-                className="flex-1 sm:flex-initial min-h-touch text-sm font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="flex-1 sm:flex-initial min-h-touch text-sm"
               >
                 {loading ? (
                   <>
@@ -194,7 +195,7 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel disabled={loading}>Batal</AlertDialogCancel>
-                <AlertDialogAction onClick={handleApprove} className="min-h-touch bg-primary text-primary-foreground hover:bg-primary/90 font-bold">
+                <AlertDialogAction onClick={handleApprove} className="min-h-touch">
                   Setujui Data
                 </AlertDialogAction>
               </AlertDialogFooter>
@@ -204,40 +205,40 @@ export function VerificationCard({ submission, onActionComplete }: VerificationC
       </CardHeader>
 
       {/* Roster & Details */}
-      <CardContent className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-4 rounded-md border border-border bg-secondary/30 flex flex-col gap-1.5 text-sm">
-          <p className="font-bold text-foreground flex items-center gap-2 mb-1">
+      <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-0">
+        <div className="p-4 rounded-lg border border-border bg-muted/40 flex flex-col gap-1.5 text-sm">
+          <p className="font-semibold text-foreground flex items-center gap-2 mb-1">
             <Home className="size-4 text-primary" />
             <span>Sanitasi &amp; Lingkungan Rumah</span>
           </p>
-          <div className="flex justify-between border-b border-border/40 pb-1">
+          <div className="flex justify-between border-b border-border/40 pb-1.5">
             <span className="text-muted-foreground">Kriteria:</span>
-            <span className="font-semibold">{submission.kriteriaRumah || 'SEHAT'}</span>
+            <span className="font-medium text-foreground">{submission.kriteriaRumah || 'SEHAT'}</span>
           </div>
-          <div className="flex justify-between border-b border-border/40 pb-1">
+          <div className="flex justify-between border-b border-border/40 pb-1.5">
             <span className="text-muted-foreground">Jamban Keluarga:</span>
-            <span>{submission.jambanKeluarga ? `Ada (${submission.jumlahJamban} buah)` : 'Tidak Ada'}</span>
+            <span className="text-foreground">{submission.jambanKeluarga ? `Ada (${submission.jumlahJamban} buah)` : 'Tidak Ada'}</span>
           </div>
-          <div className="flex justify-between border-b border-border/40 pb-1">
+          <div className="flex justify-between border-b border-border/40 pb-1.5">
             <span className="text-muted-foreground">Sumber Air Minum:</span>
-            <span>{submission.sumberAir}</span>
+            <span className="text-foreground">{submission.sumberAir}</span>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between pt-0.5">
             <span className="text-muted-foreground">Sampah / SPAL:</span>
-            <span>
+            <span className="text-foreground">
               {submission.tempatSampah ? 'Ada' : 'Tidak'} / {submission.spal ? 'Ada' : 'Tidak'}
             </span>
           </div>
         </div>
 
-        <div className="p-4 rounded-md border border-border bg-secondary/30 flex flex-col gap-1.5 text-sm">
-          <p className="font-bold text-foreground flex items-center gap-2 mb-1">
+        <div className="p-4 rounded-lg border border-border bg-muted/40 flex flex-col gap-1.5 text-sm">
+          <p className="font-semibold text-foreground flex items-center gap-2 mb-1">
             <Users className="size-4 text-primary" />
             <span>Anggota Keluarga ({submission.anggota?.length || 0} Jiwa)</span>
           </p>
           <div className="flex flex-col gap-1.5 max-h-36 overflow-y-auto pr-1">
             {submission.anggota?.map((m: any, i: number) => (
-              <div key={i} className="text-xs flex items-center justify-between border-b border-border/40 pb-1 last:border-0">
+              <div key={i} className="text-xs flex items-center justify-between border-b border-border/40 pb-1.5 last:border-0 last:pb-0">
                 <span className="font-medium text-foreground">
                   {i + 1}. {m.nama}
                 </span>

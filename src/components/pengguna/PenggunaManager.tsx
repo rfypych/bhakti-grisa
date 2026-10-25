@@ -26,6 +26,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import {
   Table,
   TableBody,
@@ -284,8 +285,16 @@ export function PenggunaManager({ initialUsers, wilayahList }: PenggunaManagerPr
         </CardHeader>
 
         {filteredUsers.length === 0 ? (
-          <CardContent className="p-12 text-center text-sm text-muted-foreground">
-            Tidak ada akun pengguna yang sesuai dengan filter.
+          <CardContent className="py-12">
+            <Empty>
+              <EmptyMedia variant="icon">
+                <Users className="size-6 text-muted-foreground" />
+              </EmptyMedia>
+              <EmptyTitle>Pengguna Tidak Ditemukan</EmptyTitle>
+              <EmptyDescription>
+                Tidak ada akun pengelola PKK yang sesuai dengan kata kunci atau filter peran saat ini.
+              </EmptyDescription>
+            </Empty>
           </CardContent>
         ) : (
           <div className="overflow-x-auto">

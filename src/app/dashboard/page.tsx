@@ -27,6 +27,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Table,
   TableBody,
@@ -35,6 +36,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 
 export const metadata = {
   title: 'Dashboard Eksekutif PKK - SIMPATIK',
@@ -113,9 +115,9 @@ export default async function DashboardPage({
       {resolvedParams.notice && (
         <div
           role="alert"
-          className="p-4 bg-warning/10 border border-warning/30 rounded-md flex items-center gap-2.5 text-sm text-foreground font-medium"
+          className="p-4 bg-muted border border-border rounded-lg flex items-center gap-2.5 text-sm text-foreground font-medium"
         >
-          <AlertTriangle className="size-5 text-amber-700 shrink-0" />
+          <AlertTriangle className="size-5 text-muted-foreground shrink-0" />
           <span>{resolvedParams.notice}</span>
         </div>
       )}
@@ -123,7 +125,7 @@ export default async function DashboardPage({
       {/* Top Banner & Title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border pb-6">
         <div>
-          <Badge variant="secondary" className="font-bold text-xs uppercase tracking-wider text-primary">
+          <Badge variant="secondary" className="font-semibold text-xs uppercase tracking-wider text-primary">
             Pusat Data Administrasi Terpadu
           </Badge>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground mt-2">
@@ -166,11 +168,11 @@ export default async function DashboardPage({
                 </option>
               ))}
             </select>
-            <input
+            <Input
               type="number"
               name="tahun"
               defaultValue={activeYear}
-              className="flex min-h-touch w-24 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-medium"
+              className="w-24 min-h-touch font-medium"
               placeholder="Tahun"
             />
             <Button type="submit" size="sm" className="min-h-touch font-semibold">
@@ -213,14 +215,14 @@ export default async function DashboardPage({
 
       {/* Verification Notification Alert Banner */}
       {pendingCount > 0 && (
-        <Card className="border-amber-500/40 bg-amber-500/10">
+        <Card className="border-amber-500/30 bg-amber-500/10">
           <CardContent className="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <div className="size-9 rounded-md bg-amber-600 text-white flex items-center justify-center shrink-0">
+              <div className="size-9 rounded-md bg-amber-500/20 text-amber-900 flex items-center justify-center shrink-0">
                 <AlertTriangle className="size-5" />
               </div>
               <div>
-                <p className="text-sm font-bold text-foreground">
+                <p className="text-sm font-semibold text-foreground">
                   Ada {pendingCount} pengajuan data mandiri warga yang menunggu verifikasi
                 </p>
                 <p className="text-xs text-muted-foreground">
@@ -228,7 +230,7 @@ export default async function DashboardPage({
                 </p>
               </div>
             </div>
-            <Button asChild size="sm" className="min-h-touch self-stretch sm:self-auto font-semibold bg-amber-700 hover:bg-amber-800 text-white">
+            <Button asChild size="sm" className="min-h-touch font-semibold">
               <Link href="/dashboard/verifikasi">
                 Buka Antrean Verifikasi
               </Link>
@@ -237,86 +239,110 @@ export default async function DashboardPage({
         </Card>
       )}
 
-      {/* Main Aggregation Metrics Grid */}
+      {/* Main Aggregation Metrics Grid (Canonical shadcn Stat Card Pattern) */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Total Keluarga (KK)</p>
-            <p className="text-2xl font-extrabold text-foreground">{aggData.totalKeluarga}</p>
-            <Badge variant="default" className="text-[10px] font-semibold gap-1">
-              <CheckCircle2 className="size-3" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Total Keluarga (KK)</CardTitle>
+            <Users className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalKeluarga}</div>
+            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 font-medium">
+              <CheckCircle2 className="size-3 text-primary shrink-0" />
               <span>100% Terverifikasi</span>
-            </Badge>
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Total Jiwa (Warga)</p>
-            <p className="text-2xl font-extrabold text-foreground">{aggData.totalAnggota}</p>
-            <span className="text-xs text-muted-foreground block font-mono">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Total Jiwa (Warga)</CardTitle>
+            <Users className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalAnggota}</div>
+            <p className="text-xs text-muted-foreground mt-1 font-mono">
               {aggData.totalLakiLaki} L &bull; {aggData.totalPerempuan} P
-            </span>
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Balita (&le; 5 Th)</p>
-            <p className="text-2xl font-extrabold text-amber-700">{aggData.totalBalita}</p>
-            <span className="text-xs text-muted-foreground block font-mono">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Balita (&le; 5 Th)</CardTitle>
+            <Baby className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalBalita}</div>
+            <p className="text-xs text-muted-foreground mt-1 font-mono">
               {aggData.totalBalitaL} L &bull; {aggData.totalBalitaP} P
-            </span>
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Lansia (&ge; 60 Th)</p>
-            <p className="text-2xl font-extrabold text-foreground">{aggData.totalLansia}</p>
-            <span className="text-xs text-muted-foreground block">Prioritas Posyandu</span>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Lansia (&ge; 60 Th)</CardTitle>
+            <Heart className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalLansia}</div>
+            <p className="text-xs text-muted-foreground mt-1">Prioritas Posyandu</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Rumah Sehat</p>
-            <p className="text-2xl font-extrabold text-primary">{aggData.totalRumahSehat}</p>
-            <span className="text-xs text-muted-foreground block font-medium">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Rumah Sehat</CardTitle>
+            <Home className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalRumahSehat}</div>
+            <p className="text-xs text-muted-foreground mt-1 font-medium">
               {aggData.totalRumahKurangSehat} Kurang Sehat
-            </span>
+            </p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 space-y-1">
-            <p className="text-xs font-medium text-muted-foreground">Jamban Keluarga</p>
-            <p className="text-2xl font-extrabold text-foreground">{aggData.totalJamban}</p>
-            <Badge variant="outline" className="text-[10px] font-semibold text-primary">
-              Layak Sanitasi
-            </Badge>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4 pb-2">
+            <CardTitle className="text-xs font-medium text-muted-foreground">Jamban Keluarga</CardTitle>
+            <Droplets className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">{aggData.totalJamban}</div>
+            <p className="text-xs text-muted-foreground mt-1">Layak Sanitasi</p>
           </CardContent>
         </Card>
       </div>
 
       {/* Secondary Metrics Bar */}
       <Card>
-        <CardContent className="p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-          <div>
-            <span className="text-muted-foreground block text-xs">Pasangan Usia Subur (PUS)</span>
-            <span className="font-bold text-foreground text-sm">{aggData.totalPus} Pasangan</span>
+        <CardContent className="p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs divide-y sm:divide-y-0 sm:divide-x divide-border">
+          <div className="pt-2 sm:pt-0 sm:px-3 first:px-0">
+            <span className="text-xs text-muted-foreground block">Pasangan Usia Subur (PUS)</span>
+            <span className="text-lg font-bold text-foreground block mt-0.5">
+              {aggData.totalPus} <span className="text-xs text-muted-foreground font-normal">Pasangan</span>
+            </span>
           </div>
-          <div>
-            <span className="text-muted-foreground block text-xs">Wanita Usia Subur (WUS)</span>
-            <span className="font-bold text-foreground text-sm">{aggData.totalWus} Jiwa</span>
+          <div className="pt-2 sm:pt-0 sm:px-3">
+            <span className="text-xs text-muted-foreground block">Wanita Usia Subur (WUS)</span>
+            <span className="text-lg font-bold text-foreground block mt-0.5">
+              {aggData.totalWus} <span className="text-xs text-muted-foreground font-normal">Jiwa</span>
+            </span>
           </div>
-          <div>
-            <span className="text-muted-foreground block text-xs">Ibu Hamil Aktif</span>
-            <span className="font-bold text-amber-700 text-sm">{aggData.totalIbuHamil} Bumil</span>
+          <div className="pt-2 sm:pt-0 sm:px-3">
+            <span className="text-xs text-muted-foreground block">Ibu Hamil Aktif</span>
+            <span className="text-lg font-bold text-foreground block mt-0.5">
+              {aggData.totalIbuHamil} <span className="text-xs text-muted-foreground font-normal">Bumil</span>
+            </span>
           </div>
-          <div>
-            <span className="text-muted-foreground block text-xs">Ibu Nifas / Menyusui</span>
-            <span className="font-bold text-primary text-sm">{aggData.totalIbuMenyusui} Ibu</span>
+          <div className="pt-2 sm:pt-0 sm:px-3">
+            <span className="text-xs text-muted-foreground block">Ibu Nifas / Menyusui</span>
+            <span className="text-lg font-bold text-foreground block mt-0.5">
+              {aggData.totalIbuMenyusui} <span className="text-xs text-muted-foreground font-normal">Ibu</span>
+            </span>
           </div>
         </CardContent>
       </Card>
@@ -340,8 +366,16 @@ export default async function DashboardPage({
         </CardHeader>
 
         {recentFamilies.length === 0 ? (
-          <CardContent className="p-12 text-center text-sm text-muted-foreground">
-            Belum ada keluarga dengan status terverifikasi di wilayah ini.
+          <CardContent className="p-6">
+            <Empty>
+              <EmptyMedia>
+                <Users className="size-6" />
+              </EmptyMedia>
+              <EmptyTitle>Belum Ada Data Keluarga</EmptyTitle>
+              <EmptyDescription>
+                Belum ada data keluarga berstatus terverifikasi pada cakupan wilayah ini.
+              </EmptyDescription>
+            </Empty>
           </CardContent>
         ) : (
           <div className="overflow-x-auto">
@@ -414,7 +448,7 @@ export default async function DashboardPage({
                     <TableCell className="text-right whitespace-nowrap">
                       <Button asChild variant="outline" size="sm" className="min-h-touch text-xs">
                         <Link href={`/dashboard/laporan/cetak/${f.id}`}>
-                          <Printer className="size-3.5 text-primary" data-icon="inline-start" />
+                          <Printer className="size-3.5 text-muted-foreground" data-icon="inline-start" />
                           <span>Cetak Lampiran 4.15</span>
                         </Link>
                       </Button>

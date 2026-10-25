@@ -24,6 +24,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 import {
   Table,
   TableBody,
@@ -250,8 +251,16 @@ export function WilayahManager({ initialList }: WilayahManagerProps) {
         </CardHeader>
 
         {filteredList.length === 0 ? (
-          <CardContent className="p-12 text-center text-sm text-muted-foreground">
-            Tidak ada wilayah yang sesuai dengan filter pencarian.
+          <CardContent className="py-12">
+            <Empty>
+              <EmptyMedia variant="icon">
+                <MapPin className="size-6 text-muted-foreground" />
+              </EmptyMedia>
+              <EmptyTitle>Wilayah Tidak Ditemukan</EmptyTitle>
+              <EmptyDescription>
+                Tidak ada data wilayah administrasi yang sesuai dengan kata kunci pencarian.
+              </EmptyDescription>
+            </Empty>
           </CardContent>
         ) : (
           <div className="overflow-x-auto">

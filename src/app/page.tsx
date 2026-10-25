@@ -35,10 +35,10 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col gap-10 md:gap-14 py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* Village Header Banner (Flat, Honest, Warm Paper & Village Green) */}
-      <section className="bg-card border border-border rounded-lg p-6 sm:p-10 shadow-sm flex flex-col gap-6">
+      <Card className="p-6 sm:p-10 border-border shadow-sm flex flex-col gap-6">
         <div className="flex flex-col gap-3 max-w-3xl">
           <div className="flex items-center gap-2">
-            <Badge variant="secondary" className="text-xs font-semibold px-2.5 py-1">
+            <Badge variant="secondary" className="text-xs font-semibold px-2.5 py-0.5">
               <Building2 className="size-3.5 text-primary" />
               <span>Pemerintah Desa Grudo &bull; Tim Penggerak PKK</span>
             </Badge>
@@ -72,8 +72,8 @@ export default async function HomePage() {
 
         {/* Real Data Counter Cards (Truthful data from database) */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-border">
-          <div className="flex items-center gap-3.5 p-3 rounded-md bg-secondary/60">
-            <div className="size-11 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-lg bg-muted/50 border border-border/50">
+            <div className="size-10 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
               <Users className="size-5 text-primary" />
             </div>
             <div>
@@ -86,8 +86,8 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-3 rounded-md bg-secondary/60">
-            <div className="size-11 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-lg bg-muted/50 border border-border/50">
+            <div className="size-10 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
               <CheckCircle2 className="size-5 text-primary" />
             </div>
             <div>
@@ -100,9 +100,9 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-3 rounded-md bg-secondary/60">
-            <div className="size-11 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
-              <Clock className="size-5 text-warning-foreground" />
+          <div className="flex items-center gap-3.5 p-3.5 rounded-lg bg-muted/50 border border-border/50">
+            <div className="size-10 rounded-md bg-background border border-border flex items-center justify-center shrink-0">
+              <Clock className="size-5 text-muted-foreground" />
             </div>
             <div>
               <span className="text-xl font-bold text-foreground block leading-none">
@@ -114,7 +114,7 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </Card>
 
       {/* RT Selection Portal for Residents */}
       <section className="flex flex-col gap-4">
@@ -139,11 +139,11 @@ export default async function HomePage() {
               <Link
                 key={w.id}
                 href={`/formulir?wilayahId=${w.id}`}
-                className="group flex items-center justify-between p-4 rounded-md border border-border bg-card hover:bg-secondary/70 hover:border-primary/50 transition-colors min-h-[72px]"
+                className="group flex items-center justify-between p-4 rounded-lg border border-border bg-card hover:bg-muted/50 hover:border-ring/40 transition-colors min-h-[72px]"
               >
                 <div className="flex flex-col gap-0.5">
                   <div className="flex items-center gap-2">
-                    <Badge variant="default" className="text-xs font-bold px-2 py-0.5">
+                    <Badge variant="outline" className="text-xs font-semibold px-2 py-0.5">
                       RT {w.rt} / RW {w.rw}
                     </Badge>
                     <span className="text-xs text-muted-foreground">Dusun {w.dusun}</span>
@@ -153,8 +153,8 @@ export default async function HomePage() {
                   </h3>
                 </div>
 
-                <div className="size-10 rounded-md bg-secondary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <ArrowRight className="size-5" />
+                <div className="size-9 rounded-md bg-muted flex items-center justify-center shrink-0 text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <ArrowRight className="size-4" />
                 </div>
               </Link>
             ))
@@ -174,68 +174,68 @@ export default async function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <Card className="hover:border-primary/50 transition-colors">
-            <CardHeader className="p-5 pb-3">
-              <div className="size-11 rounded-md bg-primary/10 text-primary flex items-center justify-center mb-2">
-                <LayoutDashboard className="size-5" />
+          <Card className="hover:border-ring/40 transition-colors flex flex-col justify-between">
+            <CardHeader className="p-6 pb-4">
+              <div className="size-10 rounded-md bg-muted text-foreground flex items-center justify-center mb-3">
+                <LayoutDashboard className="size-5 text-primary" />
               </div>
               <CardTitle className="text-base font-bold">Dashboard Statistik</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
+              <CardDescription className="text-sm leading-relaxed mt-1">
                 Ringkasan demografi, data keluarga, dan rekapitulasi berjenjang tingkat RT, RW, dan Desa.
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-5 pt-0">
+            <CardContent className="p-6 pt-0">
               <Button asChild variant="outline" size="sm" className="w-full min-h-touch text-sm">
                 <Link href="/dashboard">Buka Dashboard</Link>
               </Button>
             </CardContent>
           </Card>
 
-          <Card className="hover:border-primary/50 transition-colors">
-            <CardHeader className="p-5 pb-3">
-              <div className="size-11 rounded-md bg-amber-50 text-amber-800 border border-amber-200 flex items-center justify-center mb-2">
-                <ClipboardList className="size-5" />
+          <Card className="hover:border-ring/40 transition-colors flex flex-col justify-between">
+            <CardHeader className="p-6 pb-4">
+              <div className="size-10 rounded-md bg-muted text-foreground flex items-center justify-center mb-3">
+                <ClipboardList className="size-5 text-primary" />
               </div>
               <CardTitle className="text-base font-bold">Antrean Verifikasi</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
+              <CardDescription className="text-sm leading-relaxed mt-1">
                 Validasi dan persetujuan pengajuan mandiri warga dengan fitur komparasi data lama dan baru.
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-5 pt-0">
+            <CardContent className="p-6 pt-0">
               <Button asChild variant="outline" size="sm" className="w-full min-h-touch text-sm">
                 <Link href="/dashboard/verifikasi">Periksa Antrean</Link>
               </Button>
             </CardContent>
           </Card>
 
-          <Card className="hover:border-primary/50 transition-colors">
-            <CardHeader className="p-5 pb-3">
-              <div className="size-11 rounded-md bg-secondary text-primary border border-border flex items-center justify-center mb-2">
-                <Activity className="size-5" />
+          <Card className="hover:border-ring/40 transition-colors flex flex-col justify-between">
+            <CardHeader className="p-6 pb-4">
+              <div className="size-10 rounded-md bg-muted text-foreground flex items-center justify-center mb-3">
+                <Activity className="size-5 text-primary" />
               </div>
               <CardTitle className="text-base font-bold">Lapor Peristiwa Vital</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
+              <CardDescription className="text-sm leading-relaxed mt-1">
                 Pencatatan cepat kelahiran, kehamilan, dan kematian warga secara otomatis (Lampiran 4.18).
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-5 pt-0">
+            <CardContent className="p-6 pt-0">
               <Button asChild variant="outline" size="sm" className="w-full min-h-touch text-sm">
                 <Link href="/dashboard/lapor-peristiwa">Catat Peristiwa</Link>
               </Button>
             </CardContent>
           </Card>
 
-          <Card className="hover:border-primary/50 transition-colors">
-            <CardHeader className="p-5 pb-3">
-              <div className="size-11 rounded-md bg-primary/10 text-primary flex items-center justify-center mb-2">
-                <MapPin className="size-5" />
+          <Card className="hover:border-ring/40 transition-colors flex flex-col justify-between">
+            <CardHeader className="p-6 pb-4">
+              <div className="size-10 rounded-md bg-muted text-foreground flex items-center justify-center mb-3">
+                <MapPin className="size-5 text-primary" />
               </div>
               <CardTitle className="text-base font-bold">Peta Spasial GIS</CardTitle>
-              <CardDescription className="text-sm leading-relaxed">
+              <CardDescription className="text-sm leading-relaxed mt-1">
                 Pemetaan interaktif rumah sehat, kepemilikan jamban, serta sebaran balita dan ibu hamil.
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-5 pt-0">
+            <CardContent className="p-6 pt-0">
               <Button asChild variant="outline" size="sm" className="w-full min-h-touch text-sm">
                 <Link href="/dashboard/peta">Lihat Peta</Link>
               </Button>
@@ -245,10 +245,10 @@ export default async function HomePage() {
       </section>
 
       {/* Excel Download Section (Flat, Honest, Clear) */}
-      <section className="bg-secondary/80 border border-border rounded-lg p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <Card className="bg-muted/40 border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
         <div className="flex flex-col gap-1.5 max-w-xl">
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="text-xs font-bold text-primary border-primary/40 bg-background">
+            <Badge variant="outline" className="text-xs font-semibold text-primary border-primary/30 bg-background">
               Mesin Template Master
             </Badge>
           </div>
@@ -266,7 +266,7 @@ export default async function HomePage() {
             <span>Unduh Rekapitulasi Excel</span>
           </a>
         </Button>
-      </section>
+      </Card>
     </div>
   );
 }

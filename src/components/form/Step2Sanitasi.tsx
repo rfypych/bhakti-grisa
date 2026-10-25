@@ -50,9 +50,9 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
         </div>
 
         {/* Checkbox Card: Jamban Keluarga */}
-        <div className="p-4 rounded-md border border-border bg-card flex flex-col gap-3">
+        <div className="p-4 rounded-lg border border-border bg-card flex flex-col gap-3">
           <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
-            <span className="text-base font-bold text-foreground">Jamban Keluarga</span>
+            <span className="text-base font-semibold text-foreground">Jamban Keluarga</span>
             <input
               type="checkbox"
               checked={formData.jambanKeluarga ?? true}
@@ -79,9 +79,9 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
         </div>
 
         {/* Checkbox Card: Tempat Sampah */}
-        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+        <div className="p-4 rounded-lg border border-border bg-card flex flex-col justify-between gap-1">
           <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
-            <span className="text-base font-bold text-foreground">Tempat Pembuangan Sampah</span>
+            <span className="text-base font-semibold text-foreground">Tempat Pembuangan Sampah</span>
             <input
               type="checkbox"
               checked={formData.tempatSampah ?? true}
@@ -95,9 +95,9 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
         </div>
 
         {/* Checkbox Card: SPAL */}
-        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+        <div className="p-4 rounded-lg border border-border bg-card flex flex-col justify-between gap-1">
           <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
-            <span className="text-base font-bold text-foreground">Saluran Air Limbah (SPAL)</span>
+            <span className="text-base font-semibold text-foreground">Saluran Air Limbah (SPAL)</span>
             <input
               type="checkbox"
               checked={formData.spal ?? true}
@@ -111,9 +111,9 @@ export function Step2Sanitasi({ formData, updateField }: Step2Props) {
         </div>
 
         {/* Checkbox Card: Stiker P4K */}
-        <div className="p-4 rounded-md border border-border bg-card flex flex-col justify-between gap-1">
+        <div className="p-4 rounded-lg border border-border bg-card flex flex-col justify-between gap-1">
           <label className="flex items-center justify-between min-h-touch cursor-pointer select-none">
-            <span className="text-base font-bold text-foreground">Menempelkan Stiker P4K</span>
+            <span className="text-base font-semibold text-foreground">Menempelkan Stiker P4K</span>
             <input
               type="checkbox"
               checked={formData.stikerP4k ?? false}

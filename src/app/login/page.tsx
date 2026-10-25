@@ -123,8 +123,8 @@ function LoginForm() {
         </form>
       </CardContent>
 
-      <CardFooter className="p-6 pt-2 border-t border-border flex flex-col gap-3 text-center text-sm text-muted-foreground">
-        <div className="p-3 bg-secondary/70 rounded-md w-full text-xs sm:text-sm text-foreground">
+      <CardFooter className="p-6 pt-4 border-t border-border flex flex-col gap-3 text-center text-sm text-muted-foreground">
+        <div className="p-3.5 bg-muted/60 border border-border/50 rounded-lg w-full text-xs sm:text-sm text-foreground">
           Warga yang mengisi formulir mandiri tidak memerlukan akun.{' '}
           <Link href="/formulir" className="text-primary font-bold hover:underline block sm:inline mt-1 sm:mt-0">
             Buka Formulir Warga &rarr;

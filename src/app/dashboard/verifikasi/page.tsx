@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation';
 import { ShieldCheck, Inbox } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { Empty, EmptyMedia, EmptyTitle, EmptyDescription } from '@/components/ui/empty';
 
 export const metadata = {
   title: 'Antrean Verifikasi Data Warga - SIMPATIK',
@@ -51,17 +52,15 @@ export default async function VerifikasiPage({
 
       {/* Queue Content */}
       {submissions.length === 0 ? (
-        <Card className="p-12 text-center border-border shadow-sm">
-          <CardContent className="p-0 flex flex-col items-center gap-3">
-            <div className="size-14 rounded-full bg-secondary flex items-center justify-center text-muted-foreground">
-              <Inbox className="size-7" />
-            </div>
-            <h3 className="text-lg font-bold text-foreground">Antrean Verifikasi Kosong</h3>
-            <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-              Semua pengajuan mandiri warga di wilayah Anda telah diverifikasi atau belum ada pengajuan baru dari tautan formulir RT.
-            </p>
-          </CardContent>
-        </Card>
+        <Empty className="border border-border/80 bg-card p-12">
+          <EmptyMedia variant="icon">
+            <Inbox className="size-6 text-muted-foreground" />
+          </EmptyMedia>
+          <EmptyTitle>Antrean Verifikasi Kosong</EmptyTitle>
+          <EmptyDescription>
+            Semua pengajuan mandiri warga di wilayah Anda telah diverifikasi atau belum ada pengajuan baru dari tautan formulir RT.
+          </EmptyDescription>
+        </Empty>
       ) : (
         <div className="flex flex-col gap-4">
           {submissions.map((item) => (

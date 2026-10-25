@@ -144,77 +144,55 @@ export default async function PetaSpasialPage({
       {/* KPI Cards & Legend */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-secondary text-primary flex items-center justify-center shrink-0">
-              <MapPin className="size-5" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Terpetakan (GPS)</CardTitle>
+            <MapPin className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">
+              {validMapped.length}{' '}
+              <span className="text-xs font-normal text-muted-foreground">/ {households.length} KK</span>
             </div>
-            <div>
-              <p className="text-xs font-medium text-muted-foreground">Terpetakan (GPS)</p>
-              <p className="text-xl font-bold text-foreground">
-                {validMapped.length}{' '}
-                <span className="text-xs text-muted-foreground font-normal">/ {households.length} KK</span>
-              </p>
-            </div>
+            <p className="text-xs text-muted-foreground mt-1">Koordinat valid</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-destructive/10 text-destructive flex items-center justify-center shrink-0">
-              <AlertTriangle className="size-5" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Perhatian</CardTitle>
+            <AlertTriangle className="size-4 text-destructive" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-destructive">
+              {redCount} <span className="text-xs font-normal text-muted-foreground">KK</span>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <Badge variant="destructive" className="px-1.5 py-0 text-[10px] gap-1">
-                  <AlertTriangle className="size-2.5" />
-                  <span>Perhatian</span>
-                </Badge>
-              </div>
-              <p className="text-xl font-bold text-destructive mt-0.5">
-                {redCount} <span className="text-xs text-muted-foreground font-normal">KK</span>
-              </p>
-              <p className="text-[11px] text-muted-foreground">Kurang sehat / Tanpa jamban</p>
-            </div>
+            <p className="text-xs text-muted-foreground mt-1">Kurang sehat / Tanpa jamban</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-amber-500/10 text-amber-700 flex items-center justify-center shrink-0">
-              <Heart className="size-5" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Prioritas Posyandu</CardTitle>
+            <Heart className="size-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">
+              {yellowCount} <span className="text-xs font-normal text-muted-foreground">KK</span>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <Badge variant="warning" className="px-1.5 py-0 text-[10px] gap-1">
-                  <Heart className="size-2.5" />
-                  <span>Prioritas Posyandu</span>
-                </Badge>
-              </div>
-              <p className="text-xl font-bold text-amber-700 mt-0.5">
-                {yellowCount} <span className="text-xs text-muted-foreground font-normal">KK</span>
-              </p>
-              <p className="text-[11px] text-muted-foreground">Ada Balita / Ibu Hamil</p>
-            </div>
+            <p className="text-xs text-muted-foreground mt-1">Ada Balita / Ibu Hamil</p>
           </CardContent>
         </Card>
 
         <Card>
-          <CardContent className="p-4 flex items-center gap-3">
-            <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <ShieldCheck className="size-5" />
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Sehat Standar</CardTitle>
+            <ShieldCheck className="size-4 text-primary" />
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-2xl font-bold tracking-tight text-foreground">
+              {greenCount} <span className="text-xs font-normal text-muted-foreground">KK</span>
             </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <Badge variant="default" className="px-1.5 py-0 text-[10px] gap-1">
-                  <ShieldCheck className="size-2.5" />
-                  <span>Sehat Standar</span>
-                </Badge>
-              </div>
-              <p className="text-xl font-bold text-primary mt-0.5">
-                {greenCount} <span className="text-xs text-muted-foreground font-normal">KK</span>
-              </p>
-              <p className="text-[11px] text-muted-foreground">Sanitasi &amp; jamban baik</p>
-            </div>
+            <p className="text-xs text-muted-foreground mt-1">Sanitasi &amp; jamban baik</p>
           </CardContent>
         </Card>
       </div>
@@ -225,9 +203,9 @@ export default async function PetaSpasialPage({
       </Card>
 
       {/* Info note */}
-      <Card className="bg-secondary/40 border-border">
+      <Card className="bg-muted/40 border-border">
         <CardContent className="p-4 text-xs text-muted-foreground space-y-1.5">
-          <div className="flex items-center gap-2 font-bold text-foreground text-sm">
+          <div className="flex items-center gap-2 font-semibold text-foreground text-sm">
             <Info className="size-4 text-primary" />
             <span>Petunjuk Navigasi Spasial</span>
           </div>

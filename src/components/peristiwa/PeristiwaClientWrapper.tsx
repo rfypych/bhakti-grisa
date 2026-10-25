@@ -28,10 +28,10 @@ export function PeristiwaClientWrapper({ mothers, members }: PeristiwaClientWrap
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2.5">
         <Button
           onClick={() => setKelahiranOpen(true)}
-          className="min-h-touch gap-2 font-semibold"
+          className="min-h-touch gap-2"
         >
           <Baby className="size-4" />
           <span>Lapor Kelahiran</span>
@@ -40,25 +40,25 @@ export function PeristiwaClientWrapper({ mothers, members }: PeristiwaClientWrap
         <Button
           variant="outline"
           onClick={() => setKehamilanOpen(true)}
-          className="min-h-touch gap-2 font-semibold border-amber-600/40 text-amber-800 hover:bg-amber-50"
+          className="min-h-touch gap-2"
         >
-          <Activity className="size-4 text-amber-700" />
+          <Activity className="size-4 text-muted-foreground" />
           <span>Lapor Kehamilan</span>
         </Button>
 
         <Button
           variant="outline"
           onClick={() => setNifasOpen(true)}
-          className="min-h-touch gap-2 font-semibold border-teal-600/40 text-teal-800 hover:bg-teal-50"
+          className="min-h-touch gap-2"
         >
-          <Heart className="size-4 text-teal-700" />
+          <Heart className="size-4 text-muted-foreground" />
           <span>Lapor Nifas</span>
         </Button>
 
         <Button
           variant="outline"
           onClick={() => setMutasiOpen(true)}
-          className="min-h-touch gap-2 font-semibold"
+          className="min-h-touch gap-2"
         >
           <Truck className="size-4 text-muted-foreground" />
           <span>Lapor Mutasi Pindah</span>
@@ -67,7 +67,7 @@ export function PeristiwaClientWrapper({ mothers, members }: PeristiwaClientWrap
         <Button
           variant="destructive"
           onClick={() => setKematianOpen(true)}
-          className="min-h-touch gap-2 font-semibold"
+          className="min-h-touch gap-2"
         >
           <HeartCrack className="size-4" />
           <span>Lapor Kematian</span>

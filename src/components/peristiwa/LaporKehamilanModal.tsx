@@ -106,14 +106,10 @@ export function LaporKehamilanModal({
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader className="border-b border-border pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              {isNifas ? <Heart className="size-5" /> : <Activity className="size-5" />}
-            </div>
-            <DialogTitle className="text-lg font-bold text-foreground">
-              {isNifas ? 'Lapor Status Nifas / Menyusui' : 'Lapor Peristiwa Kehamilan Warga'}
-            </DialogTitle>
-          </div>
+          <DialogTitle className="flex items-center gap-2 text-lg font-semibold tracking-tight text-foreground">
+            {isNifas ? <Heart className="size-5 text-primary" /> : <Activity className="size-5 text-primary" />}
+            <span>{isNifas ? 'Lapor Status Nifas / Menyusui' : 'Lapor Peristiwa Kehamilan Warga'}</span>
+          </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
             {isNifas
               ? 'Pencatatan ibu dalam masa nifas dan menyusui untuk pemutakhiran indikator kesehatan balita (Lampiran 4.18).'
@@ -159,8 +155,8 @@ export function LaporKehamilanModal({
             </div>
 
             {selectedMother && (
-              <div className="p-3.5 bg-secondary/70 rounded-md border border-border text-xs flex flex-col gap-1 text-muted-foreground">
-                <span className="font-bold text-foreground">Nama: {selectedMother.nama}</span>
+              <div className="p-3.5 bg-muted/50 rounded-lg border border-border text-xs flex flex-col gap-1 text-muted-foreground">
+                <span className="font-semibold text-foreground">Nama: {selectedMother.nama}</span>
                 <span>NIK: {selectedMother.nik} &bull; KK: {selectedMother.keluarga.namaKepalaRumahTangga}</span>
                 <span>Alamat: {selectedMother.keluarga.alamat} (Dasawisma: {selectedMother.keluarga.wilayah?.namaDasawisma || '-'})</span>
               </div>
