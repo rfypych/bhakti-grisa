@@ -53,52 +53,52 @@ export default async function RootLayout({
                 </div>
               </Link>
 
-              <nav className="hidden md:flex items-center gap-1 text-sm font-semibold text-muted-foreground">
+              <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-muted-foreground shrink-0">
                 <Link
                   href="/dashboard"
-                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
-                  <LayoutDashboard className="size-4 text-primary" />
-                  <span>Dashboard</span>
+                  <LayoutDashboard className="size-4 text-primary shrink-0" />
+                  <span className="whitespace-nowrap">Dashboard</span>
                 </Link>
                 {canVerify && (
                   <Link
                     href="/dashboard/verifikasi"
-                    className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                    className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                   >
-                    <ClipboardList className="size-4 text-primary" />
-                    <span>Verifikasi</span>
+                    <ClipboardList className="size-4 text-primary shrink-0" />
+                    <span className="whitespace-nowrap">Verifikasi</span>
                   </Link>
                 )}
                 <Link
                   href="/dashboard/lapor-peristiwa"
-                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
-                  <Activity className="size-4 text-primary" />
-                  <span>Lapor Peristiwa</span>
+                  <Activity className="size-4 text-primary shrink-0" />
+                  <span className="whitespace-nowrap">Lapor Peristiwa</span>
                 </Link>
                 <Link
                   href="/dashboard/peta"
-                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                  className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                 >
-                  <MapPin className="size-4 text-primary" />
-                  <span>Peta Spasial</span>
+                  <MapPin className="size-4 text-primary shrink-0" />
+                  <span className="whitespace-nowrap">Peta Spasial</span>
                 </Link>
                 {isAdmin && (
                   <>
                     <Link
                       href="/dashboard/wilayah"
-                      className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                     >
-                      <Layers className="size-4 text-primary" />
-                      <span>Wilayah</span>
+                      <Layers className="size-4 text-primary shrink-0" />
+                      <span className="whitespace-nowrap">Wilayah</span>
                     </Link>
                     <Link
                       href="/dashboard/pengguna"
-                      className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
+                      className="px-3 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5 min-h-touch whitespace-nowrap"
                     >
-                      <Users className="size-4 text-primary" />
-                      <span>Pengguna</span>
+                      <Users className="size-4 text-primary shrink-0" />
+                      <span className="whitespace-nowrap">Pengguna</span>
                     </Link>
                   </>
                 )}

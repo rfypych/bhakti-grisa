@@ -26,13 +26,13 @@ export default async function PenggunaPage() {
   return (
     <div className="max-w-7xl mx-auto space-y-6 py-8 px-4 sm:px-6 lg:px-8">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-stone-200 pb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5">
         <div>
           <div className="flex items-center gap-2">
-            <Users className="w-6 h-6 text-emerald-700" />
-            <h1 className="text-2xl font-bold text-stone-900">Manajemen Akun Pengelola PKK</h1>
+            <Users className="size-6 text-primary" />
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">Manajemen Akun Pengelola PKK</h1>
           </div>
-          <p className="text-xs sm:text-sm text-stone-600 mt-1">
+          <p className="text-sm text-muted-foreground mt-1">
             Pengelolaan hak akses, pembuatan akun resmi, dan konfigurasi wilayah cakupan kader dan pengurus.
           </p>
         </div>

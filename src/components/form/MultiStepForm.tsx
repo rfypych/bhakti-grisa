@@ -217,16 +217,16 @@ export function MultiStepForm({
   return (
     <div className="flex flex-col gap-6">
       {/* Wizard Header & Progress Bar */}
-      <Card className="p-5 sm:p-6 shadow-sm border-border">
+      <Card className="p-4 sm:p-6 shadow-sm border-border">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
-            <span className="inline-flex items-center gap-2 text-sm text-primary font-semibold">
+            <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-primary font-semibold">
               <Save className="size-4 shrink-0" />
               <span>Draft tersimpan otomatis di perangkat</span>
             </span>
 
             {/* Progres berbunyi kata persis sesuai brief */}
-            <span className="text-sm font-bold text-foreground">
+            <span className="text-sm sm:text-base font-bold text-foreground">
               Langkah {currentStep} dari {STEPS.length} : {currentStepInfo.title}
             </span>
           </div>
@@ -235,8 +235,8 @@ export function MultiStepForm({
             <Progress value={progressPercent} className="h-2.5" />
           </div>
 
-          {/* Stepper Step Tabs (Large touch targets) */}
-          <div className="grid grid-cols-5 gap-1.5 sm:gap-2 pt-2">
+          {/* Stepper Step Tabs (Large touch targets, responsive text) */}
+          <div className="grid grid-cols-5 gap-1 sm:gap-2 pt-2">
             {STEPS.map((s) => {
               const isCompleted = s.id < currentStep;
               const isCurrent = s.id === currentStep;
@@ -253,7 +253,7 @@ export function MultiStepForm({
                     }
                   }}
                   disabled={s.id > currentStep}
-                  className={`flex flex-col items-center text-center p-2 rounded-md transition-colors min-h-[56px] justify-center select-none ${
+                  className={`flex flex-col items-center text-center px-1 py-1.5 sm:p-2 rounded-md transition-colors min-h-[52px] sm:min-h-[56px] justify-center select-none overflow-hidden ${
                     isCurrent
                       ? 'bg-primary/10 text-primary font-bold border border-primary/30'
                       : isCompleted
@@ -262,7 +262,7 @@ export function MultiStepForm({
                   }`}
                 >
                   <div
-                    className={`size-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 ${
+                    className={`size-6 rounded-full flex items-center justify-center text-xs font-bold mb-1 shrink-0 ${
                       isCompleted
                         ? 'bg-primary text-primary-foreground'
                         : isCurrent
@@ -273,7 +273,9 @@ export function MultiStepForm({
                     {isCompleted ? <Check className="size-3.5" /> : s.id}
                   </div>
                   <span className="text-xs font-semibold hidden md:block">{s.title}</span>
-                  <span className="text-xs font-semibold md:hidden">{s.shortTitle}</span>
+                  <span className="text-[10px] sm:text-xs font-semibold md:hidden leading-tight text-center tracking-tight max-w-full">
+                    {s.shortTitle}
+                  </span>
                 </button>
               );
             })}

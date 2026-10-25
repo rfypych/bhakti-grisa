@@ -14,13 +14,34 @@ import {
   UserPlus,
   KeyRound,
   Shield,
-  ShieldAlert,
+  ShieldCheck,
   Power,
-  X,
   AlertCircle,
   CheckCircle2,
   Search,
+  Loader2,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 export interface PenggunaItem {
   id: string;
@@ -173,107 +194,116 @@ export function PenggunaManager({ initialUsers, wilayahList }: PenggunaManagerPr
     }
   };
 
-  const ROLE_LABELS: Record<PeranPengguna, { label: string; badge: string }> = {
+  const ROLE_LABELS: Record<PeranPengguna, { label: string; variant: 'default' | 'secondary' | 'outline' }> = {
     ADMIN_DESA: {
       label: 'Admin Desa',
-      badge: 'bg-purple-50 text-purple-800 border-purple-200',
+      variant: 'default',
     },
     PENGURUS_DUSUN: {
       label: 'Pengurus Dusun',
-      badge: 'bg-sky-50 text-sky-800 border-sky-200',
+      variant: 'secondary',
     },
     PENGURUS_RW: {
       label: 'Pengurus RW',
-      badge: 'bg-indigo-50 text-indigo-800 border-indigo-200',
+      variant: 'secondary',
     },
     KADER_RT: {
       label: 'Kader RT',
-      badge: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+      variant: 'outline',
     },
   };
 
   return (
     <div className="space-y-4">
       {actionNotice && (
-        <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs flex items-center justify-between">
+        <div
+          role="alert"
+          className="p-4 bg-destructive/10 border border-destructive/30 rounded-md text-destructive text-sm font-medium flex items-center justify-between"
+        >
           <div className="flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 shrink-0" />
+            <AlertCircle className="size-4 shrink-0" />
             <span>{actionNotice}</span>
           </div>
-          <button onClick={() => setActionNotice(null)} className="p-1 hover:bg-red-100 rounded">
-            <X className="w-3.5 h-3.5" />
+          <button
+            onClick={() => setActionNotice(null)}
+            className="text-destructive font-bold text-lg leading-none p-1"
+            aria-label="Tutup notifikasi"
+          >
+            &times;
           </button>
         </div>
       )}
 
       {/* Control Bar: Filters + Add Button */}
-      <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2.5 flex-1">
-          <div className="relative flex-1 min-w-[200px] max-w-md">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Cari nama, username, wilayah..."
-              className="w-full text-xs pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-            />
+      <Card className="p-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2.5 flex-1">
+            <div className="relative flex-1 min-w-[200px] max-w-md">
+              <Search className="size-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+              <Input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Cari nama, username, wilayah..."
+                className="pl-9 min-h-touch text-sm"
+              />
+            </div>
+
+            <select
+              value={filterPeran}
+              onChange={(e) => setFilterPeran(e.target.value)}
+              className="flex min-h-touch rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-medium"
+            >
+              <option value="">Semua Peran</option>
+              <option value="ADMIN_DESA">Admin Desa</option>
+              <option value="PENGURUS_DUSUN">Pengurus Dusun</option>
+              <option value="PENGURUS_RW">Pengurus RW</option>
+              <option value="KADER_RT">Kader RT</option>
+            </select>
           </div>
 
-          <select
-            value={filterPeran}
-            onChange={(e) => setFilterPeran(e.target.value)}
-            className="text-xs px-3 py-2 bg-white border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
+          <Button
+            onClick={handleOpenAdd}
+            className="min-h-touch gap-2 font-semibold shrink-0"
           >
-            <option value="">Semua Peran</option>
-            <option value="ADMIN_DESA">Admin Desa</option>
-            <option value="PENGURUS_DUSUN">Pengurus Dusun</option>
-            <option value="PENGURUS_RW">Pengurus RW</option>
-            <option value="KADER_RT">Kader RT</option>
-          </select>
+            <UserPlus className="size-4" data-icon="inline-start" />
+            <span>Tambah Pengguna Baru</span>
+          </Button>
         </div>
-
-        <button
-          onClick={handleOpenAdd}
-          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors shrink-0"
-        >
-          <UserPlus className="w-4 h-4" />
-          <span>Tambah Pengguna Baru</span>
-        </button>
-      </div>
+      </Card>
 
       {/* Pengguna Table */}
-      <div className="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-3.5 border-b border-stone-100 flex items-center justify-between bg-stone-50/50">
-          <span className="text-xs font-semibold text-stone-700">
+      <Card>
+        <CardHeader className="border-b border-border py-4 flex flex-row items-center justify-between">
+          <CardTitle className="text-base font-bold text-foreground">
             Daftar Akun Pengelola ({filteredUsers.length} Pengguna)
+          </CardTitle>
+          <span className="text-xs text-muted-foreground hidden sm:inline">
+            Hanya Admin Desa yang dapat mengelola hak akses akun
           </span>
-          <span className="text-[11px] text-stone-500">
-            Hanya Admin Desa yang dapat mengelola akun ini
-          </span>
-        </div>
+        </CardHeader>
 
         {filteredUsers.length === 0 ? (
-          <div className="p-12 text-center text-xs text-stone-400">
+          <CardContent className="p-12 text-center text-sm text-muted-foreground">
             Tidak ada akun pengguna yang sesuai dengan filter.
-          </div>
+          </CardContent>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] text-left text-xs text-stone-700">
-              <thead className="bg-stone-50 text-stone-600 font-semibold border-b border-stone-200">
-                <tr>
-                  <th className="px-4 py-3">Nama & Username</th>
-                  <th className="px-4 py-3">Peran Akses</th>
-                  <th className="px-4 py-3">Cakupan Wilayah</th>
-                  <th className="px-4 py-3">Status Akun</th>
-                  <th className="px-4 py-3 text-right">Aksi</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="whitespace-nowrap">Nama &amp; Username</TableHead>
+                  <TableHead className="whitespace-nowrap">Peran Akses</TableHead>
+                  <TableHead className="whitespace-nowrap">Cakupan Wilayah</TableHead>
+                  <TableHead className="whitespace-nowrap">Status Akun</TableHead>
+                  <TableHead className="text-right whitespace-nowrap">Aksi</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {filteredUsers.map((u) => {
                   const roleMeta = ROLE_LABELS[u.peran] || {
                     label: u.peran,
-                    badge: 'bg-stone-100 text-stone-700',
+                    variant: 'secondary' as const,
                   };
 
                   let cakupanLabel = 'Seluruh Desa';
@@ -292,297 +322,319 @@ export function PenggunaManager({ initialUsers, wilayahList }: PenggunaManagerPr
                   }
 
                   return (
-                    <tr key={u.id} className="hover:bg-stone-50/50 transition-colors">
-                      <td className="px-4 py-3">
-                        <div className="font-bold text-stone-900">{u.nama}</div>
-                        <div className="text-[11px] text-stone-500 font-mono">@{u.username}</div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <span
-                          className={`inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${roleMeta.badge}`}
-                        >
+                    <TableRow key={u.id}>
+                      <TableCell>
+                        <div className="font-bold text-foreground">{u.nama}</div>
+                        <div className="text-xs text-muted-foreground font-mono">@{u.username}</div>
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        <Badge variant={roleMeta.variant} className="font-semibold">
                           {roleMeta.label}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-stone-700 font-medium">
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="font-medium text-foreground whitespace-nowrap">
                         {cakupanLabel}
-                      </td>
-                      <td className="px-4 py-3">
-                        <span
-                          className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${
-                            u.aktif
-                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                              : 'bg-rose-50 text-rose-800 border-rose-200'
-                          }`}
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        <Badge
+                          variant={u.aktif ? 'default' : 'destructive'}
+                          className="gap-1 font-semibold"
                         >
-                          {u.aktif ? 'Aktif' : 'Nonaktif'}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-right whitespace-nowrap">
+                          {u.aktif ? (
+                            <>
+                              <ShieldCheck className="size-3" />
+                              <span>Aktif</span>
+                            </>
+                          ) : (
+                            <>
+                              <Power className="size-3" />
+                              <span>Nonaktif</span>
+                            </>
+                          )}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right whitespace-nowrap">
                         <div className="inline-flex items-center gap-2">
-                          <button
+                          <Button
+                            variant="outline"
+                            size="sm"
                             onClick={() => {
                               setResetTarget(u);
                               setNewPassword('');
                               setResetError(null);
                               setResetSuccess(null);
                             }}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-md transition-colors"
+                            className="min-h-touch text-xs gap-1.5"
                             title="Atur Ulang Kata Sandi"
                           >
-                            <KeyRound className="w-3 h-3 text-stone-500" />
+                            <KeyRound className="size-3.5 text-muted-foreground" data-icon="inline-start" />
                             <span>Reset Sandi</span>
-                          </button>
+                          </Button>
 
-                          <button
+                          <Button
+                            variant={u.aktif ? 'outline' : 'default'}
+                            size="sm"
                             onClick={() => handleToggleStatus(u)}
-                            className={`inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold rounded-md transition-colors ${
+                            className={`min-h-touch text-xs gap-1.5 font-semibold ${
                               u.aktif
-                                ? 'text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200'
-                                : 'text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200'
+                                ? 'text-amber-800 border-amber-600/40 hover:bg-amber-50'
+                                : ''
                             }`}
                             title={u.aktif ? 'Nonaktifkan Akun' : 'Aktifkan Akun'}
                           >
-                            <Power className="w-3 h-3" />
+                            <Power className="size-3.5" data-icon="inline-start" />
                             <span>{u.aktif ? 'Nonaktifkan' : 'Aktifkan'}</span>
-                          </button>
+                          </Button>
                         </div>
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   );
                 })}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         )}
-      </div>
+      </Card>
 
-      {/* Modal Add Pengguna */}
-      {addModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl shadow-xl border border-stone-200 max-w-md w-full overflow-hidden transition-all my-8">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-stone-100 bg-emerald-50">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center shadow-sm">
-                  <UserPlus className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-stone-900">Tambah Akun Pengelola</h3>
-                  <p className="text-[11px] text-stone-600">
-                    Akun resmi dibuat oleh Admin Desa (tanpa registrasi mandiri)
-                  </p>
-                </div>
+      {/* Dialog Add Pengguna */}
+      <Dialog open={addModalOpen} onOpenChange={(open) => !open && setAddModalOpen(false)}>
+        <DialogContent className="max-w-md">
+          <DialogHeader className="border-b border-border pb-3">
+            <div className="flex items-center gap-2.5">
+              <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <UserPlus className="size-5" />
               </div>
-              <button
-                onClick={() => setAddModalOpen(false)}
-                className="p-1 text-stone-400 hover:text-stone-700 rounded-lg transition-colors"
+              <DialogTitle className="text-lg font-bold text-foreground">
+                Tambah Akun Pengelola
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Akun resmi dibuat oleh Admin Desa untuk petugas atau kader PKK.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleCreateSubmit} className="flex flex-col gap-4 py-2">
+            {addError && (
+              <div
+                role="alert"
+                className="p-3 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2 text-destructive text-sm font-medium"
               >
-                <X className="w-4 h-4" />
-              </button>
+                <AlertCircle className="size-4 shrink-0" />
+                <span>{addError}</span>
+              </div>
+            )}
+
+            {addSuccess && (
+              <div className="p-3 bg-primary/10 border border-primary/30 rounded-md flex items-center gap-2 text-primary text-sm font-semibold">
+                <CheckCircle2 className="size-4 shrink-0" />
+                <span>{addSuccess}</span>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="penggunaNamaInput">
+                Nama Lengkap Pengguna <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="penggunaNamaInput"
+                type="text"
+                required
+                value={formData.nama}
+                onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
+                placeholder="Contoh: Siti Rahayu"
+                className="min-h-touch text-base"
+              />
             </div>
 
-            <form onSubmit={handleCreateSubmit} className="p-6 space-y-3.5">
-              {addError && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2 text-red-700 text-xs">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{addError}</span>
-                </div>
-              )}
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="penggunaUsernameInput">
+                Nama Pengguna (Username) <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="penggunaUsernameInput"
+                type="text"
+                required
+                autoCapitalize="none"
+                value={formData.username}
+                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                placeholder="Contoh: siti_kader_rt01"
+                className="min-h-touch text-base font-mono"
+              />
+            </div>
 
-              {addSuccess && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-2 text-emerald-800 text-xs font-semibold">
-                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-                  <span>{addSuccess}</span>
-                </div>
-              )}
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="penggunaPasswordInput">
+                Kata Sandi Awal <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="penggunaPasswordInput"
+                type="password"
+                required
+                value={formData.kataSandi}
+                onChange={(e) => setFormData({ ...formData, kataSandi: e.target.value })}
+                placeholder="Minimal 6 karakter"
+                className="min-h-touch text-base"
+              />
+            </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Nama Lengkap Pengguna <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.nama}
-                  onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
-                  placeholder="Contoh: Siti Rahayu"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                />
-              </div>
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="penggunaPeranSelect">
+                Peran Akses <span className="text-destructive">*</span>
+              </Label>
+              <select
+                id="penggunaPeranSelect"
+                value={formData.peran}
+                onChange={(e) => {
+                  const nextPeran = e.target.value as PeranPengguna;
+                  setFormData({
+                    ...formData,
+                    peran: nextPeran,
+                    wilayahId: nextPeran === 'ADMIN_DESA' ? null : formData.wilayahId || wilayahList[0]?.id || null,
+                  });
+                }}
+                className="flex min-h-touch w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-medium"
+              >
+                <option value="KADER_RT">Kader RT (Dasawisma Tertentu)</option>
+                <option value="PENGURUS_RW">Pengurus RW (Cakupan 1 RW)</option>
+                <option value="PENGURUS_DUSUN">Pengurus Dusun (Cakupan 1 Dusun)</option>
+                <option value="ADMIN_DESA">Admin Desa (Akses Seluruh Desa &amp; Kelola Akun)</option>
+              </select>
+            </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Nama Pengguna (Username) <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  autoCapitalize="none"
-                  value={formData.username}
-                  onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                  placeholder="Contoh: siti_kader_rt01"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-mono"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Kata Sandi Awal <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="password"
-                  required
-                  value={formData.kataSandi}
-                  onChange={(e) => setFormData({ ...formData, kataSandi: e.target.value })}
-                  placeholder="Minimal 6 karakter"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Peran Akses <span className="text-red-500">*</span>
-                </label>
+            {formData.peran !== 'ADMIN_DESA' && (
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="penggunaWilayahSelect">
+                  Wilayah Jangkar Cakupan <span className="text-destructive">*</span>
+                </Label>
                 <select
-                  value={formData.peran}
-                  onChange={(e) => {
-                    const nextPeran = e.target.value as PeranPengguna;
-                    setFormData({
-                      ...formData,
-                      peran: nextPeran,
-                      wilayahId: nextPeran === 'ADMIN_DESA' ? null : formData.wilayahId || wilayahList[0]?.id || null,
-                    });
-                  }}
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
+                  id="penggunaWilayahSelect"
+                  value={formData.wilayahId || ''}
+                  onChange={(e) => setFormData({ ...formData, wilayahId: e.target.value })}
+                  required
+                  className="flex min-h-touch w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-medium"
                 >
-                  <option value="KADER_RT">Kader RT (Dasawisma Tertentu)</option>
-                  <option value="PENGURUS_RW">Pengurus RW (Cakupan 1 RW)</option>
-                  <option value="PENGURUS_DUSUN">Pengurus Dusun (Cakupan 1 Dusun)</option>
-                  <option value="ADMIN_DESA">Admin Desa (Akses Seluruh Desa & Kelola Akun)</option>
+                  <option value="">-- Pilih Wilayah Jangkar --</option>
+                  {wilayahList.map((w) => (
+                    <option key={w.id} value={w.id}>
+                      {w.dusun} : RW {w.rw} : RT {w.rt} ({w.namaDasawisma})
+                    </option>
+                  ))}
                 </select>
+                <p className="text-xs text-muted-foreground">
+                  {formData.peran === 'KADER_RT'
+                    ? 'Kader hanya akan mengelola Dasawisma ini.'
+                    : formData.peran === 'PENGURUS_RW'
+                    ? 'Cakupan akan mencakup seluruh RT pada RW dari wilayah ini.'
+                    : 'Cakupan akan mencakup seluruh RW/RT pada Dusun dari wilayah ini.'}
+                </p>
               </div>
+            )}
 
-              {formData.peran !== 'ADMIN_DESA' && (
-                <div>
-                  <label className="block text-xs font-semibold text-stone-700 mb-1">
-                    Wilayah Jangkar Cakupan <span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    value={formData.wilayahId || ''}
-                    onChange={(e) => setFormData({ ...formData, wilayahId: e.target.value })}
-                    required
-                    className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                  >
-                    <option value="">-- Pilih Wilayah Jangkar --</option>
-                    {wilayahList.map((w) => (
-                      <option key={w.id} value={w.id}>
-                        {w.dusun} &bull; RW {w.rw} &bull; RT {w.rt} ({w.namaDasawisma})
-                      </option>
-                    ))}
-                  </select>
-                  <p className="text-[11px] text-stone-400 mt-1">
-                    {formData.peran === 'KADER_RT'
-                      ? 'Kader hanya akan mengelola Dasawisma ini.'
-                      : formData.peran === 'PENGURUS_RW'
-                      ? 'Cakupan akan mencakup seluruh RT pada RW dari wilayah ini.'
-                      : 'Cakupan akan mencakup seluruh RW/RT pada Dusun dari wilayah ini.'}
-                  </p>
-                </div>
-              )}
-
-              <div className="pt-2 flex items-center justify-end gap-2 border-t border-stone-100">
-                <button
-                  type="button"
-                  onClick={() => setAddModalOpen(false)}
-                  disabled={addLoading}
-                  className="px-3.5 py-2 text-xs font-semibold text-stone-600 hover:bg-stone-100 rounded-xl transition-colors"
-                >
-                  Batal
-                </button>
-                <button
-                  type="submit"
-                  disabled={addLoading}
-                  className="px-4 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-sm transition-colors"
-                >
-                  {addLoading ? 'Menyimpan...' : 'Buat Akun'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Modal Reset Password */}
-      {resetTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl shadow-xl border border-stone-200 max-w-sm w-full overflow-hidden transition-all my-8 p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-stone-100 pb-3">
-              <div className="flex items-center gap-2">
-                <KeyRound className="w-5 h-5 text-emerald-700" />
-                <h3 className="text-sm font-bold text-stone-900">Atur Ulang Kata Sandi</h3>
-              </div>
-              <button
-                onClick={() => setResetTarget(null)}
-                className="p-1 text-stone-400 hover:text-stone-700 rounded-lg transition-colors"
+            <DialogFooter className="pt-3 border-t border-border flex flex-col-reverse sm:flex-row gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setAddModalOpen(false)}
+                disabled={addLoading}
+                className="min-h-touch"
               >
-                <X className="w-4 h-4" />
-              </button>
+                Batal
+              </Button>
+              <Button
+                type="submit"
+                disabled={addLoading}
+                className="min-h-touch font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                {addLoading ? (
+                  <>
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    Menyimpan...
+                  </>
+                ) : (
+                  'Buat Akun Pengelola'
+                )}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* Dialog Reset Password */}
+      <Dialog open={Boolean(resetTarget)} onOpenChange={(open) => !open && setResetTarget(null)}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader className="border-b border-border pb-3">
+            <div className="flex items-center gap-2">
+              <KeyRound className="size-5 text-primary" />
+              <DialogTitle className="text-base font-bold text-foreground">
+                Atur Ulang Kata Sandi
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-xs text-muted-foreground">
+              Setel kata sandi baru untuk akun {resetTarget?.nama} (@{resetTarget?.username}).
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleResetSubmit} className="flex flex-col gap-4 py-2">
+            {resetError && (
+              <div
+                role="alert"
+                className="p-3 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2 text-destructive text-xs font-medium"
+              >
+                <AlertCircle className="size-4 shrink-0" />
+                <span>{resetError}</span>
+              </div>
+            )}
+
+            {resetSuccess && (
+              <div className="p-3 bg-primary/10 border border-primary/30 rounded-md flex items-center gap-2 text-primary text-xs font-semibold">
+                <CheckCircle2 className="size-4 shrink-0" />
+                <span>{resetSuccess}</span>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="newPasswordInput">
+                Kata Sandi Baru <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="newPasswordInput"
+                type="password"
+                required
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Minimal 6 karakter"
+                className="min-h-touch text-base"
+              />
             </div>
 
-            <p className="text-xs text-stone-600">
-              Setel kata sandi baru untuk akun <b>{resetTarget.nama}</b> (@{resetTarget.username}).
-            </p>
-
-            <form onSubmit={handleResetSubmit} className="space-y-3.5">
-              {resetError && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{resetError}</span>
-                </div>
-              )}
-
-              {resetSuccess && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-                  <span>{resetSuccess}</span>
-                </div>
-              )}
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Kata Sandi Baru
-                </label>
-                <input
-                  type="password"
-                  required
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Minimal 6 karakter"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-2 pt-2 border-t border-stone-100">
-                <button
-                  type="button"
-                  onClick={() => setResetTarget(null)}
-                  disabled={resetLoading}
-                  className="px-3 py-1.5 text-xs font-semibold text-stone-600 hover:bg-stone-100 rounded-xl transition-colors"
-                >
-                  Batal
-                </button>
-                <button
-                  type="submit"
-                  disabled={resetLoading}
-                  className="px-4 py-1.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-sm transition-colors"
-                >
-                  {resetLoading ? 'Menyimpan...' : 'Simpan Sandi Baru'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+            <DialogFooter className="pt-3 border-t border-border flex flex-col-reverse sm:flex-row gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setResetTarget(null)}
+                disabled={resetLoading}
+                className="min-h-touch"
+              >
+                Batal
+              </Button>
+              <Button
+                type="submit"
+                disabled={resetLoading}
+                className="min-h-touch font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                {resetLoading ? (
+                  <>
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    Menyimpan...
+                  </>
+                ) : (
+                  'Simpan Sandi Baru'
+                )}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

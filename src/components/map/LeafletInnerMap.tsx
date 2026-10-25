@@ -121,47 +121,48 @@ export default function LeafletInnerMap({
   }, [validHouseholds]);
 
   return (
-    <div className="relative w-full h-[600px] rounded-2xl overflow-hidden border border-stone-200 shadow-md">
+    <div className="relative w-full h-[600px] rounded-md overflow-hidden border border-border shadow-sm">
       <div ref={mapContainerRef} className="w-full h-full z-0" />
 
       {/* Selected Household Detail Overlay (if any) */}
       {selectedHousehold && (
-        <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-96 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-stone-200 shadow-xl z-[1000] text-xs">
+        <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-96 bg-card/95 backdrop-blur-md p-4 rounded-md border border-border shadow-lg z-[1000] text-xs">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <span className="text-[10px] font-semibold tracking-wider uppercase text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md">
+              <span className="text-[10px] font-bold tracking-wider uppercase text-primary bg-primary/10 px-2 py-0.5 rounded-sm">
                 Detail Rumah Tangga
               </span>
-              <h3 className="text-sm font-bold text-stone-900 mt-1">
+              <h3 className="text-sm font-bold text-foreground mt-1">
                 {selectedHousehold.namaKepalaRumahTangga}
               </h3>
-              <p className="text-stone-500 text-[11px]">
+              <p className="text-muted-foreground text-[11px]">
                 {selectedHousehold.alamat} {selectedHousehold.wilayah ? `(RT ${selectedHousehold.wilayah.rt}/RW ${selectedHousehold.wilayah.rw})` : ''}
               </p>
             </div>
             <button
               onClick={() => setSelectedHousehold(null)}
-              className="text-stone-400 hover:text-stone-700 p-1 rounded-md"
+              className="text-muted-foreground hover:text-foreground p-1 rounded-sm min-h-touch min-w-touch flex items-center justify-center text-lg leading-none"
+              aria-label="Tutup detail rumah tangga"
             >
               &times;
             </button>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-stone-100 text-stone-700">
+          <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-border text-foreground">
             <div>
-              <span className="text-stone-400 block text-[10px]">Kondisi Sanitasi</span>
+              <span className="text-muted-foreground block text-[10px]">Kondisi Sanitasi</span>
               <span className="font-semibold">{selectedHousehold.kriteriaRumah === 'SEHAT' ? 'Rumah Sehat' : 'Kurang Sehat'}</span>
             </div>
             <div>
-              <span className="text-stone-400 block text-[10px]">Jamban Keluarga</span>
+              <span className="text-muted-foreground block text-[10px]">Jamban Keluarga</span>
               <span className="font-semibold">{selectedHousehold.jambanKeluarga ? 'Tersedia' : 'Belum Ada'}</span>
             </div>
             <div>
-              <span className="text-stone-400 block text-[10px]">Total Anggota</span>
+              <span className="text-muted-foreground block text-[10px]">Total Anggota</span>
               <span className="font-semibold">{selectedHousehold.jumlahAnggota} Jiwa</span>
             </div>
             <div>
-              <span className="text-stone-400 block text-[10px]">Koordinat</span>
+              <span className="text-muted-foreground block text-[10px]">Koordinat</span>
               <span className="font-mono text-[10px]">{selectedHousehold.latitude?.toFixed(4)}, {selectedHousehold.longitude?.toFixed(4)}</span>
             </div>
           </div>

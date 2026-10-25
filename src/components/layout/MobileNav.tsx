@@ -53,7 +53,7 @@ export function MobileNav({ userRole }: MobileNavProps) {
   ].filter((l) => l.show);
 
   return (
-    <div className="relative md:hidden">
+    <div className="relative xl:hidden">
       <Button
         type="button"
         variant="outline"

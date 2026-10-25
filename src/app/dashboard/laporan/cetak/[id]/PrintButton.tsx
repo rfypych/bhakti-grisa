@@ -2,15 +2,16 @@
 
 import React from 'react';
 import { Printer } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export function PrintButton() {
   return (
-    <button
+    <Button
       onClick={() => window.print()}
-      className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors"
+      className="min-h-touch gap-2 font-semibold bg-primary hover:bg-primary/90 text-primary-foreground"
     >
-      <Printer className="w-4 h-4" />
+      <Printer className="size-4" data-icon="inline-start" />
       <span>Cetak Dokumen (Print / PDF)</span>
-    </button>
+    </Button>
   );
 }

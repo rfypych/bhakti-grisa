@@ -13,12 +13,43 @@ import {
   Plus,
   Pencil,
   Trash2,
-  X,
   AlertCircle,
   CheckCircle2,
   Users,
   Search,
+  Loader2,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 
 export interface WilayahWithCount {
   id: string;
@@ -92,6 +123,7 @@ export function WilayahManager({ initialList }: WilayahManagerProps) {
       kontak: '',
     });
     setError(null);
+    setSuccessMsg(null);
     setModalOpen(true);
   };
 
@@ -106,6 +138,7 @@ export function WilayahManager({ initialList }: WilayahManagerProps) {
       kontak: item.kontak || '',
     });
     setError(null);
+    setSuccessMsg(null);
     setModalOpen(true);
   };
 
@@ -167,331 +200,343 @@ export function WilayahManager({ initialList }: WilayahManagerProps) {
   return (
     <div className="space-y-4">
       {/* Control Bar: Filters + Add Button */}
-      <div className="bg-white p-4 rounded-xl border border-stone-200 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-2.5 flex-1">
-          <div className="relative flex-1 min-w-[200px] max-w-md">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Cari Dasawisma, RT, RW, ketua..."
-              className="w-full text-xs pl-9 pr-3 py-2 bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-            />
+      <Card className="p-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2.5 flex-1">
+            <div className="relative flex-1 min-w-[200px] max-w-md">
+              <Search className="size-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2" />
+              <Input
+                type="text"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Cari Dasawisma, RT, RW, ketua..."
+                className="pl-9 min-h-touch text-sm"
+              />
+            </div>
+
+            <select
+              value={filterDusun}
+              onChange={(e) => setFilterDusun(e.target.value)}
+              className="flex min-h-touch rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring font-medium"
+            >
+              <option value="">Semua Dusun</option>
+              {dusunOptions.map((d) => (
+                <option key={d} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
           </div>
 
-          <select
-            value={filterDusun}
-            onChange={(e) => setFilterDusun(e.target.value)}
-            className="text-xs px-3 py-2 bg-white border border-stone-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
+          <Button
+            onClick={handleOpenAdd}
+            className="min-h-touch gap-2 font-semibold shrink-0"
           >
-            <option value="">Semua Dusun</option>
-            {dusunOptions.map((d) => (
-              <option key={d} value={d}>
-                {d}
-              </option>
-            ))}
-          </select>
+            <Plus className="size-4" data-icon="inline-start" />
+            <span>Tambah Wilayah Baru</span>
+          </Button>
         </div>
-
-        <button
-          onClick={handleOpenAdd}
-          className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold rounded-lg shadow-sm transition-colors shrink-0"
-        >
-          <Plus className="w-4 h-4" />
-          <span>Tambah Wilayah Baru</span>
-        </button>
-      </div>
+      </Card>
 
       {/* Wilayah Data Table */}
-      <div className="bg-white rounded-xl border border-stone-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-3.5 border-b border-stone-100 flex items-center justify-between bg-stone-50/50">
-          <span className="text-xs font-semibold text-stone-700">
+      <Card>
+        <CardHeader className="border-b border-border py-4 flex flex-row items-center justify-between">
+          <CardTitle className="text-base font-bold text-foreground">
             Daftar Wilayah Administrasi ({filteredList.length} Unit)
-          </span>
-          <span className="text-[11px] text-stone-500">
+          </CardTitle>
+          <span className="text-xs text-muted-foreground hidden sm:inline">
             Terdiri atas Dusun, RW, RT, dan Kelompok Dasawisma
           </span>
-        </div>
+        </CardHeader>
 
         {filteredList.length === 0 ? (
-          <div className="p-12 text-center text-xs text-stone-400">
+          <CardContent className="p-12 text-center text-sm text-muted-foreground">
             Tidak ada wilayah yang sesuai dengan filter pencarian.
-          </div>
+          </CardContent>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] text-left text-xs text-stone-700">
-              <thead className="bg-stone-50 text-stone-600 font-semibold border-b border-stone-200">
-                <tr>
-                  <th className="px-4 py-3">Nama Dasawisma</th>
-                  <th className="px-4 py-3">Dusun / Lingkungan</th>
-                  <th className="px-4 py-3">RW / RT</th>
-                  <th className="px-4 py-3">Ketua & Kontak</th>
-                  <th className="px-4 py-3">Data Keluarga</th>
-                  <th className="px-4 py-3 text-right">Aksi</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-stone-100">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="whitespace-nowrap">Nama Dasawisma</TableHead>
+                  <TableHead className="whitespace-nowrap">Dusun / Lingkungan</TableHead>
+                  <TableHead className="whitespace-nowrap">RW / RT</TableHead>
+                  <TableHead className="whitespace-nowrap">Ketua &amp; Kontak</TableHead>
+                  <TableHead className="whitespace-nowrap">Data Keluarga</TableHead>
+                  <TableHead className="text-right whitespace-nowrap">Aksi</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
                 {filteredList.map((item) => {
                   const hasFamilies = item._count.keluarga > 0;
 
                   return (
-                    <tr key={item.id} className="hover:bg-stone-50/50 transition-colors">
-                      <td className="px-4 py-3">
-                        <div className="font-bold text-stone-900">{item.namaDasawisma}</div>
-                        <div className="text-[11px] text-stone-400 font-mono">ID: {item.id.slice(0, 8)}...</div>
-                      </td>
-                      <td className="px-4 py-3 font-medium text-stone-800">
+                    <TableRow key={item.id}>
+                      <TableCell>
+                        <div className="font-bold text-foreground">{item.namaDasawisma}</div>
+                        <div className="text-xs text-muted-foreground font-mono">ID: {item.id.slice(0, 8)}...</div>
+                      </TableCell>
+                      <TableCell className="font-medium text-foreground whitespace-nowrap">
                         {item.dusun}
-                      </td>
-                      <td className="px-4 py-3 text-stone-700 font-medium">
+                      </TableCell>
+                      <TableCell className="font-medium text-foreground whitespace-nowrap">
                         RT {item.rt} / RW {item.rw}
-                      </td>
-                      <td className="px-4 py-3 text-stone-600">
-                        <div className="font-medium text-stone-800">{item.ketuaNama || '-'}</div>
-                        <div className="text-[11px] text-stone-400">{item.kontak || '-'}</div>
-                      </td>
-                      <td className="px-4 py-3">
-                        <span
-                          className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${
-                            hasFamilies
-                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                              : 'bg-stone-100 text-stone-500 border-stone-200'
-                          }`}
+                      </TableCell>
+                      <TableCell>
+                        <div className="font-medium text-foreground">{item.ketuaNama || '-'}</div>
+                        <div className="text-xs text-muted-foreground">{item.kontak || '-'}</div>
+                      </TableCell>
+                      <TableCell className="whitespace-nowrap">
+                        <Badge
+                          variant={hasFamilies ? 'default' : 'secondary'}
+                          className="gap-1 font-semibold"
                         >
-                          <Users className="w-3 h-3" />
+                          <Users className="size-3" />
                           <span>{item._count.keluarga} KK</span>
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 text-right whitespace-nowrap">
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right whitespace-nowrap">
                         <div className="inline-flex items-center gap-1.5">
-                          <button
+                          <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={() => handleOpenEdit(item)}
-                            className="p-1.5 text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-md transition-colors"
-                            title="Ubah Wilayah"
+                            className="min-h-touch min-w-touch"
+                            title="Ubah Data Wilayah"
                           >
-                            <Pencil className="w-3.5 h-3.5" />
-                          </button>
-                          <button
+                            <Pencil className="size-4 text-muted-foreground hover:text-foreground" />
+                            <span className="sr-only">Ubah</span>
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={() => {
                               setDeleteTarget(item);
                               setDeleteError(null);
                             }}
-                            className="p-1.5 text-rose-600 hover:text-rose-800 hover:bg-rose-50 rounded-md transition-colors"
+                            className="min-h-touch min-w-touch text-destructive hover:text-destructive hover:bg-destructive/10"
                             title={
                               hasFamilies
-                                ? 'Wilayah tidak dapat dihapus karena masih ada keluarga'
+                                ? 'Wilayah tidak dapat dihapus karena masih ada keluarga terdaftar'
                                 : 'Hapus Wilayah'
                             }
                           >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
+                            <Trash2 className="size-4" />
+                            <span className="sr-only">Hapus</span>
+                          </Button>
                         </div>
-                      </td>
-                    </tr>
+                      </TableCell>
+                    </TableRow>
                   );
                 })}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         )}
-      </div>
+      </Card>
 
-      {/* Modal Add / Edit Wilayah */}
-      {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl shadow-xl border border-stone-200 max-w-md w-full overflow-hidden transition-all my-8">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-stone-100 bg-emerald-50">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center shadow-sm">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold text-stone-900">
-                    {editingId ? 'Ubah Data Wilayah' : 'Tambah Wilayah Baru'}
-                  </h3>
-                  <p className="text-[11px] text-stone-600">
-                    Konfigurasi wilayah administratif kelompok Dasawisma
-                  </p>
-                </div>
+      {/* Dialog Add / Edit Wilayah */}
+      <Dialog open={modalOpen} onOpenChange={(open) => !open && setModalOpen(false)}>
+        <DialogContent className="max-w-md">
+          <DialogHeader className="border-b border-border pb-3">
+            <div className="flex items-center gap-2.5">
+              <div className="size-9 rounded-md bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                <MapPin className="size-5" />
               </div>
-              <button
-                onClick={() => setModalOpen(false)}
-                className="p-1 text-stone-400 hover:text-stone-700 rounded-lg transition-colors"
+              <DialogTitle className="text-lg font-bold text-foreground">
+                {editingId ? 'Ubah Data Wilayah' : 'Tambah Wilayah Baru'}
+              </DialogTitle>
+            </div>
+            <DialogDescription className="text-sm text-muted-foreground">
+              Konfigurasi hierarki wilayah administratif kelompok Dasawisma Desa Grudo.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-2">
+            {error && (
+              <div
+                role="alert"
+                className="p-3 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2 text-destructive text-sm font-medium"
               >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
-              {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2 text-red-700 text-xs">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{error}</span>
-                </div>
-              )}
-
-              {successMsg && (
-                <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center gap-2 text-emerald-800 text-xs font-semibold">
-                  <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-                  <span>{successMsg}</span>
-                </div>
-              )}
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Nama Dusun / Lingkungan <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.dusun}
-                  onChange={(e) => setFormData({ ...formData, dusun: e.target.value })}
-                  placeholder="Contoh: Dusun Krajan"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-semibold text-stone-700 mb-1">
-                    RW <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.rw}
-                    onChange={(e) => setFormData({ ...formData, rw: e.target.value })}
-                    placeholder="Contoh: 01"
-                    className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-stone-700 mb-1">
-                    RT <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.rt}
-                    onChange={(e) => setFormData({ ...formData, rt: e.target.value })}
-                    placeholder="Contoh: 01"
-                    className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Nama Kelompok Dasawisma <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.namaDasawisma}
-                  onChange={(e) => setFormData({ ...formData, namaDasawisma: e.target.value })}
-                  placeholder="Contoh: Melati 1"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Nama Ketua Dasawisma (Opsional)
-                </label>
-                <input
-                  type="text"
-                  value={formData.ketuaNama || ''}
-                  onChange={(e) => setFormData({ ...formData, ketuaNama: e.target.value })}
-                  placeholder="Nama ketua kelompok"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-normal"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-stone-700 mb-1">
-                  Kontak / No. Telepon (Opsional)
-                </label>
-                <input
-                  type="text"
-                  value={formData.kontak || ''}
-                  onChange={(e) => setFormData({ ...formData, kontak: e.target.value })}
-                  placeholder="Contoh: 08123456789"
-                  className="w-full text-xs px-3 py-2 bg-white border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-600 font-normal"
-                />
-              </div>
-
-              <div className="pt-2 flex items-center justify-end gap-2 border-t border-stone-100">
-                <button
-                  type="button"
-                  onClick={() => setModalOpen(false)}
-                  disabled={loading}
-                  className="px-3.5 py-2 text-xs font-semibold text-stone-600 hover:bg-stone-100 rounded-xl transition-colors"
-                >
-                  Batal
-                </button>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="px-4 py-2 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-xl shadow-sm transition-colors"
-                >
-                  {loading ? 'Menyimpan...' : editingId ? 'Simpan Perubahan' : 'Tambahkan'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* Delete Confirmation Modal */}
-      {deleteTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-900/50 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl shadow-xl border border-stone-200 max-w-sm w-full overflow-hidden transition-all my-8 p-6 space-y-4">
-            <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center">
-              <Trash2 className="w-5 h-5" />
-            </div>
-
-            <div>
-              <h3 className="text-base font-bold text-stone-900">Hapus Wilayah?</h3>
-              <p className="text-xs text-stone-600 mt-1">
-                Anda akan menghapus kelompok Dasawisma <b>{deleteTarget.namaDasawisma}</b> (RT {deleteTarget.rt} / RW {deleteTarget.rw}, {deleteTarget.dusun}).
-              </p>
-            </div>
-
-            {deleteTarget._count.keluarga > 0 && (
-              <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs">
-                <b>Peringatan:</b> Wilayah ini masih memiliki {deleteTarget._count.keluarga} keluarga. Penghapusan akan ditolak oleh sistem demi menjaga integritas data kependudukan.
+                <AlertCircle className="size-4 shrink-0" />
+                <span>{error}</span>
               </div>
             )}
 
-            {deleteError && (
-              <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                <span>{deleteError}</span>
+            {successMsg && (
+              <div className="p-3 bg-primary/10 border border-primary/30 rounded-md flex items-center gap-2 text-primary text-sm font-semibold">
+                <CheckCircle2 className="size-4 shrink-0" />
+                <span>{successMsg}</span>
               </div>
             )}
 
-            <div className="flex items-center justify-end gap-2 pt-2 border-t border-stone-100">
-              <button
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="wilayahDusunInput">
+                Nama Dusun / Lingkungan <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="wilayahDusunInput"
+                type="text"
+                required
+                value={formData.dusun}
+                onChange={(e) => setFormData({ ...formData, dusun: e.target.value })}
+                placeholder="Contoh: Dusun Krajan"
+                className="min-h-touch text-base"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="wilayahRwInput">
+                  RW <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="wilayahRwInput"
+                  type="text"
+                  required
+                  value={formData.rw}
+                  onChange={(e) => setFormData({ ...formData, rw: e.target.value })}
+                  placeholder="Contoh: 01"
+                  className="min-h-touch text-base"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <Label htmlFor="wilayahRtInput">
+                  RT <span className="text-destructive">*</span>
+                </Label>
+                <Input
+                  id="wilayahRtInput"
+                  type="text"
+                  required
+                  value={formData.rt}
+                  onChange={(e) => setFormData({ ...formData, rt: e.target.value })}
+                  placeholder="Contoh: 01"
+                  className="min-h-touch text-base"
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="wilayahDasawismaInput">
+                Nama Kelompok Dasawisma <span className="text-destructive">*</span>
+              </Label>
+              <Input
+                id="wilayahDasawismaInput"
+                type="text"
+                required
+                value={formData.namaDasawisma}
+                onChange={(e) => setFormData({ ...formData, namaDasawisma: e.target.value })}
+                placeholder="Contoh: Melati 1"
+                className="min-h-touch text-base"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="wilayahKetuaInput">
+                Nama Ketua Dasawisma (Opsional)
+              </Label>
+              <Input
+                id="wilayahKetuaInput"
+                type="text"
+                value={formData.ketuaNama || ''}
+                onChange={(e) => setFormData({ ...formData, ketuaNama: e.target.value })}
+                placeholder="Nama ketua kelompok"
+                className="min-h-touch text-base"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label htmlFor="wilayahKontakInput">
+                Kontak / No. Telepon (Opsional)
+              </Label>
+              <Input
+                id="wilayahKontakInput"
+                type="text"
+                value={formData.kontak || ''}
+                onChange={(e) => setFormData({ ...formData, kontak: e.target.value })}
+                placeholder="Contoh: 08123456789"
+                className="min-h-touch text-base"
+              />
+            </div>
+
+            <DialogFooter className="pt-3 border-t border-border flex flex-col-reverse sm:flex-row gap-2">
+              <Button
                 type="button"
-                onClick={() => setDeleteTarget(null)}
-                disabled={deleteLoading}
-                className="px-3.5 py-2 text-xs font-semibold text-stone-600 hover:bg-stone-100 rounded-xl transition-colors"
+                variant="outline"
+                onClick={() => setModalOpen(false)}
+                disabled={loading}
+                className="min-h-touch"
               >
                 Batal
-              </button>
-              <button
-                type="button"
-                onClick={handleDelete}
-                disabled={deleteLoading}
-                className="px-4 py-2 text-xs font-semibold text-white bg-rose-700 hover:bg-rose-800 rounded-xl shadow-sm transition-colors"
+              </Button>
+              <Button
+                type="submit"
+                disabled={loading}
+                className="min-h-touch font-bold bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                {deleteLoading ? 'Menghapus...' : 'Ya, Hapus'}
-              </button>
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    Menyimpan...
+                  </>
+                ) : editingId ? (
+                  'Simpan Perubahan Wilayah'
+                ) : (
+                  'Simpan Wilayah Baru'
+                )}
+              </Button>
+            </DialogFooter>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* AlertDialog Hapus Wilayah dengan konsekuensi 1 kalimat polos */}
+      <AlertDialog open={Boolean(deleteTarget)} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Hapus Wilayah Administrasi</AlertDialogTitle>
+            <AlertDialogDescription>
+              Wilayah {deleteTarget?.namaDasawisma} (RT {deleteTarget?.rt} / RW {deleteTarget?.rw}, {deleteTarget?.dusun}) akan dihapus secara permanen dari sistem beserta seluruh keterkaitan data administrasinya.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+
+          {deleteTarget && deleteTarget._count.keluarga > 0 && (
+            <div className="p-3 bg-warning/10 border border-warning/30 rounded-md text-amber-900 text-xs font-medium">
+              Peringatan: Wilayah ini masih memiliki {deleteTarget._count.keluarga} keluarga terdaftar. Penghapusan akan ditolak demi menjaga integritas data kependudukan.
             </div>
-          </div>
-        </div>
-      )}
+          )}
+
+          {deleteError && (
+            <div
+              role="alert"
+              className="p-3 bg-destructive/10 border border-destructive/30 rounded-md flex items-center gap-2 text-destructive text-xs font-medium"
+            >
+              <AlertCircle className="size-4 shrink-0" />
+              <span>{deleteError}</span>
+            </div>
+          )}
+
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={deleteLoading}>Batal</AlertDialogCancel>
+            <Button
+              type="button"
+              variant="destructive"
+              disabled={deleteLoading || (deleteTarget?._count.keluarga ?? 0) > 0}
+              onClick={handleDelete}
+              className="min-h-touch"
+            >
+              {deleteLoading ? (
+                <>
+                  <Loader2 className="mr-2 size-4 animate-spin" />
+                  Menghapus...
+                </>
+              ) : (
+                'Hapus Wilayah'
+              )}
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
