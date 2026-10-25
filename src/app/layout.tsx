@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Link from 'next/link';
 import {
-  Home,
+  LayoutDashboard,
   ClipboardList,
   Activity,
   MapPin,
@@ -13,7 +13,9 @@ import {
   PlusCircle,
 } from 'lucide-react';
 import { MobileNav } from '@/components/layout/MobileNav';
+import { MobileBottomBar } from '@/components/layout/MobileBottomBar';
 import { UserNavHeader } from '@/components/layout/UserNavHeader';
+import { Button } from '@/components/ui/button';
 import { getSessionUser } from '@/lib/auth';
 
 export const metadata: Metadata = {
@@ -32,68 +34,70 @@ export default async function RootLayout({
 
   return (
     <html lang="id">
-      <body className="min-h-screen flex flex-col bg-stone-50">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         {/* Navigation Bar (Hidden in print mode) */}
-        <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200 print:hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <header className="sticky top-0 z-40 bg-card border-b border-border print:hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
             <div className="flex items-center gap-6">
-              <Link href="/" className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold text-sm shadow-sm">
+              <Link href="/" className="flex items-center gap-3">
+                <div className="size-10 rounded-md bg-primary text-primary-foreground flex items-center justify-center font-black text-base shadow-sm shrink-0">
                   SP
                 </div>
                 <div>
-                  <span className="font-extrabold text-stone-900 tracking-tight text-base">SIMPATIK</span>
-                  <span className="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider block -mt-1">
-                    Bhakti Grisa &bull; Grudo
+                  <span className="font-extrabold text-foreground tracking-tight text-lg block leading-none">
+                    SIMPATIK
+                  </span>
+                  <span className="text-xs text-primary font-semibold uppercase tracking-wider block mt-1">
+                    Bhakti Grisa &bull; Desa Grudo
                   </span>
                 </div>
               </Link>
 
-              <nav className="hidden md:flex items-center gap-1 text-xs font-semibold text-stone-600">
+              <nav className="hidden md:flex items-center gap-1 text-sm font-semibold text-muted-foreground">
                 <Link
                   href="/dashboard"
-                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                 >
-                  <Home className="w-4 h-4" />
+                  <LayoutDashboard className="size-4 text-primary" />
                   <span>Dashboard</span>
                 </Link>
                 {canVerify && (
                   <Link
                     href="/dashboard/verifikasi"
-                    className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                   >
-                    <ClipboardList className="w-4 h-4" />
+                    <ClipboardList className="size-4 text-primary" />
                     <span>Verifikasi</span>
                   </Link>
                 )}
                 <Link
                   href="/dashboard/lapor-peristiwa"
-                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                 >
-                  <Activity className="w-4 h-4" />
+                  <Activity className="size-4 text-primary" />
                   <span>Lapor Peristiwa</span>
                 </Link>
                 <Link
                   href="/dashboard/peta"
-                  className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                  className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                 >
-                  <MapPin className="w-4 h-4" />
+                  <MapPin className="size-4 text-primary" />
                   <span>Peta Spasial</span>
                 </Link>
                 {isAdmin && (
                   <>
                     <Link
                       href="/dashboard/wilayah"
-                      className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                      className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                     >
-                      <Layers className="w-4 h-4" />
+                      <Layers className="size-4 text-primary" />
                       <span>Wilayah</span>
                     </Link>
                     <Link
                       href="/dashboard/pengguna"
-                      className="px-3 py-1.5 rounded-lg hover:text-emerald-800 hover:bg-stone-100 transition-colors flex items-center gap-1.5"
+                      className="px-3.5 py-2 rounded-md hover:text-foreground hover:bg-secondary transition-colors flex items-center gap-2 min-h-touch"
                     >
-                      <Users className="w-4 h-4" />
+                      <Users className="size-4 text-primary" />
                       <span>Pengguna</span>
                     </Link>
                   </>
@@ -103,39 +107,42 @@ export default async function RootLayout({
               <MobileNav userRole={user?.peran} />
             </div>
 
-            <div className="flex items-center gap-3">
-              <a
-                href="/api/export/excel"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors border border-stone-200"
-              >
-                <FileSpreadsheet className="w-4 h-4 text-emerald-700" />
-                <span>Unduh Excel</span>
-              </a>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex min-h-touch text-sm">
+                <a href="/api/export/excel">
+                  <FileSpreadsheet className="size-4 text-primary" data-icon="inline-start" />
+                  <span>Unduh Excel</span>
+                </a>
+              </Button>
 
-              <Link
-                href="/formulir"
-                className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-lg shadow-sm transition-colors"
-              >
-                <PlusCircle className="w-4 h-4" />
-                <span>Input Data Keluarga</span>
-              </Link>
+              <Button asChild size="sm" className="hidden lg:inline-flex min-h-touch text-sm">
+                <Link href="/formulir">
+                  <PlusCircle className="size-4" data-icon="inline-start" />
+                  <span>Isi Data Keluarga</span>
+                </Link>
+              </Button>
 
               <UserNavHeader user={user} />
             </div>
           </div>
         </header>
 
-        {/* Main View */}
-        <main className="flex-1">{children}</main>
+        {/* Main Content View with padding-bottom on mobile for the bottom bar */}
+        <main className="flex-1 pb-20 md:pb-0">{children}</main>
+
+        {/* Mobile Dedicated Bottom Bar */}
+        <MobileBottomBar userRole={user?.peran} />
 
         {/* Footer (Hidden in print mode) */}
-        <footer className="border-t border-stone-200 bg-white py-6 text-center text-xs text-stone-500 print:hidden">
-          <p className="font-semibold text-stone-700">
-            SIMPATIK &copy; {new Date().getFullYear()} — Inisiatif Bhakti Grisa
-          </p>
-          <p className="text-[11px] text-stone-400 mt-1">
-            Sistem Informasi Manajemen PKK & Tertib Administrasi Kependudukan Keluarga Desa Grudo, Ngawi.
-          </p>
+        <footer className="border-t border-border bg-card py-8 text-center text-sm text-muted-foreground print:hidden">
+          <div className="max-w-5xl mx-auto px-4 space-y-2">
+            <p className="font-bold text-foreground">
+              SIMPATIK &copy; {new Date().getFullYear()} : Inisiatif Program Pengabdian Masyarakat Bhakti Grisa
+            </p>
+            <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Sistem Informasi Manajemen PKK &amp; Tertib Administrasi Kependudukan Keluarga Dasawisma Desa Grudo, Kecamatan Ngawi, Kabupaten Ngawi.
+            </p>
+          </div>
         </footer>
       </body>
     </html>

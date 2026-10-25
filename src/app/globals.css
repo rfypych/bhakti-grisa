@@ -3,8 +3,70 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Warm paper/stone background base */
+    --background: 40 20% 98%;
+    --foreground: 20 14% 12%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 12%;
+
+    /* Popover surfaces */
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 12%;
+
+    /* Primary: Deep village PKK green */
+    --primary: 153 60% 27%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Warm stone */
+    --secondary: 35 15% 93%;
+    --secondary-foreground: 24 10% 20%;
+
+    /* Muted content with strong WCAG AA contrast */
+    --muted: 35 15% 93%;
+    --muted-foreground: 25 6% 40%;
+
+    /* Accent */
+    --accent: 35 18% 90%;
+    --accent-foreground: 20 14% 12%;
+
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning (Amber, used sparingly) */
+    --warning: 38 92% 50%;
+    --warning-foreground: 24 10% 10%;
+
+    /* Structural borders & inputs */
+    --border: 30 10% 86%;
+    --input: 30 10% 86%;
+    --ring: 153 60% 27%;
+
+    /* Radius scale: 8px default, avoids generic pill-shapes */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-stone-50 text-stone-900 antialiased font-sans;
+    @apply bg-background text-foreground antialiased font-sans;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Form labels must be at least 15px and always clearly legible */
+  label {
+    font-size: 0.9375rem;
   }
 }
 

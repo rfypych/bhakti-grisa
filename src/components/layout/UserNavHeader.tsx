@@ -3,7 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { logoutAction } from '@/actions/authActions';
-import { User, LogOut, LogIn, Shield } from 'lucide-react';
+import { LogOut, LogIn, UserCheck } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 
 interface UserNavHeaderProps {
   user: {
@@ -22,13 +24,12 @@ interface UserNavHeaderProps {
 export function UserNavHeader({ user }: UserNavHeaderProps) {
   if (!user) {
     return (
-      <Link
-        href="/login"
-        className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg transition-colors border border-stone-200"
-      >
-        <LogIn className="w-3.5 h-3.5 text-stone-500" />
-        <span>Masuk Petugas</span>
-      </Link>
+      <Button asChild variant="outline" size="sm" className="min-h-touch text-sm">
+        <Link href="/login">
+          <LogIn className="size-4" data-icon="inline-start" />
+          <span>Masuk Petugas</span>
+        </Link>
+      </Button>
     );
   }
 
@@ -42,24 +43,29 @@ export function UserNavHeader({ user }: UserNavHeaderProps) {
   const roleLabel = ROLE_NAMES[user.peran] || user.peran;
 
   return (
-    <div className="flex items-center gap-2.5">
+    <div className="flex items-center gap-3">
       <div className="hidden sm:flex flex-col items-end">
-        <span className="text-xs font-bold text-stone-800 leading-tight">
-          {user.nama}
+        <span className="text-sm font-bold text-foreground leading-tight flex items-center gap-1.5">
+          <UserCheck className="size-4 text-primary" />
+          <span>{user.nama}</span>
         </span>
-        <span className="text-[10px] font-medium text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+        <Badge variant="secondary" className="mt-0.5 text-xs font-semibold px-2 py-0.5">
           {roleLabel}
-        </span>
+        </Badge>
       </div>
 
-      <button
-        onClick={() => logoutAction()}
-        className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1.5 text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors"
-        title="Keluar dari akun"
-      >
-        <LogOut className="w-3.5 h-3.5" />
-        <span className="hidden sm:inline">Keluar</span>
-      </button>
+      <form action={() => logoutAction()}>
+        <Button
+          type="submit"
+          variant="outline"
+          size="sm"
+          className="min-h-touch text-sm text-destructive hover:text-destructive hover:bg-destructive/10 border-border"
+          title="Keluar dari akun pengelola"
+        >
+          <LogOut className="size-4" data-icon="inline-start" />
+          <span className="hidden sm:inline">Keluar</span>
+        </Button>
+      </form>
     </div>
   );
 }
