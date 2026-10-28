@@ -27,7 +27,6 @@ import {
   UserRole,
   getRbacPermissions,
 } from '@/lib/domain';
-import { INITIAL_OFFICERS } from '@/lib/seedData';
 import { logoutAction } from '@/actions/authActions';
 import {
   BoardAvatar,
@@ -87,7 +86,7 @@ export function DashboardLayout({
   onNavigate,
   currentUser: initialUser = null,
   currentRole: initialRole,
-  allOfficers = INITIAL_OFFICERS,
+  allOfficers = [],
   onSwitchOfficer,
   pendingDraftCount = 0,
   globalSearch: propSearch,
@@ -479,45 +478,38 @@ export function DashboardLayout({
             })}
           </nav>
 
-          {/* Officer Active Role & Scope Selector */}
-          <div
-            aria-hidden={collapsed}
-            className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
-              collapsed
-                ? 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
-                : 'grid-rows-[1fr] opacity-100 mt-1'
-            }`}
-          >
-            <div className="overflow-hidden">
-              <div className="w-[234px] rounded-2xl bg-background-inner-default p-2.5 shadow-card">
-                <label
-                  htmlFor="sidebar-role-switcher"
-                  className="flex items-center justify-between text-caption-1-medium text-text-tertiary mb-1.5"
-                >
-                  <span>Simulasi Sesi RBAC</span>
-                  <ChevronsUpDown className="size-3.5 text-text-tertiary" />
-                </label>
-                <select
-                  id="sidebar-role-switcher"
-                  tabIndex={collapsed ? -1 : 0}
-                  value={currentUser?.id || ''}
-                  onChange={(e) => {
-                    const found = allOfficers.find((o) => o.id === e.target.value) || null;
-                    handleOfficerSwitch(found);
-                  }}
-                  className="w-full rounded-lg border border-border-button-default bg-background-primary-default px-2 py-1.5 text-caption-1-semibold text-text-primary shadow-2xs outline-none focus:ring-2 focus:ring-border-button-active"
-                >
-                  {allOfficers
-                    .filter((o) => o.aktif)
-                    .map((o) => (
-                      <option key={o.id} value={o.id}>
-                        {`[${o.role}] ${o.nama.split('(')[0].trim()}`}
-                      </option>
-                    ))}
-                </select>
+          {/* Officer Active Account & Scope Information */}
+          {currentUser && (
+            <div
+              aria-hidden={collapsed}
+              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
+                collapsed
+                  ? 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
+                  : 'grid-rows-[1fr] opacity-100 mt-1'
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="w-[234px] rounded-2xl bg-background-inner-default p-2.5 shadow-card border border-border">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <BoardAvatar size="xs" color="neutral" initials={officerInitials} />
+                    <div className="min-w-0 flex-1">
+                      <div className="text-body-2-semibold text-text-primary truncate">
+                        {currentUser.nama.split('(')[0].trim()}
+                      </div>
+                      <div className="text-caption-2-medium text-text-tertiary truncate">
+                        {`@${currentUser.username}`}
+                      </div>
+                    </div>
+                    <BoardBadge color="primary">{currentUser.role}</BoardBadge>
+                  </div>
+                  <div className="text-caption-2-medium text-text-secondary border-t border-border pt-1.5 mt-1 flex items-center justify-between">
+                    <span>Wilayah Tugas:</span>
+                    <span className="font-medium text-text-primary truncate max-w-[120px]">{perms.scopeLabel}</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Sidebar Bottom Section: Segmented Theme Toggle + Secondary Nav + Team Card */}
@@ -739,27 +731,6 @@ export function DashboardLayout({
               </div>
 
               <div className="flex flex-wrap items-center justify-end gap-2.5">
-                {/* Role Switcher */}
-                <select
-                  aria-label="Pilih peran petugas aktif"
-                  value={currentUser?.id || ''}
-                  onChange={(e) => {
-                    const found = allOfficers.find((o) => o.id === e.target.value) || null;
-                    handleOfficerSwitch(found);
-                  }}
-                  className={`${
-                    collapsed ? 'inline-flex' : 'lg:hidden'
-                  } h-9 rounded-2lg border border-border-button-default bg-background-primary-default px-2.5 py-1.5 text-body-2-medium text-text-primary shadow-xs`}
-                >
-                  {allOfficers
-                    .filter((o) => o.aktif)
-                    .map((o) => (
-                      <option key={o.id} value={o.id}>
-                        {`[${o.role}] ${o.nama.split('(')[0].trim()}`}
-                      </option>
-                    ))}
-                </select>
-
                 {/* Header Search */}
                 <div className="relative flex items-center rounded-2lg bg-background-tertiary-default px-2.5 py-1.5 h-9 ring-2 ring-inset ring-transparent focus-within:ring-border-button-active">
                   <Search className="size-4 text-foreground-icon-tertiary shrink-0 mr-1.5" />

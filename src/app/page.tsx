@@ -1,7 +1,6 @@
 import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
-import { INITIAL_WILAYAH, INITIAL_FAMILIES } from '@/lib/seedData';
 import {
   Wilayah,
   KeluargaRecord,
@@ -14,8 +13,8 @@ import { PublicBeranda, FAQ_ITEMS } from '@/components/public/PublicBeranda';
 export const dynamic = 'force-dynamic';
 
 export default async function HomePage() {
-  let wilayahList: Wilayah[] = INITIAL_WILAYAH;
-  let families: KeluargaRecord[] = INITIAL_FAMILIES;
+  let wilayahList: Wilayah[] = [];
+  let families: KeluargaRecord[] = [];
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'WARGA';
 

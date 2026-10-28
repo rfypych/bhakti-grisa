@@ -1,7 +1,6 @@
 import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
-import { INITIAL_FAMILIES, INITIAL_OFFICERS } from '@/lib/seedData';
 import { KeluargaRecord, OfficerAccount, UserRole } from '@/lib/domain';
 import { mapDbKeluargaToDomain, mapDbUserToOfficer } from '@/lib/dbMappers';
 import { DashboardCetak } from '@/components/dashboard/DashboardCetak';
@@ -14,7 +13,7 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function CetakLaporanIndexPage() {
-  let families: KeluargaRecord[] = INITIAL_FAMILIES;
+  let families: KeluargaRecord[] = [];
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'ADMIN_DESA';
 
@@ -33,19 +32,16 @@ export default async function CetakLaporanIndexPage() {
       getSessionUser(),
     ]);
 
-    if (dbKeluarga && dbKeluarga.length > 0) {
+    if (dbKeluarga) {
       families = dbKeluarga.map(mapDbKeluargaToDomain);
     }
 
     if (sessionUser) {
       currentRole = (sessionUser.peran as UserRole) || 'ADMIN_DESA';
       currentUser = mapDbUserToOfficer(sessionUser);
-    } else if (INITIAL_OFFICERS.length > 0) {
-      currentUser = INITIAL_OFFICERS.find((o) => o.role === 'ADMIN_DESA') || INITIAL_OFFICERS[0];
-      currentRole = currentUser.role;
     }
   } catch (err) {
-    console.warn('Gagal memuat data dari Prisma untuk CetakLaporanIndexPage, menggunakan seed fallback:', err);
+    console.warn('Gagal memuat data dari Prisma untuk CetakLaporanIndexPage:', err);
   }
 
   return (

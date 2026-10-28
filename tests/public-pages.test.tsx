@@ -2,7 +2,7 @@ import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderToString } from 'react-dom/server';
 import HomePage, { PublicBeranda, FAQ_ITEMS } from '../src/app/page';
-import LoginPage, { PublicLogin, DEMO_QUICK_SWITCHER_CHIPS } from '../src/app/login/page';
+import LoginPage, { PublicLogin } from '../src/app/login/page';
 import {
   INITIAL_WILAYAH,
   INITIAL_FAMILIES,
@@ -197,33 +197,18 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
     it('renders initiative key pillars in the right column', () => {
       const html = renderToString(<PublicLogin />);
 
-      expect(html).toContain('Verifikasi 1-Klik');
+      expect(html).toContain('Verifikasi Berkas 1-Klik');
       expect(html).toContain('Mutasi Peristiwa Vital');
       expect(html).toContain('Peta Spasial GIS');
       expect(html).toContain('Otomasi 31 Sheet');
     });
 
-    it('renders Demo Quick Account Switcher chips', () => {
+    it('renders resident notice and link to public self-reporting form', () => {
       const html = renderToString(<PublicLogin />);
 
-      expect(html).toContain('Pilih Cepat Akun Demo:');
-      for (const chip of DEMO_QUICK_SWITCHER_CHIPS) {
-        expect(html).toContain(chip.label);
-        expect(html).toContain(`@${chip.username}`);
-      }
-    });
-
-    it('renders demo accounts directory list with Isi Form and Masuk Cepat buttons', () => {
-      const html = renderToString(
-        <PublicLogin officers={INITIAL_OFFICERS} />
-      );
-
-      expect(html).toContain('Direktori Akun Demo Berdasarkan Peran RBAC');
-      expect(html).toContain('5 Peran RBAC');
-      expect(html).toContain('Hj. Kartika Sari, S.Sos (Ketua TP PKK Desa)');
-      expect(html).toContain('kader_rt01');
-      expect(html).toContain('Isi Form');
-      expect(html).toContain('Masuk Cepat');
+      expect(html).toContain('Informasi bagi Warga Masyarakat:');
+      expect(html).toContain('tidak memerlukan akun login petugas');
+      expect(html).toContain('Buka Formulir Mandiri Warga');
     });
 
     it('renders active session callout if currentUser is provided', () => {

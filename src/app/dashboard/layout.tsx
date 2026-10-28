@@ -1,7 +1,6 @@
 import React from 'react';
 import { getSessionUser } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
-import { INITIAL_OFFICERS } from '@/lib/seedData';
 import { OfficerAccount, UserRole } from '@/lib/domain';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 
@@ -14,7 +13,7 @@ export default async function DashboardLayoutServer({
 }) {
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'ADMIN_DESA';
-  let allOfficers: OfficerAccount[] = INITIAL_OFFICERS;
+  let allOfficers: OfficerAccount[] = [];
   let pendingDraftCount = 0;
 
   try {
@@ -62,17 +61,9 @@ export default async function DashboardLayoutServer({
         wilayahId: user.wilayahId || undefined,
         terakhirMasuk: user.updatedAt?.toISOString() || new Date().toISOString(),
       };
-    } else if (allOfficers.length > 0) {
-      // Default fallback for preview/development when not logged in
-      currentUser = allOfficers[0];
-      currentRole = currentUser.role;
     }
   } catch (err) {
-    console.warn('Failed to load session/officers for DashboardLayout, using defaults:', err);
-    if (allOfficers.length > 0) {
-      currentUser = allOfficers[0];
-      currentRole = currentUser.role;
-    }
+    console.warn('Failed to load session/officers for DashboardLayout:', err);
   }
 
   return (

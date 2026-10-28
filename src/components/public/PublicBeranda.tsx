@@ -25,7 +25,6 @@ import {
   computeDashboardAggregates,
   getRbacPermissions,
 } from '@/lib/domain';
-import { INITIAL_WILAYAH, INITIAL_FAMILIES } from '@/lib/seedData';
 import {
   BoardButton,
   BoardChip,
@@ -65,8 +64,8 @@ export const FAQ_ITEMS = [
 ];
 
 export function PublicBeranda({
-  wilayahList = INITIAL_WILAYAH,
-  families = INITIAL_FAMILIES,
+  wilayahList = [],
+  families = [],
   currentUser = null,
   currentRole = 'WARGA',
   onNavigate,

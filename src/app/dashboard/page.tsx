@@ -2,12 +2,6 @@ import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
 import {
-  INITIAL_WILAYAH,
-  INITIAL_FAMILIES,
-  INITIAL_EVENTS,
-  INITIAL_OFFICERS,
-} from '@/lib/seedData';
-import {
   Wilayah,
   KeluargaRecord,
   PeristiwaRecord,
@@ -30,9 +24,9 @@ export default async function DashboardPage({
   searchParams: Promise<{ wilayahId?: string; tahun?: string; q?: string }>;
 }) {
   const resolvedParams = await searchParams;
-  let wilayahList: Wilayah[] = INITIAL_WILAYAH;
-  let families: KeluargaRecord[] = INITIAL_FAMILIES;
-  let events: PeristiwaRecord[] = INITIAL_EVENTS;
+  let wilayahList: Wilayah[] = [];
+  let families: KeluargaRecord[] = [];
+  let events: PeristiwaRecord[] = [];
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'ADMIN_DESA';
 
@@ -214,12 +208,9 @@ export default async function DashboardPage({
         wilayahId: user.wilayahId || undefined,
         terakhirMasuk: user.updatedAt?.toISOString() || new Date().toISOString(),
       };
-    } else if (INITIAL_OFFICERS.length > 0) {
-      currentUser = INITIAL_OFFICERS[0];
-      currentRole = currentUser.role;
     }
   } catch (err) {
-    console.warn('Gagal memuat data dari Prisma untuk DashboardPage, menggunakan data seed default:', err);
+    console.warn('Gagal memuat data dari Prisma untuk DashboardPage:', err);
   }
 
   return (

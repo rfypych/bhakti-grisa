@@ -31,7 +31,6 @@ import {
   generateVirtualNik,
   getRbacPermissions,
 } from '@/lib/domain';
-import { INITIAL_WILAYAH } from '@/lib/seedData';
 import {
   BoardButton,
   BoardSurface,
@@ -233,7 +232,7 @@ export function PublicFormulir({
   const [wilayahList, setWilayahList] = useState<Wilayah[]>(() => {
     return initialWilayahProp && initialWilayahProp.length > 0
       ? initialWilayahProp
-      : INITIAL_WILAYAH;
+      : [];
   });
 
   const perms = getRbacPermissions(currentRole, currentUser);
@@ -358,8 +357,19 @@ export function PublicFormulir({
     );
   }
 
+  const defaultSafeWilayah: Wilayah = {
+    id: 'default',
+    dusun: 'Grudo',
+    rw: '01',
+    rt: '01',
+    namaDasawisma: 'Melati',
+    aktif: true,
+    ketuaDasawisma: 'Kader Dasawisma',
+    targetKK: 25,
+  };
+
   const selectedWilayah =
-    wilayahList.find((w) => w.id === form.wilayahId) || wilayahList[0] || INITIAL_WILAYAH[0];
+    wilayahList.find((w) => w.id === form.wilayahId) || wilayahList[0] || defaultSafeWilayah;
 
   const handleResetDraft = () => {
     const fresh = createDefaultFormState(defaultWilId);

@@ -1,7 +1,6 @@
 import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
-import { INITIAL_OFFICERS, INITIAL_WILAYAH } from '@/lib/seedData';
 import { OfficerAccount, UserRole, Wilayah } from '@/lib/domain';
 import { mapDbUserToOfficer, mapDbWilayahToDomain } from '@/lib/dbMappers';
 import { DashboardPengguna } from '@/components/dashboard/DashboardPengguna';
@@ -14,8 +13,8 @@ export const metadata = {
 export const dynamic = 'force-dynamic';
 
 export default async function PenggunaPage() {
-  let officers: OfficerAccount[] = INITIAL_OFFICERS;
-  let wilayahList: Wilayah[] = INITIAL_WILAYAH;
+  let officers: OfficerAccount[] = [];
+  let wilayahList: Wilayah[] = [];
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'ADMIN_DESA';
 
@@ -36,23 +35,20 @@ export default async function PenggunaPage() {
       getSessionUser(),
     ]);
 
-    if (dbUsers && dbUsers.length > 0) {
+    if (dbUsers) {
       officers = dbUsers.map(mapDbUserToOfficer);
     }
 
-    if (dbWilayah && dbWilayah.length > 0) {
+    if (dbWilayah) {
       wilayahList = dbWilayah.map(mapDbWilayahToDomain);
     }
 
     if (sessionUser) {
       currentRole = (sessionUser.peran as UserRole) || 'ADMIN_DESA';
       currentUser = mapDbUserToOfficer(sessionUser);
-    } else if (officers.length > 0) {
-      currentUser = officers.find((o) => o.role === 'ADMIN_DESA') || officers[0];
-      currentRole = currentUser.role;
     }
   } catch (err) {
-    console.warn('Gagal memuat data dari Prisma untuk PenggunaPage, menggunakan seed fallback:', err);
+    console.warn('Gagal memuat data dari Prisma untuk PenggunaPage:', err);
   }
 
   return (

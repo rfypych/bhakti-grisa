@@ -1,7 +1,6 @@
 import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
-import { INITIAL_FAMILIES, INITIAL_WILAYAH, INITIAL_OFFICERS } from '@/lib/seedData';
 import { KeluargaRecord, Wilayah, OfficerAccount, UserRole } from '@/lib/domain';
 import {
   mapDbKeluargaToDomain,
@@ -23,8 +22,8 @@ export default async function PetaPage({
   searchParams: Promise<{ wilayahId?: string; rt?: string }>;
 }) {
   await searchParams;
-  let families: KeluargaRecord[] = INITIAL_FAMILIES;
-  let wilayahList: Wilayah[] = INITIAL_WILAYAH;
+  let families: KeluargaRecord[] = [];
+  let wilayahList: Wilayah[] = [];
   let currentUser: OfficerAccount | null = null;
   let currentRole: UserRole = 'ADMIN_DESA';
 
@@ -46,23 +45,20 @@ export default async function PetaPage({
       getSessionUser(),
     ]);
 
-    if (dbKeluarga && dbKeluarga.length > 0) {
+    if (dbKeluarga) {
       families = dbKeluarga.map(mapDbKeluargaToDomain);
     }
 
-    if (dbWilayah && dbWilayah.length > 0) {
+    if (dbWilayah) {
       wilayahList = dbWilayah.map(mapDbWilayahToDomain);
     }
 
     if (user) {
       currentRole = (user.peran as UserRole) || 'ADMIN_DESA';
       currentUser = mapDbUserToOfficer(user);
-    } else if (INITIAL_OFFICERS.length > 0) {
-      currentUser = INITIAL_OFFICERS[0];
-      currentRole = currentUser.role;
     }
   } catch (err) {
-    console.warn('Gagal memuat data dari Prisma untuk PetaPage, menggunakan seed fallback:', err);
+    console.warn('Gagal memuat data dari Prisma untuk PetaPage:', err);
   }
 
   return (

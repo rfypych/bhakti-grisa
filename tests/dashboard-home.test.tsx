@@ -123,7 +123,7 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
       expect(html).toContain('⌘L');
     });
 
-    it('renders officer switcher and scope information', () => {
+    it('renders officer profile and scope information', () => {
       const html = renderToString(
         <DashboardLayout
           currentUser={INITIAL_OFFICERS[0]}
@@ -133,9 +133,11 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
         </DashboardLayout>
       );
 
-      expect(html).toContain('Simulasi Sesi RBAC');
-      expect(html).toContain('[ADMIN_DESA]');
       expect(html).toContain('Hj. Kartika Sari, S.Sos');
+      expect(html).toContain('@admin_desa');
+      expect(html).toContain('Wilayah Tugas:');
+      expect(html).toContain('ADMIN_DESA');
+      expect(html).toContain('Cakupan Seluruh Desa Grudo');
     });
 
     it('renders secondary nav, public portal link, theme toggle, and logout button', () => {
