@@ -84,7 +84,7 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
       expect(html).toContain('Peta GIS Spasial');
       expect(html).toContain('Manajemen Wilayah');
       expect(html).toContain('Manajemen Akun');
-      expect(html).toContain('Cetak Buku Dasawisma');
+      expect(html).toContain('Cetak Catatan Keluarga');
     });
 
     it('displays dynamic badge for pending draft verification count', () => {

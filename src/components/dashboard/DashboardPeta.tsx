@@ -31,6 +31,8 @@ import {
   BoardSegmentedControl,
   BoardStatusLabel,
 } from '@/components/simpatik';
+import { GisMap } from '@/components/map/GisMap';
+import { MapHouseholdData } from '@/components/map/MapPinMarker';
 
 export interface DashboardPetaProps {
   families: KeluargaRecord[];
@@ -78,6 +80,25 @@ export function DashboardPeta({
         severityFilter === 'SEMUA' || item.sev.severity === severityFilter;
       return matchWil && matchSev;
     });
+
+  const householdsForMap: MapHouseholdData[] = mappedHouseholds.map(({ fam }) => ({
+    id: fam.id,
+    noKk: fam.noKK,
+    namaKepalaRumahTangga: fam.namaKepalaKeluarga,
+    alamat: fam.alamat,
+    latitude: fam.latitude,
+    longitude: fam.longitude,
+    kriteriaRumah: fam.sanitasi.kriteriaRumah,
+    jambanKeluarga: fam.sanitasi.punyaJamban,
+    jumlahAnggota: fam.anggota.length,
+    hasBalita: fam.anggota.some((a) => a.isBalita || (a.umur ?? 0) <= 5),
+    hasIbuHamil: fam.anggota.some((a) => a.isIbuHamil),
+    wilayah: {
+      rt: fam.rt,
+      rw: fam.rw,
+      namaDasawisma: fam.namaDasawisma,
+    },
+  }));
 
   const activeHousehold =
     mappedHouseholds.find((h) => h.fam.id === selectedFamilyId) ||
@@ -200,154 +221,30 @@ export function DashboardPeta({
               </div>
             </div>
 
-            {/* Interactive SVG + DOM Pin GIS Surface */}
+            {/* Real Interactive Leaflet OpenStreetMap Surface */}
             <div
               data-testid="gis-map-canvas"
-              className={`relative w-full h-[460px] overflow-hidden select-none ${
-                mapStyle === 'CADASTRE'
-                  ? 'bg-slate-100 dark:bg-slate-900'
-                  : 'bg-emerald-50/70 dark:bg-slate-950'
-              }`}
+              className="relative w-full h-[520px] overflow-hidden select-none bg-surface-subtle"
             >
-              <div
-                className="w-full h-full transition-transform duration-150 origin-center relative"
-                style={{ transform: `scale(${zoom})` }}
-              >
-                {/* Vector Cadastral Background of Desa Grudo */}
-                <svg
-                  viewBox="0 0 800 500"
-                  className="w-full h-full object-cover"
-                  aria-label="Peta Spasial Wilayah Dusun Grudo, Krajan, Mojorejo, dan Nglarangan"
-                >
-                  {/* Grid Lines */}
-                  <g stroke="currentColor" className="text-slate-300/60 dark:text-slate-800" strokeWidth="1">
-                    {Array.from({ length: 16 }).map((_, i) => (
-                      <line key={`v-${i}`} x1={i * 50} y1={0} x2={i * 50} y2={500} />
-                    ))}
-                    {Array.from({ length: 10 }).map((_, i) => (
-                      <line key={`h-${i}`} x1={0} y1={i * 50} x2={800} y2={i * 50} />
-                    ))}
-                  </g>
+              <GisMap households={householdsForMap} />
 
-                  {/* Dusun Administrative Polygons */}
-                  <polygon
-                    points="40,40 390,40 370,240 40,250"
-                    className="fill-teal-500/10 stroke-teal-700/40"
-                    strokeWidth="2"
-                    strokeDasharray="6 4"
-                  />
-                  <polygon
-                    points="400,40 760,40 760,240 380,240"
-                    className="fill-sky-500/10 stroke-sky-700/40"
-                    strokeWidth="2"
-                    strokeDasharray="6 4"
-                  />
-                  <polygon
-                    points="40,260 370,250 380,460 40,460"
-                    className="fill-amber-500/10 stroke-amber-700/40"
-                    strokeWidth="2"
-                    strokeDasharray="6 4"
-                  />
-                  <polygon
-                    points="390,250 760,250 760,460 390,460"
-                    className="fill-indigo-500/10 stroke-indigo-700/40"
-                    strokeWidth="2"
-                    strokeDasharray="6 4"
-                  />
-
-                  {/* River / Saluran Irigasi Grudo */}
-                  <path
-                    d="M 0,320 Q 220,290 420,340 T 800,300"
-                    fill="none"
-                    stroke="#0284c7"
-                    strokeWidth="10"
-                    strokeOpacity="0.25"
-                  />
-
-                  {/* Main Arterial Roads (Jl. Raya Grudo & Jl. Hasanudin) */}
-                  <path
-                    d="M 40,180 L 760,180 M 385,30 L 385,470 M 140,80 L 660,410"
-                    fill="none"
-                    stroke="currentColor"
-                    className="text-slate-400/70 dark:text-slate-700"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Dusun Labels */}
-                  <text x="65" y="75" className="fill-slate-600 dark:fill-slate-400 text-[13px] font-bold">
-                    DUSUN GRUDO (RW 01 · Dahlia &amp; Melati)
-                  </text>
-                  <text x="420" y="75" className="fill-slate-600 dark:fill-slate-400 text-[13px] font-bold">
-                    DUSUN KRAJAN (RW 02 · Mawar &amp; Anggrek)
-                  </text>
-                  <text x="65" y="440" className="fill-slate-600 dark:fill-slate-400 text-[13px] font-bold">
-                    DUSUN MOJOREJO (RW 03 · Kenanga &amp; Bougenville)
-                  </text>
-                  <text x="420" y="440" className="fill-slate-600 dark:fill-slate-400 text-[13px] font-bold">
-                    DUSUN NGLARANGAN (RW 04 · Cempaka &amp; Flamboyan)
-                  </text>
-
-                  {/* Balai Desa Landmark */}
-                  <g transform="translate(350, 155)">
-                    <rect
-                      x="0"
-                      y="0"
-                      width="76"
-                      height="24"
-                      rx="4"
-                      className="fill-slate-900 dark:fill-slate-100"
-                    />
-                    <text
-                      x="38"
-                      y="15"
-                      textAnchor="middle"
-                      className="fill-white dark:fill-slate-900 text-[10px] font-bold"
-                    >
-                      BALAI DESA
-                    </text>
-                  </g>
-                </svg>
-
-                {/* Interactive Household Severity Pins */}
-                {mappedHouseholds.map(({ fam, sev }) => {
-                  const { xPct, yPct } = projectCoord(fam.latitude, fam.longitude);
-                  const isSelected = activeHousehold?.fam.id === fam.id;
-
-                  const pinStyles: Record<SeverityPin, string> = {
-                    MERAH: 'bg-red-600 text-white border-white ring-red-600/40',
-                    KUNING: 'bg-amber-500 text-slate-950 border-white ring-amber-500/40',
-                    HIJAU: 'bg-teal-700 text-white border-white ring-accent-500/40',
-                  };
-
-                  const pinSymbol: Record<SeverityPin, string> = {
-                    MERAH: '✕',
-                    KUNING: '!',
-                    HIJAU: '✓',
-                  };
-
-                  return (
-                    <button
-                      key={fam.id}
-                      type="button"
-                      onClick={() => setSelectedFamilyId(fam.id)}
-                      aria-label={`Pin Rumah KK ${fam.namaKepalaKeluarga} (${sev.severity})`}
-                      style={{ left: `${xPct}%`, top: `${yPct}%` }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer focus:outline-none transition-transform ${
-                        isSelected ? 'z-20 scale-125' : 'z-10 hover:scale-110'
-                      }`}
-                    >
-                      <div
-                        className={`px-2 py-1 rounded-lg border-2 shadow-md ring-4 flex items-center gap-1 text-[11px] font-mono font-bold whitespace-nowrap ${
-                          pinStyles[sev.severity]
-                        }`}
-                      >
-                        <span>{pinSymbol[sev.severity]}</span>
-                        <span>{fam.namaKepalaKeluarga.split(' ')[0]}</span>
-                      </div>
-                    </button>
-                  );
-                })}
+              {/* Dusun Indicators & Landmarks Overlay */}
+              <div className="absolute top-3 left-3 z-[400] flex flex-wrap items-center gap-1.5 pointer-events-none">
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-teal-800 dark:text-teal-300 border border-teal-500/40 shadow-xs pointer-events-auto">
+                  DUSUN GRUDO
+                </span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-sky-800 dark:text-sky-300 border border-sky-500/40 shadow-xs pointer-events-auto">
+                  DUSUN KRAJAN
+                </span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-amber-800 dark:text-amber-300 border border-amber-500/40 shadow-xs pointer-events-auto">
+                  DUSUN MOJOREJO
+                </span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-indigo-800 dark:text-indigo-300 border border-indigo-500/40 shadow-xs pointer-events-auto">
+                  DUSUN NGLARANGAN
+                </span>
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-900 text-white border border-slate-700 shadow-xs pointer-events-auto">
+                  BALAI DESA
+                </span>
               </div>
             </div>
 

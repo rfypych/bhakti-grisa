@@ -275,7 +275,7 @@ export function DashboardLayout({
     },
     {
       route: '/dashboard/laporan/cetak',
-      label: 'Cetak Buku Dasawisma',
+      label: 'Cetak Catatan Keluarga',
       icon: <Printer className="size-5 shrink-0" />,
       allowed: perms.canPrintCatatanKeluarga,
     },

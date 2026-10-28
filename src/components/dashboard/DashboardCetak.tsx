@@ -62,9 +62,23 @@ export function DashboardCetak({
 
   if (!activeFam) {
     return (
-      <div className="p-8 text-center text-sm text-text-muted">
-        Tidak ditemukan data keluarga untuk dicetak pada wilayah cakupan ini.
-      </div>
+      <BoardSurface padding="lg" className="text-center py-12 space-y-3">
+        <Printer className="size-10 mx-auto text-text-tertiary" />
+        <h2 className="text-body-medium font-bold text-text-primary">
+          Belum Ada Catatan Keluarga (Lampiran 4.15) Siap Cetak
+        </h2>
+        <p className="text-caption-1-regular text-text-secondary max-w-md mx-auto">
+          Tidak ditemukan data keluarga untuk dicetak pada wilayah cakupan ini. Verifikasi berkas warga terlebih dahulu melalui menu Verifikasi Draft.
+        </p>
+        <div className="pt-2 flex justify-center gap-2">
+          <BoardButton variant="secondary" size="sm" onClick={() => handleNavigate('/dashboard')}>
+            Ke Dashboard
+          </BoardButton>
+          <BoardButton variant="primary" size="sm" onClick={() => handleNavigate('/dashboard/verifikasi')}>
+            Buka Verifikasi Draft
+          </BoardButton>
+        </div>
+      </BoardSurface>
     );
   }
 
