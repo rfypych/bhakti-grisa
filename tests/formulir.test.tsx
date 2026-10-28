@@ -247,6 +247,8 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
       const html = renderToString(<PublicFormulir />);
       // Should restore into Step 2 and have populated fields
       expect(html).toContain('02. Sanitasi &amp; Kondisi Kesehatan Lingkungan Rumah');
+      expect(html).toContain('Ditemukan Draft Isian Sebelumnya dari Perangkat Anda');
+      expect(html).toContain('Mulai Isian Baru');
       expect(mockLocalStorage.getItem(STORAGE_KEY)).toContain('3521091122334455');
     });
   });

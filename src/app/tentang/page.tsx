@@ -227,7 +227,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <BoardSurface variant="secondary" padding="md" className="space-y-3">
             <div className="flex items-center gap-2">
-              <BoardChip variant="caption" color="emerald">
+              <BoardChip variant="caption" color="lime">
                 Pilar 01
               </BoardChip>
               <h3 className="text-body-medium font-semibold text-text-primary">

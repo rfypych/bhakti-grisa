@@ -189,6 +189,19 @@ export function DashboardPeta({
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
+                  onClick={() => {
+                    setWilayahFilter('SEMUA');
+                    setSeverityFilter('SEMUA');
+                    setZoom(1);
+                  }}
+                  className="px-2.5 py-1 rounded bg-surface-default border border-separator-border text-text-secondary hover:text-text-primary inline-flex items-center gap-1 cursor-pointer"
+                  title="Tampilkan semua sebaran titik keluarga di peta"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-accent-600" />
+                  <span>Tampilkan Semua Titik</span>
+                </button>
+                <button
+                  type="button"
                   onClick={() => setMapStyle(mapStyle === 'CADASTRE' ? 'TOPO' : 'CADASTRE')}
                   className="px-2.5 py-1 rounded bg-surface-default border border-separator-border text-text-secondary hover:text-text-primary inline-flex items-center gap-1 cursor-pointer"
                 >

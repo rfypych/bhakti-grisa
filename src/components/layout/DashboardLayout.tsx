@@ -493,18 +493,18 @@ export function DashboardLayout({
                   <div className="flex items-center gap-2 mb-1.5">
                     <BoardAvatar size="xs" color="neutral" initials={officerInitials} />
                     <div className="min-w-0 flex-1">
-                      <div className="text-body-2-semibold text-text-primary truncate">
+                      <div className="text-body-2-semibold text-text-primary truncate" title={currentUser.nama}>
                         {currentUser.nama.split('(')[0].trim()}
                       </div>
                       <div className="text-caption-2-medium text-text-tertiary truncate">
                         {`@${currentUser.username}`}
                       </div>
                     </div>
-                    <BoardBadge color="primary">{currentUser.role}</BoardBadge>
+                    <BoardBadge color="primary" className="shrink-0">{currentUser.role}</BoardBadge>
                   </div>
-                  <div className="text-caption-2-medium text-text-secondary border-t border-border pt-1.5 mt-1 flex items-center justify-between">
-                    <span>Wilayah Tugas:</span>
-                    <span className="font-medium text-text-primary truncate max-w-[120px]">{perms.scopeLabel}</span>
+                  <div className="text-caption-2-medium text-text-secondary border-t border-border pt-1.5 mt-1 flex items-center justify-between gap-1">
+                    <span className="shrink-0">Wilayah Tugas:</span>
+                    <span className="font-medium text-text-primary truncate text-right" title={perms.scopeLabel}>{perms.scopeLabel}</span>
                   </div>
                 </div>
               </div>

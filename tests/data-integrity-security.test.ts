@@ -208,11 +208,11 @@ describe('P0 Data Integrity & Security Invariants', () => {
         peran: 'KADER_RT',
         wilayahId: wilayah1.id,
         aktif: true,
-        passwordHash: 'hash',
-        nomorHp: '08123456789',
+        kataSandiHash: 'hash',
+        
         createdAt: new Date(),
         updatedAt: new Date(),
-        terakhirMasuk: null,
+        
         wilayah: wilayah1,
       });
 
@@ -235,11 +235,11 @@ describe('P0 Data Integrity & Security Invariants', () => {
         peran: 'KADER_RT',
         wilayahId: wilayah1.id,
         aktif: true,
-        passwordHash: 'hash',
-        nomorHp: '08123456789',
+        kataSandiHash: 'hash',
+        
         createdAt: new Date(),
         updatedAt: new Date(),
-        terakhirMasuk: null,
+        
         wilayah: wilayah1,
       });
 
@@ -259,11 +259,11 @@ describe('P0 Data Integrity & Security Invariants', () => {
         peran: 'KADER_RT',
         wilayahId: wilayah1.id,
         aktif: true,
-        passwordHash: 'hash',
-        nomorHp: '08123456789',
+        kataSandiHash: 'hash',
+        
         createdAt: new Date(),
         updatedAt: new Date(),
-        terakhirMasuk: null,
+        
         wilayah: wilayah1,
       });
 

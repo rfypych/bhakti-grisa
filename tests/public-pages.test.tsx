@@ -200,6 +200,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
 
       expect(html).toContain('login-username');
       expect(html).toContain('Username Petugas');
+      expect(html).toContain('Contoh: admin atau nama_petugas');
       expect(html).toContain('login-password');
       expect(html).toContain('Kata Sandi');
       expect(html).toContain('Masuk ke Ruang Kerja Petugas');

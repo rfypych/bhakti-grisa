@@ -19,7 +19,6 @@ export async function getCurrentSessionUserAction() {
     nama: user.nama,
     peran: user.peran,
     wilayahId: user.wilayahId || undefined,
-    nomorHp: user.nomorHp || undefined,
     aktif: user.aktif,
   };
 }

@@ -201,8 +201,7 @@ export function DashboardPeristiwa({
           tanggalLahir: tglLahirBayi,
           jenisKelamin: jkBayi,
           beratBadanKg: numBb,
-          panjangBadanCm: numPb,
-          nik: useVirtualNik ? generatedNik : undefined,
+            nik: useVirtualNik ? generatedNik : undefined,
         });
       }
 
@@ -223,7 +222,6 @@ export function DashboardPeristiwa({
         namaIbu: namaIbu.trim() || selectedBirthFam.namaKepalaKeluarga,
         beratBadanKg: numBb,
         lingkarKepalaCm: numLk,
-        panjangBadanCm: numPb,
         nikBayi: useVirtualNik ? generatedNik : undefined,
         dicatatOleh: currentUser?.nama || `Petugas ${currentRole}`,
       };
@@ -834,7 +832,8 @@ export function DashboardPeristiwa({
                 type="number"
                 step="0.1"
                 value={beratBadan}
-                onChange={(e) => setBeratBadan(parseFloat(e.target.value) || 3.0)}
+                placeholder="Contoh: 3.2"
+                onChange={(e) => setBeratBadan(e.target.value)}
                 className="w-full px-3 py-2 font-mono tabular-nums bg-background-tertiary-default border border-border-button-default rounded-2lg"
               />
             </div>
@@ -848,7 +847,8 @@ export function DashboardPeristiwa({
                 type="number"
                 step="0.5"
                 value={lingkarKepala}
-                onChange={(e) => setLingkarKepala(parseFloat(e.target.value) || 34)}
+                placeholder="Contoh: 34"
+                onChange={(e) => setLingkarKepala(e.target.value)}
                 className="w-full px-3 py-2 font-mono tabular-nums bg-background-tertiary-default border border-border-button-default rounded-2lg"
               />
             </div>

@@ -38,6 +38,25 @@ export interface DashboardPenggunaProps {
   initialDeactivateTarget?: OfficerAccount | null;
 }
 
+
+function formatTanggalWaktuIndo(isoStr?: string): string {
+  if (!isoStr || isoStr === 'Belum pernah masuk') return 'Belum pernah masuk';
+  try {
+    const d = new Date(isoStr);
+    if (isNaN(d.getTime())) return isoStr;
+    return new Intl.DateTimeFormat('id-ID', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Asia/Jakarta',
+    }).format(d) + ' WIB';
+  } catch {
+    return isoStr;
+  }
+}
+
 export function DashboardPengguna({
   officers: initialOfficers,
   wilayahList,
@@ -307,7 +326,7 @@ export function DashboardPengguna({
                       />
                     </td>
                     <td className="py-3 px-4 font-mono tabular-nums text-text-muted">
-                      {o.terakhirMasuk}
+                      {formatTanggalWaktuIndo(o.terakhirMasuk)}
                     </td>
                     <td className="py-3 px-4 text-right">
                       <div className="inline-flex items-center gap-1.5">

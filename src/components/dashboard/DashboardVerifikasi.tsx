@@ -379,7 +379,7 @@ export function DashboardVerifikasi({
               </div>
               <div className="flex justify-between">
                 <span className="text-text-muted">Jumlah Anggota Jiwa:</span>
-                <span className="font-semibold text-text-primary">{approveTarget.anggota.filter((a) => a.hidup).length} Jiwa</span>
+                <span className="font-semibold text-text-primary">{approveTarget.anggota.filter((a) => a.statusHidup === 'HIDUP').length} Jiwa</span>
               </div>
             </div>
 

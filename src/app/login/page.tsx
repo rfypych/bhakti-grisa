@@ -195,7 +195,7 @@ export function PublicLogin({
                       type="text"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      placeholder="Contoh: admin atau kader_rt01"
+                      placeholder="Contoh: admin atau nama_petugas"
                       className="w-full bg-transparent px-1 text-body-regular text-text-primary placeholder:text-text-tertiary outline-none"
                     />
                   </div>

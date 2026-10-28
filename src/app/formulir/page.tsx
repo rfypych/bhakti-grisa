@@ -291,6 +291,14 @@ export function PublicFormulir({
   });
 
   const [lastSavedTime, setLastSavedTime] = useState<string>('Tersimpan di Perangkat');
+  const [isDraftRestored, setIsDraftRestored] = useState<boolean>(() => {
+    if (typeof localStorage !== 'undefined') {
+      try {
+        return Boolean(localStorage.getItem(STORAGE_KEY));
+      } catch { return false; }
+    }
+    return false;
+  });
   const [validationError, setValidationError] = useState<string | null>(null);
   const [submittedRecord, setSubmittedRecord] = useState<KeluargaRecord | null>(
     initialSubmittedRecord
@@ -980,6 +988,26 @@ export function PublicFormulir({
             );
           })}
         </nav>
+
+                {isDraftRestored && (
+          <BoardCallout
+            tone="info"
+            title="Ditemukan Draft Isian Sebelumnya dari Perangkat Anda"
+            description="Formulir telah otomatis memulihkan data keluarga yang belum selesai dikirim. Anda dapat melanjutkan pengisian atau memulai formulir baru yang bersih."
+            action={
+              <BoardButton
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  handleResetDraft();
+                  setIsDraftRestored(false);
+                }}
+              >
+                Mulai Isian Baru
+              </BoardButton>
+            }
+          />
+        )}
 
         {validationError && (
           <BoardCallout
