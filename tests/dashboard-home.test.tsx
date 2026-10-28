@@ -112,15 +112,15 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
       expect(html).toContain('Dashboard');
     });
 
-    it('renders quick search input with shortcut hint ⌘L', () => {
+    it('renders quick search input with Indonesian shortcut hint Ctrl+L', () => {
       const html = renderToString(
         <DashboardLayout currentUser={INITIAL_OFFICERS[0]}>
           <div>Search Check</div>
         </DashboardLayout>
       );
 
-      expect(html).toContain('Quick Search...');
-      expect(html).toContain('⌘L');
+      expect(html).toContain('Cari KK / Nama (Ctrl+L)...');
+      expect(html).toContain('Ctrl+L');
     });
 
     it('renders officer profile and scope information', () => {
@@ -251,14 +251,14 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
         />
       );
 
-      expect(html).toContain('Total Results');
+      expect(html).toContain('Total Hasil');
       expect(html).toContain('kepala keluarga terverifikasi');
       expect(html).toContain('No KK &amp; Kepala Keluarga');
       expect(html).toContain('RT/RW &amp; Dusun');
       expect(html).toContain('Jiwa');
       expect(html).toContain('Status Sanitasi');
-      expect(html).toContain('Severity Pill');
-      expect(html).toContain('Status Chip');
+      expect(html).toContain('Tingkat Kerawanan');
+      expect(html).toContain('Status');
       expect(html).toContain('Cetak Catatan Keluarga');
 
       // Check first family rendered

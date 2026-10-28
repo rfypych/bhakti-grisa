@@ -194,6 +194,23 @@ describe('Task 7: Wilayah, Pengguna & Lampiran 4.15 Cetak Laporan Suite', () => 
     });
   });
 
+    it('renders delete confirmation modal when initialDeleteTarget is set', () => {
+      const html = renderToString(
+        <DashboardWilayah
+          wilayahList={INITIAL_WILAYAH}
+          families={INITIAL_FAMILIES}
+          officers={INITIAL_OFFICERS}
+          currentUser={adminUser}
+          currentRole="ADMIN_DESA"
+          initialDeleteTarget={INITIAL_WILAYAH[0]}
+        />
+      );
+
+      expect(html).toContain('Konfirmasi Hapus Wilayah Kosong');
+      expect(html).toContain('Apakah Anda yakin ingin menghapus unit wilayah');
+      expect(html).toContain('Ya, Hapus Wilayah');
+    });
+
   describe('2. DashboardPengguna Component', () => {
     it('enforces RBAC block for non-admin users (e.g. KADER_RT)', () => {
       const html = renderToString(
@@ -303,6 +320,22 @@ describe('Task 7: Wilayah, Pengguna & Lampiran 4.15 Cetak Laporan Suite', () => 
       expect(html).toContain('Aktifkan'); // For the inactive user
     });
   });
+
+    it('renders deactivate confirmation modal when initialDeactivateTarget is set', () => {
+      const html = renderToString(
+        <DashboardPengguna
+          officers={INITIAL_OFFICERS}
+          wilayahList={INITIAL_WILAYAH}
+          currentUser={adminUser}
+          currentRole="ADMIN_DESA"
+          initialDeactivateTarget={INITIAL_OFFICERS[0]}
+        />
+      );
+
+      expect(html).toContain('Konfirmasi Nonaktifkan Akun Petugas');
+      expect(html).toContain('Apakah Anda yakin ingin menonaktifkan akun petugas');
+      expect(html).toContain('Ya, Nonaktifkan Akun');
+    });
 
   describe('3. DashboardCetak Component (Lampiran 4.15)', () => {
     const verifiedFamilies = INITIAL_FAMILIES.filter((f) => f.status === 'VERIFIKASI');

@@ -30,6 +30,60 @@ export interface DashboardCetakProps {
   onNavigate?: (route: AppRoute) => void;
 }
 
+
+function humanizeSumberAir(val: string): string {
+  switch (val) {
+    case 'PDAM': return 'PDAM';
+    case 'SUMUR_GALI': return 'Sumur Gali';
+    case 'SUMUR_POMPA': return 'Sumur Pompa';
+    case 'MATA_AIR': return 'Mata Air';
+    case 'SUNGAI': return 'Sungai';
+    case 'LAINNYA': return 'Lainnya';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizePendidikan(val: string): string {
+  switch (val) {
+    case 'TIDAK_SEKOLAH':
+    case 'TIDAK_TAMAT_SD': return 'Tidak Tamat SD';
+    case 'SD':
+    case 'SD_MI': return 'SD / Sederajat';
+    case 'SMP':
+    case 'SMP_SEDERAJAT': return 'SMP / Sederajat';
+    case 'SMA':
+    case 'SMA_SMK_SEDERAJAT': return 'SMA / SMK Sederajat';
+    case 'DIPLOMA': return 'Diploma';
+    case 'S1':
+    case 'S1_S2_S3': return 'S1 / Sarjana';
+    case 'S2': return 'S2 / Magister';
+    case 'S3': return 'S3 / Doktor';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizeStatusKawin(val: string): string {
+  switch (val) {
+    case 'BELUM_KAWIN': return 'Belum Kawin';
+    case 'KAWIN': return 'Kawin';
+    case 'CERAI_HIDUP': return 'Cerai Hidup';
+    case 'CERAI_MATI': return 'Cerai Mati';
+    case 'JANDA': return 'Janda';
+    case 'DUDA': return 'Duda';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizeKriteriaRumah(val: string): string {
+  switch (val) {
+    case 'SEHAT': return 'Sehat';
+    case 'KURANG_SEHAT': return 'Kurang Sehat';
+    case 'TIDAK_SEHAT':
+    case 'TIDAK_SEHAT_LAYAK_HUNI': return 'Tidak Sehat';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
 export function DashboardCetak({
   families,
   selectedCetakId,
@@ -199,13 +253,13 @@ export function DashboardCetak({
             <div className="grid grid-cols-3 py-1 border-b border-slate-200">
               <span className="text-slate-600">Kriteria Rumah</span>
               <span className="col-span-2 font-semibold">
-                {`: ${activeFam.sanitasi.kriteriaRumah.replace('_', ' ')}`}
+                {`: ${humanizeKriteriaRumah(activeFam.sanitasi.kriteriaRumah)}`}
               </span>
             </div>
             <div className="grid grid-cols-3 py-1 border-b border-slate-200">
               <span className="text-slate-600">Jamban Keluarga &amp; Air</span>
               <span className="col-span-2">
-                {`: ${activeFam.sanitasi.punyaJamban ? `Ada (${activeFam.sanitasi.jumlahJamban} unit)` : 'Tidak Ada'} · Air ${activeFam.sanitasi.sumberAir}`}
+                {`: ${activeFam.sanitasi.punyaJamban ? `Ada (${activeFam.sanitasi.jumlahJamban} unit)` : 'Tidak Ada'} · Air ${humanizeSumberAir(activeFam.sanitasi.sumberAir)}`}
               </span>
             </div>
             <div className="grid grid-cols-3 py-1 border-b border-slate-200">
@@ -266,7 +320,7 @@ export function DashboardCetak({
                       {m.hubungan.replace('_', ' ')}
                     </td>
                     <td className="border-r border-slate-400 py-2 px-2.5">
-                      {m.statusKawin.replace('_', ' ')}
+                      {humanizeStatusKawin(m.statusKawin)}
                     </td>
                     <td className="border-r border-slate-400 py-2 px-2.5 font-mono">
                       {m.jenisKelamin}
@@ -274,7 +328,7 @@ export function DashboardCetak({
                     <td className="border-r border-slate-400 py-2 px-2.5 font-mono tabular-nums">
                       {`${m.tanggalLahir} (${m.umur} th)`}
                     </td>
-                    <td className="border-r border-slate-400 py-2 px-2.5">{m.pendidikan}</td>
+                    <td className="border-r border-slate-400 py-2 px-2.5">{humanizePendidikan(m.pendidikan)}</td>
                     <td className="border-r border-slate-400 py-2 px-2.5">{m.pekerjaan}</td>
                     <td className="py-2 px-2.5">
                       {[

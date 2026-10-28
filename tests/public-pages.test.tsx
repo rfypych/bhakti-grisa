@@ -101,7 +101,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       // Verify RT cards rendering
       expect(html).toContain('Dasawisma Dahlia 1');
       expect(html).toContain('Ibu Siti Aminah');
-      expect(html).toContain('Isi Formulir RT 01/RW 01');
+      expect(html).toContain('Isi Formulir Dasawisma Dahlia 1 (RT 01/RW 01)');
     });
 
     it('renders 3-step guide procedure cards', () => {

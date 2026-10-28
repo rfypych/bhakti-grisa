@@ -44,6 +44,7 @@ export interface DashboardWilayahProps {
   onSaveWilayah?: (wilayah: Wilayah) => void | Promise<void>;
   onDeleteWilayah?: (wilayahId: string) => void | Promise<void>;
   onNavigate?: (route: AppRoute) => void;
+  initialDeleteTarget?: Wilayah | null;
 }
 
 export function DashboardWilayah({
@@ -55,11 +56,13 @@ export function DashboardWilayah({
   onSaveWilayah,
   onDeleteWilayah,
   onNavigate,
+  initialDeleteTarget = null,
 }: DashboardWilayahProps) {
   const router = useRouter();
   const [wilayahList, setWilayahList] = useState<Wilayah[]>(initialWilayahList);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [deleteTarget, setDeleteTarget] = useState<Wilayah | null>(initialDeleteTarget);
   const [editingWilayah, setEditingWilayah] = useState<Wilayah | null>(null);
   const [safetyGuardError, setSafetyGuardError] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
@@ -195,7 +198,7 @@ export function DashboardWilayah({
     );
   };
 
-  const handleAttemptDelete = async (w: Wilayah) => {
+  const handleAttemptDelete = (w: Wilayah) => {
     setSuccessMsg(null);
     const check = validateWilayahDeletion(w.id, families, officers);
     if (!check.allowed) {
@@ -205,6 +208,14 @@ export function DashboardWilayah({
       );
       return;
     }
+    setSafetyGuardError(null);
+    setDeleteTarget(w);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!deleteTarget) return;
+    const w = deleteTarget;
+    setDeleteTarget(null);
 
     setWilayahList((prev) => prev.filter((item) => item.id !== w.id));
 
@@ -399,6 +410,41 @@ export function DashboardWilayah({
           </table>
         </div>
       </BoardSurface>
+
+      {/* Delete Wilayah Confirmation Modal */}
+      <BoardModal
+        isOpen={Boolean(deleteTarget)}
+        onClose={() => setDeleteTarget(null)}
+        title="Konfirmasi Hapus Wilayah Kosong"
+        subtitle="Penghapusan unit wilayah administratif RT / Dasawisma."
+      >
+        {deleteTarget && (
+          <div className="space-y-4 text-xs">
+            <p className="text-text-secondary leading-relaxed">
+              Apakah Anda yakin ingin menghapus unit wilayah <strong>Dasawisma {deleteTarget.namaDasawisma}</strong> (RT {deleteTarget.rt}/RW {deleteTarget.rw} &middot; Dusun {deleteTarget.dusun})? Tindakan ini bersifat permanen.
+            </p>
+
+            <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-separator-border">
+              <BoardButton
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setDeleteTarget(null)}
+              >
+                Batal
+              </BoardButton>
+              <BoardButton
+                type="button"
+                variant="danger"
+                size="sm"
+                onClick={handleConfirmDelete}
+              >
+                Ya, Hapus Wilayah
+              </BoardButton>
+            </div>
+          </div>
+        )}
+      </BoardModal>
 
       {/* 2. Formulir Tambah & Edit Wilayah Modal */}
       <BoardModal

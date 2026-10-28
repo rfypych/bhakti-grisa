@@ -378,8 +378,8 @@ export function DashboardLayout({
           <div
             role={collapsed ? 'button' : undefined}
             tabIndex={collapsed ? 0 : undefined}
-            aria-label={collapsed ? 'Quick Search' : undefined}
-            title={collapsed ? 'Quick Search (⌘L)' : undefined}
+            aria-label={collapsed ? 'Cari KK / Nama (Ctrl+L)' : undefined}
+            title={collapsed ? 'Cari KK / Nama (Ctrl+L)' : undefined}
             onClick={() => {
               if (collapsed) {
                 setCollapsed(false);
@@ -408,12 +408,12 @@ export function DashboardLayout({
                   type="search"
                   tabIndex={collapsed ? -1 : 0}
                   aria-label="Cari kepala keluarga atau nomor KK"
-                  placeholder="Quick Search..."
+                  placeholder="Cari KK / Nama (Ctrl+L)..."
                   value={globalSearch}
                   onChange={(e) => handleSearchChange(e.target.value)}
                   className="min-w-0 flex-1 bg-transparent text-body-medium text-text-primary outline-none placeholder:text-text-secondary"
                 />
-                <BoardKbd>⌘L</BoardKbd>
+                <BoardKbd>Ctrl+L</BoardKbd>
               </div>
             </Collapsible>
           </div>

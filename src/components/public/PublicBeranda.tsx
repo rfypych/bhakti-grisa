@@ -384,7 +384,7 @@ export function PublicBeranda({
                       className="w-full"
                       onClick={() => handleNav('/formulir', { wilayahId: w.id })}
                     >
-                      {`Isi Formulir RT ${w.rt}/RW ${w.rw}`}
+                      {`Isi Formulir Dasawisma ${w.namaDasawisma} (RT ${w.rt}/RW ${w.rw})`}
                     </BoardButton>
                   </div>
                 </div>

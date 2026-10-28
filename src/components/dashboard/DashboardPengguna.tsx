@@ -35,6 +35,7 @@ export interface DashboardPenggunaProps {
   onSaveOfficer?: (officer: OfficerAccount) => void | Promise<void>;
   onToggleOfficerActive?: (officerId: string) => void | Promise<void>;
   onNavigate?: (route: AppRoute) => void;
+  initialDeactivateTarget?: OfficerAccount | null;
 }
 
 export function DashboardPengguna({
@@ -45,6 +46,7 @@ export function DashboardPengguna({
   onSaveOfficer,
   onToggleOfficerActive,
   onNavigate,
+  initialDeactivateTarget = null,
 }: DashboardPenggunaProps) {
   const router = useRouter();
   const [officers, setOfficers] = useState<OfficerAccount[]>(initialOfficers);
@@ -56,7 +58,8 @@ export function DashboardPengguna({
   // Add Officer Form State
   const [nama, setNama] = useState<string>('');
   const [username, setUsername] = useState<string>('');
-  const [passwordPlain, setPasswordPlain] = useState<string>('pkkgrudo2026');
+  const [passwordPlain, setPasswordPlain] = useState<string>('');
+  const [deactivateTarget, setDeactivateTarget] = useState<OfficerAccount | null>(initialDeactivateTarget);
   const [role, setRole] = useState<Exclude<UserRole, 'WARGA'>>('KADER_RT');
   const [selectedWilayahId, setSelectedWilayahId] = useState<string>(
     wilayahList[0]?.id || 'wil-rt01-rw01'
@@ -91,7 +94,7 @@ export function DashboardPengguna({
 
   const handleCreateOfficer = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nama.trim() || !username.trim()) return;
+    if (!nama.trim() || !username.trim() || !passwordPlain.trim()) return;
 
     const wil = wilayahList.find((w) => w.id === selectedWilayahId) || wilayahList[0];
 
@@ -99,7 +102,7 @@ export function DashboardPengguna({
       id: `usr-${Date.now()}`,
       nama: nama.trim(),
       username: username.trim().toLowerCase().replace(/\s+/g, '_'),
-      passwordPlain: passwordPlain.trim() || 'pkkgrudo2026',
+      passwordPlain: passwordPlain.trim(),
       role,
       aktif: true,
       scopeDusun:
@@ -175,23 +178,19 @@ export function DashboardPengguna({
     setNewPasswordPlain('');
   };
 
-  const handleToggleActive = async (officerId: string) => {
-    const target = officers.find((o) => o.id === officerId);
-    if (!target) return;
-
-    const nextState = !target.aktif;
+  const executeToggleActive = async (target: OfficerAccount, nextState: boolean) => {
     setOfficers((prev) =>
-      prev.map((o) => (o.id === officerId ? { ...o, aktif: nextState } : o))
+      prev.map((o) => (o.id === target.id ? { ...o, aktif: nextState } : o))
     );
 
     try {
-      await toggleStatusPenggunaAction(officerId);
+      await toggleStatusPenggunaAction(target.id);
     } catch {
       // safe fallback
     }
 
     if (onToggleOfficerActive) {
-      await onToggleOfficerActive(officerId);
+      await onToggleOfficerActive(target.id);
     }
 
     setFeedbackMsg(
@@ -199,6 +198,27 @@ export function DashboardPengguna({
         nextState ? 'AKTIF' : 'NONAKTIF'
       }.`
     );
+  };
+
+  const handleToggleActive = async (officerId: string) => {
+    const target = officers.find((o) => o.id === officerId);
+    if (!target) return;
+
+    // If currently active, request confirmation before deactivation
+    if (target.aktif) {
+      setDeactivateTarget(target);
+      return;
+    }
+
+    // Direct re-activation
+    await executeToggleActive(target, true);
+  };
+
+  const handleConfirmDeactivate = async () => {
+    if (!deactivateTarget) return;
+    const target = deactivateTarget;
+    setDeactivateTarget(null);
+    await executeToggleActive(target, false);
   };
 
   return (
@@ -319,6 +339,41 @@ export function DashboardPengguna({
           </table>
         </div>
       </BoardSurface>
+
+      {/* Deactivate Officer Confirmation Modal */}
+      <BoardModal
+        isOpen={Boolean(deactivateTarget)}
+        onClose={() => setDeactivateTarget(null)}
+        title="Konfirmasi Nonaktifkan Akun Petugas"
+        subtitle="Penonaktifan akses dashboard bagi pengurus / kader PKK."
+      >
+        {deactivateTarget && (
+          <div className="space-y-4 text-xs">
+            <p className="text-text-secondary leading-relaxed">
+              Apakah Anda yakin ingin menonaktifkan akun petugas <strong>{deactivateTarget.nama}</strong> (@{deactivateTarget.username})? Petugas ini tidak akan dapat login ke ruang kerja sampai diaktifkan kembali oleh Admin Desa.
+            </p>
+
+            <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-separator-border">
+              <BoardButton
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setDeactivateTarget(null)}
+              >
+                Batal
+              </BoardButton>
+              <BoardButton
+                type="button"
+                variant="danger"
+                size="sm"
+                onClick={handleConfirmDeactivate}
+              >
+                Ya, Nonaktifkan Akun
+              </BoardButton>
+            </div>
+          </div>
+        )}
+      </BoardModal>
 
       {/* 1. Pembuatan Akun Petugas Baru Modal */}
       <BoardModal

@@ -505,7 +505,7 @@ export function DashboardHome({
         {/* Table Toolbar */}
         <div className="flex w-full flex-col items-start gap-3 px-3 py-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col justify-center">
-            <p className="text-body-medium whitespace-nowrap text-text-tertiary">Total Results</p>
+            <p className="text-body-medium whitespace-nowrap text-text-tertiary">Total Hasil</p>
             <p className="text-body-medium whitespace-nowrap text-text-primary tabular-nums">
               {verifiedFamilies.length} kepala keluarga terverifikasi
             </p>
@@ -554,8 +554,8 @@ export function DashboardHome({
                   <th>RT/RW &amp; Dusun</th>
                   <th>Jiwa</th>
                   <th>Status Sanitasi</th>
-                  <th>Severity Pill</th>
-                  <th>Status Chip</th>
+                  <th>Tingkat Kerawanan</th>
+                  <th>Status</th>
                   <th>Pembaruan</th>
                   <th className="text-right">Aksi</th>
                 </tr>

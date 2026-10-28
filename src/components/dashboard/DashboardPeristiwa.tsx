@@ -99,8 +99,9 @@ export function DashboardPeristiwa({
   const [namaBayi, setNamaBayi] = useState<string>('');
   const [jkBayi, setJkBayi] = useState<'L' | 'P'>('P');
   const [tglLahirBayi, setTglLahirBayi] = useState<string>('2026-10-28');
-  const [beratBadan, setBeratBadan] = useState<number>(3.2);
-  const [lingkarKepala, setLingkarKepala] = useState<number>(34);
+  const [beratBadan, setBeratBadan] = useState<string>('');
+  const [lingkarKepala, setLingkarKepala] = useState<string>('');
+  const [panjangBadan, setPanjangBadan] = useState<string>('');
   const [useVirtualNik, setUseVirtualNik] = useState<boolean>(true);
 
   // Mortality Modal Form State
@@ -177,6 +178,10 @@ export function DashboardPeristiwa({
         (selectedBirthFam.anggota.length || 1) + 1
       );
 
+      const numBb = parseFloat(beratBadan) || 3.2;
+      const numLk = parseFloat(lingkarKepala) || 34;
+      const numPb = parseFloat(panjangBadan) || 49;
+
       if (onRecordBirth) {
         await onRecordBirth({
           keluargaId: selectedBirthFam.id,
@@ -184,8 +189,8 @@ export function DashboardPeristiwa({
           namaBayi: namaBayi.trim(),
           jenisKelamin: jkBayi,
           tanggalLahir: tglLahirBayi,
-          beratBadanKg: Number(beratBadan),
-          lingkarKepalaCm: Number(lingkarKepala),
+          beratBadanKg: numBb,
+          lingkarKepalaCm: numLk,
           useVirtualNik,
           dicatatOleh: currentUser?.nama || `Petugas ${currentRole}`,
         });
@@ -195,8 +200,8 @@ export function DashboardPeristiwa({
           namaBayi: namaBayi.trim(),
           tanggalLahir: tglLahirBayi,
           jenisKelamin: jkBayi,
-          beratBadanKg: Number(beratBadan),
-          panjangBadanCm: Number(lingkarKepala),
+          beratBadanKg: numBb,
+          panjangBadanCm: numPb,
           nik: useVirtualNik ? generatedNik : undefined,
         });
       }
@@ -214,10 +219,11 @@ export function DashboardPeristiwa({
         namaSubjek: namaBayi.trim(),
         jenisKelamin: jkBayi,
         tanggalPeristiwa: tglLahirBayi,
-        keterangan: `Ibu: ${namaIbu.trim() || selectedBirthFam.namaKepalaKeluarga}, BB: ${beratBadan} kg, LK: ${lingkarKepala} cm`,
+        keterangan: `Ibu: ${namaIbu.trim() || selectedBirthFam.namaKepalaKeluarga}, BB: ${numBb} kg, LK: ${numLk} cm, PB: ${numPb} cm`,
         namaIbu: namaIbu.trim() || selectedBirthFam.namaKepalaKeluarga,
-        beratBadanKg: Number(beratBadan),
-        lingkarKepalaCm: Number(lingkarKepala),
+        beratBadanKg: numBb,
+        lingkarKepalaCm: numLk,
+        panjangBadanCm: numPb,
         nikBayi: useVirtualNik ? generatedNik : undefined,
         dicatatOleh: currentUser?.nama || `Petugas ${currentRole}`,
       };
@@ -929,7 +935,22 @@ export function DashboardPeristiwa({
             <select
               id="mort-select-member"
               value={mortAnggotaId || livingMortMembers[0]?.id || ''}
-              onChange={(e) => setMortAnggotaId(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setMortAnggotaId(val);
+                const mem = livingMortMembers.find((m) => m.id === val);
+                if (mem) {
+                  if (mem.umur < 1) {
+                    setKategoriKematian('BAYI');
+                  } else if (mem.umur <= 5) {
+                    setKategoriKematian('BALITA');
+                  } else if (mem.isIbuHamil) {
+                    setKategoriKematian('IBU_HAMIL_MELAHIRKAN');
+                  } else {
+                    setKategoriKematian('WARGA_UMUM');
+                  }
+                }
+              }}
               className="w-full px-3 py-2 bg-background-tertiary-default border border-border-button-default rounded-2lg"
             >
               {livingMortMembers.map((m) => (

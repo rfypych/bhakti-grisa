@@ -722,7 +722,7 @@ export function PublicFormulir({
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
           <BoardSurface padding="lg" className="space-y-6">
-            <div className="flex items-start sm:items-center justify-between gap-4 border-b border-separator-border pb-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-separator-border pb-4">
               <div className="flex items-center gap-3">
                 <div className="size-11 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="size-6" />
@@ -929,8 +929,24 @@ export function PublicFormulir({
           </div>
         </div>
 
-        {/* 5-Step Progress Indicator */}
-        <nav aria-label="Tahapan pengisian formulir" className="grid grid-cols-5 gap-2">
+        {/* Mobile Stepper (sm:hidden) */}
+        <div className="block sm:hidden bg-surface-default border border-separator-border rounded-xl p-3.5 shadow-xs">
+          <div className="flex items-center justify-between text-xs font-medium text-text-secondary mb-2">
+            <span>
+              Langkah {form.step} dari 5: <strong className="text-text-primary">{steps[form.step - 1]?.title}</strong>
+            </span>
+            <span className="font-mono text-accent-600 font-bold">{Math.round((form.step / 5) * 100)}%</span>
+          </div>
+          <div className="w-full bg-surface-subtle h-2 rounded-full overflow-hidden">
+            <div
+              className="bg-accent-500 h-full rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${(form.step / 5) * 100}%` }}
+            />
+          </div>
+        </div>
+
+        {/* 5-Step Progress Indicator (Desktop) */}
+        <nav aria-label="Tahapan pengisian formulir" className="hidden sm:grid grid-cols-5 gap-2">
           {steps.map((s) => {
             const isCurrent = form.step === s.num;
             const isCompleted = form.step > s.num;
