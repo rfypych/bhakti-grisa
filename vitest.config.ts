@@ -10,6 +10,8 @@ export default defineConfig({
     environment: 'node',
     globalSetup: ['./tests/setup.global.ts'],
     setupFiles: ['./tests/setup.env.ts'],
+    include: ['tests/**/*.test.{ts,tsx}'],
+    fileParallelism: false,
   },
   resolve: {
     alias: {
