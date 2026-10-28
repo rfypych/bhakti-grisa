@@ -18,18 +18,19 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: [
-          "var(--font-sans)",
           "var(--font-inter)",
           "Inter",
-          "ui-sans-serif",
-          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "'Segoe UI'",
+          "Roboto",
           "sans-serif",
         ],
         mono: [
-          "var(--font-mono)",
           "var(--font-mono-source)",
-          "JetBrains Mono",
+          "'JetBrains Mono'",
           "ui-monospace",
+          "SFMono-Regular",
           "monospace",
         ],
       },
