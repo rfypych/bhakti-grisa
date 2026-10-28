@@ -1,6 +1,6 @@
 # Redesain UI Bhakti-Grisa 1:1 Sesuai Referensi BoardUI (`simpatik-frontend`) Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Merombak tampilan UI proyek Bhakti-Grisa agar 100% identik secara visual, token desain, dan pengalaman pengguna dengan repositori referensi `rfypych/simpatik-frontend` (BoardUI Design System) tanpa merusak user flow dan menjaga integritas Server Actions, Prisma ORM, dan SQLite backend.
 
@@ -38,18 +38,18 @@
 - Create: `src/components/boardui/index.tsx`
 - Create: `tests/boardui.test.tsx`
 
-- [ ] **Step 1: Copy brand logo asset**
+- [x] **Step 1: Copy brand logo asset**
   Copy `simpatik-ref/public/brand/boardui_logo_circle.webp` ke `public/brand/boardui_logo_circle.webp`.
-- [ ] **Step 2: Setup CSS theme and typography tokens**
+- [x] **Step 2: Setup CSS theme and typography tokens**
   Salin dan sesuaikan `src/styles/theme.css` dan `src/styles/typography.css` dari `simpatik-ref` ke `src/styles/`, pastikan token warna semantik (`--color-background-primary-default`, `--color-accent-500`, `--color-text-primary`, dll.) dan efek `bui-hero-rays` didefinisikan secara lengkap.
-- [ ] **Step 3: Update `src/app/globals.css` & `tailwind.config.ts`**
+- [x] **Step 3: Update `src/app/globals.css` & `tailwind.config.ts`**
   Impor `theme.css` dan `typography.css` pada `src/app/globals.css`. Konfigurasi `tailwind.config.ts` untuk memetakan utility class BoardUI (`bg-background-*`, `text-text-*`, `border-border-*`, `shadow-sidebar`, `rounded-2lg`, dll.) sehingga Tailwind v3 dapat mengenali seluruh utility class BoardUI.
-- [ ] **Step 4: Create `src/components/boardui/index.tsx`**
+- [x] **Step 4: Create `src/components/boardui/index.tsx`**
   Implementasikan seluruh komponen BoardUI 1:1 dari `simpatik-ref/src/components/boardui/index.tsx`:
   `BoardLogo`, `BoardAvatar`, `BoardBadge`, `BoardChip`, `BoardKbd`, `BoardBreadcrumb`, `BoardBreadcrumbItem`, `BoardSurface`, `BoardStatCard`, `BoardButton`, `BoardSegmentedControl`, `BoardCallout`, `BoardModal`, `BoardStatusLabel`, `BoardEmptyState`.
-- [ ] **Step 5: Write unit test to verify BoardUI components**
+- [x] **Step 5: Write unit test to verify BoardUI components**
   Buat `tests/boardui.test.tsx` untuk memverifikasi rendering `BoardButton`, `BoardStatCard`, dan `BoardChip`.
-- [ ] **Step 6: Run tests and verify**
+- [x] **Step 6: Run tests and verify**
   Jalankan `npm run test` untuk memastikan Task 1 berfungsi.
 
 ---
@@ -61,17 +61,17 @@
 - Create: `src/app/tentang/page.tsx`
 - Test: Build / typecheck via `npx tsc --noEmit`
 
-- [ ] **Step 1: Create `src/components/layout/PublicLayout.tsx`**
+- [x] **Step 1: Create `src/components/layout/PublicLayout.tsx`**
   Bangun layout publik identik dengan `simpatik-ref/src/components/layout/PublicLayout.tsx`:
   - Header navigasi sticky glassmorphic dengan logo bulat `BoardLogo`, nama sistem `SIMPATIK Grudo`, badge versi `v1.0.1`, pil navigasi rute (`/`, `/formulir`, `/tentang`, `/login`), dan tombol aksi header (`Portal Kader` / `Buka Dashboard Petugas`).
   - Mobile menu drawer untuk layar sentuh/ponsel.
   - Footer resmi TP PKK Desa Grudo dengan informasi kontak, jam pelayanan kantor desa, tautan kebijakan, dan hak cipta.
-- [ ] **Step 2: Create `src/app/tentang/page.tsx`**
+- [x] **Step 2: Create `src/app/tentang/page.tsx`**
   Bangun halaman Tentang Inisiatif identik dengan `simpatik-ref/src/pages/PublicTentang.tsx`:
   - Profil inisiatif Bhakti Grisa & TP PKK Desa Grudo.
   - Tabel Matriks RBAC berjenjang (Warga, Kader RT, Pengurus RW, Dusun, Admin Desa).
   - Rincian dasar hukum TP PKK dan stack teknologi modern.
-- [ ] **Step 3: Verify TypeScript compilation**
+- [x] **Step 3: Verify TypeScript compilation**
   Jalankan `npx tsc --noEmit` untuk memastikan tidak ada error.
 
 ---
@@ -83,19 +83,19 @@
 - Modify: `src/app/login/page.tsx`
 - Test: Typecheck & run dev verification
 
-- [ ] **Step 1: Redesign `src/app/page.tsx` (Beranda Publik)**
+- [x] **Step 1: Redesign `src/app/page.tsx` (Beranda Publik)**
   Implementasikan tampilan identik `simpatik-ref/src/pages/PublicBeranda.tsx`:
   - BoardUI Hero Section dengan efek `bui-hero-rays`, Announcement Pill "SIMPATIK 1.0", headline berkelas, dan tombol CTA utama "Isi Formulir Keluarga Mandiri".
   - Transparency Ledger: 4 `BoardStatCard` interaktif yang menampilkan agregasi data nyata dari database Prisma (`totalKK`, `totalJiwa`, `activeWilayah`, `digitalisasiPercent`).
   - BoardUI Quick Access Bar dengan perintah salin CLI.
   - Direktori Kelompok RT Domisili dengan filter dusun cepat dan tombol klik untuk langsung mengisi form berdasarkan RT yang dipilih.
   - FAQ Accordion interaktif berisi pertanyaan umum warga (NIK sementara bayi, kerahasiaan data, auto-save draft, alur verifikasi).
-- [ ] **Step 2: Redesign `src/app/login/page.tsx` (Login Petugas)**
+- [x] **Step 2: Redesign `src/app/login/page.tsx` (Login Petugas)**
   Implementasikan tampilan identik `simpatik-ref/src/pages/PublicLogin.tsx`:
   - Split `AuthCard` layout: sisi kanan kartu inovasi TP PKK, sisi kiri form masuk kredensial.
   - Demo quick test account switcher untuk mempermudah pengujian berbagai peran (Kader RT, Pengurus RW, Dusun, Admin Desa).
   - Terintegrasi penuh dengan Server Action `loginAction` untuk membuat sesi cookie `session_token` dan redirect ke `/dashboard`.
-- [ ] **Step 3: Verify build & flow**
+- [x] **Step 3: Verify build & flow**
   Jalankan `npx tsc --noEmit` untuk memastikan tidak ada sintaks error.
 
 ---
@@ -107,7 +107,7 @@
 - Modify: `src/components/form/MultiStepForm.tsx` (atau komponen langkah terkait)
 - Test: Form state & submission validation
 
-- [ ] **Step 1: Update Formulir Layout & Stepper**
+- [x] **Step 1: Update Formulir Layout & Stepper**
   Sesuaikan tata letak halaman formulir sesuai `simpatik-ref/src/pages/PublicFormulir.tsx`:
   - Header ringkas dengan info wilayah terpilih dan pill progres 5 langkah:
     1. Wilayah & Bangunan
@@ -117,10 +117,10 @@
     5. Konfirmasi & Pengiriman
   - Indikator status penyimpanan draft otomatis (`localStorage`).
   - Indikator live household severity calculation (Normal, Pantau, Kritis).
-- [ ] **Step 2: Connect Form to `saveKeluargaAction`**
+- [x] **Step 2: Connect Form to `saveKeluargaAction`**
   Pastikan ketika warga menekan "Kirim Formulir Keluarga", data dikirimkan ke `saveKeluargaAction(formData, true)` sehingga tersimpan ke SQLite via Prisma dengan status `DRAFT`.
   Setelah berhasil, tampilkan konfirmasi sukses dengan nomor KK dan tombol cetak bukti draft / kembali ke beranda.
-- [ ] **Step 3: Verify build**
+- [x] **Step 3: Verify build**
   Jalankan `npx tsc --noEmit` untuk memverifikasi tipe form data.
 
 ---
@@ -132,18 +132,18 @@
 - Modify: `src/app/dashboard/page.tsx`
 - Test: Dashboard page render and interactive modal
 
-- [ ] **Step 1: Redesign `src/app/dashboard/layout.tsx`**
+- [x] **Step 1: Redesign `src/app/dashboard/layout.tsx`**
   Implementasikan layout dashboard identik dengan `simpatik-ref/src/components/layout/DashboardLayout.tsx`:
   - Smart Collapsible Sidebar: transisi halus lebar sidebar (220px ke collapsed icon mode) mengunci ikon pada grid 36px, menu navigasi lengkap dengan badge counter untuk antrean verifikasi DRAFT.
   - Top header: breadcrumb dinamis, shortcut input pencarian global `Ctrl/Cmd + L`, badge peran pengguna (RBAC), info nama kader & wilayah, tombol keluar (`logoutAction`), dan toggle dark mode.
-- [ ] **Step 2: Redesign `src/app/dashboard/page.tsx` (Dashboard Overview)**
+- [x] **Step 2: Redesign `src/app/dashboard/page.tsx` (Dashboard Overview)**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardHome.tsx`:
   - 4 `BoardStatCard` indikator utama (Total KK Terverifikasi, Total Jiwa, Wilayah Aktif, Persentase Digitalisasi).
   - Filter Wilayah RT & Tahun Pendataan.
   - Tombol aksi cepat: "Unduh Excel 31 Sheet" (memanggil `/api/export/excel`), "Unduh PDF Resmi" (memanggil `/api/export/pdf`), dan "Live Preview 31 Sheet".
   - Modal Live Preview 31 Sheet Buku Dasawisma dengan tab pemilihan sheet 1-31 dan pratinjau tabel matriks data.
   - Tabel data keluarga terverifikasi dengan chip status keparahan rumah tangga dan aksi detail.
-- [ ] **Step 3: Verify build**
+- [x] **Step 3: Verify build**
   Jalankan `npx tsc --noEmit`.
 
 ---
@@ -156,24 +156,24 @@
 - Modify: `src/app/dashboard/peta/page.tsx`
 - Test: Server actions integration
 
-- [ ] **Step 1: Redesign `src/app/dashboard/verifikasi/page.tsx`**
+- [x] **Step 1: Redesign `src/app/dashboard/verifikasi/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardVerifikasi.tsx`:
   - Segmented control filter (DRAFT, VERIFIKASI, DITOLAK).
   - Kartu berkas keluarga dengan ringkasan sanitasi, anggota, dan koordinat.
   - Tombol Verifikasi Instan (memanggil `approveSubmissionAction`).
   - Modal Penolakan Berkas dengan input catatan revisi (memanggil `rejectSubmissionAction`).
-- [ ] **Step 2: Redesign `src/app/dashboard/lapor-peristiwa/page.tsx`**
+- [x] **Step 2: Redesign `src/app/dashboard/lapor-peristiwa/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardPeristiwa.tsx`:
   - 3 Kartu Aksi Peristiwa: Lapor Kelahiran, Lapor Kematian, Lapor Mutasi/Kehamilan.
   - Modal Lapor Kelahiran dengan auto-generate NIK bayi sementara (memanggil `laporKelahiranAction`).
   - Modal Lapor Kematian (memanggil `laporKematianAction`).
   - Tabel log histori peristiwa vital dengan filter jenis peristiwa.
-- [ ] **Step 3: Redesign `src/app/dashboard/peta/page.tsx`**
+- [x] **Step 3: Redesign `src/app/dashboard/peta/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardPeta.tsx`:
   - Peta spasial GIS interaktif dengan styling kadaster desa.
   - Kontrol filter tingkat kerentanan keluarga (Semua, Normal, Pantau, Kritis).
   - Pin penanda rumah tangga dengan warna status; klik pin membuka panel detail keluarga di samping peta.
-- [ ] **Step 4: Verify build**
+- [x] **Step 4: Verify build**
   Jalankan `npx tsc --noEmit`.
 
 ---
@@ -186,23 +186,23 @@
 - Modify: `src/app/dashboard/laporan/cetak/[id]/page.tsx`
 - Test: Verification of safety guard & print layout
 
-- [ ] **Step 1: Redesign `src/app/dashboard/wilayah/page.tsx`**
+- [x] **Step 1: Redesign `src/app/dashboard/wilayah/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardWilayah.tsx`:
   - Ringkasan wilayah per Dusun, RW, dan RT.
   - Modal tambah & edit wilayah RT.
   - Proteksi *Safety Guard* yang mengecek apakah ada KK aktif sebelum mengizinkan penghapusan wilayah (terhubung ke `hapusWilayahAction`).
-- [ ] **Step 2: Redesign `src/app/dashboard/pengguna/page.tsx`**
+- [x] **Step 2: Redesign `src/app/dashboard/pengguna/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardPengguna.tsx`:
   - Tabel daftar petugas dan kader PKK dengan badge peran RBAC.
   - Modal pembuatan akun kader/petugas baru.
   - Modal reset kata sandi petugas.
   - Toggle status aktif/nonaktif akun.
-- [ ] **Step 3: Redesign `src/app/dashboard/laporan/cetak/[id]/page.tsx`**
+- [x] **Step 3: Redesign `src/app/dashboard/laporan/cetak/[id]/page.tsx`**
   Implementasikan tampilan identik `simpatik-ref/src/pages/DashboardCetak.tsx`:
   - Toolbar kontrol dengan tombol kembali, pilih KK, dan tombol Cetak Dokumen (`window.print()`).
   - Tampilan format resmi Lampiran 4.15 Catatan Keluarga TP PKK dengan tabel anggota, sanitasi, dan kriteria rumah.
   - Print stylesheet khusus media print agar cetakan presisi pada kertas F4/A4 tanpa elemen dashboard.
-- [ ] **Step 4: Verify build**
+- [x] **Step 4: Verify build**
   Jalankan `npx tsc --noEmit`.
 
 ---
@@ -213,9 +213,9 @@
 - All modified files
 - Tests
 
-- [ ] **Step 1: Run comprehensive tests**
+- [x] **Step 1: Run comprehensive tests**
   Jalankan `npm run test` untuk memastikan semua test unit dan integrasi lolos.
-- [ ] **Step 2: Run production build**
+- [x] **Step 2: Run production build**
   Jalankan `npm run build` untuk memverifikasi proses kompilasi Next.js berhasil 100% tanpa error SSR, dynamic routing, atau linting.
-- [ ] **Step 3: End-to-end user flow check**
+- [x] **Step 3: End-to-end user flow check**
   Pastikan alur warga (isi form mandiri), alur verifikasi kader, alur lapor peristiwa, ekspor Excel/PDF, dan navigasi dashboard berjalan sempurna sesuai desain referensi.

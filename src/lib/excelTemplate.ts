@@ -95,7 +95,7 @@ function enumLabel(map: Record<string, string>, value?: string | null): string {
  * and returns the populated spreadsheet as a binary buffer.
  */
 export async function generateOfficialExcelWorkbook(options: ExportOptions): Promise<Buffer> {
-  const templateFile = path.resolve(process.cwd(), options.templatePath || 'docs/kolom dasawisma.xlsx');
+  const templateFile = options.templatePath ? path.resolve(/*turbopackIgnore: true*/ process.cwd(), options.templatePath) : path.join(process.cwd(), 'docs', 'kolom dasawisma.xlsx');
   
   // Safely read template file into buffer so the master file is never written or locked
   const templateBuffer = fs.readFileSync(templateFile);

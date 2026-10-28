@@ -29,5 +29,5 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 // still work correctly.
 prisma
   .$queryRawUnsafe('PRAGMA journal_mode = WAL;')
-  .then(() => prisma.$executeRawUnsafe('PRAGMA busy_timeout = 5000;'))
+  .then(() => prisma.$queryRawUnsafe('PRAGMA busy_timeout = 5000;'))
   .catch(() => {});
