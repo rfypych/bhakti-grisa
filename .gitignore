@@ -15,6 +15,9 @@ dist/
 # SQLite & local databases
 *.db
 *.db-journal
+*.db-shm
+*.db-wal
+*.tsbuildinfo
 
 # Environment & local secrets
 .env
@@ -36,4 +39,9 @@ docs/inspect_*.py
 *.pem
 Thumbs.db
 simpatik-ref/
+
+# Agent & Assistant metadata
+.agents/
+.superpowers/
+skills-lock.json
 
