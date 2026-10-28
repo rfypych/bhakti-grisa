@@ -473,7 +473,7 @@ export function DashboardLayout({
                   )}
                   {!item.allowed && (
                     <Collapsible collapsed={collapsed}>
-                      <BoardBadge color="neutral">RBAC</BoardBadge>
+                      <BoardBadge color="neutral">Terkunci</BoardBadge>
                     </Collapsible>
                   )}
                 </Link>

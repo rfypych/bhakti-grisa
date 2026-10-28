@@ -293,7 +293,7 @@ export function DashboardPengguna({
               <tr>
                 <th className="py-3 px-4 font-semibold">Nama Petugas / Kader</th>
                 <th className="py-3 px-4 font-semibold">Username</th>
-                <th className="py-3 px-4 font-semibold">Peran RBAC</th>
+                <th className="py-3 px-4 font-semibold">Peran &amp; Hak Akses</th>
                 <th className="py-3 px-4 font-semibold">Cakupan Wilayah Tugas (Scope)</th>
                 <th className="py-3 px-4 font-semibold">Status Akun</th>
                 <th className="py-3 px-4 font-semibold">Terakhir Masuk</th>

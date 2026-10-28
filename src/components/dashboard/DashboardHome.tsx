@@ -59,6 +59,21 @@ export interface DashboardHomeProps {
   onNavigate?: (route: AppRoute, params?: { wilayahId?: string; cetakId?: string }) => void;
 }
 
+function formatTanggalIndo(dateStr?: string | Date): string {
+  if (!dateStr) return '-';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return String(dateStr);
+    return new Intl.DateTimeFormat('id-ID', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }).format(d);
+  } catch {
+    return String(dateStr);
+  }
+}
+
 export function DashboardHome({
   families = [],
   wilayahList = [],
@@ -669,8 +684,8 @@ export function DashboardHome({
                           {fam.status}
                         </BoardChip>
                       </td>
-                      <td className="font-mono tabular-nums text-caption-1-regular text-text-secondary">
-                        {fam.tanggalUpdate}
+                      <td className="tabular-nums text-caption-1-regular text-text-secondary whitespace-nowrap">
+                        {formatTanggalIndo(fam.tanggalUpdate)}
                       </td>
                       <td className="text-right">
                         <Link

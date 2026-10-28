@@ -134,7 +134,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('Bertugas sebagai Kader Dasawisma, Pengurus RW/Dusun, atau Admin Desa?');
       expect(html).toContain('Ekspor otomatis Buku Dasawisma 31 Sheet Excel (.xls)');
       expect(html).toContain('Masuk Akun Petugas PKK');
-      expect(html).toContain('Lihat Matriks RBAC');
+      expect(html).toContain('Lihat Matriks Peran &amp; Hak Akses');
     });
 
     it('renders officer dashboard button when user is logged in', () => {

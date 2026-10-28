@@ -194,6 +194,44 @@ function mapStatusKawin(sk: string, jk: 'L' | 'P'): string {
   return 'BELUM_KAWIN';
 }
 
+export function validateFormStep(
+  stepToCheck: number,
+  form: Pick<DraftFormState, 'noKK' | 'namaKepalaKeluarga' | 'alamat' | 'anggota'>
+): { valid: boolean; error?: string } {
+  if (stepToCheck === 1) {
+    if (!form.noKK || form.noKK.trim().length !== 16 || !/^\d{16}$/.test(form.noKK.trim())) {
+      return { valid: false, error: 'Nomor Kartu Keluarga (KK) wajib terdiri dari 16 digit angka.' };
+    }
+    if (!form.namaKepalaKeluarga.trim()) {
+      return { valid: false, error: 'Nama Kepala Rumah Tangga wajib diisi.' };
+    }
+    if (!form.alamat.trim()) {
+      return { valid: false, error: 'Alamat rumah lengkap wajib diisi.' };
+    }
+  }
+  if (stepToCheck === 3) {
+    if (form.anggota.length === 0) {
+      return { valid: false, error: 'Minimal terdapat 1 anggota keluarga (Kepala Keluarga).' };
+    }
+    for (let i = 0; i < form.anggota.length; i++) {
+      const m = form.anggota[i];
+      if (!m.nama.trim()) {
+        return { valid: false, error: `Nama lengkap anggota keluarga ke-${i + 1} wajib diisi.` };
+      }
+      const trimmedNik = m.nik ? m.nik.trim() : '';
+      const isVirtual = Boolean(m.isVirtualNik) || trimmedNik.startsWith('TEMP-');
+      const isValidNik = isVirtual ? trimmedNik.startsWith('TEMP-') : trimmedNik.length === 16;
+      if (!isValidNik) {
+        return {
+          valid: false,
+          error: `NIK anggota keluarga "${m.nama || i + 1}" wajib 16 digit (atau gunakan tombol Generate NIK Virtual Otomatis).`,
+        };
+      }
+    }
+  }
+  return { valid: true };
+}
+
 export interface PublicFormulirProps {
   wilayahList?: Wilayah[];
   initialWilayahId?: string;
@@ -381,7 +419,7 @@ export function PublicFormulir({
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
           <BoardCallout
             tone="warning"
-            title="Akses Input Formulir Dibatasi (Matriks RBAC)"
+            title="Akses Input Formulir Dibatasi"
             description={`Peran aktif Anda (${currentRole}) memiliki wewenang Monitoring & Rekapitulasi Wilayah, namun tidak melakukan input formulir keluarga. Input formulir hanya dilakukan oleh Warga Mandiri, Kader RT, atau Admin Desa.`}
             action={
               <BoardButton variant="primary" size="sm" onClick={() => handleNav('/dashboard')}>
@@ -423,43 +461,15 @@ export function PublicFormulir({
 
   const validateCurrentStep = (stepToCheck: number): boolean => {
     setValidationError(null);
-    if (stepToCheck === 1) {
-      if (!form.noKK || form.noKK.trim().length !== 16 || !/^\d{16}$/.test(form.noKK.trim())) {
-        setValidationError('Nomor Kartu Keluarga (KK) wajib terdiri dari 16 digit angka.');
-        return false;
-      }
-      if (!form.namaKepalaKeluarga.trim()) {
-        setValidationError('Nama Kepala Rumah Tangga wajib diisi.');
-        return false;
-      }
-      if (!form.alamat.trim()) {
-        setValidationError('Alamat rumah lengkap wajib diisi.');
-        return false;
-      }
-    }
-    if (stepToCheck === 3) {
-      if (form.anggota.length === 0) {
-        setValidationError('Minimal terdapat 1 anggota keluarga (Kepala Keluarga).');
-        return false;
-      }
-      for (let i = 0; i < form.anggota.length; i++) {
-        const m = form.anggota[i];
-        if (!m.nama.trim()) {
-          setValidationError(`Nama lengkap anggota keluarga ke-${i + 1} wajib diisi.`);
-          return false;
-        }
-        if (!m.nik || m.nik.trim().length !== 16) {
-          setValidationError(
-            `NIK anggota keluarga "${m.nama || i + 1}" wajib 16 digit (atau gunakan tombol Generate NIK Virtual Otomatis).`
-          );
-          return false;
-        }
-      }
+    const result = validateFormStep(stepToCheck, form);
+    if (!result.valid) {
+      setValidationError(result.error || 'Isian formulir belum lengkap.');
+      return false;
     }
     return true;
   };
 
-  const goNextStep = () => {
+    const goNextStep = () => {
     if (!validateCurrentStep(form.step)) return;
     setForm((prev) => ({ ...prev, step: Math.min(5, prev.step + 1) }));
     if (typeof window !== 'undefined') {

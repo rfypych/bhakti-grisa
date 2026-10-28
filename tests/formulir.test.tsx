@@ -6,6 +6,7 @@ import {
   createDefaultFormState,
   STORAGE_KEY,
   DraftFormState,
+  validateFormStep,
 } from '../src/app/formulir/page';
 import {
   generateVirtualNik,
@@ -591,4 +592,112 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
       expect(html).toContain('Kembali ke Beranda');
     });
   });
+  describe('5. Step 3 Validation & Virtual NIK Acceptance (B4-1)', () => {
+    it('accepts members with standard 16-digit Dukcapil NIK', () => {
+      const result = validateFormStep(3, {
+        noKK: '3521091122334455',
+        namaKepalaKeluarga: 'Bapak Ahmad',
+        alamat: 'RT 01 RW 01',
+        anggota: [
+          {
+            id: 'm1',
+            nama: 'Bapak Ahmad',
+            nik: '3521091501800001',
+            isVirtualNik: false,
+            hubungan: 'KEPALA_KELUARGA',
+            jenisKelamin: 'L',
+            tempatLahir: 'Ngawi',
+            tanggalLahir: '1980-01-15',
+            umur: 46,
+            statusKawin: 'KAWIN',
+            agama: 'ISLAM',
+            pendidikan: 'SMA',
+            pekerjaan: 'Wiraswasta',
+            isBalita: false,
+            isLansia: false,
+            isIbuHamil: false,
+            isIbuMenyusui: false,
+            isButaAksara: false,
+            isDisabilitas: false,
+            statusHidup: 'HIDUP',
+            akseptorKb: false,
+          },
+        ],
+      });
+      expect(result.valid).toBe(true);
+    });
+
+    it('accepts members with 18-character TEMP- virtual NIK (B4-1 fix)', () => {
+      const virtualNik = generateVirtualNik('2026-10-01', 'P', 1);
+      const result = validateFormStep(3, {
+        noKK: '3521091122334455',
+        namaKepalaKeluarga: 'Bapak Ahmad',
+        alamat: 'RT 01 RW 01',
+        anggota: [
+          {
+            id: 'baby-01',
+            nama: 'Bayi Ananda',
+            nik: virtualNik,
+            isVirtualNik: true,
+            hubungan: 'ANAK',
+            jenisKelamin: 'P',
+            tempatLahir: 'Ngawi',
+            tanggalLahir: '2026-10-01',
+            umur: 0,
+            statusKawin: 'BELUM_KAWIN',
+            agama: 'ISLAM',
+            pendidikan: 'TIDAK_SEKOLAH',
+            pekerjaan: 'Belum Bekerja',
+            isBalita: true,
+            isLansia: false,
+            isIbuHamil: false,
+            isIbuMenyusui: false,
+            isButaAksara: false,
+            isDisabilitas: false,
+            statusHidup: 'HIDUP',
+            akseptorKb: false,
+          },
+        ],
+      });
+      expect(result.valid).toBe(true);
+      expect(virtualNik.startsWith('TEMP-')).toBe(true);
+      expect(virtualNik.length).toBe(18);
+    });
+
+    it('rejects members with invalid or incomplete NIK (e.g. 5 digits non-virtual)', () => {
+      const result = validateFormStep(3, {
+        noKK: '3521091122334455',
+        namaKepalaKeluarga: 'Bapak Ahmad',
+        alamat: 'RT 01 RW 01',
+        anggota: [
+          {
+            id: 'm1',
+            nama: 'Bapak Ahmad',
+            nik: '12345',
+            isVirtualNik: false,
+            hubungan: 'KEPALA_KELUARGA',
+            jenisKelamin: 'L',
+            tempatLahir: 'Ngawi',
+            tanggalLahir: '1980-01-15',
+            umur: 46,
+            statusKawin: 'KAWIN',
+            agama: 'ISLAM',
+            pendidikan: 'SMA',
+            pekerjaan: 'Wiraswasta',
+            isBalita: false,
+            isLansia: false,
+            isIbuHamil: false,
+            isIbuMenyusui: false,
+            isButaAksara: false,
+            isDisabilitas: false,
+            statusHidup: 'HIDUP',
+            akseptorKb: false,
+          },
+        ],
+      });
+      expect(result.valid).toBe(false);
+      expect(result.error).toContain('wajib 16 digit');
+    });
+  });
+
 });

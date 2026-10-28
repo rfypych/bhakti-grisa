@@ -549,7 +549,7 @@ export function PublicBeranda({
                     variant="secondary"
                     onClick={() => handleNav('/tentang')}
                   >
-                    Lihat Matriks RBAC
+                    Lihat Matriks Peran &amp; Hak Akses
                   </BoardButton>
                 </div>
               </BoardSurface>

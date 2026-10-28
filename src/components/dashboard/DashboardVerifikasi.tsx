@@ -69,7 +69,7 @@ export function DashboardVerifikasi({
     return (
       <BoardCallout
         tone="warning"
-        title="Hak Akses Verifikasi Dibatasi (Matriks RBAC)"
+        title="Hak Akses Verifikasi Dibatasi"
         description={`Peran Anda (${currentRole}) tidak memiliki wewenang melakukan persetujuan/penolakan berkas DRAFT. Sesuai Matriks Hak Akses SIMPATIK Desa Grudo, verifikasi data warga hanya dapat dilakukan oleh Kader RT setempat atau Admin Desa.`}
         action={
           <BoardButton variant="primary" size="sm" onClick={() => navigate('/dashboard')}>

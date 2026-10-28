@@ -245,7 +245,7 @@ describe('Task 7: Wilayah, Pengguna & Lampiran 4.15 Cetak Laporan Suite', () => 
       // Table columns
       expect(html).toContain('Nama Petugas / Kader');
       expect(html).toContain('Username');
-      expect(html).toContain('Peran RBAC');
+      expect(html).toContain('Peran &amp; Hak Akses');
       expect(html).toContain('Cakupan Wilayah Tugas (Scope)');
       expect(html).toContain('Status Akun');
       expect(html).toContain('Terakhir Masuk');
