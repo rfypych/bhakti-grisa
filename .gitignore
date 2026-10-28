@@ -35,3 +35,5 @@ docs/inspect_*.py
 .DS_Store
 *.pem
 Thumbs.db
+simpatik-ref/
+
