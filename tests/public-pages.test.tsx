@@ -1,3 +1,4 @@
+import TentangPage from '../src/app/tentang/page';
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderToString } from 'react-dom/server';
@@ -53,13 +54,13 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('Portal Petugas PKK');
     });
 
-    it('renders tech stack badges in hero section', () => {
+    it('renders official standards badges in hero section without vanity tech chips', () => {
       const html = renderToString(<PublicBeranda />);
 
-      expect(html).toContain('Tailwind CSS v4');
-      expect(html).toContain('React 19 &amp; Design Tokens');
-      expect(html).toContain('Lampiran 4.14 – 4.19 TP PKK');
-      expect(html).toContain('31 Sheet Excel Otomatis');
+      expect(html).toContain('Standar Lampiran 4.14 – 4.19 TP PKK');
+      expect(html).toContain('Digitalisasi 31 Sheet Dasawisma');
+      expect(html).not.toContain('Tailwind CSS v4');
+      expect(html).not.toContain('React 19 &amp; Design Tokens');
     });
 
     it('renders Transparency Ledger with 4 BoardStatCard widgets', () => {
@@ -75,12 +76,12 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('Digitalisasi Buku Dasawisma');
     });
 
-    it('renders Quick Access Bar with copyable CLI command and buttons', () => {
+    it('renders Quick Access Bar without developer CLI command or tech vanity', () => {
       const html = renderToString(<PublicBeranda />);
 
-      expect(html).toContain('SIMPATIK Single-Entry Engine &amp; Registrasi Terpadu');
-      expect(html).toContain('npx');
-      expect(html).toContain('npm run dev');
+      expect(html).toContain('Sistem Informasi Manajemen PKK Terpadu (SIMPATIK)');
+      expect(html).not.toContain('npx');
+      expect(html).not.toContain('npm run dev');
       expect(html).toContain('Login Petugas');
     });
 
@@ -169,6 +170,17 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('SIMPATIK Grudo');
       expect(html).toContain('v1.0.1');
       expect(html).toContain('Pemerintah Desa Grudo &amp; Inisiatif Bhakti Grisa');
+    });
+  });
+
+  describe('TentangPage Component', () => {
+    it('renders citizen-grade initiative documentation without internal file path artifacts', () => {
+      const html = renderToString(<TentangPage />);
+
+      expect(html).toContain('Layanan Publik Warga &amp; Tata Kerja TP PKK Desa Grudo');
+      expect(html).toContain('Verifikasi Faktual Kader Dasawisma Lapangan');
+      expect(html).not.toContain('(public)/layout.tsx');
+      expect(html).not.toContain('dashboard/layout.tsx');
     });
   });
 

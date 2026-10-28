@@ -48,6 +48,7 @@ import {
   IndustriRumahTanggaInput,
 } from '@/actions/keluargaActions';
 import { getWilayahListWithCounts } from '@/actions/wilayahActions';
+import { getCurrentSessionUserAction } from '@/actions/authActions';
 
 export const STORAGE_KEY = 'simpatik_grudo_formulir_draft_v1';
 
@@ -211,8 +212,8 @@ export function PublicFormulir({
   initialStep,
   initialDraft,
   initialSubmittedRecord = null,
-  currentUser = null,
-  currentRole = 'WARGA',
+  currentUser: propCurrentUser = null,
+  currentRole: propCurrentRole = 'WARGA',
   onSubmitFamily,
   onNavigate,
 }: PublicFormulirProps = {}) {
@@ -235,6 +236,33 @@ export function PublicFormulir({
       ? initialWilayahProp
       : [];
   });
+
+  const [currentUser, setCurrentUser] = useState<OfficerAccount | null>(propCurrentUser);
+  const [currentRole, setCurrentRole] = useState<UserRole>(propCurrentRole);
+
+  useEffect(() => {
+    if (propCurrentUser) {
+      setCurrentUser(propCurrentUser);
+      setCurrentRole(propCurrentRole);
+      return;
+    }
+    let isMounted = true;
+    getCurrentSessionUserAction().then((sessionUser) => {
+      if (!isMounted || !sessionUser) return;
+      const role = sessionUser.peran as UserRole;
+      setCurrentUser(sessionUser as any);
+      setCurrentRole(role);
+      if (sessionUser.wilayahId && !propInitialWilayahId) {
+        setForm((prev) => ({
+          ...prev,
+          wilayahId: sessionUser.wilayahId || prev.wilayahId,
+        }));
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, [propCurrentUser, propCurrentRole, propInitialWilayahId]);
 
   const perms = getRbacPermissions(currentRole, currentUser);
   const defaultWilId =
@@ -861,7 +889,7 @@ export function PublicFormulir({
               <span aria-hidden="true">·</span>
               <span>
                 {perms.formulirAutoVerified
-                  ? `Mode Input Resmi (${currentRole})`
+                  ? 'Mode Pengisian Resmi Petugas/Kader (Status: Langsung Terverifikasi)'
                   : 'Mode Pengisian Mandiri Warga (Status: DRAFT)'}
               </span>
               {selectedWilayah && (

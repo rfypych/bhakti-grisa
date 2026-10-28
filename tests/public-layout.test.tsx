@@ -150,14 +150,14 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
       expect(html).toContain('Pemetaan Spasial GIS');
     });
 
-    it('renders Layout Isolation and Scope Architecture diagrams', () => {
+    it('renders citizen-facing service pillars without internal layout code paths', () => {
       const html = renderToString(<PublicTentang />);
 
-      expect(html).toContain('Arsitektur Pemisahan Ruang Lingkup (Layout Isolation) &amp; Alur Data');
-      expect(html).toContain('Ruang Publik Warga &amp; Guest');
-      expect(html).toContain('Ruang Kerja Petugas PKK');
-      expect(html).toContain('(public)/layout.tsx');
-      expect(html).toContain('dashboard/layout.tsx');
+      expect(html).toContain('Layanan Publik Warga &amp; Tata Kerja TP PKK Desa Grudo');
+      expect(html).toContain('Pencatatan Mandiri Warga &amp; Aksesibilitas');
+      expect(html).toContain('Verifikasi Faktual Kader Dasawisma Lapangan');
+      expect(html).not.toContain('(public)/layout.tsx');
+      expect(html).not.toContain('dashboard/layout.tsx');
     });
 
     it('renders complete RBAC Matrix table with all 10 features', () => {

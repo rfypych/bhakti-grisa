@@ -6,8 +6,23 @@ import {
   createSessionToken,
   setSessionCookie,
   clearSessionCookie,
+  getSessionUser,
 } from '@/lib/auth';
 import { redirect } from 'next/navigation';
+
+export async function getCurrentSessionUserAction() {
+  const user = await getSessionUser();
+  if (!user) return null;
+  return {
+    id: user.id,
+    username: user.username,
+    nama: user.nama,
+    peran: user.peran,
+    wilayahId: user.wilayahId || undefined,
+    nomorHp: user.nomorHp || undefined,
+    aktif: user.aktif,
+  };
+}
 
 export async function loginAction(formData: { username: string; kataSandi: string }) {
   const username = formData.username?.trim();

@@ -213,56 +213,72 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
         </BoardSurface>
       </section>
 
-      {/* 3. Arsitektur Tata Letak & Pemisahan Ruang Lingkup */}
+      {/* 3. Layanan Publik Warga & Tata Kerja TP PKK Desa Grudo */}
       <section className="space-y-4">
         <div>
           <div className="text-caption-1-semibold text-accent-600 mb-1">
-            Bagian 1 &amp; 6 Spesifikasi Arsitektur
+            Tata Kerja Operasional Lapangan
           </div>
           <h2 className="text-title-2-semibold text-text-primary tracking-tight">
-            Arsitektur Pemisahan Ruang Lingkup (Layout Isolation) &amp; Alur Data
+            Layanan Publik Warga &amp; Tata Kerja TP PKK Desa Grudo
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <BoardSurface variant="secondary" padding="md" className="space-y-3">
-            <h3 className="text-body-medium text-text-primary px-1">
-              1. Ruang Publik Warga &amp; Guest &mdash; <code>(public)/layout.tsx</code>
-            </h3>
-            <div className="p-4 rounded-2lg bg-background-inner-default shadow-card space-y-2 text-caption-1-regular font-mono">
-              <div className="font-semibold text-accent-600">
-                [PublicNavbar] Header Navigation
-              </div>
-              <div className="pl-3 border-l border-separator-border space-y-1 text-text-secondary">
-                <div>&boxv;&minus; / (Beranda &amp; Transparency Ledger)</div>
-                <div>&boxv;&minus; /formulir (Formulir Mandiri 5 Langkah + LocalStorage Draft)</div>
-                <div>&boxv;&minus; /login (Otentikasi Petugas PKK)</div>
-                <div>&boxur;&minus; /tentang (Profil Inisiatif Bhakti Grisa &amp; Dokumentasi)</div>
-              </div>
-              <div className="font-semibold text-accent-600">
-                [PublicFooter] Informasi Resmi Pemdes Grudo
-              </div>
+            <div className="flex items-center gap-2">
+              <BoardChip variant="caption" color="emerald">
+                Pilar 01
+              </BoardChip>
+              <h3 className="text-body-medium font-semibold text-text-primary">
+                Pencatatan Mandiri Warga &amp; Aksesibilitas
+              </h3>
             </div>
+            <p className="text-body-2-regular text-text-secondary">
+              Warga Desa Grudo dapat melengkapi data profil keluarga secara mandiri melalui formulir online 5 langkah yang responsif untuk layar ponsel. Sistem menyimpan draft isian di perangkat secara otomatis sehingga warga tidak perlu khawatir kehilangan data saat koneksi internet terputus.
+            </p>
           </BoardSurface>
 
           <BoardSurface variant="secondary" padding="md" className="space-y-3">
-            <h3 className="text-body-medium text-text-primary px-1">
-              2. Ruang Kerja Petugas PKK &mdash; <code>dashboard/layout.tsx</code>
-            </h3>
-            <div className="p-4 rounded-2lg bg-background-inner-default shadow-card space-y-2 text-caption-1-regular font-mono">
-              <div className="font-semibold text-accent-600">
-                [SIMPATIK AppShell + Floating DashboardSidebar + Breadcrumb]
-              </div>
-              <div className="pl-3 border-l border-separator-border space-y-1 text-text-secondary">
-                <div>&boxv;&minus; /dashboard (Statistik Agregat &amp; Unduh 31 Sheet Excel)</div>
-                <div>&boxv;&minus; /dashboard/verifikasi (Validasi Draft Warga oleh Kader RT)</div>
-                <div>&boxv;&minus; /dashboard/lapor-peristiwa (Dinamika Penduduk Lampiran 4.18)</div>
-                <div>&boxv;&minus; /dashboard/peta (Peta Spasial GIS Severity Pin)</div>
-                <div>&boxv;&minus; /dashboard/wilayah (Hierarki RT/RW + Safety Guard)</div>
-                <div>&boxv;&minus; /dashboard/pengguna (Manajemen Akun &amp; Scoping Wilayah)</div>
-                <div>&boxur;&minus; /dashboard/laporan/cetak/[id] (Cetak Lampiran 4.15)</div>
-              </div>
+            <div className="flex items-center gap-2">
+              <BoardChip variant="caption" color="blue">
+                Pilar 02
+              </BoardChip>
+              <h3 className="text-body-medium font-semibold text-text-primary">
+                Verifikasi Faktual Kader Dasawisma Lapangan
+              </h3>
             </div>
+            <p className="text-body-2-regular text-text-secondary">
+              Setiap berkas yang dikirimkan warga berstatus DRAFT dan wajib diverifikasi secara faktual oleh Ibu Kader Dasawisma di tingkat RT setempat. Kader memeriksa keabsahan data fisik KK, ketersediaan jamban keluarga, SPAL, serta stiker P4K sebelum disetujui menjadi data resmi.
+            </p>
+          </BoardSurface>
+
+          <BoardSurface variant="secondary" padding="md" className="space-y-3">
+            <div className="flex items-center gap-2">
+              <BoardChip variant="caption" color="purple">
+                Pilar 03
+              </BoardChip>
+              <h3 className="text-body-medium font-semibold text-text-primary">
+                Pemetaan Spasial GIS &amp; Intervensi Sosial
+              </h3>
+            </div>
+            <p className="text-body-2-regular text-text-secondary">
+              Lokasi rumah warga dipetakan dengan koordinat GPS presisi dan dikelompokkan menurut tingkat kerawanan sanitasi dan gizi keluarga (Normal, Pemantauan, Kerentanan Tinggi). Ini membantu Tim Penggerak PKK dan Pemerintah Desa menentukan prioritas penyaluran bantuan tepat sasaran.
+            </p>
+          </BoardSurface>
+
+          <BoardSurface variant="secondary" padding="md" className="space-y-3">
+            <div className="flex items-center gap-2">
+              <BoardChip variant="caption" color="cyan">
+                Pilar 04
+              </BoardChip>
+              <h3 className="text-body-medium font-semibold text-text-primary">
+                Dinamika Kependudukan &amp; Rekapitulasi 31 Sheet
+              </h3>
+            </div>
+            <p className="text-body-2-regular text-text-secondary">
+              Pencatatan peristiwa vital (kelahiran bayi baru lahir dengan Virtual NIK Posyandu, kematian jiwa, kehamilan, dan perpindahan penduduk) langsung terintegrasi secara otomatis ke dalam 31 Sheet Rekapitulasi Buku Dasawisma (Lampiran 4.14 s.d. 4.19) tanpa rekap manual berulang.
+            </p>
           </BoardSurface>
         </div>
       </section>

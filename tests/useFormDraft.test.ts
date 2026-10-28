@@ -88,7 +88,7 @@ describe('saveKeluargaAction Server Action', () => {
         namaKepalaRumahTangga: 'Warga Mandiri',
         alamat: 'RT 01 RW 01',
         wilayahId,
-        anggota: [],
+        anggota: [{ nama: 'Warga Mandiri', hubunganKeluarga: 'KEPALA_KELUARGA', jenisKelamin: 'L', tempatLahir: 'Kudus', tanggalLahir: '1985-01-01' }],
       },
       true // public resident
     );

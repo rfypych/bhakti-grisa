@@ -39,6 +39,8 @@ export interface DashboardVerifikasiProps {
   onApproveFamily?: (familyId: string) => Promise<void> | void;
   onRejectFamily?: (familyId: string, catatanRevisi: string) => Promise<void> | void;
   onNavigate?: (route: AppRoute) => void;
+  initialApproveTarget?: KeluargaRecord | null;
+  initialRejectTarget?: KeluargaRecord | null;
 }
 
 export function DashboardVerifikasi({
@@ -48,11 +50,14 @@ export function DashboardVerifikasi({
   onApproveFamily,
   onRejectFamily,
   onNavigate,
+  initialApproveTarget = null,
+  initialRejectTarget = null,
 }: DashboardVerifikasiProps) {
   const router = useRouter();
   const [families, setFamilies] = useState<KeluargaRecord[]>(initialFamilies);
   const [statusFilter, setStatusFilter] = useState<'DRAFT' | 'VERIFIKASI' | 'DITOLAK'>('DRAFT');
-  const [rejectTarget, setRejectTarget] = useState<KeluargaRecord | null>(null);
+  const [rejectTarget, setRejectTarget] = useState<KeluargaRecord | null>(initialRejectTarget);
+  const [approveTarget, setApproveTarget] = useState<KeluargaRecord | null>(initialApproveTarget);
   const [catatanRevisi, setCatatanRevisi] = useState<string>('');
   const [actionMessage, setActionMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -333,7 +338,7 @@ export function DashboardVerifikasi({
                         size="sm"
                         disabled={isLoading}
                         icon={<Check className="w-3.5 h-3.5" />}
-                        onClick={() => handleConfirmApprove(fam)}
+                        onClick={() => setApproveTarget(fam)}
                       >
                         Setujui &amp; Masukkan ke Buku Dasawisma
                       </BoardButton>
@@ -345,6 +350,69 @@ export function DashboardVerifikasi({
           })}
         </div>
       )}
+
+      {/* Approve Confirmation Modal */}
+      <BoardModal
+        isOpen={Boolean(approveTarget)}
+        onClose={() => setApproveTarget(null)}
+        title="Konfirmasi Persetujuan Berkas Keluarga"
+        subtitle="Pastikan data fisik dan kondisi sanitasi telah diverifikasi secara faktual oleh Kader Dasawisma."
+      >
+        {approveTarget && (
+          <div className="space-y-4 text-xs">
+            <p className="text-text-secondary leading-relaxed">
+              Apakah Anda yakin ingin menyetujui berkas pendataan keluarga ini? Setelah disetujui, data akan berstatus <strong className="text-emerald-600 dark:text-emerald-400">VERIFIKASI</strong> dan langsung diintegrasikan ke dalam rekapitulasi 31 Sheet Buku Dasawisma TP PKK Desa Grudo.
+            </p>
+
+            <div className="p-3.5 rounded-2lg bg-surface-subtle border border-separator-border space-y-2">
+              <div className="flex justify-between">
+                <span className="text-text-muted">Kepala Keluarga:</span>
+                <span className="font-semibold text-text-primary">{approveTarget.namaKepalaKeluarga}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-text-muted">Nomor KK:</span>
+                <span className="font-mono text-text-primary">{approveTarget.noKK}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-text-muted">Dasawisma / Wilayah:</span>
+                <span className="font-medium text-text-primary">{approveTarget.namaDasawisma} (RT {approveTarget.rt}/RW {approveTarget.rw} &middot; Dusun {approveTarget.dusun})</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-text-muted">Jumlah Anggota Jiwa:</span>
+                <span className="font-semibold text-text-primary">{approveTarget.anggota.filter((a) => a.hidup).length} Jiwa</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-separator-border">
+              <BoardButton
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => setApproveTarget(null)}
+                disabled={isLoading}
+              >
+                Batal
+              </BoardButton>
+              <BoardButton
+                type="button"
+                variant="primary"
+                size="sm"
+                disabled={isLoading}
+                icon={<Check className="w-3.5 h-3.5" />}
+                onClick={async () => {
+                  const target = approveTarget;
+                  setApproveTarget(null);
+                  if (target) {
+                    await handleConfirmApprove(target);
+                  }
+                }}
+              >
+                {isLoading ? 'Memproses...' : 'Ya, Setujui Berkas'}
+              </BoardButton>
+            </div>
+          </div>
+        )}
+      </BoardModal>
 
       {/* Reject Revision Modal */}
       <BoardModal

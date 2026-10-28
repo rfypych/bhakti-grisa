@@ -117,6 +117,22 @@ describe('Task 6: Verification, Events, and Spatial GIS Suite', () => {
       expect(html).toContain('Setujui &amp; Masukkan ke Buku Dasawisma');
     });
 
+    it('renders approval confirmation modal markup in DashboardVerifikasi when target is selected', () => {
+      const html = renderToString(
+        <DashboardVerifikasi
+          families={INITIAL_FAMILIES}
+          currentUser={adminUser}
+          currentRole="ADMIN_DESA"
+          initialApproveTarget={INITIAL_FAMILIES[0]}
+        />
+      );
+
+      expect(html).toContain('Konfirmasi Persetujuan Berkas Keluarga');
+      expect(html).toContain('Apakah Anda yakin ingin menyetujui berkas pendataan keluarga ini?');
+      expect(html).toContain(INITIAL_FAMILIES[0].namaKepalaKeluarga);
+      expect(html).toContain('Ya, Setujui Berkas');
+    });
+
     it('renders rejection notes if family has catatanRevisi', () => {
       const familyWithRevisi: KeluargaRecord = {
         ...INITIAL_FAMILIES[0],

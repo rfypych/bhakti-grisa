@@ -128,14 +128,6 @@ export function PublicBeranda({
     }
   };
 
-  const handleCopyCli = () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText('npm run dev');
-    }
-    setCopiedCmd(true);
-    setTimeout(() => setCopiedCmd(false), 1800);
-  };
-
   return (
     <PublicLayout
       currentRoute="/"
@@ -206,23 +198,23 @@ export function PublicBeranda({
                 </BoardButton>
               </div>
 
-              {/* SIMPATIK Tech Stack & Standards Strip */}
+              {/* SIMPATIK Official Standards & Governance Strip */}
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-2 text-caption-1-medium text-text-tertiary">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-500" />
-                  Tailwind CSS v4
+                  Standar Lampiran 4.14 – 4.19 TP PKK
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-teal-500" />
-                  React 19 &amp; Design Tokens
+                  Digitalisasi 31 Sheet Dasawisma
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-lime-500" />
-                  Lampiran 4.14 – 4.19 TP PKK
+                  Integrasi Data Spasial &amp; Demografi
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-600" />
-                  31 Sheet Excel Otomatis
+                  Validasi Faktual Kader Lapangan
                 </span>
               </div>
             </div>
@@ -290,32 +282,19 @@ export function PublicBeranda({
               <div className="mt-4 flex flex-col lg:flex-row lg:items-center justify-between gap-3 rounded-2xl bg-background-secondary-default p-3">
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-background-inner-default shadow-card text-accent-600">
-                    <Terminal className="size-4" />
+                    <ShieldCheck className="size-4" />
                   </span>
                   <div className="min-w-0">
                     <div className="text-body-2-medium text-text-primary truncate">
-                      SIMPATIK Single-Entry Engine &amp; Registrasi Terpadu
+                      Sistem Informasi Manajemen PKK Terpadu (SIMPATIK)
                     </div>
                     <div className="text-caption-1-regular text-text-tertiary truncate">
-                      Komponen dibangun dengan React 19, Tailwind CSS v4 (`styles/theme.css` &amp; `typography.css`), dan standar TP PKK.
+                      Digitalisasi tertib administrasi 31 sheet rekapitulasi Dasawisma sesuai standar TP PKK Kabupaten Ngawi.
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2 shrink-0">
-                  <button
-                    type="button"
-                    onClick={handleCopyCli}
-                    className="inline-flex items-center gap-2 rounded-2lg border border-border-button-default bg-background-inner-default px-3 py-1.5 font-mono text-caption-1-medium text-text-secondary shadow-2xs hover:border-border-button-hover cursor-pointer"
-                  >
-                    <span className="text-accent-600">npx</span>
-                    <span>npm run dev</span>
-                    {copiedCmd ? (
-                      <Check className="size-3.5 text-lime-600" />
-                    ) : (
-                      <Copy className="size-3.5 text-text-tertiary" />
-                    )}
-                  </button>
                   <BoardButton
                     variant="primary"
                     size="sm"

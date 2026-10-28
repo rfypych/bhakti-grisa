@@ -165,6 +165,16 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
     });
   });
 
+    it('renders cadre official mode banner and direct verification action when currentRole is KADER_RT', () => {
+      const html = renderToString(
+        <PublicFormulir currentRole="KADER_RT" initialStep={5} />
+      );
+
+      expect(html).toContain('Mode Pengisian Resmi Petugas/Kader (Status: Langsung Terverifikasi)');
+      expect(html).toContain('Pengiriman Petugas Resmi: Langsung Berstatus VERIFIKASI');
+      expect(html).toContain('Simpan &amp; Verifikasi Resmi KK');
+    });
+
   describe('2. Virtual NIK Generator for Infants / Balita', () => {
     it('generates a standard TEMP-YYYYMMDD-XXXX temporary virtual NIK', () => {
       const maleNik = generateVirtualNik('2026-10-20', 'L', 1);
