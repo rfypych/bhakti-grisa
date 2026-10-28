@@ -78,6 +78,7 @@ export interface AnggotaKeluarga {
   isButaAksara: boolean;
   isDisabilitas: boolean;
   statusHidup: 'HIDUP' | 'MENINGGAL' | 'PINDAH';
+  akseptorKb?: boolean;
 }
 
 export interface SanitasiLingkungan {

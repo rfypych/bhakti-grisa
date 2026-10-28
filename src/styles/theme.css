@@ -574,3 +574,26 @@ body:has([data-boardui-layout]) > nav {
 body:has([data-boardui-layout]) > main {
   padding-bottom: 0 !important;
 }
+
+/* 1:1 BoardUI Data Table styles */
+.bui-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: start;
+}
+.bui-table th {
+  padding: 0.625rem 0.75rem;
+  text-align: start;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: var(--color-background-secondary-default);
+  border-top: 1px solid var(--color-separator-border);
+  border-bottom: 1px solid var(--color-separator-border);
+}
+.bui-table td {
+  padding: 0.625rem 0.75rem;
+  vertical-align: middle;
+}
+.bui-table tbody tr:not(:last-child) {
+  border-bottom: 1px solid var(--color-separator-border);
+}
