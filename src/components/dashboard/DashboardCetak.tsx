@@ -19,7 +19,7 @@ import { downloadOfficialPdfReport } from '@/lib/exportUtils';
 import {
   BoardButton,
   BoardSurface,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 
 export interface DashboardCetakProps {
   families: KeluargaRecord[];

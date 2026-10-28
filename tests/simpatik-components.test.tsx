@@ -16,9 +16,9 @@ import {
   BoardCallout,
   BoardStatusLabel,
   BoardEmptyState,
-} from '../src/components/boardui';
+} from '../src/components/simpatik';
 
-describe('BoardUI Component Library (1:1 Foundation)', () => {
+describe('SIMPATIK Component Library', () => {
   describe('BoardLogo', () => {
     it('renders circular BoardLogo with electric gradient and ring', () => {
       const html = renderToString(<BoardLogo size={32} rounded="circle" />);
@@ -88,7 +88,7 @@ describe('BoardUI Component Library (1:1 Foundation)', () => {
   });
 
   describe('BoardStatCard', () => {
-    it('renders 1:1 BoardUI FooterStatCard structure with headline and inner white band', () => {
+    it('renders SIMPATIK FooterStatCard structure with headline and inner white band', () => {
       const html = renderToString(
         <BoardStatCard
           label="Total Kepala Keluarga"
@@ -188,7 +188,7 @@ describe('BoardUI Component Library (1:1 Foundation)', () => {
     });
   });
 
-  describe('Other BoardUI Components', () => {
+  describe('Other SIMPATIK Components', () => {
     it('renders BoardAvatar with size and color mapping', () => {
       const html = renderToString(
         <BoardAvatar size="md" color="lime" initials="BG" />

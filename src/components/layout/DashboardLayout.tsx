@@ -38,7 +38,7 @@ import {
   BoardChip,
   BoardKbd,
   BoardLogo,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 
 export interface DashboardLayoutProps {
   currentRoute?: AppRoute;
@@ -56,7 +56,7 @@ export interface DashboardLayoutProps {
 }
 
 /**
- * 1:1 BoardUI `Collapsible` slot (from `components/application/dashboard/dashboard-sidebar.tsx`):
+ * 1:1 SIMPATIK `Collapsible` slot (from `components/application/dashboard/dashboard-sidebar.tsx`):
  * Smoothly interpolates pixel max-width (`220px` ↔ `0px`), opacity, blur, and margin
  * so icons stay locked on a 36px grid without any unmount or layout snap.
  */
@@ -71,7 +71,7 @@ export function Collapsible({
 }) {
   return (
     <span
-      className={`flex min-w-0 items-center overflow-hidden transition-[max-width,opacity,filter,margin] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`flex min-w-0 items-center overflow-hidden transition-[max-width,opacity,filter,margin] duration-300 ease-out ${
         collapsed
           ? 'max-w-0 opacity-0 blur-[2px] pointer-events-none'
           : 'max-w-[220px] opacity-100 blur-0'
@@ -153,7 +153,7 @@ export function DashboardLayout({
     if (typeof document !== 'undefined') {
       const isDark =
         document.documentElement.classList.contains('dark') ||
-        (typeof localStorage !== 'undefined' && localStorage.getItem('boardui_theme') === 'dark');
+        (typeof localStorage !== 'undefined' && localStorage.getItem('simpatik_theme') === 'dark');
       setInternalDarkMode(isDark);
       if (isDark) {
         document.documentElement.classList.add('dark');
@@ -173,10 +173,10 @@ export function DashboardLayout({
       if (typeof document !== 'undefined') {
         if (next) {
           document.documentElement.classList.add('dark');
-          if (typeof localStorage !== 'undefined') localStorage.setItem('boardui_theme', 'dark');
+          if (typeof localStorage !== 'undefined') localStorage.setItem('simpatik_theme', 'dark');
         } else {
           document.documentElement.classList.remove('dark');
-          if (typeof localStorage !== 'undefined') localStorage.setItem('boardui_theme', 'light');
+          if (typeof localStorage !== 'undefined') localStorage.setItem('simpatik_theme', 'light');
         }
       }
       return next;
@@ -320,25 +320,25 @@ export function DashboardLayout({
 
   return (
     <div
-      data-boardui-layout="dashboard"
+      data-simpatik-layout="dashboard"
       className="relative flex min-h-dvh lg:h-dvh w-full gap-4 lg:overflow-hidden bg-background-full p-3 text-text-primary"
     >
-      {/* 1:1 BoardUI Floating Sidebar (`w-[260px]` expanded ↔ `w-[60px]` collapsed) */}
+      {/* 1:1 SIMPATIK Floating Sidebar (`w-[260px]` expanded ↔ `w-[60px]` collapsed) */}
       <aside
         aria-label="Navigasi Ruang Kerja Petugas"
-        className={`hidden lg:flex h-full shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-border-button-white bg-background-secondary-default shadow-sidebar transition-[width,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[width,padding] no-print ${
+        className={`hidden lg:flex h-full shrink-0 flex-col justify-between overflow-hidden rounded-3xl border border-border-button-white bg-background-secondary-default shadow-sidebar transition-[width,padding] duration-300 ease-out will-change-[width,padding] no-print ${
           collapsed ? 'w-[60px] px-[11px] py-3' : 'w-[260px] p-3'
         }`}
       >
         <div className="-m-2 flex min-h-0 w-[calc(100%+16px)] flex-col gap-3 overflow-x-hidden overflow-y-auto p-2 [scrollbar-width:none]">
           {/* Workspace / Officer Switcher Header + Collapse Toggle Button */}
           <div
-            className={`relative w-full shrink-0 transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`relative w-full shrink-0 transition-[height] duration-300 ease-out ${
               collapsed ? 'h-[76px]' : 'h-9'
             }`}
           >
             <div
-              className={`flex h-9 items-center transition-[transform,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`flex h-9 items-center transition-[transform,padding] duration-300 ease-out ${
                 collapsed ? 'translate-y-10 pr-0' : 'translate-y-0 pr-9'
               }`}
               title={currentUser?.nama || 'Petugas PKK'}
@@ -367,7 +367,7 @@ export function DashboardLayout({
               className="absolute top-0 right-0 flex size-9 cursor-pointer items-center justify-center rounded-2lg text-foreground-icon-secondary hover:bg-background-secondary-hover hover:text-foreground-icon-primary transition-colors duration-200"
             >
               <PanelLeft
-                className={`size-5 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`size-5 transition-transform duration-300 ease-out ${
                   collapsed ? 'rotate-180' : 'rotate-0'
                 }`}
                 aria-hidden="true"
@@ -482,7 +482,7 @@ export function DashboardLayout({
           {/* Officer Active Role & Scope Selector */}
           <div
             aria-hidden={collapsed}
-            className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out ${
               collapsed
                 ? 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
                 : 'grid-rows-[1fr] opacity-100 mt-1'
@@ -522,12 +522,12 @@ export function DashboardLayout({
 
         {/* Sidebar Bottom Section: Segmented Theme Toggle + Secondary Nav + Team Card */}
         <div className="flex w-full shrink-0 flex-col gap-2.5 pt-2">
-          {/* BoardUI Theme Toggle + Logout */}
+          {/* SIMPATIK Theme Toggle + Logout */}
           <div className="flex h-9 w-full items-center justify-between">
             <div
               role="group"
               aria-label="Theme"
-              className={`relative inline-flex items-center rounded-full transition-[background-color,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`relative inline-flex items-center rounded-full transition-[background-color,padding] duration-300 ease-out ${
                 collapsed ? 'bg-transparent p-0' : 'bg-theme-toggle-sidebar-background p-1 gap-1'
               }`}
             >
@@ -628,7 +628,7 @@ export function DashboardLayout({
             </Link>
           </nav>
 
-          {/* BoardUI Team Card */}
+          {/* SIMPATIK Team Card */}
           <Link
             href="/tentang"
             onClick={(e) => {
@@ -638,7 +638,7 @@ export function DashboardLayout({
               }
             }}
             title={collapsed ? 'SIMPATIK Grudo (TP PKK Bhakti Grisa)' : undefined}
-            className={`flex w-full cursor-pointer items-center justify-between overflow-hidden border-2 border-transparent hover:border-border-button-hover transition-[background-color,border-color,padding,border-radius] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] text-left ${
+            className={`flex w-full cursor-pointer items-center justify-between overflow-hidden border-2 border-transparent hover:border-border-button-hover transition-[background-color,border-color,padding,border-radius] duration-300 ease-out text-left ${
               collapsed
                 ? 'rounded-2xl bg-transparent p-0.5'
                 : 'rounded-xl bg-background-tertiary-default py-2 pe-3 ps-2.5'
@@ -669,7 +669,7 @@ export function DashboardLayout({
       {/* Main Content Area (`1300px` centered column inside `bg-background-full`) */}
       <main className="relative flex min-h-0 min-w-0 flex-1 justify-center overflow-x-hidden overflow-y-auto bg-background-full sm:pt-3 pb-20 lg:pb-4">
         <div className="flex w-full max-w-[1300px] flex-col gap-4">
-          {/* 1:1 BoardUI AppShell Header: Breadcrumb trail + Page Title + Action Buttons */}
+          {/* 1:1 SIMPATIK AppShell Header: Breadcrumb trail + Page Title + Action Buttons */}
           <header className="flex w-full flex-col gap-2 no-print">
             <div className="flex items-center justify-between gap-2">
               <BoardBreadcrumb>

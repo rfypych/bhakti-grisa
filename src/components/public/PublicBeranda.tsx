@@ -34,7 +34,7 @@ import {
   BoardSegmentedControl,
   BoardStatusLabel,
   BoardLogo,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import { PublicLayout } from '@/components/layout/PublicLayout';
 
 export interface PublicBerandaProps {
@@ -131,7 +131,7 @@ export function PublicBeranda({
 
   const handleCopyCli = () => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText('npx shadcn@latest add @boardui/dashboard');
+      navigator.clipboard.writeText('npm run dev');
     }
     setCopiedCmd(true);
     setTimeout(() => setCopiedCmd(false), 1800);
@@ -145,7 +145,7 @@ export function PublicBeranda({
       onNavigate={handleNav}
     >
       <div className="space-y-16 sm:space-y-20 pb-8">
-        {/* 1. 1:1 BoardUI Hero Section with Vertical Pastel Light Rays (`bui-hero-rays`) */}
+        {/* 1. 1:1 SIMPATIK Hero Section with Vertical Pastel Light Rays (`bui-hero-rays`) */}
         <section className="relative overflow-hidden border-b border-separator-border">
           <div
             aria-hidden="true"
@@ -153,9 +153,9 @@ export function PublicBeranda({
           />
 
           <div className="relative max-w-[1300px] mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-12">
-            {/* Centered BoardUI Hero Header */}
+            {/* Centered SIMPATIK Hero Header */}
             <div className="mx-auto max-w-3xl text-center flex flex-col items-center gap-5">
-              {/* BoardUI Announcement Pill (`bg-badge-new-background text-badge-new-text`) */}
+              {/* SIMPATIK Announcement Pill (`bg-badge-new-background text-badge-new-text`) */}
               <div className="inline-flex items-center gap-2 rounded-full border border-border-button-default bg-background-primary-default/90 backdrop-blur-xs py-1 ps-1.5 pe-3 shadow-2xs">
                 <span className="inline-flex items-center justify-center rounded-full bg-badge-new-background px-2 py-0.5 text-caption-1-semibold text-badge-new-text">
                   SIMPATIK 1.0
@@ -172,7 +172,7 @@ export function PublicBeranda({
 
               <p className="text-body-regular sm:text-subheadline-regular text-text-secondary max-w-2xl">
                 Portal pendataan keluarga satu pintu (<em>Single Entry</em>) Desa Grudo, Kecamatan
-                Ngawi berbasis <strong>BoardUI Design System</strong>. Mengintegrasikan pendataan
+                Ngawi berbasis <strong>Sistem Informasi Terpadu</strong>. Mengintegrasikan pendataan
                 mandiri warga, verifikasi Kader RT, peta GIS, dan otomatisasi{' '}
                 <strong>31 Sheet Buku Dasawisma PKK</strong>.
               </p>
@@ -207,7 +207,7 @@ export function PublicBeranda({
                 </BoardButton>
               </div>
 
-              {/* BoardUI Tech Stack & Standards Strip */}
+              {/* SIMPATIK Tech Stack & Standards Strip */}
               <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 pt-2 text-caption-1-medium text-text-tertiary">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-emerald-500" />
@@ -215,7 +215,7 @@ export function PublicBeranda({
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-teal-500" />
-                  React 19 &amp; BoardUI Tokens
+                  React 19 &amp; Design Tokens
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-lime-500" />
@@ -228,7 +228,7 @@ export function PublicBeranda({
               </div>
             </div>
 
-            {/* 2. Transparency Ledger — 1:1 BoardUI `FooterStatCard` 4-Column Showcase */}
+            {/* 2. Transparency Ledger — 1:1 SIMPATIK `FooterStatCard` 4-Column Showcase */}
             <div className="mt-10 rounded-3xl border border-border-button-default bg-background-primary-default p-4 sm:p-5 shadow-sidebar">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 px-1">
                 <div className="flex items-center gap-2.5">
@@ -287,7 +287,7 @@ export function PublicBeranda({
                 />
               </div>
 
-              {/* BoardUI Getting Started / Quick Access Bar inside Showcase Frame */}
+              {/* SIMPATIK Getting Started / Quick Access Bar inside Showcase Frame */}
               <div className="mt-4 flex flex-col lg:flex-row lg:items-center justify-between gap-3 rounded-2xl bg-background-secondary-default p-3">
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-background-inner-default shadow-card text-accent-600">
@@ -295,7 +295,7 @@ export function PublicBeranda({
                   </span>
                   <div className="min-w-0">
                     <div className="text-body-2-medium text-text-primary truncate">
-                      BoardUI Open-Source Registry &amp; SIMPATIK Single-Entry Engine
+                      SIMPATIK Single-Entry Engine &amp; Registrasi Terpadu
                     </div>
                     <div className="text-caption-1-regular text-text-tertiary truncate">
                       Komponen dibangun dengan React 19, Tailwind CSS v4 (`styles/theme.css` &amp; `typography.css`), dan standar TP PKK.
@@ -310,7 +310,7 @@ export function PublicBeranda({
                     className="inline-flex items-center gap-2 rounded-2lg border border-border-button-default bg-background-inner-default px-3 py-1.5 font-mono text-caption-1-medium text-text-secondary shadow-2xs hover:border-border-button-hover cursor-pointer"
                   >
                     <span className="text-accent-600">npx</span>
-                    <span>shadcn@latest add @boardui/dashboard</span>
+                    <span>npm run dev</span>
                     {copiedCmd ? (
                       <Check className="size-3.5 text-lime-600" />
                     ) : (

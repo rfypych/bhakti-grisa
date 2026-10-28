@@ -1,5 +1,5 @@
 /**
- * SIMPATIK Desa Grudo (Bhakti Grisa) — Pure Domain Logic & BoardUI Data Models
+ * SIMPATIK Desa Grudo (Bhakti Grisa) — Pure Domain Logic & Data Models
  * Covers RBAC Matrix, Virtual NIK Generator, GIS Severity Classifier,
  * Dashboard Aggregations, Wilayah Safety Guard, Vital Event Automation,
  * and 31-Sheet Buku Dasawisma PKK Generator.

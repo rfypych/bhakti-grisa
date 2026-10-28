@@ -10,7 +10,7 @@ import {
   BoardSurface,
   BoardStatusLabel,
   BoardLogo,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import { PublicLayout } from '@/components/layout/PublicLayout';
 
 export interface PublicTentangProps {
@@ -124,7 +124,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
 
   return (
     <div className="max-w-[1300px] mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-14">
-      {/* 1. Header & Background with BoardUI Getting-Started Styling */}
+      {/* 1. Header & Background with SIMPATIK Getting-Started Styling */}
       <section className="relative overflow-hidden rounded-3xl border border-border-button-default bg-background-secondary-default p-6 sm:p-10">
         <div
           aria-hidden="true"
@@ -134,7 +134,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
           <div className="flex flex-wrap items-center gap-2">
             <BoardLogo size={22} rounded="circle" />
             <BoardChip variant="caption" color="lime">
-              BoardUI v1.0.1 Documentation
+              SIMPATIK v1.0.1 Documentation
             </BoardChip>
             <BoardChip variant="caption" color="cyan">
               Bhakti Grisa × TP PKK Desa Grudo
@@ -145,7 +145,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
           </h1>
           <p className="text-body-regular sm:text-subheadline-regular text-text-secondary">
             Inisiatif <strong>Bhakti Grisa</strong> berkolaborasi dengan Pemerintah Desa Grudo dan
-            Tim Penggerak PKK menggunakan <strong>BoardUI Design System</strong> untuk memangkas
+            Tim Penggerak PKK menggunakan <strong>Sistem Informasi Terpadu SIMPATIK</strong> untuk memangkas
             beban administrasi berulang Ibu-ibu Kader Dasawisma tanpa mengubah format baku buku
             laporan fisik TP PKK Pusat.
           </p>
@@ -231,7 +231,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
             </h3>
             <div className="p-4 rounded-2lg bg-background-inner-default shadow-card space-y-2 text-caption-1-regular font-mono">
               <div className="font-semibold text-accent-600">
-                [PublicNavbar] BoardUI Header Navigation
+                [PublicNavbar] Header Navigation
               </div>
               <div className="pl-3 border-l border-separator-border space-y-1 text-text-secondary">
                 <div>&boxv;&minus; / (Beranda &amp; Transparency Ledger)</div>
@@ -251,7 +251,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
             </h3>
             <div className="p-4 rounded-2lg bg-background-inner-default shadow-card space-y-2 text-caption-1-regular font-mono">
               <div className="font-semibold text-accent-600">
-                [BoardUI AppShell + Floating DashboardSidebar + Breadcrumb]
+                [SIMPATIK AppShell + Floating DashboardSidebar + Breadcrumb]
               </div>
               <div className="pl-3 border-l border-separator-border space-y-1 text-text-secondary">
                 <div>&boxv;&minus; /dashboard (Statistik Agregat &amp; Unduh 31 Sheet Excel)</div>
@@ -430,7 +430,7 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
               Design System
             </BoardChip>
             <h3 className="text-body-medium font-semibold text-text-primary">
-              BoardUI Tokens
+              Design Tokens
             </h3>
             <p className="text-caption-1-regular text-text-secondary">
               Precision UI tokens, glassmorphic headers, accessible contrast ratios, dan styling khusus buku registrasi fisik.

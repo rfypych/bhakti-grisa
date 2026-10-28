@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { AppRoute, OfficerAccount, UserRole, getRbacPermissions } from '@/lib/domain';
-import { BoardButton, BoardChip, BoardLogo } from '@/components/boardui';
+import { BoardButton, BoardChip, BoardLogo } from '@/components/simpatik';
 
 export interface PublicLayoutProps {
   currentRoute?: AppRoute;
@@ -67,13 +67,13 @@ export function PublicLayout({
 
   return (
     <div
-      data-boardui-layout="public"
+      data-simpatik-layout="public"
       className="min-h-screen flex flex-col bg-background-full text-text-primary"
     >
-      {/* PublicNavbar — 1:1 BoardUI Header Navigation */}
+      {/* PublicNavbar — 1:1 SIMPATIK Header Navigation */}
       <header className="sticky top-0 z-30 bg-background-full/85 backdrop-blur-md border-b border-separator-border no-print">
         <div className="max-w-[1300px] mx-auto flex items-center justify-between gap-6 px-4 sm:px-6 h-16">
-          {/* Zone 1: BoardUI Brand Mark + SIMPATIK Wordmark + Version Chip */}
+          {/* Zone 1: SIMPATIK Brand Mark + SIMPATIK Wordmark + Version Chip */}
           <div className="flex items-center gap-2.5 shrink-0">
             <Link
               href="/"
@@ -90,7 +90,7 @@ export function PublicLayout({
             </BoardChip>
           </div>
 
-          {/* Zone 2: Clean BoardUI Navigation Links */}
+          {/* Zone 2: Clean SIMPATIK Navigation Links */}
           <nav
             aria-label="Navigasi Ruang Publik"
             className="hidden md:flex items-center gap-1 rounded-full bg-background-secondary-default p-1"
@@ -114,7 +114,7 @@ export function PublicLayout({
             })}
           </nav>
 
-          {/* Zone 3: Primary BoardUI Action */}
+          {/* Zone 3: Primary SIMPATIK Action */}
           <div className="flex items-center gap-2.5 shrink-0">
             {perms.canAccessDashboard ? (
               <BoardButton
@@ -322,7 +322,7 @@ export function PublicLayout({
       {/* Main Public Content Viewport */}
       <main className="flex-1">{children}</main>
 
-      {/* PublicFooter — BoardUI Footer */}
+      {/* PublicFooter — SIMPATIK Footer */}
       <footer className="bg-background-secondary-default border-t border-separator-border mt-16 no-print">
         <div className="max-w-[1300px] mx-auto px-4 sm:px-6 py-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-separator-border">
@@ -335,7 +335,7 @@ export function PublicLayout({
               </div>
               <p className="text-body-2-regular text-text-secondary max-w-md">
                 Sistem Informasi Manajemen PKK &amp; Tertib Administrasi Keluarga Pemerintah Desa Grudo,
-                Kecamatan Ngawi, Kabupaten Ngawi. Dibangun dengan BoardUI Design System untuk
+                Kecamatan Ngawi, Kabupaten Ngawi. Dibangun dengan Sistem Informasi Terpadu untuk
                 transformasi digital 31 Sheet Buku Dasawisma melalui mekanisme Single Entry.
               </p>
               <div className="flex flex-wrap items-center gap-2 pt-1">
@@ -346,7 +346,7 @@ export function PublicLayout({
                   Tim Penggerak PKK
                 </BoardChip>
                 <BoardChip variant="caption" color="cyan">
-                  BoardUI v1.0.1
+                  SIMPATIK v1.0.1
                 </BoardChip>
               </div>
             </div>
@@ -428,7 +428,7 @@ export function PublicLayout({
 
           <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-caption-1-regular text-text-tertiary">
             <div>
-              &copy; 2026 Pemerintah Desa Grudo &amp; Inisiatif Bhakti Grisa &middot; Powered by BoardUI Design System.
+              &copy; 2026 Pemerintah Desa Grudo &amp; Inisiatif Bhakti Grisa &middot; Powered by Sistem Informasi Terpadu.
             </div>
             <div className="flex items-center gap-2">
               <span>Standar Lampiran 4.14 – 4.19 TP PKK Pusat</span>

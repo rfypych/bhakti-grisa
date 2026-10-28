@@ -30,7 +30,7 @@ import {
   BoardSurface,
   BoardSegmentedControl,
   BoardStatusLabel,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 
 export interface DashboardPetaProps {
   families: KeluargaRecord[];

@@ -20,7 +20,7 @@ import {
   BoardCallout,
   BoardModal,
   BoardStatusLabel,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import {
   tambahPenggunaAction,
   resetPasswordPenggunaAction,

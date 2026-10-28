@@ -57,7 +57,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       const html = renderToString(<PublicBeranda />);
 
       expect(html).toContain('Tailwind CSS v4');
-      expect(html).toContain('React 19 &amp; BoardUI Tokens');
+      expect(html).toContain('React 19 &amp; Design Tokens');
       expect(html).toContain('Lampiran 4.14 – 4.19 TP PKK');
       expect(html).toContain('31 Sheet Excel Otomatis');
     });
@@ -78,9 +78,9 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
     it('renders Quick Access Bar with copyable CLI command and buttons', () => {
       const html = renderToString(<PublicBeranda />);
 
-      expect(html).toContain('BoardUI Open-Source Registry &amp; SIMPATIK Single-Entry Engine');
+      expect(html).toContain('SIMPATIK Single-Entry Engine &amp; Registrasi Terpadu');
       expect(html).toContain('npx');
-      expect(html).toContain('shadcn@latest add @boardui/dashboard');
+      expect(html).toContain('npm run dev');
       expect(html).toContain('Login Petugas');
     });
 
@@ -165,7 +165,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
     it('is wrapped in PublicLayout with brand header and footer', () => {
       const html = renderToString(<PublicBeranda />);
 
-      expect(html).toContain('data-boardui-layout="public"');
+      expect(html).toContain('data-simpatik-layout="public"');
       expect(html).toContain('SIMPATIK Grudo');
       expect(html).toContain('v1.0.1');
       expect(html).toContain('Pemerintah Desa Grudo &amp; Inisiatif Bhakti Grisa');
@@ -173,10 +173,10 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
   });
 
   describe('PublicLogin Component', () => {
-    it('renders 1:1 BoardUI Split AuthCard layout', () => {
+    it('renders SIMPATIK Split AuthCard layout', () => {
       const html = renderToString(<PublicLogin />);
 
-      expect(html).toContain('data-boardui-layout="public"');
+      expect(html).toContain('data-simpatik-layout="public"');
       expect(html).toContain('SIMPATIK Desa Grudo');
       expect(html).toContain('Portal Pengelola &amp; Kader PKK');
       expect(html).toContain('Masuk Akun Pengelola PKK');

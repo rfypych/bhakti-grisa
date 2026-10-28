@@ -28,7 +28,7 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
       expect(html).toContain('SIMPATIK Grudo');
       expect(html).toContain('v1.0.1');
       expect(html).toContain('Konten Utama');
-      expect(html).toContain('data-boardui-layout="public"');
+      expect(html).toContain('data-simpatik-layout="public"');
     });
 
     it('renders all public navigation links in navbar', () => {
@@ -131,7 +131,7 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
       const html = renderToString(<PublicTentang />);
 
       expect(html).toContain('bui-hero-rays');
-      expect(html).toContain('BoardUI v1.0.1 Documentation');
+      expect(html).toContain('SIMPATIK v1.0.1 Documentation');
       expect(html).toContain('Bhakti Grisa × TP PKK Desa Grudo');
       expect(html).toContain(
         'Transformasi Tertib Administrasi Keluarga dari 31 Lembar Manual Menuju Single Entry Digital'
@@ -198,7 +198,7 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
 
       expect(html).toContain('Modern Tech Stack Inisiatif Bhakti Grisa');
       expect(html).toContain('Next.js 16 &amp; React 19');
-      expect(html).toContain('BoardUI Tokens');
+      expect(html).toContain('Design Tokens');
       expect(html).toContain('Prisma &amp; SQLite');
       expect(html).toContain('ExcelJS &amp; PDF');
     });
@@ -215,7 +215,7 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
       const html = renderToString(<TentangPage />);
 
       // Must be wrapped in PublicLayout
-      expect(html).toContain('data-boardui-layout="public"');
+      expect(html).toContain('data-simpatik-layout="public"');
       expect(html).toContain('SIMPATIK Grudo');
       expect(html).toContain('Transformasi Tertib Administrasi Keluarga');
       expect(html).toContain('Pelayanan Kantor Desa Grudo:');

@@ -26,7 +26,7 @@ import {
   BoardSegmentedControl,
   BoardStatusLabel,
   BoardEmptyState,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import {
   approveSubmissionAction,
   rejectSubmissionAction,

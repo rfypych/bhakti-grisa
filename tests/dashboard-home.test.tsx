@@ -64,7 +64,7 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
         </DashboardLayout>
       );
 
-      expect(html).toContain('data-boardui-layout="dashboard"');
+      expect(html).toContain('data-simpatik-layout="dashboard"');
       expect(html).toContain('SIMPATIK Grudo');
       expect(html).toContain('TP PKK Bhakti Grisa');
       expect(html).toContain('v1.0');

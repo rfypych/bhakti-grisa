@@ -44,7 +44,7 @@ import {
   BoardModal,
   BoardStatusLabel,
   BoardEmptyState,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 
 export interface DashboardHomeProps {
   families?: KeluargaRecord[];
@@ -316,7 +316,7 @@ export function DashboardHome({
         />
       )}
 
-      {/* 1:1 BoardUI 4 StatCards Row */}
+      {/* 1:1 SIMPATIK 4 StatCards Row */}
       <div className="grid w-full grid-cols-1 gap-3.5 sm:grid-cols-2 xl:grid-cols-4">
         <BoardStatCard
           label="Total KK Terverifikasi"
@@ -355,7 +355,7 @@ export function DashboardHome({
         />
       </div>
 
-      {/* 1:1 BoardUI Two-Column Chart Cards Row */}
+      {/* 1:1 SIMPATIK Two-Column Chart Cards Row */}
       <div className="flex w-full flex-col items-stretch gap-4 xl:flex-row">
         {/* Left Chart Card: Distribusi Cakupan Dusun & Indikator Pokja */}
         <section className="flex min-w-0 flex-1 flex-col justify-between gap-5 rounded-2xl bg-background-secondary-default px-4 pt-4 pb-3">
@@ -497,7 +497,7 @@ export function DashboardHome({
         </section>
       </div>
 
-      {/* 1:1 BoardUI Verified Families DataTable */}
+      {/* 1:1 SIMPATIK Verified Families DataTable */}
       <section className="flex w-full flex-col rounded-2xl border border-border-table bg-background-primary-default pt-2 pb-3">
         {/* Table Toolbar */}
         <div className="flex w-full flex-col items-start gap-3 px-3 py-2 sm:flex-row sm:items-center sm:justify-between">

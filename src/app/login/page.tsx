@@ -21,7 +21,7 @@ import {
   BoardCallout,
   BoardStatusLabel,
   BoardLogo,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import { PublicLayout } from '@/components/layout/PublicLayout';
 
 export interface PublicLoginProps {
@@ -173,9 +173,9 @@ export function PublicLogin({
       onNavigate={handleNav}
     >
       <div className="max-w-[1160px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        {/* 1:1 BoardUI Split `AuthCard` */}
+        {/* 1:1 SIMPATIK Split `AuthCard` */}
         <div className="grid w-full overflow-hidden rounded-3xl border border-border-button-default bg-background-primary-default shadow-sidebar lg:grid-cols-12">
-          {/* Left Column: BoardUI Sign-In Form */}
+          {/* Left Column: SIMPATIK Sign-In Form */}
           <div className="lg:col-span-5 flex flex-col justify-between p-6 sm:p-8 space-y-6">
             <div className="space-y-5">
               <div className="flex items-center gap-2.5">

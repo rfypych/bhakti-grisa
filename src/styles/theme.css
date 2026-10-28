@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
- * BoardUI theme tokens
+ * SIMPATIK design tokens
  * --------------------------------------------------------------------------- */
 
 :root {
@@ -568,18 +568,18 @@
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
 
-/* Isolation rules when BoardUI layouts (PublicLayout or DashboardLayout) are active */
-body:has([data-boardui-layout]) > header,
-body:has([data-boardui-layout]) > footer,
-body:has([data-boardui-layout]) > nav {
+/* Isolation rules when SIMPATIK layouts (PublicLayout or DashboardLayout) are active */
+body:has([data-simpatik-layout]) > header,
+body:has([data-simpatik-layout]) > footer,
+body:has([data-simpatik-layout]) > nav {
   display: none !important;
 }
 
-body:has([data-boardui-layout]) > main {
+body:has([data-simpatik-layout]) > main {
   padding-bottom: 0 !important;
 }
 
-/* 1:1 BoardUI Data Table styles */
+/* SIMPATIK Data Table styles */
 .bui-table {
   width: 100%;
   border-collapse: collapse;

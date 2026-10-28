@@ -38,7 +38,7 @@ import {
   BoardCallout,
   BoardStatusLabel,
   BoardChip,
-} from '@/components/boardui';
+} from '@/components/simpatik';
 import { PublicLayout } from '@/components/layout/PublicLayout';
 import {
   saveKeluargaAction,
