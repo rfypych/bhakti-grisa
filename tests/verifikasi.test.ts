@@ -36,6 +36,18 @@ describe('Verification Flow', () => {
       },
     });
 
+    await prisma.anggotaKeluarga.create({
+      data: {
+        keluargaId: draft.id,
+        nik: '999900001111222201',
+        nama: 'Draft Family Head',
+        hubunganKeluarga: 'KEPALA_KELUARGA',
+        jenisKelamin: 'L',
+        tempatLahir: 'Ngawi',
+        tanggalLahir: new Date('1985-01-01'),
+      },
+    });
+
     const result = await approveSubmissionAction(draft.id);
     expect(result.success).toBe(true);
 

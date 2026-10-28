@@ -363,11 +363,22 @@ export function DashboardPeristiwa({
     const fam = scopedFamilies.find((f) => f.id === genFamId) || scopedFamilies[0];
     if (!fam || !genNamaSubjek.trim()) return;
 
+    if (!fam.anggota || fam.anggota.length === 0) {
+      alert('Keluarga yang dipilih tidak memiliki anggota keluarga yang terdaftar.');
+      return;
+    }
+
     setIsLoading(true);
     try {
       const memberObj =
         fam.anggota.find((a) => a.nama.toLowerCase().includes(genNamaSubjek.toLowerCase().trim())) ||
-        fam.anggota[0];
+        fam.anggota.find((a) => a.nama.toLowerCase() === genNamaSubjek.toLowerCase().trim());
+
+      if (!memberObj) {
+        alert(`Anggota bernama "${genNamaSubjek}" tidak ditemukan dalam KK ${fam.namaKepalaKeluarga}. Silakan sesuaikan nama dengan data anggota keluarga.`);
+        setIsLoading(false);
+        return;
+      }
 
       const newEvt: PeristiwaRecord = {
         id: `evt-${Date.now()}`,
@@ -379,8 +390,8 @@ export function DashboardPeristiwa({
         rt: fam.rt,
         rw: fam.rw,
         dusun: fam.dusun,
-        namaSubjek: genNamaSubjek.trim(),
-        jenisKelamin: memberObj?.jenisKelamin || 'P',
+        namaSubjek: memberObj.nama,
+        jenisKelamin: memberObj.jenisKelamin || 'P',
         tanggalPeristiwa: new Date().toISOString().split('T')[0],
         keterangan: genKeterangan.trim() || `Pencatatan ${genJenis} resmi oleh petugas.`,
         dicatatOleh: currentUser?.nama || `Petugas ${currentRole}`,
@@ -389,21 +400,23 @@ export function DashboardPeristiwa({
       if (onRecordGeneralEvent) {
         await onRecordGeneralEvent(newEvt);
       } else if (genJenis === 'MUTASI_KELUAR') {
-        if (memberObj) {
-          await laporMutasiAction({
-            anggotaId: memberObj.id,
-            tanggalMutasi: new Date().toISOString().split('T')[0],
-            keterangan: genKeterangan.trim() || 'Mutasi keluar wilayah',
-          });
+        const res = await laporMutasiAction({
+          anggotaId: memberObj.id,
+          tanggalMutasi: new Date().toISOString().split('T')[0],
+          keterangan: genKeterangan.trim() || 'Mutasi keluar wilayah',
+        });
+        if (!res.success) {
+          throw new Error(res.error || 'Gagal mencatat mutasi keluar.');
         }
       } else {
-        if (memberObj) {
-          await laporKehamilanAction({
-            anggotaId: memberObj.id,
-            tanggalCatat: new Date().toISOString().split('T')[0],
-            status: genJenis === 'NIFAS' ? 'NIFAS' : 'KEHAMILAN',
-            keterangan: genKeterangan.trim(),
-          });
+        const res = await laporKehamilanAction({
+          anggotaId: memberObj.id,
+          tanggalCatat: new Date().toISOString().split('T')[0],
+          status: genJenis === 'NIFAS' ? 'NIFAS' : 'KEHAMILAN',
+          keterangan: genKeterangan.trim(),
+        });
+        if (!res.success) {
+          throw new Error(res.error || 'Gagal mencatat kehamilan/nifas.');
         }
       }
 

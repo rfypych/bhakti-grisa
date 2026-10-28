@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialExcelWorkbook } from '@/lib/excelTemplate';
 import { getSessionUser } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
 
 export async function GET(request: NextRequest) {
   const user = await getSessionUser();
@@ -17,6 +18,34 @@ export async function GET(request: NextRequest) {
   const rtId = searchParams.get('rtId') || 'all';
   const dasawismaId = searchParams.get('dasawismaId') || undefined;
   const keluargaId = searchParams.get('keluargaId') || undefined;
+
+  // Enforce RBAC territorial scoping
+  if (user.peran === 'KADER_RT') {
+    if (rtId === 'all') {
+      return NextResponse.json(
+        { error: 'Akses ditolak: Kader RT tidak memiliki wewenang untuk mengunduh rekapitulasi seluruh desa.' },
+        { status: 403 }
+      );
+    }
+    if (keluargaId) {
+      const fam = await prisma.keluarga.findUnique({
+        where: { id: keluargaId },
+        select: { wilayahId: true },
+      });
+      if (!fam || fam.wilayahId !== user.wilayahId) {
+        return NextResponse.json(
+          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah Anda.' },
+          { status: 403 }
+        );
+      }
+    }
+    if (dasawismaId && dasawismaId !== user.wilayahId) {
+      return NextResponse.json(
+        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah Dasawisma Anda.' },
+        { status: 403 }
+      );
+    }
+  }
 
   try {
     const buffer = await generateOfficialExcelWorkbook({

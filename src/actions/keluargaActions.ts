@@ -111,8 +111,24 @@ export async function saveKeluargaAction(
     if (!formData.wilayahId) {
       return { success: false, error: 'Wilayah / Dasawisma wajib dipilih.' };
     }
+    if (!formData.anggota || formData.anggota.length === 0) {
+      return { success: false, error: 'Formulir wajib memiliki minimal 1 anggota keluarga (Kepala Keluarga).' };
+    }
 
     const targetStatus = isPublicResident ? 'DRAFT' : 'VERIFIKASI';
+
+    // Guard duplicate KK: If existing record is VERIFIKASI and submitted from public form or different ID, reject
+    const existingKk = await prisma.keluarga.findUnique({
+      where: { noKk: formData.noKk },
+    });
+    if (existingKk && existingKk.statusData === 'VERIFIKASI') {
+      if (isPublicResident || (formData.id && formData.id !== existingKk.id)) {
+        return {
+          success: false,
+          error: 'Nomor KK sudah terdaftar dan terverifikasi di sistem Desa Grudo. Silakan hubungi Kader Dasawisma setempat.',
+        };
+      }
+    }
 
     const result = await prisma.$transaction(async (tx) => {
       // 1. Upsert Keluarga

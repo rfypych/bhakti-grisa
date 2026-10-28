@@ -118,156 +118,179 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
 /**
  * Records a mortality event and creates PeristiwaVital record.
  */
-export async function laporKematianAction(data: KematianInput): Promise<{ success: boolean }> {
-  const user = await getSessionUser();
-  if (user) {
-    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
-      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
-    }
+export async function laporKematianAction(data: KematianInput): Promise<{ success: boolean; error?: string }> {
+  try {
     const targetMember = await prisma.anggotaKeluarga.findUnique({
       where: { id: data.anggotaId },
       include: { keluarga: true },
     });
-    if (user.peran === 'KADER_RT' && user.wilayahId && targetMember?.keluarga?.wilayahId !== user.wilayahId) {
-      throw new Error('Akses ditolak: Anda hanya dapat mencatat kematian pada warga di wilayah Dasawisma Anda.');
+
+    if (!targetMember) {
+      return { success: false, error: 'Anggota keluarga yang bersangkutan tidak ditemukan.' };
     }
-  }
 
-  // Map the reporter-facing category to the structured event type. General
-  // deaths are KEMATIAN_WARGA: recording them as KEMATIAN_IBU would corrupt
-  // the maternal mortality counters in official recaps.
-  let jenisPeristiwa: 'KEMATIAN_IBU' | 'KEMATIAN_BAYI' | 'KEMATIAN_BALITA' | 'KEMATIAN_WARGA' = 'KEMATIAN_WARGA';
+    const user = await getSessionUser();
+    if (user) {
+      if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+        return { success: false, error: 'Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.' };
+      }
+      if (user.peran === 'KADER_RT' && user.wilayahId && targetMember.keluarga?.wilayahId !== user.wilayahId) {
+        return { success: false, error: 'Akses ditolak: Anda hanya dapat mencatat kematian pada warga di wilayah Dasawisma Anda.' };
+      }
+    }
 
-  if (data.statusAlmarhum === 'BAYI') {
-    jenisPeristiwa = 'KEMATIAN_BAYI';
-  } else if (data.statusAlmarhum === 'BALITA') {
-    jenisPeristiwa = 'KEMATIAN_BALITA';
-  } else if (data.statusAlmarhum === 'IBU_HAMIL_MELAHIRKAN_NIFAS') {
-    jenisPeristiwa = 'KEMATIAN_IBU';
-  }
+    // Map the reporter-facing category to the structured event type. General
+    // deaths are KEMATIAN_WARGA: recording them as KEMATIAN_IBU would corrupt
+    // the maternal mortality counters in official recaps.
+    let jenisPeristiwa: 'KEMATIAN_IBU' | 'KEMATIAN_BAYI' | 'KEMATIAN_BALITA' | 'KEMATIAN_WARGA' = 'KEMATIAN_WARGA';
 
-  const deathDate = new Date(data.tanggalKematian);
+    if (data.statusAlmarhum === 'BAYI') {
+      jenisPeristiwa = 'KEMATIAN_BAYI';
+    } else if (data.statusAlmarhum === 'BALITA') {
+      jenisPeristiwa = 'KEMATIAN_BALITA';
+    } else if (data.statusAlmarhum === 'IBU_HAMIL_MELAHIRKAN_NIFAS') {
+      jenisPeristiwa = 'KEMATIAN_IBU';
+    }
 
-  await prisma.$transaction(async (tx) => {
-    await tx.peristiwaVital.create({
-      data: {
-        anggotaKeluargaId: data.anggotaId,
-        jenisPeristiwa,
-        tanggalPeristiwa: deathDate,
-        namaAlmarhum: data.namaAlmarhum.trim(),
-        sebabKematian: data.sebabKematian.trim(),
-        keterangan: data.keterangan || (data.statusAlmarhum ? `Kategori: ${data.statusAlmarhum}` : undefined),
-      },
+    const deathDate = new Date(data.tanggalKematian);
+
+    await prisma.$transaction(async (tx) => {
+      await tx.peristiwaVital.create({
+        data: {
+          anggotaKeluargaId: data.anggotaId,
+          jenisPeristiwa,
+          tanggalPeristiwa: deathDate,
+          namaAlmarhum: data.namaAlmarhum.trim(),
+          sebabKematian: data.sebabKematian.trim(),
+          keterangan: data.keterangan || (data.statusAlmarhum ? `Kategori: ${data.statusAlmarhum}` : undefined),
+        },
+      });
+
+      // The deceased member stops counting as a living resident and must no
+      // longer be offered in the living-member lists.
+      await tx.anggotaKeluarga.update({
+        where: { id: data.anggotaId },
+        data: { statusKehidupan: 'MENINGGAL' },
+      });
     });
 
-    // The deceased member stops counting as a living resident and must no
-    // longer be offered in the living-member lists.
-    await tx.anggotaKeluarga.update({
-      where: { id: data.anggotaId },
-      data: { statusKehidupan: 'MENINGGAL' },
-    });
-  });
+    try {
+      revalidatePath('/dashboard/lapor-peristiwa');
+      revalidatePath('/dashboard');
+    } catch {
+      // ignore
+    }
 
-  try {
-    revalidatePath('/dashboard/lapor-peristiwa');
-    revalidatePath('/dashboard');
-  } catch {
-    // ignore
+    return { success: true };
+  } catch (error: any) {
+    console.error('[laporKematianAction] Error:', error);
+    return { success: false, error: error.message || 'Gagal mencatat kematian.' };
   }
-
-  return { success: true };
 }
 
 /**
  * Records pregnancy or nursing status.
  */
-export async function laporKehamilanAction(data: KehamilanInput): Promise<{ success: boolean }> {
-  const user = await getSessionUser();
-  if (user) {
-    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
-      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
-    }
+export async function laporKehamilanAction(data: KehamilanInput): Promise<{ success: boolean; error?: string }> {
+  try {
     const targetMother = await prisma.anggotaKeluarga.findUnique({
       where: { id: data.anggotaId },
       include: { keluarga: true },
     });
-    if (user.peran === 'KADER_RT' && user.wilayahId && targetMother?.keluarga?.wilayahId !== user.wilayahId) {
-      throw new Error('Akses ditolak: Anda hanya dapat mencatat kehamilan pada warga di wilayah Dasawisma Anda.');
+
+    if (!targetMother) {
+      return { success: false, error: 'Anggota keluarga yang bersangkutan tidak ditemukan.' };
     }
+
+    const user = await getSessionUser();
+    if (user) {
+      if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+        return { success: false, error: 'Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.' };
+      }
+      if (user.peran === 'KADER_RT' && user.wilayahId && targetMother.keluarga?.wilayahId !== user.wilayahId) {
+        return { success: false, error: 'Akses ditolak: Anda hanya dapat mencatat kehamilan pada warga di wilayah Dasawisma Anda.' };
+      }
+    }
+
+    const eventDate = data.tanggalCatat ? new Date(data.tanggalCatat) : new Date();
+
+    await prisma.peristiwaVital.create({
+      data: {
+        anggotaKeluargaId: data.anggotaId,
+        jenisPeristiwa: data.status === 'NIFAS' ? 'NIFAS' : 'KEHAMILAN',
+        tanggalPeristiwa: eventDate,
+        keterangan: data.keterangan || (data.status === 'NIFAS' ? 'Ibu Nifas / Menyusui' : 'Ibu Hamil Aktif'),
+      },
+    });
+
+    try {
+      revalidatePath('/dashboard/lapor-peristiwa');
+      revalidatePath('/dashboard');
+    } catch {
+      // ignore
+    }
+
+    return { success: true };
+  } catch (error: any) {
+    console.error('[laporKehamilanAction] Error:', error);
+    return { success: false, error: error.message || 'Gagal mencatat kehamilan.' };
   }
-
-  const eventDate = data.tanggalCatat ? new Date(data.tanggalCatat) : new Date();
-
-  await prisma.peristiwaVital.create({
-    data: {
-      anggotaKeluargaId: data.anggotaId,
-      jenisPeristiwa: data.status === 'NIFAS' ? 'NIFAS' : 'KEHAMILAN',
-      tanggalPeristiwa: eventDate,
-      keterangan: data.keterangan || (data.status === 'NIFAS' ? 'Ibu Nifas / Menyusui' : 'Ibu Hamil Aktif'),
-    },
-  });
-
-  try {
-    revalidatePath('/dashboard/lapor-peristiwa');
-    revalidatePath('/dashboard');
-  } catch {
-    // ignore
-  }
-
-  return { success: true };
 }
 
 /**
  * Records a relocation/mutation event (MUTASI_KELUAR).
  */
-export async function laporMutasiAction(data: MutasiInput): Promise<{ success: boolean }> {
-  const user = await getSessionUser();
-  if (user) {
-    if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
-      throw new Error('Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.');
-    }
+export async function laporMutasiAction(data: MutasiInput): Promise<{ success: boolean; error?: string }> {
+  try {
     const targetMember = await prisma.anggotaKeluarga.findUnique({
       where: { id: data.anggotaId },
       include: { keluarga: true },
     });
-    if (user.peran === 'KADER_RT' && user.wilayahId && targetMember?.keluarga?.wilayahId !== user.wilayahId) {
-      throw new Error('Akses ditolak: Anda hanya dapat mencatat mutasi pada warga di wilayah Dasawisma Anda.');
+
+    if (!targetMember) {
+      return { success: false, error: 'Anggota keluarga yang bersangkutan tidak ditemukan.' };
     }
-  }
 
-  const member = await prisma.anggotaKeluarga.findUnique({
-    where: { id: data.anggotaId },
-  });
-  if (!member) {
-    throw new Error('Data warga tidak ditemukan.');
-  }
+    const user = await getSessionUser();
+    if (user) {
+      if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
+        return { success: false, error: 'Akses ditolak: Pengurus RW/Dusun hanya memiliki izin baca log peristiwa.' };
+      }
+      if (user.peran === 'KADER_RT' && user.wilayahId && targetMember.keluarga?.wilayahId !== user.wilayahId) {
+        return { success: false, error: 'Akses ditolak: Anda hanya dapat mencatat mutasi pada warga di wilayah Dasawisma Anda.' };
+      }
+    }
 
-  const eventDate = new Date(data.tanggalMutasi);
+    const eventDate = new Date(data.tanggalMutasi);
 
-  await prisma.$transaction(async (tx) => {
-    await tx.peristiwaVital.create({
-      data: {
-        anggotaKeluargaId: data.anggotaId,
-        jenisPeristiwa: 'MUTASI_KELUAR',
-        tanggalPeristiwa: eventDate,
-        keterangan: data.keterangan ? data.keterangan.trim() : 'Pindah domisili keluar wilayah',
-      },
+    await prisma.$transaction(async (tx) => {
+      await tx.peristiwaVital.create({
+        data: {
+          anggotaKeluargaId: data.anggotaId,
+          jenisPeristiwa: 'MUTASI_KELUAR',
+          tanggalPeristiwa: eventDate,
+          keterangan: data.keterangan ? data.keterangan.trim() : 'Pindah domisili keluar wilayah',
+        },
+      });
+
+      await tx.anggotaKeluarga.update({
+        where: { id: data.anggotaId },
+        data: { statusKehidupan: 'PINDAH' },
+      });
     });
 
-    await tx.anggotaKeluarga.update({
-      where: { id: data.anggotaId },
-      data: { statusKehidupan: 'PINDAH' },
-    });
-  });
+    try {
+      revalidatePath('/dashboard/lapor-peristiwa');
+      revalidatePath('/dashboard');
+    } catch {
+      // ignore
+    }
 
-  try {
-    revalidatePath('/dashboard/lapor-peristiwa');
-    revalidatePath('/dashboard');
-  } catch {
-    // ignore
+    return { success: true };
+  } catch (error: any) {
+    console.error('[laporMutasiAction] Error:', error);
+    return { success: false, error: error.message || 'Gagal mencatat mutasi.' };
   }
-
-  return { success: true };
 }
 
 /**

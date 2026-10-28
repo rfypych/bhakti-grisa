@@ -29,13 +29,25 @@ export async function getPendingSubmissions(wilayahId?: string) {
 
 export async function approveSubmissionAction(keluargaId: string) {
   try {
+    const existing = await prisma.keluarga.findUnique({
+      where: { id: keluargaId },
+      include: { anggota: true },
+    });
+
+    if (!existing) {
+      return { success: false, error: 'Data keluarga tidak ditemukan.' };
+    }
+
+    if (!existing.anggota || existing.anggota.length === 0) {
+      return { success: false, error: 'Berkas tidak dapat disetujui karena tidak memiliki anggota keluarga.' };
+    }
+
     const user = await getSessionUser();
     if (user) {
       if (user.peran !== 'ADMIN_DESA' && user.peran !== 'KADER_RT') {
         return { success: false, error: 'Akses ditolak: Anda tidak memiliki wewenang untuk memverifikasi data.' };
       }
-      const existing = await prisma.keluarga.findUnique({ where: { id: keluargaId } });
-      if (user.peran === 'KADER_RT' && user.wilayahId && existing?.wilayahId !== user.wilayahId) {
+      if (user.peran === 'KADER_RT' && user.wilayahId && existing.wilayahId !== user.wilayahId) {
         return { success: false, error: 'Akses ditolak: Anda hanya dapat memverifikasi pengajuan di wilayah Anda.' };
       }
     }

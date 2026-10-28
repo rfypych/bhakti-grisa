@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialPdf, ExportPdfJenis, PDF_EXPORT_CONFIGS } from '@/lib/pdfExport';
 import { getSessionUser } from '@/lib/auth';
+import { prisma } from '@/lib/prisma';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -45,6 +46,34 @@ export async function GET(request: NextRequest) {
       { error: 'Parameter keluargaId wajib diisi untuk format lampiran keluarga' },
       { status: 400 }
     );
+  }
+
+  // Enforce RBAC territorial scoping
+  if (user.peran === 'KADER_RT') {
+    if (jenis === 'rekap-desa') {
+      return NextResponse.json(
+        { error: 'Akses ditolak: Kader RT tidak memiliki wewenang untuk mengunduh rekapitulasi desa.' },
+        { status: 403 }
+      );
+    }
+    if (keluargaId) {
+      const fam = await prisma.keluarga.findUnique({
+        where: { id: keluargaId },
+        select: { wilayahId: true },
+      });
+      if (!fam || fam.wilayahId !== user.wilayahId) {
+        return NextResponse.json(
+          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah Anda.' },
+          { status: 403 }
+        );
+      }
+    }
+    if (wilayahId && wilayahId !== user.wilayahId) {
+      return NextResponse.json(
+        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah Anda.' },
+        { status: 403 }
+      );
+    }
   }
 
   try {
