@@ -10,7 +10,9 @@ export interface WilayahInput {
   rt: string;
   namaDasawisma: string;
   ketuaNama?: string;
+  ketuaDasawisma?: string;
   kontak?: string;
+  targetKK?: number;
 }
 
 /**
@@ -61,13 +63,15 @@ export async function createWilayahAction(data: WilayahInput) {
     };
   }
 
+  const ketuaNama = data.ketuaNama?.trim() || data.ketuaDasawisma?.trim() || null;
+
   const wilayah = await prisma.wilayah.create({
     data: {
       dusun,
       rw,
       rt,
       namaDasawisma,
-      ketuaNama: data.ketuaNama?.trim() || null,
+      ketuaNama,
       kontak: data.kontak?.trim() || null,
     },
   });
@@ -124,6 +128,8 @@ export async function updateWilayahAction(id: string, data: WilayahInput) {
     };
   }
 
+  const ketuaNama = data.ketuaNama?.trim() || data.ketuaDasawisma?.trim() || null;
+
   const wilayah = await prisma.wilayah.update({
     where: { id },
     data: {
@@ -131,7 +137,7 @@ export async function updateWilayahAction(id: string, data: WilayahInput) {
       rw,
       rt,
       namaDasawisma,
-      ketuaNama: data.ketuaNama?.trim() || null,
+      ketuaNama,
       kontak: data.kontak?.trim() || null,
     },
   });
@@ -188,3 +194,6 @@ export async function deleteWilayahAction(id: string) {
 
   return { success: true };
 }
+
+export const tambahWilayahAction = createWilayahAction;
+export const hapusWilayahAction = deleteWilayahAction;

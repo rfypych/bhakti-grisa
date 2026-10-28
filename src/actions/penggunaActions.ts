@@ -8,9 +8,14 @@ import { revalidatePath } from 'next/cache';
 export interface CreatePenggunaInput {
   nama: string;
   username: string;
-  kataSandi: string;
-  peran: PeranPengguna;
+  kataSandi?: string;
+  passwordPlain?: string;
+  peran?: PeranPengguna;
+  role?: PeranPengguna;
   wilayahId?: string | null;
+  scopeDusun?: string | null;
+  scopeRw?: string | null;
+  scopeRt?: string | null;
 }
 
 /**
@@ -39,8 +44,8 @@ export async function createPenggunaAction(data: CreatePenggunaInput) {
 
   const nama = data.nama?.trim();
   const username = data.username?.trim().toLowerCase();
-  const kataSandi = data.kataSandi;
-  const peran = data.peran;
+  const kataSandi = (data.kataSandi || data.passwordPlain || '').trim();
+  const peran = data.peran || data.role;
   const wilayahId = peran === 'ADMIN_DESA' ? null : (data.wilayahId || null);
 
   if (!nama || !username || !kataSandi || !peran) {
@@ -148,3 +153,6 @@ export async function resetPasswordAction(id: string, kataSandiBaru: string) {
 
   return { success: true };
 }
+
+export const tambahPenggunaAction = createPenggunaAction;
+export const resetPasswordPenggunaAction = resetPasswordAction;

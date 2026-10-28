@@ -1,104 +1,87 @@
 import React from 'react';
-import { getWilayahListWithCounts } from '@/actions/wilayahActions';
-import { WilayahManager } from '@/components/wilayah/WilayahManager';
+import { prisma } from '@/lib/prisma';
 import { getSessionUser } from '@/lib/auth';
-import { redirect } from 'next/navigation';
-import { MapPin, Layers, Home, Users } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { INITIAL_WILAYAH, INITIAL_FAMILIES, INITIAL_OFFICERS } from '@/lib/seedData';
+import { KeluargaRecord, OfficerAccount, UserRole, Wilayah } from '@/lib/domain';
+import {
+  mapDbWilayahToDomain,
+  mapDbKeluargaToDomain,
+  mapDbUserToOfficer,
+} from '@/lib/dbMappers';
+import { DashboardWilayah } from '@/components/dashboard/DashboardWilayah';
 
 export const metadata = {
-  title: 'Manajemen Wilayah & Dasawisma - SIMPATIK',
+  title: 'Manajemen Wilayah & Dasawisma - SIMPATIK Grudo',
+  description: 'Manajemen hierarki kewilayahan Dusun, RW, RT, dan Dasawisma dengan Safety Guard proteksi integritas data.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function WilayahPage() {
-  const user = await getSessionUser();
-  if (user && user.peran !== 'ADMIN_DESA') {
-    redirect('/dashboard?notice=Akses+modul+Wilayah+hanya+tersedia+untuk+Admin+Desa');
+  let wilayahList: Wilayah[] = INITIAL_WILAYAH;
+  let families: KeluargaRecord[] = INITIAL_FAMILIES;
+  let officers: OfficerAccount[] = INITIAL_OFFICERS;
+  let currentUser: OfficerAccount | null = null;
+  let currentRole: UserRole = 'ADMIN_DESA';
+
+  try {
+    const [dbWilayah, dbKeluarga, dbUsers, sessionUser] = await Promise.all([
+      prisma.wilayah.findMany({
+        orderBy: [
+          { dusun: 'asc' },
+          { rw: 'asc' },
+          { rt: 'asc' },
+          { namaDasawisma: 'asc' },
+        ],
+      }),
+      prisma.keluarga.findMany({
+        include: {
+          wilayah: true,
+          anggota: true,
+          hatinyaPkk: true,
+          industriRumahTangga: true,
+        },
+        orderBy: { updatedAt: 'desc' },
+      }),
+      prisma.pengguna.findMany({
+        include: { wilayah: true },
+        orderBy: [{ peran: 'asc' }, { nama: 'asc' }],
+      }),
+      getSessionUser(),
+    ]);
+
+    if (dbWilayah && dbWilayah.length > 0) {
+      wilayahList = dbWilayah.map(mapDbWilayahToDomain);
+    }
+
+    if (dbKeluarga && dbKeluarga.length > 0) {
+      families = dbKeluarga.map(mapDbKeluargaToDomain);
+    }
+
+    if (dbUsers && dbUsers.length > 0) {
+      officers = dbUsers.map(mapDbUserToOfficer);
+    }
+
+    if (sessionUser) {
+      currentRole = (sessionUser.peran as UserRole) || 'ADMIN_DESA';
+      currentUser = mapDbUserToOfficer(sessionUser);
+    } else if (officers.length > 0) {
+      currentUser = officers.find((o) => o.role === 'ADMIN_DESA') || officers[0];
+      currentRole = currentUser.role;
+    }
+  } catch (err) {
+    console.warn('Gagal memuat data dari Prisma untuk WilayahPage, menggunakan seed fallback:', err);
   }
 
-  const wilayahList = await getWilayahListWithCounts();
-
-  const totalDasawisma = wilayahList.length;
-  const uniqueDusun = new Set(wilayahList.map((w) => w.dusun)).size;
-  const uniqueRW = new Set(wilayahList.map((w) => `${w.dusun}-${w.rw}`)).size;
-  const uniqueRT = new Set(wilayahList.map((w) => `${w.dusun}-${w.rw}-${w.rt}`)).size;
-  const totalKeluarga = wilayahList.reduce((acc, w) => acc + w._count.keluarga, 0);
-
   return (
-    <div className="max-w-7xl mx-auto space-y-6 py-8 px-4 sm:px-6 lg:px-8">
-      {/* Page Title & Breadcrumb */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-5">
-        <div>
-          <div className="flex items-center gap-2">
-            <MapPin className="size-6 text-primary" />
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">Manajemen Wilayah Administrasi</h1>
-          </div>
-          <p className="text-sm text-muted-foreground mt-1">
-            Konfigurasi hierarki wilayah: Dusun/Lingkungan, RW, RT, dan Kelompok Dasawisma Desa Grudo.
-          </p>
-        </div>
-      </div>
-
-      {/* Summary KPI Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Dusun</CardTitle>
-            <Layers className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueDusun}</div>
-            <p className="text-xs text-muted-foreground mt-1">Unit Tingkat Desa</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Rukun Warga</CardTitle>
-            <MapPin className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueRW}</div>
-            <p className="text-xs text-muted-foreground mt-1">Satuan RW</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Rukun Tetangga</CardTitle>
-            <Home className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="text-2xl font-bold tracking-tight text-foreground">{uniqueRT}</div>
-            <p className="text-xs text-muted-foreground mt-1">Satuan RT</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Dasawisma</CardTitle>
-            <Users className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="text-2xl font-bold tracking-tight text-primary">{totalDasawisma}</div>
-            <p className="text-xs text-muted-foreground mt-1">Basis Pendataan PKK</p>
-          </CardContent>
-        </Card>
-
-        <Card className="col-span-2 sm:col-span-1">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">KK Terdaftar</CardTitle>
-            <Users className="size-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="text-2xl font-bold tracking-tight text-foreground">{totalKeluarga}</div>
-            <p className="text-xs text-muted-foreground mt-1">Di Seluruh Wilayah</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Main Table & Management Client Component */}
-      <WilayahManager initialList={wilayahList} />
-    </div>
+    <DashboardWilayah
+      wilayahList={wilayahList}
+      families={families}
+      officers={officers}
+      currentUser={currentUser}
+      currentRole={currentRole}
+    />
   );
 }
+
+export { DashboardWilayah };
