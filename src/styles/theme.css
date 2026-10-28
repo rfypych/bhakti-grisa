@@ -563,3 +563,14 @@
 .bg-linear-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
+
+/* Isolation rules when BoardUI layouts (PublicLayout or DashboardLayout) are active */
+body:has([data-boardui-layout]) > header,
+body:has([data-boardui-layout]) > footer,
+body:has([data-boardui-layout]) > nav {
+  display: none !important;
+}
+
+body:has([data-boardui-layout]) > main {
+  padding-bottom: 0 !important;
+}
