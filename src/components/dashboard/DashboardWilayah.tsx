@@ -17,6 +17,7 @@ import {
   OfficerAccount,
   UserRole,
   Wilayah,
+  extractUniqueDusun,
   getRbacPermissions,
   validateWilayahDeletion,
 } from '@/lib/domain';
@@ -283,7 +284,7 @@ export function DashboardWilayah({
         <BoardStatCard
           label="Jumlah Dusun"
           value={uniqueDusunCount}
-          subtext="Grudo, Krajan, Mojorejo, Nglarangan"
+          subtext={extractUniqueDusun(wilayahList).join(', ') || 'Unit lingkungan dusun'}
           icon={<Layers className="w-4 h-4" />}
         />
         <BoardStatCard
@@ -415,17 +416,21 @@ export function DashboardWilayah({
               <label htmlFor="wil-dusun" className="block font-semibold text-text-primary mb-1">
                 Nama Dusun
               </label>
-              <select
+              <input
                 id="wil-dusun"
+                type="text"
+                required
+                list="wil-dusun-list"
                 value={dusun}
                 onChange={(e) => setDusun(e.target.value)}
+                placeholder="Pilih atau ketik Dusun (Contoh: Krajan / Tegalsari)"
                 className="w-full px-3 py-2 bg-background-tertiary-default border border-border-button-default rounded-2lg text-text-primary"
-              >
-                <option value="Grudo">Grudo</option>
-                <option value="Krajan">Krajan</option>
-                <option value="Mojorejo">Mojorejo</option>
-                <option value="Nglarangan">Nglarangan</option>
-              </select>
+              />
+              <datalist id="wil-dusun-list">
+                {extractUniqueDusun(wilayahList).map((d) => (
+                  <option key={d} value={d} />
+                ))}
+              </datalist>
             </div>
 
             <div>

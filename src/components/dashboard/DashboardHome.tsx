@@ -26,6 +26,7 @@ import {
   Wilayah,
   computeDashboardAggregates,
   computeHouseholdSeverity,
+  extractUniqueDusun,
   filterFamiliesByRoleScope,
   filterWilayahByRoleScope,
   generate31SheetsBukuDasawisma,
@@ -170,7 +171,9 @@ export function DashboardHome({
     );
   };
 
-  const dusunBreakdown = ['Grudo', 'Krajan', 'Mojorejo', 'Nglarangan'].map((dusun) => {
+  const uniqueDusuns = extractUniqueDusun(scopedWilayah);
+  const effectiveDusuns = uniqueDusuns.length > 0 ? uniqueDusuns : extractUniqueDusun(wilayahList);
+  const dusunBreakdown = (effectiveDusuns.length > 0 ? effectiveDusuns : ['Krajan', 'Tegalsari']).map((dusun) => {
     const dFams = verifiedFamilies.filter((f) => f.dusun === dusun);
     const dSehat = dFams.filter((f) => f.sanitasi.kriteriaRumah === 'SEHAT').length;
     const dJiwa = dFams.reduce(

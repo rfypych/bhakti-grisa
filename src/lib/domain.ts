@@ -353,38 +353,61 @@ export function filterWilayahByRoleScope(
 // ============================================================================
 
 /**
- * Generates a deterministic 16-digit Virtual NIK for newborn babies in Desa Grudo
- * who do not yet have an official Dukcapil NIK.
- * Format: 352109 (Kode Kec Ngawi/Grudo) + DDMMYY (+40 on DD for female) + 99 + 2-digit seq
+ * Generates a virtual temporary NIK for newborns or residents without an official Dukcapil NIK.
+ * Format: TEMP-YYYYMMDD-XXXX
  */
 export function generateVirtualNik(
-  tanggalLahir: string,
-  jenisKelamin: 'L' | 'P',
-  sequence: number = 1
+  tanggalLahirOrDate?: string | Date,
+  _jenisKelamin?: 'L' | 'P',
+  _sequence?: number
 ): string {
-  const prefix = '352109'; // Kab. Ngawi (35.21), Kec. Ngawi (09)
-  let dd = 1;
-  let mm = 1;
-  let yy = 26;
+  let date: Date;
+  if (!tanggalLahirOrDate) {
+    date = new Date();
+  } else if (typeof tanggalLahirOrDate === 'string') {
+    date = new Date(tanggalLahirOrDate.includes('T') ? tanggalLahirOrDate : tanggalLahirOrDate + 'T00:00:00Z');
+  } else {
+    date = tanggalLahirOrDate;
+  }
+  if (isNaN(date.getTime())) date = new Date();
 
-  if (/^\d{4}-\d{2}-\d{2}$/.test(tanggalLahir)) {
-    const parts = tanggalLahir.split('-');
-    yy = parseInt(parts[0].slice(-2), 10);
-    mm = parseInt(parts[1], 10);
-    dd = parseInt(parts[2], 10);
+  const year = date.getUTCFullYear().toString().padStart(4, '0');
+  const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+  const day = date.getUTCDate().toString().padStart(2, '0');
+
+  const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let randomSuffix = '';
+  for (let i = 0; i < 4; i++) {
+    const randomIndex = Math.floor(Math.random() * chars.length);
+    randomSuffix += chars[randomIndex];
   }
 
-  if (jenisKelamin === 'P') {
-    dd += 40;
+  return `TEMP-${year}${month}${day}-${randomSuffix}`;
+}
+
+/**
+ * Checks whether a given NIK string is a virtual temporary NIK.
+ */
+export function isVirtualNik(nik: string): boolean {
+  if (!nik) return false;
+  return /^TEMP-\d{8}-[A-Z0-9]{4}$/.test(nik);
+}
+
+/**
+ * Extracts sorted unique Dusun names dynamically from a list of Wilayah records.
+ */
+export function extractUniqueDusun(wilayahList: Array<{ dusun?: string | null }>): string[] {
+  if (!wilayahList || !Array.isArray(wilayahList)) return [];
+  const set = new Set<string>();
+  for (const w of wilayahList) {
+    if (w && w.dusun && typeof w.dusun === 'string') {
+      const trimmed = w.dusun.trim();
+      if (trimmed.length > 0) {
+        set.add(trimmed);
+      }
+    }
   }
-
-  const ddStr = String(dd).padStart(2, '0');
-  const mmStr = String(mm).padStart(2, '0');
-  const yyStr = String(yy).padStart(2, '0');
-  const seqStr = String(Math.max(1, sequence % 100)).padStart(2, '0');
-
-  // '99' marks temporary Virtual NIK SIMPATIK Desa Grudo
-  return `${prefix}${ddStr}${mmStr}${yyStr}99${seqStr}`;
+  return Array.from(set).sort((a, b) => a.localeCompare(b, 'id'));
 }
 
 export function calculateAge(tanggalLahir: string, referenceDate: string = '2026-10-27'): number {

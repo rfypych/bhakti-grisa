@@ -92,9 +92,9 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
       expect(html).toContain('Nama Lengkap Kepala Rumah Tangga');
       expect(html).toContain('Alamat Lengkap Rumah Tinggal');
       expect(html).toContain('Penandaan Koordinat GPS Rumah');
-      expect(html).toContain('Titik Dusun Grudo');
       expect(html).toContain('Titik Dusun Krajan');
-      expect(html).toContain('Titik Dusun Mojorejo');
+      expect(html).toContain('Titik Dusun Tegalsari');
+      expect(html).toContain('Balai Desa Grudo');
       expect(html).toContain('Lanjut ke Langkah 02');
     });
 
@@ -166,17 +166,14 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
   });
 
   describe('2. Virtual NIK Generator for Infants / Balita', () => {
-    it('generates a 16-digit valid virtual NIK with prefix 352109 and code 99', () => {
+    it('generates a standard TEMP-YYYYMMDD-XXXX temporary virtual NIK', () => {
       const maleNik = generateVirtualNik('2026-10-20', 'L', 1);
-      expect(maleNik).toHaveLength(16);
-      expect(maleNik.startsWith('352109')).toBe(true);
-      expect(maleNik).toContain('9901');
+      expect(maleNik).toMatch(/^TEMP-20261020-[A-Z0-9]{4}$/);
+      expect(maleNik.startsWith('352109')).toBe(false);
 
-      // Female adds 40 to birth day (20 + 40 = 60)
       const femaleNik = generateVirtualNik('2026-10-20', 'P', 2);
-      expect(femaleNik).toHaveLength(16);
-      expect(femaleNik.startsWith('352109')).toBe(true);
-      expect(femaleNik).toContain('6010269902');
+      expect(femaleNik).toMatch(/^TEMP-20261020-[A-Z0-9]{4}$/);
+      expect(femaleNik.startsWith('352109')).toBe(false);
     });
 
     it('renders member row with active Virtual NIK indicator badge', () => {
@@ -212,7 +209,7 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
       const html = renderToString(<PublicFormulir initialDraft={draftWithVirtualBaby} />);
       expect(html).toContain('Virtual NIK Sementara Aktif');
       expect(html).toContain('Bayi Ananda');
-      expect(html).toContain('352109');
+      expect(html).toContain('TEMP-20261001-');
     });
   });
 

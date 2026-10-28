@@ -21,6 +21,7 @@ import {
   UserRole,
   Wilayah,
   computeHouseholdSeverity,
+  extractUniqueDusun,
   filterFamiliesByRoleScope,
   filterWilayahByRoleScope,
   getRbacPermissions,
@@ -230,18 +231,14 @@ export function DashboardPeta({
 
               {/* Dusun Indicators & Landmarks Overlay */}
               <div className="absolute top-3 left-3 z-[400] flex flex-wrap items-center gap-1.5 pointer-events-none">
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-teal-800 dark:text-teal-300 border border-teal-500/40 shadow-xs pointer-events-auto">
-                  DUSUN GRUDO
-                </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-sky-800 dark:text-sky-300 border border-sky-500/40 shadow-xs pointer-events-auto">
-                  DUSUN KRAJAN
-                </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-amber-800 dark:text-amber-300 border border-amber-500/40 shadow-xs pointer-events-auto">
-                  DUSUN MOJOREJO
-                </span>
-                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-indigo-800 dark:text-indigo-300 border border-indigo-500/40 shadow-xs pointer-events-auto">
-                  DUSUN NGLARANGAN
-                </span>
+                {extractUniqueDusun(scopedWilayah.length > 0 ? scopedWilayah : wilayahList).map((dusun) => (
+                  <span
+                    key={dusun}
+                    className="px-2 py-0.5 rounded text-[10px] font-bold bg-white/95 dark:bg-slate-900/95 text-teal-800 dark:text-teal-300 border border-teal-500/40 shadow-xs pointer-events-auto"
+                  >
+                    {`DUSUN ${dusun.toUpperCase()}`}
+                  </span>
+                ))}
                 <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-900 text-white border border-slate-700 shadow-xs pointer-events-auto">
                   BALAI DESA
                 </span>

@@ -28,6 +28,7 @@ import {
   Wilayah,
   calculateAge,
   computeHouseholdSeverity,
+  extractUniqueDusun,
   generateVirtualNik,
   getRbacPermissions,
 } from '@/lib/domain';
@@ -1064,6 +1065,29 @@ export function PublicFormulir({
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
+                  {(extractUniqueDusun(wilayahList).length > 0
+                    ? extractUniqueDusun(wilayahList)
+                    : ['Krajan', 'Tegalsari']
+                  ).map((dusun, idx) => {
+                    const offsets: Record<string, [number, number]> = {
+                      Krajan: [-7.4053, 111.4428],
+                      Tegalsari: [-7.4072, 111.4398],
+                      Grudo: [-7.4064, 111.4388],
+                    };
+                    const coords = offsets[dusun] || [-7.4064 + idx * 0.001, 111.4388 + idx * 0.001];
+                    return (
+                      <BoardButton
+                        key={dusun}
+                        variant="outline"
+                        size="sm"
+                        onClick={() =>
+                          setForm({ ...form, latitude: coords[0], longitude: coords[1] })
+                        }
+                      >
+                        {`Titik Dusun ${dusun}`}
+                      </BoardButton>
+                    );
+                  })}
                   <BoardButton
                     variant="outline"
                     size="sm"
@@ -1071,25 +1095,7 @@ export function PublicFormulir({
                       setForm({ ...form, latitude: -7.4064, longitude: 111.4388 })
                     }
                   >
-                    Titik Dusun Grudo
-                  </BoardButton>
-                  <BoardButton
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      setForm({ ...form, latitude: -7.4053, longitude: 111.4428 })
-                    }
-                  >
-                    Titik Dusun Krajan
-                  </BoardButton>
-                  <BoardButton
-                    variant="outline"
-                    size="sm"
-                    onClick={() =>
-                      setForm({ ...form, latitude: -7.4091, longitude: 111.4374 })
-                    }
-                  >
-                    Titik Dusun Mojorejo
+                    Balai Desa Grudo
                   </BoardButton>
                 </div>
               </div>
