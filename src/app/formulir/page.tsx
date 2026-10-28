@@ -86,7 +86,7 @@ export function createDefaultFormState(defaultWilayahId: string): DraftFormState
   return {
     step: 1,
     wilayahId: defaultWilayahId,
-    noKK: '3521092710260009',
+    noKK: '',
     namaKepalaKeluarga: '',
     alamat: '',
     latitude: -7.4066,
@@ -102,17 +102,17 @@ export function createDefaultFormState(defaultWilayahId: string): DraftFormState
       {
         id: 'ang-init-1',
         nama: '',
-        nik: '3521091206880001',
+        nik: '',
         isVirtualNik: false,
         hubungan: 'KEPALA_KELUARGA',
         jenisKelamin: 'L',
-        tempatLahir: 'Ngawi',
-        tanggalLahir: '1988-06-12',
-        umur: 38,
+        tempatLahir: '',
+        tanggalLahir: '',
+        umur: 0,
         statusKawin: 'KAWIN',
         agama: 'ISLAM',
         pendidikan: 'SMA',
-        pekerjaan: 'Wiraswasta',
+        pekerjaan: '',
         isBalita: false,
         isLansia: false,
         isIbuHamil: false,
@@ -523,17 +523,17 @@ export function PublicFormulir({
       : {
           id: `ang-${Date.now()}`,
           nama: '',
-          nik: `352109550492000${seq}`,
+          nik: '',
           isVirtualNik: false,
           hubungan: seq === 2 ? 'ISTRI' : 'ANAK',
           jenisKelamin: seq === 2 ? 'P' : 'L',
-          tempatLahir: 'Ngawi',
-          tanggalLahir: seq === 2 ? '1992-04-15' : '2018-09-10',
-          umur: seq === 2 ? 34 : 8,
+          tempatLahir: '',
+          tanggalLahir: '',
+          umur: 0,
           statusKawin: seq === 2 ? 'KAWIN' : 'BELUM_KAWIN',
           agama: 'ISLAM',
           pendidikan: seq === 2 ? 'SMA' : 'SD',
-          pekerjaan: seq === 2 ? 'Ibu Rumah Tangga' : 'Pelajar',
+          pekerjaan: '',
           isBalita: false,
           isLansia: false,
           isIbuHamil: false,
@@ -655,7 +655,7 @@ export function PublicFormulir({
         id: a.id,
         nama: a.nama.trim() || (idx === 0 ? form.namaKepalaKeluarga.trim() : `Anggota ${idx + 1}`),
         nik: a.nik.trim(),
-        isNikSementara: a.isVirtualNik,
+        isNikSementara: Boolean(a.isVirtualNik || a.nik.trim().startsWith('TEMP-') || !a.nik.trim()),
         hubunganKeluarga: a.hubungan,
         jenisKelamin: a.jenisKelamin,
         tempatLahir: a.tempatLahir || 'Ngawi',
@@ -1454,14 +1454,20 @@ export function PublicFormulir({
                       </div>
                       <input
                         type="text"
-                        maxLength={16}
+                        maxLength={20}
                         value={member.nik}
-                        onChange={(e) =>
+                        onChange={(e) => {
+                          const val = e.target.value.trim();
+                          const isVirtual = val.startsWith('TEMP-');
+                          const cleaned = isVirtual
+                            ? val.toUpperCase().slice(0, 20)
+                            : val.replace(/\D/g, '').slice(0, 16);
                           updateMember(idx, {
-                            nik: e.target.value.replace(/\D/g, '').slice(0, 16),
-                            isVirtualNik: false,
-                          })
-                        }
+                            nik: cleaned,
+                            isVirtualNik: isVirtual,
+                          });
+                        }}
+                        placeholder="16 Digit NIK Dukcapil atau klik generate"
                         className="w-full px-3 py-1.5 text-xs sm:text-sm font-mono tabular-nums bg-background-tertiary-default border border-border-button-default rounded-2lg text-text-primary"
                       />
                     </div>

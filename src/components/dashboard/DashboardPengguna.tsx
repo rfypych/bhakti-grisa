@@ -450,7 +450,7 @@ export function DashboardPengguna({
 
           <div>
             <label htmlFor="usr-role" className="block font-semibold text-text-primary mb-1">
-              Peran Hak Akses (RBAC Role)
+              Peran &amp; Hak Akses Petugas
             </label>
             <select
               id="usr-role"

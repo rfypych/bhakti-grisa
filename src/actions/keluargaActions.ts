@@ -183,8 +183,25 @@ export async function saveKeluargaAction(
           const birthDate = m.tanggalLahir ? new Date(m.tanggalLahir) : new Date();
           let finalNik = m.nik?.trim() || '';
 
-          if (m.isNikSementara || !finalNik) {
+          const isTemp = Boolean(m.isNikSementara) || !finalNik || finalNik.startsWith('TEMP-');
+
+          if (isTemp && (!finalNik || !finalNik.startsWith('TEMP-'))) {
             finalNik = generateVirtualNik(birthDate);
+          }
+
+          // Invariant B3-1: Check if this NIK is already registered to another family
+          if (finalNik) {
+            const existingMember = await tx.anggotaKeluarga.findUnique({
+              where: { nik: finalNik },
+            });
+
+            if (existingMember && existingMember.keluargaId !== keluargaRecord.id) {
+              if (!isTemp) {
+                throw new Error(`NIK ${finalNik} (${m.nama || 'Anggota'}) sudah terdaftar pada keluarga lain.`);
+              } else {
+                finalNik = generateVirtualNik(birthDate);
+              }
+            }
           }
 
           await tx.anggotaKeluarga.upsert({
@@ -192,7 +209,7 @@ export async function saveKeluargaAction(
             update: {
               keluargaId: keluargaRecord.id,
               noRegistrasi: m.noRegistrasi || null,
-              isNikSementara: Boolean(m.isNikSementara),
+              isNikSementara: isTemp,
               nama: m.nama,
               hubunganKeluarga: m.hubunganKeluarga || 'ANAK',
               jenisKelamin: m.jenisKelamin || 'L',
@@ -233,7 +250,7 @@ export async function saveKeluargaAction(
               keluargaId: keluargaRecord.id,
               nik: finalNik,
               noRegistrasi: m.noRegistrasi || null,
-              isNikSementara: Boolean(m.isNikSementara),
+              isNikSementara: isTemp,
               nama: m.nama,
               hubunganKeluarga: m.hubunganKeluarga || 'ANAK',
               jenisKelamin: m.jenisKelamin || 'L',

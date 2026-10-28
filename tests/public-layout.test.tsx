@@ -193,14 +193,15 @@ describe('PublicLayout & Tentang Inisiatif Suite', () => {
       expect(html).toContain('Kabupaten Ngawi');
     });
 
-    it('renders Modern Tech Stack showcase', () => {
+    it('renders citizen data governance principles without tech vanity', () => {
       const html = renderToString(<PublicTentang />);
 
-      expect(html).toContain('Modern Tech Stack Inisiatif Bhakti Grisa');
-      expect(html).toContain('Next.js 16 &amp; React 19');
-      expect(html).toContain('Design Tokens');
-      expect(html).toContain('Prisma &amp; SQLite');
-      expect(html).toContain('ExcelJS &amp; PDF');
+      expect(html).toContain('Prinsip Tata Kelola Data Warga Desa Grudo');
+      expect(html).toContain('Keamanan Data Keluarga');
+      expect(html).toContain('Verifikasi Berjenjang');
+      expect(html).toContain('Kepatuhan Buku PKK');
+      expect(html).toContain('Layanan Cepat di Lapangan');
+      expect(html).not.toContain('Modern Tech Stack');
     });
 
     it('renders CTA Section with interactive action buttons', () => {

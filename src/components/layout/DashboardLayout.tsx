@@ -138,6 +138,9 @@ export function DashboardLayout({
     } else {
       setInternalSearch(val);
     }
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('simpatik:search', { detail: val }));
+    }
   };
 
   // Sync internal user if initialUser changes

@@ -125,6 +125,36 @@ describe('P0 Data Integrity & Security Invariants', () => {
       expect(check).toBeNull();
     });
 
+    it('rejects submission when member real NIK belongs to another family (B3-1 member hijacking)', async () => {
+      const hijackingInput: KeluargaInputData = {
+        noKk: '3521090101017777', // New KK
+        namaKepalaRumahTangga: 'Bapak Pembajak',
+        alamat: 'RT 01 RW 01',
+        wilayahId: wilayah1.id,
+        anggota: [
+          {
+            nik: '3521091501800001', // Belongs to verifiedFam1 (ang-kepala-1)
+            nama: 'Bapak Terverifikasi Terbajak',
+            hubunganKeluarga: 'KEPALA_KELUARGA',
+            jenisKelamin: 'L',
+            tempatLahir: 'Ngawi',
+            tanggalLahir: '1980-01-15',
+          },
+        ],
+      };
+
+      const result = await saveKeluargaAction(hijackingInput, true);
+
+      expect(result.success).toBe(false);
+      expect(result.error).toContain('sudah terdaftar pada keluarga lain');
+
+      // Original member must STILL belong to verifiedFam1!
+      const member = await prisma.anggotaKeluarga.findUnique({
+        where: { nik: '3521091501800001' },
+      });
+      expect(member?.keluargaId).toBe(verifiedFam1.id);
+    });
+
     it('rejects approval of a draft family with 0 members', async () => {
       const draftZeroMember = await prisma.keluarga.create({
         data: {

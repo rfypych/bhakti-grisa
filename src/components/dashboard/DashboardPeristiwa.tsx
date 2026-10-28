@@ -145,6 +145,12 @@ export function DashboardPeristiwa({
       setMortFamId(firstFam.id);
       const firstLiving = firstFam.anggota.find((a) => a.statusHidup === 'HIDUP');
       setMortAnggotaId(firstLiving?.id || '');
+      if (firstLiving) {
+        if (firstLiving.umur < 1) setKategoriKematian('BAYI');
+        else if (firstLiving.umur <= 5) setKategoriKematian('BALITA');
+        else if (firstLiving.isIbuHamil) setKategoriKematian('IBU_HAMIL_MELAHIRKAN');
+        else setKategoriKematian('WARGA_UMUM');
+      }
     }
     setPenyebabKematian('');
     setIsMortalityModalOpen(true);
@@ -201,7 +207,10 @@ export function DashboardPeristiwa({
           tanggalLahir: tglLahirBayi,
           jenisKelamin: jkBayi,
           beratBadanKg: numBb,
-            nik: useVirtualNik ? generatedNik : undefined,
+          lingkarKepalaCm: numLk,
+          panjangBadanCm: numPb,
+          isNikSementara: useVirtualNik,
+          nik: useVirtualNik ? generatedNik : undefined,
         });
       }
 
@@ -914,6 +923,12 @@ export function DashboardPeristiwa({
                 const fam = scopedFamilies.find((f) => f.id === fId);
                 const firstLiving = fam?.anggota.find((a) => a.statusHidup === 'HIDUP');
                 setMortAnggotaId(firstLiving?.id || '');
+                if (firstLiving) {
+                  if (firstLiving.umur < 1) setKategoriKematian('BAYI');
+                  else if (firstLiving.umur <= 5) setKategoriKematian('BALITA');
+                  else if (firstLiving.isIbuHamil) setKategoriKematian('IBU_HAMIL_MELAHIRKAN');
+                  else setKategoriKematian('WARGA_UMUM');
+                }
               }}
               className="w-full px-3 py-2 bg-background-tertiary-default border border-border-button-default rounded-2lg"
             >

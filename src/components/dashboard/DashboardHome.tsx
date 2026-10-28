@@ -54,6 +54,7 @@ export interface DashboardHomeProps {
   currentUser?: OfficerAccount | null;
   currentRole?: UserRole;
   globalSearch?: string;
+  initialTahun?: number;
   defaultModalOpen?: boolean;
   onNavigate?: (route: AppRoute, params?: { wilayahId?: string; cetakId?: string }) => void;
 }
@@ -65,14 +66,30 @@ export function DashboardHome({
   currentUser = null,
   currentRole: initialRole,
   globalSearch: propSearch = '',
+  initialTahun = 2026,
   defaultModalOpen = false,
   onNavigate,
 }: DashboardHomeProps) {
   const router = useRouter();
   const [selectedWilayahFilter, setSelectedWilayahFilter] = useState<string>('SEMUA');
-  const [selectedTahun, setSelectedTahun] = useState<number>(2026);
+  const [selectedTahun, setSelectedTahun] = useState<number>(initialTahun);
   const [localSearch, setLocalSearch] = useState<string>('');
   const [exportFeedback, setExportFeedback] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (initialTahun) setSelectedTahun(initialTahun);
+  }, [initialTahun]);
+
+  React.useEffect(() => {
+    const onSearch = (e: Event) => {
+      const custom = e as CustomEvent<string>;
+      if (typeof custom.detail === 'string') {
+        setLocalSearch(custom.detail);
+      }
+    };
+    window.addEventListener('simpatik:search', onSearch);
+    return () => window.removeEventListener('simpatik:search', onSearch);
+  }, []);
   const [is31SheetModalOpen, setIs31SheetModalOpen] = useState<boolean>(defaultModalOpen);
   const [activeSheetNumber, setActiveSheetNumber] = useState<number>(1);
 
@@ -222,7 +239,15 @@ export function DashboardHome({
               id="filter-tahun-dash"
               aria-label="Tahun Pendataan"
               value={selectedTahun}
-              onChange={(e) => setSelectedTahun(Number(e.target.value))}
+              onChange={(e) => {
+                const y = Number(e.target.value);
+                setSelectedTahun(y);
+                if (typeof window !== 'undefined') {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('tahun', y.toString());
+                  window.history.replaceState(null, '', url.toString());
+                }
+              }}
               className="h-9 rounded-2lg border border-border-button-default bg-background-primary-default px-2.5 py-1.5 text-body-medium tabular-nums text-text-primary shadow-xs outline-none focus:ring-2 focus:ring-border-button-active"
             >
               <option value={2026}>Tahun 2026</option>

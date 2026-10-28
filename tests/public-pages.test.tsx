@@ -181,6 +181,10 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('Verifikasi Faktual Kader Dasawisma Lapangan');
       expect(html).not.toContain('(public)/layout.tsx');
       expect(html).not.toContain('dashboard/layout.tsx');
+      expect(html).not.toContain('Modern Tech Stack');
+      expect(html).not.toContain('glassmorphic headers');
+      expect(html).toContain('Prinsip Tata Kelola Data Warga Desa Grudo');
+      expect(html).toContain('Keamanan Data Keluarga');
     });
   });
 

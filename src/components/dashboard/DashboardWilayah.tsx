@@ -68,9 +68,9 @@ export function DashboardWilayah({
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
   // Form fields
-  const [dusun, setDusun] = useState<string>('Grudo');
-  const [rw, setRw] = useState<string>('01');
-  const [rt, setRt] = useState<string>('03');
+  const [dusun, setDusun] = useState<string>('');
+  const [rw, setRw] = useState<string>('');
+  const [rt, setRt] = useState<string>('');
   const [namaDasawisma, setNamaDasawisma] = useState<string>('');
   const [ketuaDasawisma, setKetuaDasawisma] = useState<string>('');
   const [targetKK, setTargetKK] = useState<number>(25);
@@ -118,9 +118,9 @@ export function DashboardWilayah({
 
   const handleOpenAdd = () => {
     setEditingWilayah(null);
-    setDusun('Grudo');
-    setRw('01');
-    setRt('03');
+    setDusun('');
+    setRw('');
+    setRt('');
     setNamaDasawisma('');
     setKetuaDasawisma('');
     setTargetKK(25);
@@ -504,7 +504,7 @@ export function DashboardWilayah({
                 required
                 value={rt}
                 onChange={(e) => setRt(e.target.value)}
-                placeholder="03"
+                placeholder="01"
                 className="w-full px-3 py-2 font-mono bg-background-tertiary-default border border-border-button-default rounded-2lg text-text-primary"
               />
             </div>

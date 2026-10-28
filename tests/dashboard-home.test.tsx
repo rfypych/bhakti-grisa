@@ -293,6 +293,21 @@ describe('Dashboard Layout & Overview Home Suite (Task 5)', () => {
       expect(html).toContain('Periksa &amp; Verifikasi');
     });
 
+    it('filters families by initialTahun properly', () => {
+      const html = renderToString(
+        <DashboardHome
+          families={INITIAL_FAMILIES}
+          wilayahList={INITIAL_WILAYAH}
+          events={INITIAL_EVENTS}
+          currentUser={INITIAL_OFFICERS[0]}
+          initialTahun={2025}
+        />
+      );
+
+      // In 2025 where there are no records, empty state is displayed
+      expect(html).toContain('Belum Ada Data Keluarga Terverifikasi pada Filter Ini');
+    });
+
     it('renders empty state when filtered families list is empty', () => {
       const html = renderToString(
         <DashboardHome

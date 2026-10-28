@@ -86,7 +86,7 @@ export default async function DashboardPage({
         alamat: k.alamat,
         latitude: k.latitude || -7.402,
         longitude: k.longitude || 111.442,
-        tahunPendataan: 2026,
+        tahunPendataan: k.createdAt ? new Date(k.createdAt).getFullYear() : 2026,
         status: (k.statusData === 'VERIFIKASI' ? 'VERIFIKASI' : 'DRAFT') as StatusVerifikasi,
         catatanRevisi: undefined,
         diinputOleh: 'KADER_RT',
@@ -221,6 +221,7 @@ export default async function DashboardPage({
       currentUser={currentUser}
       currentRole={currentRole}
       globalSearch={resolvedParams.q || ''}
+      initialTahun={resolvedParams.tahun ? Number(resolvedParams.tahun) : 2026}
     />
   );
 }

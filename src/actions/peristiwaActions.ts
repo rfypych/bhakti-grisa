@@ -12,8 +12,10 @@ export interface KelahiranInput {
   jenisKelamin: 'L' | 'P';
   akteKelahiran?: boolean;
   nik?: string;
+  isNikSementara?: boolean;
   beratBadanKg?: number;
   panjangBadanCm?: number;
+  lingkarKepalaCm?: number;
 }
 
 export interface KematianInput {
@@ -64,8 +66,8 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
   }
 
   const birthDate = new Date(data.tanggalLahir);
-  const isTemporary = !data.nik || data.nik.trim() === '';
-  const childNik = isTemporary ? generateVirtualNik(birthDate) : data.nik!.trim();
+  const isTemporary = !data.nik || data.nik.trim() === '' || data.nik.startsWith('TEMP-') || Boolean(data.isNikSementara);
+  const childNik = (!data.nik || data.nik.trim() === '') ? generateVirtualNik(birthDate) : data.nik!.trim();
 
   const result = await prisma.$transaction(async (tx) => {
     // 1. Create newborn child member
@@ -95,7 +97,12 @@ export async function laporKelahiranAction(data: KelahiranInput): Promise<{ succ
         namaBayi: data.namaBayi.trim(),
         jenisKelaminBayi: data.jenisKelamin,
         akteKelahiran: Boolean(data.akteKelahiran),
-        keterangan: `Ibu: ${mother.nama}${data.beratBadanKg ? `, BB: ${data.beratBadanKg} kg` : ''}${data.panjangBadanCm ? `, PB: ${data.panjangBadanCm} cm` : ''}`,
+        keterangan: [
+          `Ibu: ${mother.nama}`,
+          data.beratBadanKg ? `BB: ${data.beratBadanKg} kg` : null,
+          data.lingkarKepalaCm ? `LK: ${data.lingkarKepalaCm} cm` : null,
+          data.panjangBadanCm ? `PB: ${data.panjangBadanCm} cm` : null,
+        ].filter(Boolean).join(', '),
       },
     });
 

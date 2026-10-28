@@ -50,13 +50,17 @@ describe('Event Log Actions', () => {
     motherId = mother.id;
   });
 
-  it('creates newborn record and logs vital event in Lampiran 4.18', async () => {
+  it('creates newborn record and logs vital event in Lampiran 4.18 with full measurements', async () => {
     const result = await laporKelahiranAction({
       ibuId: motherId,
       namaBayi: 'Bayi Sehat',
       tanggalLahir: new Date('2026-10-22'),
       jenisKelamin: 'L',
       akteKelahiran: false,
+      nik: 'TEMP-20261022-21TN',
+      beratBadanKg: 3.4,
+      lingkarKepalaCm: 35,
+      panjangBadanCm: 50,
     });
 
     expect(result.success).toBe(true);
@@ -78,6 +82,9 @@ describe('Event Log Actions', () => {
     });
     expect(event).toBeDefined();
     expect(event?.jenisPeristiwa).toBe('KELAHIRAN_BAYI');
+    expect(event?.keterangan).toContain('BB: 3.4 kg');
+    expect(event?.keterangan).toContain('LK: 35 cm');
+    expect(event?.keterangan).toContain('PB: 50 cm');
   });
 
   it('logs mortality event and archives deceased member', async () => {

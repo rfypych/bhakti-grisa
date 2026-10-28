@@ -228,10 +228,11 @@ describe('Redesigned Formulir Mandiri 5 Langkah (Task 4)', () => {
       const defaultState = createDefaultFormState('wil-rt01-rw01');
       expect(defaultState.step).toBe(1);
       expect(defaultState.wilayahId).toBe('wil-rt01-rw01');
-      expect(defaultState.noKK).toBe('3521092710260009');
+      expect(defaultState.noKK).toBe('');
       expect(defaultState.kriteriaRumah).toBe('SEHAT');
       expect(defaultState.anggota).toHaveLength(1);
       expect(defaultState.anggota[0].hubungan).toBe('KEPALA_KELUARGA');
+      expect(defaultState.anggota[0].nik).toBe('');
     });
 
     it('restores draft state saved in localStorage', () => {

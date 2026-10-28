@@ -417,63 +417,63 @@ export function PublicTentang({ currentRole = 'WARGA', onNavigate }: PublicTenta
         </div>
       </section>
 
-      {/* 6. Modern Tech Stack Showcase */}
+      {/* 6. Prinsip Tata Kelola & Perlindungan Data Warga */}
       <section className="space-y-4">
         <div>
           <div className="text-caption-1-semibold text-accent-600 mb-1">
-            Arsitektur Rekayasa Perangkat Lunak
+            Standar Pelayanan Publik &amp; Kerahasiaan Informasi
           </div>
           <h2 className="text-title-2-semibold text-text-primary tracking-tight">
-            Modern Tech Stack Inisiatif Bhakti Grisa
+            Prinsip Tata Kelola Data Warga Desa Grudo
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <BoardSurface variant="secondary" padding="md" className="space-y-2">
             <BoardChip variant="caption" color="lime">
-              Frontend &amp; SSR
+              Perlindungan Data
             </BoardChip>
             <h3 className="text-body-medium font-semibold text-text-primary">
-              Next.js 16 &amp; React 19
+              Keamanan Data Keluarga
             </h3>
             <p className="text-caption-1-regular text-text-secondary">
-              App Router modern dengan streaming Server Components, Server Actions zero-API latency, dan Turbopack bundling.
+              Data warga tersimpan secara aman dalam sistem terisolasi dan hanya dapat diakses oleh kader serta pengurus sesuai wilayah tugas.
             </p>
           </BoardSurface>
 
           <BoardSurface variant="secondary" padding="md" className="space-y-2">
             <BoardChip variant="caption" color="cyan">
-              Design System
+              Validasi Lapangan
             </BoardChip>
             <h3 className="text-body-medium font-semibold text-text-primary">
-              Design Tokens
+              Verifikasi Berjenjang
             </h3>
             <p className="text-caption-1-regular text-text-secondary">
-              Precision UI tokens, glassmorphic headers, accessible contrast ratios, dan styling khusus buku registrasi fisik.
+              Setiap pengisian mandiri warga diverifikasi secara langsung oleh Kader Dasawisma setempat sebelum disahkan ke buku resmi desa.
             </p>
           </BoardSurface>
 
           <BoardSurface variant="secondary" padding="md" className="space-y-2">
             <BoardChip variant="caption" color="blue">
-              Data &amp; Persistence
+              Standar Regulasi
             </BoardChip>
             <h3 className="text-body-medium font-semibold text-text-primary">
-              Prisma &amp; SQLite
+              Kepatuhan Buku PKK
             </h3>
             <p className="text-caption-1-regular text-text-secondary">
-              Skema database relasional type-safe dengan ACID compliance, relasi satu pintu (Single Entry), dan safety guards.
+              Format pencatatan dan rekapitulasi mengacu pada pedoman baku 31 Lembar Buku Dasawisma dan dokumen Lampiran 4.15 resmi.
             </p>
           </BoardSurface>
 
           <BoardSurface variant="secondary" padding="md" className="space-y-2">
             <BoardChip variant="caption" color="purple">
-              Export Engine
+              Kesiapan Layanan
             </BoardChip>
             <h3 className="text-body-medium font-semibold text-text-primary">
-              ExcelJS &amp; PDF
+              Layanan Cepat di Lapangan
             </h3>
             <p className="text-caption-1-regular text-text-secondary">
-              Injeksi otomatis 31 sheet buku Dasawisma ke format Excel resmi dan pencetakan Lampiran 4.15 Catatan Keluarga.
+              Sistem dirancang ringan, responsif, dan mudah dioperasikan di perangkat ponsel pintar para kader saat mendata warga di RT.
             </p>
           </BoardSurface>
         </div>
