@@ -7,6 +7,7 @@ export interface AnggotaInputData {
   id?: string;
   nik?: string;
   isNikSementara?: boolean;
+  isIbuHamil?: boolean;
   noRegistrasi?: string;
   nama: string;
   hubunganKeluarga: any;

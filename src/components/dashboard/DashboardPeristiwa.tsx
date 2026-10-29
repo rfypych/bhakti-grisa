@@ -1100,13 +1100,19 @@ export function DashboardPeristiwa({
 
           <div>
             <label className="block font-semibold text-text-primary mb-1">
-              Keterangan Pemeriksaan / Rincian
+              Keterangan Pemeriksaan / Rincian <span className="text-red-500">*</span>
             </label>
             <textarea
               rows={3}
               required
               value={genKeterangan}
-              onChange={(e) => setGenKeterangan(e.target.value)}
+              onChange={(e) => {
+                setGenKeterangan(e.target.value);
+                e.target.setCustomValidity('');
+              }}
+              onInvalid={(e) => {
+                (e.target as HTMLTextAreaElement).setCustomValidity('Keterangan peristiwa wajib diisi.');
+              }}
               placeholder="Contoh: Kehamilan trimester 2, telah dipasang Stiker P4K..."
               className="w-full p-3 bg-background-tertiary-default border border-border-button-default rounded-2lg"
             />

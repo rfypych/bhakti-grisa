@@ -302,5 +302,257 @@ describe('P0 Data Integrity & Security Invariants', () => {
 
       expect(res.status).toBe(403);
     });
+
+    it('enforces 403 Forbidden when PENGURUS_DUSUN Krajan exports PDF of family in Tegalsari (B6-1)', async () => {
+      const wilTegalsari = await prisma.wilayah.create({
+        data: {
+          id: 'wil-tegalsari-01',
+          dusun: 'Tegalsari',
+          rw: '02',
+          rt: '01',
+          namaDasawisma: 'Kenanga 1',
+        },
+      });
+
+      const famTegalsari = await prisma.keluarga.create({
+        data: {
+          id: 'fam-tegalsari-1',
+          noKk: '3521090202010001',
+          namaKepalaRumahTangga: 'Bapak Tegalsari',
+          alamat: 'Tegalsari RT 01',
+          wilayahId: wilTegalsari.id,
+          statusData: 'VERIFIKASI',
+        },
+      });
+
+      // Officer: Pengurus Dusun Krajan (anchor to wilayah1)
+      vi.spyOn(auth, 'getSessionUser').mockResolvedValue({
+        id: 'usr-pengurus-dusun',
+        username: 'pengurus_krajan',
+        nama: 'Pengurus Dusun Krajan',
+        peran: 'PENGURUS_DUSUN',
+        wilayahId: wilayah1.id,
+        aktif: true,
+        kataSandiHash: 'hash',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        wilayah: wilayah1,
+      });
+
+      const req = new NextRequest(
+        `http://localhost:3000/api/export/pdf?jenis=catatan-keluarga&keluargaId=${famTegalsari.id}`
+      );
+      const res = await getPdfExport(req);
+      expect(res.status).toBe(403);
+      const body = await res.json();
+      expect(body.error).toContain('Akses ditolak');
+    });
+
+    it('enforces 403 Forbidden when PENGURUS_RW 01 exports PDF of family in RW 02 or different dusun (B6-1)', async () => {
+      const wilRw2 = await prisma.wilayah.create({
+        data: {
+          id: 'wil-krajan-rw02',
+          dusun: 'Krajan',
+          rw: '02',
+          rt: '01',
+          namaDasawisma: 'Flamboyan 2',
+        },
+      });
+
+      const famRw2 = await prisma.keluarga.create({
+        data: {
+          id: 'fam-rw2-1',
+          noKk: '3521090102010001',
+          namaKepalaRumahTangga: 'Bapak RW 02',
+          alamat: 'Krajan RW 02',
+          wilayahId: wilRw2.id,
+          statusData: 'VERIFIKASI',
+        },
+      });
+
+      // Officer: Pengurus RW 01 (anchor to wilayah1)
+      vi.spyOn(auth, 'getSessionUser').mockResolvedValue({
+        id: 'usr-pengurus-rw01',
+        username: 'pengurus_rw01',
+        nama: 'Pengurus RW 01 Krajan',
+        peran: 'PENGURUS_RW',
+        wilayahId: wilayah1.id,
+        aktif: true,
+        kataSandiHash: 'hash',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        wilayah: wilayah1,
+      });
+
+      const req = new NextRequest(
+        `http://localhost:3000/api/export/pdf?jenis=catatan-keluarga&keluargaId=${famRw2.id}`
+      );
+      const res = await getPdfExport(req);
+      expect(res.status).toBe(403);
+    });
+
+    it('enforces 403 Forbidden when PENGURUS_DUSUN or PENGURUS_RW attempts village-wide Excel export (B6-1)', async () => {
+      // Officer: Pengurus RW 01
+      vi.spyOn(auth, 'getSessionUser').mockResolvedValue({
+        id: 'usr-pengurus-rw01',
+        username: 'pengurus_rw01',
+        nama: 'Pengurus RW 01',
+        peran: 'PENGURUS_RW',
+        wilayahId: wilayah1.id,
+        aktif: true,
+        kataSandiHash: 'hash',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        wilayah: wilayah1,
+      });
+
+      const req = new NextRequest('http://localhost:3000/api/export/excel?rtId=all');
+      const res = await getExcelExport(req);
+      expect(res.status).toBe(403);
+    });
+  });
+
+  describe('4. Pregnancy Mapping & Severity Calculation (B6-2)', () => {
+    it('accurately identifies active pregnancy from PeristiwaVital and elevates severity to MERAH/KUNING', async () => {
+      const famWithPregnancy = await prisma.keluarga.create({
+        data: {
+          id: 'fam-bumil-test',
+          noKk: '3521091212120001',
+          namaKepalaRumahTangga: 'Bapak Bukti Fix',
+          alamat: 'Krajan RT 01',
+          wilayahId: wilayah1.id,
+          statusData: 'VERIFIKASI',
+          kriteriaRumah: 'SEHAT',
+          jambanKeluarga: true,
+          spal: true,
+          tempatSampah: true,
+          stikerP4k: false, // without P4K sticker -> MERAH
+        },
+      });
+
+      const mother = await prisma.anggotaKeluarga.create({
+        data: {
+          id: 'mother-01',
+          keluargaId: famWithPregnancy.id,
+          nama: 'Ibu Hamil Uji',
+          nik: '3521095505950001',
+          jenisKelamin: 'P',
+          tempatLahir: 'Ngawi',
+          tanggalLahir: new Date('1995-05-15'),
+          statusKehidupan: 'HIDUP',
+          hubunganKeluarga: 'ISTRI',
+        },
+      });
+
+      await prisma.peristiwaVital.create({
+        data: {
+          anggotaKeluargaId: mother.id,
+          jenisPeristiwa: 'KEHAMILAN',
+          tanggalPeristiwa: new Date('2026-09-01'),
+          keterangan: 'Pemeriksaan Trimester 2',
+        },
+      });
+
+      // Fetch family with anggota and peristiwaVital
+      const dbKeluarga = await prisma.keluarga.findUnique({
+        where: { id: famWithPregnancy.id },
+        include: {
+          wilayah: true,
+          anggota: {
+            include: { peristiwaVital: true },
+          },
+          hatinyaPkk: true,
+          industriRumahTangga: true,
+        },
+      });
+
+      const { mapDbKeluargaToDomain } = await import('../src/lib/dbMappers');
+      const domainFam = mapDbKeluargaToDomain(dbKeluarga);
+
+      const momDomain = domainFam.anggota.find((a) => a.id === 'mother-01');
+      expect(momDomain?.isIbuHamil).toBe(true);
+
+      const { computeHouseholdSeverity } = await import('../src/lib/domain');
+      const severity = computeHouseholdSeverity(domainFam);
+      expect(severity.severity).toBe('MERAH'); // Ibu Hamil without stiker P4K
+      expect(severity.reasons).toContain('Ibu Hamil berisiko (Belum terpasang Stiker P4K)');
+    });
+  });
+
+  describe('5. HTML Document Humanized Enums (B6-3)', () => {
+    it('renders humanized descriptions instead of raw enums in printable HTML report', async () => {
+      const { downloadOfficialPdfReport, humanizeSumberAir, humanizePendidikan, humanizeHubungan } = await import('../src/lib/exportUtils');
+      
+      expect(humanizeSumberAir('SUMUR_GALI')).toBe('Sumur Gali');
+      expect(humanizePendidikan('SMA_SMK_SEDERAJAT')).toBe('SMA / SMK Sederajat');
+      expect(humanizePendidikan('TIDAK_TAMAT_SD')).toBe('Tidak Tamat SD');
+      expect(humanizeHubungan('KEPALA_KELUARGA')).toBe('Kepala Keluarga');
+
+      const mockFam = {
+        id: 'fam-print-test',
+        noKK: '3521091122334455',
+        namaKepalaKeluarga: 'Bapak Cetak',
+        wilayahId: 'wil-1',
+        dusun: 'Krajan',
+        rw: '01',
+        rt: '01',
+        namaDasawisma: 'Mawar 1',
+        alamat: 'Jl. Desa',
+        latitude: -7.4,
+        longitude: 111.4,
+        tahunPendataan: 2026,
+        status: 'VERIFIKASI' as const,
+        diinputOleh: 'KADER_RT' as const,
+        tanggalInput: '2026-10-28',
+        tanggalUpdate: '2026-10-28',
+        sanitasi: {
+          kriteriaRumah: 'TIDAK_SEHAT_LAYAK_HUNI' as any,
+          punyaJamban: true,
+          jumlahJamban: 1,
+          sumberAir: 'SUMUR_GALI' as any,
+          punyaSpal: true,
+          punyaTempatSampah: true,
+          tempelStikerP4k: true,
+        },
+        pekarangan: {
+          tanamanKeras: false,
+          toga: false,
+          sayuran: false,
+          perikanan: false,
+          peternakan: false,
+          industriRumahTangga: [],
+          ikutUp2k: false,
+          makananPokok: 'BERAS' as const,
+        },
+        anggota: [
+          {
+            id: 'm1',
+            nama: 'Bapak Cetak',
+            nik: '3521090101800001',
+            isVirtualNik: false,
+            hubungan: 'KEPALA_KELUARGA' as any,
+            jenisKelamin: 'L' as const,
+            tempatLahir: 'Ngawi',
+            tanggalLahir: '1980-01-01',
+            umur: 46,
+            statusKawin: 'KAWIN' as any,
+            agama: 'ISLAM' as any,
+            pendidikan: 'SMA_SMK_SEDERAJAT' as any,
+            pekerjaan: 'TIDAK_BEKERJA' as any,
+            isBalita: false,
+            isLansia: false,
+            isIbuHamil: false,
+            isIbuMenyusui: false,
+            isButaAksara: false,
+            isDisabilitas: false,
+            statusHidup: 'HIDUP' as const,
+            akseptorKb: false,
+          },
+        ],
+      };
+
+      const filename = downloadOfficialPdfReport([mockFam], 2026, 'Scope RT 01', mockFam);
+      expect(filename).toContain('Lampiran_4_15');
+    });
   });
 });

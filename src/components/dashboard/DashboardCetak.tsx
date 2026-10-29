@@ -15,6 +15,7 @@ import {
   filterFamiliesByRoleScope,
   getRbacPermissions,
 } from '@/lib/domain';
+
 import { downloadOfficialPdfReport } from '@/lib/exportUtils';
 import {
   BoardButton,
@@ -29,6 +30,9 @@ export interface DashboardCetakProps {
   onSelectCetakId?: (id: string) => void;
   onNavigate?: (route: AppRoute) => void;
 }
+
+
+
 
 
 function humanizeSumberAir(val: string): string {
@@ -81,6 +85,79 @@ function humanizeKriteriaRumah(val: string): string {
     case 'TIDAK_SEHAT':
     case 'TIDAK_SEHAT_LAYAK_HUNI': return 'Tidak Sehat';
     default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizePekerjaan(val: string): string {
+  switch (val) {
+    case 'TIDAK_BEKERJA':
+    case 'BELUM_BEKERJA':
+      return 'Tidak / Belum Bekerja';
+    case 'IBU_RUMAH_TANGGA':
+      return 'Mengurus Rumah Tangga';
+    case 'PELAJAR_MAHASISWA':
+      return 'Pelajar / Mahasiswa';
+    case 'PNS':
+      return 'Pegawai Negeri Sipil (PNS)';
+    case 'TNI_POLRI':
+      return 'TNI / POLRI';
+    case 'SWASTA':
+    case 'KARYAWAN_SWASTA':
+      return 'Karyawan Swasta';
+    case 'WIRASWASTA':
+    case 'PEDAGANG':
+      return 'Wiraswasta / Pedagang';
+    case 'PETANI':
+    case 'PETANI_PETERNAK':
+      return 'Petani / Peternak';
+    case 'BURUH':
+      return 'Buruh / Pekerja Kasar';
+    case 'PENSIUNAN':
+      return 'Pensiunan';
+    case 'LAINNYA':
+      return 'Lainnya';
+    default:
+      return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizeHubungan(val: string): string {
+  switch (val) {
+    case 'KEPALA_KELUARGA':
+      return 'Kepala Keluarga';
+    case 'ISTRI':
+      return 'Istri';
+    case 'SUAMI':
+      return 'Suami';
+    case 'ANAK':
+      return 'Anak';
+    case 'MENANTU':
+      return 'Menantu';
+    case 'CUCU':
+      return 'Cucu';
+    case 'ORANG_TUA':
+      return 'Orang Tua';
+    case 'MERTUA':
+      return 'Mertua';
+    case 'FAMILI_LAIN':
+      return 'Famili Lain';
+    case 'PEMBANTU':
+      return 'Pembantu';
+    default:
+      return (val || '').replace(/_/g, ' ');
+  }
+}
+
+function humanizeStatusHidup(val: string): string {
+  switch (val) {
+    case 'HIDUP':
+      return 'Hidup';
+    case 'MENINGGAL':
+      return 'Meninggal';
+    case 'PINDAH':
+      return 'Pindah';
+    default:
+      return (val || '').replace(/_/g, ' ');
   }
 }
 
@@ -317,7 +394,7 @@ export function DashboardCetak({
                       {`${m.nik}${m.isVirtualNik ? ' (Virtual)' : ''}`}
                     </td>
                     <td className="border-r border-slate-400 py-2 px-2.5">
-                      {m.hubungan.replace('_', ' ')}
+                      {humanizeHubungan(m.hubungan)}
                     </td>
                     <td className="border-r border-slate-400 py-2 px-2.5">
                       {humanizeStatusKawin(m.statusKawin)}
@@ -329,10 +406,10 @@ export function DashboardCetak({
                       {`${m.tanggalLahir} (${m.umur} th)`}
                     </td>
                     <td className="border-r border-slate-400 py-2 px-2.5">{humanizePendidikan(m.pendidikan)}</td>
-                    <td className="border-r border-slate-400 py-2 px-2.5">{m.pekerjaan}</td>
+                    <td className="border-r border-slate-400 py-2 px-2.5">{humanizePekerjaan(m.pekerjaan)}</td>
                     <td className="py-2 px-2.5">
                       {[
-                        m.statusHidup !== 'HIDUP' ? `[${m.statusHidup}]` : '',
+                        m.statusHidup !== 'HIDUP' ? `[${humanizeStatusHidup(m.statusHidup)}]` : '',
                         m.isBalita ? 'Balita' : '',
                         m.isLansia ? 'Lansia' : '',
                         m.isIbuHamil ? 'Ibu Hamil' : '',

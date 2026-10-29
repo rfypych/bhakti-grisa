@@ -33,7 +33,9 @@ export default async function PetaPage({
         where: { statusData: 'VERIFIKASI' },
         include: {
           wilayah: true,
-          anggota: true,
+          anggota: {
+            include: { peristiwaVital: true },
+          },
           hatinyaPkk: true,
           industriRumahTangga: true,
         },

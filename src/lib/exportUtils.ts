@@ -120,6 +120,133 @@ export function downloadExcel31SheetWorkbook(
  * Generates and downloads an official printable HTML-PDF document for Lampiran 4.15 Catatan Keluarga
  * or Aggregate Village Report (`/api/export/pdf`).
  */
+
+export function humanizeSumberAir(val: string): string {
+  switch (val) {
+    case 'PDAM': return 'PDAM';
+    case 'SUMUR_GALI': return 'Sumur Gali';
+    case 'SUMUR_POMPA': return 'Sumur Pompa';
+    case 'MATA_AIR': return 'Mata Air';
+    case 'SUNGAI': return 'Sungai';
+    case 'LAINNYA': return 'Lainnya';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizePendidikan(val: string): string {
+  switch (val) {
+    case 'TIDAK_SEKOLAH':
+    case 'TIDAK_TAMAT_SD': return 'Tidak Tamat SD';
+    case 'SD':
+    case 'SD_MI': return 'SD / Sederajat';
+    case 'SMP':
+    case 'SMP_SEDERAJAT': return 'SMP / Sederajat';
+    case 'SMA':
+    case 'SMA_SMK_SEDERAJAT': return 'SMA / SMK Sederajat';
+    case 'DIPLOMA': return 'Diploma';
+    case 'S1':
+    case 'S1_S2_S3': return 'S1 / Sarjana';
+    case 'S2': return 'S2 / Magister';
+    case 'S3': return 'S3 / Doktor';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizeStatusKawin(val: string): string {
+  switch (val) {
+    case 'BELUM_KAWIN': return 'Belum Kawin';
+    case 'KAWIN': return 'Kawin';
+    case 'CERAI_HIDUP': return 'Cerai Hidup';
+    case 'CERAI_MATI': return 'Cerai Mati';
+    case 'JANDA': return 'Janda';
+    case 'DUDA': return 'Duda';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizeKriteriaRumah(val: string): string {
+  switch (val) {
+    case 'SEHAT': return 'Sehat';
+    case 'KURANG_SEHAT': return 'Kurang Sehat';
+    case 'TIDAK_SEHAT':
+    case 'TIDAK_SEHAT_LAYAK_HUNI': return 'Tidak Sehat';
+    default: return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizePekerjaan(val: string): string {
+  switch (val) {
+    case 'TIDAK_BEKERJA':
+    case 'BELUM_BEKERJA':
+      return 'Tidak / Belum Bekerja';
+    case 'IBU_RUMAH_TANGGA':
+      return 'Mengurus Rumah Tangga';
+    case 'PELAJAR_MAHASISWA':
+      return 'Pelajar / Mahasiswa';
+    case 'PNS':
+      return 'Pegawai Negeri Sipil (PNS)';
+    case 'TNI_POLRI':
+      return 'TNI / POLRI';
+    case 'SWASTA':
+    case 'KARYAWAN_SWASTA':
+      return 'Karyawan Swasta';
+    case 'WIRASWASTA':
+    case 'PEDAGANG':
+      return 'Wiraswasta / Pedagang';
+    case 'PETANI':
+    case 'PETANI_PETERNAK':
+      return 'Petani / Peternak';
+    case 'BURUH':
+      return 'Buruh / Pekerja Kasar';
+    case 'PENSIUNAN':
+      return 'Pensiunan';
+    case 'LAINNYA':
+      return 'Lainnya';
+    default:
+      return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizeHubungan(val: string): string {
+  switch (val) {
+    case 'KEPALA_KELUARGA':
+      return 'Kepala Keluarga';
+    case 'ISTRI':
+      return 'Istri';
+    case 'SUAMI':
+      return 'Suami';
+    case 'ANAK':
+      return 'Anak';
+    case 'MENANTU':
+      return 'Menantu';
+    case 'CUCU':
+      return 'Cucu';
+    case 'ORANG_TUA':
+      return 'Orang Tua';
+    case 'MERTUA':
+      return 'Mertua';
+    case 'FAMILI_LAIN':
+      return 'Famili Lain';
+    case 'PEMBANTU':
+      return 'Pembantu';
+    default:
+      return (val || '').replace(/_/g, ' ');
+  }
+}
+
+export function humanizeStatusHidup(val: string): string {
+  switch (val) {
+    case 'HIDUP':
+      return 'Hidup';
+    case 'MENINGGAL':
+      return 'Meninggal';
+    case 'PINDAH':
+      return 'Pindah';
+    default:
+      return (val || '').replace(/_/g, ' ');
+  }
+}
+
 export function downloadOfficialPdfReport(
   families: KeluargaRecord[],
   tahun: number,
@@ -154,7 +281,7 @@ export function downloadOfficialPdfReport(
       (f) => `
     <div style="page-break-inside: avoid; margin-bottom: 28px;">
       <h3>KK: ${f.namaKepalaKeluarga} (No. KK: ${f.noKK}) — Dasawisma ${f.namaDasawisma} (RT ${f.rt}/RW ${f.rw}, Dusun ${f.dusun})</h3>
-      <p>Alamat: ${f.alamat} | Sanitasi: ${f.sanitasi.kriteriaRumah}, Air: ${f.sanitasi.sumberAir}, Jamban: ${
+      <p>Alamat: ${f.alamat} | Sanitasi: ${humanizeKriteriaRumah(f.sanitasi.kriteriaRumah)}, Air: ${humanizeSumberAir(f.sanitasi.sumberAir)}, Jamban: ${
         f.sanitasi.punyaJamban ? 'Ada' : 'Tidak'
       }, SPAL: ${f.sanitasi.punyaSpal ? 'Ada' : 'Tidak'}, UP2K: ${
         f.pekarangan.ikutUp2k ? f.pekarangan.jenisUsahaUp2k || 'Ya' : 'Tidak'
@@ -181,12 +308,12 @@ export function downloadOfficialPdfReport(
               <td>${i + 1}</td>
               <td>${a.nama}</td>
               <td>${a.nik}${a.isVirtualNik ? ' (Virtual)' : ''}</td>
-              <td>${a.hubungan}</td>
+              <td>${humanizeHubungan(a.hubungan)}</td>
               <td>${a.jenisKelamin}</td>
               <td>${a.tanggalLahir} (${a.umur} th)</td>
-              <td>${a.pendidikan}</td>
-              <td>${a.pekerjaan}</td>
-              <td>${a.statusHidup}</td>
+              <td>${humanizePendidikan(a.pendidikan)}</td>
+              <td>${humanizePekerjaan(a.pekerjaan)}</td>
+              <td>${humanizeStatusHidup(a.statusHidup)}</td>
             </tr>`
             )
             .join('')}

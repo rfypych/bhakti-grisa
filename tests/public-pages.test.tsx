@@ -208,7 +208,7 @@ describe('Public Pages Suite (Landing & Login Petugas)', () => {
       expect(html).toContain('login-password');
       expect(html).toContain('Kata Sandi');
       expect(html).toContain('Masuk ke Ruang Kerja Petugas');
-      expect(html).toContain('Otentikasi RBAC Berjenjang');
+      expect(html).toContain('Otentikasi Berjenjang Sesuai Peran Petugas');
     });
 
     it('renders initiative key pillars in the right column', () => {

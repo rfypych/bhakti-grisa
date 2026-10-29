@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialExcelWorkbook } from '@/lib/excelTemplate';
-import { getSessionUser } from '@/lib/auth';
+import { getSessionUser, getScopeWilayahIds } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
 export async function GET(request: NextRequest) {
@@ -19,11 +19,12 @@ export async function GET(request: NextRequest) {
   const dasawismaId = searchParams.get('dasawismaId') || undefined;
   const keluargaId = searchParams.get('keluargaId') || undefined;
 
-  // Enforce RBAC territorial scoping
-  if (user.peran === 'KADER_RT') {
+  // Enforce RBAC territorial scoping (KADER_RT, PENGURUS_RW, PENGURUS_DUSUN)
+  const allowedWilayahIds = await getScopeWilayahIds(user);
+  if (allowedWilayahIds !== null) {
     if (rtId === 'all') {
       return NextResponse.json(
-        { error: 'Akses ditolak: Kader RT tidak memiliki wewenang untuk mengunduh rekapitulasi seluruh desa.' },
+        { error: 'Akses ditolak: Anda tidak memiliki wewenang untuk mengunduh rekapitulasi seluruh desa.' },
         { status: 403 }
       );
     }
@@ -32,18 +33,32 @@ export async function GET(request: NextRequest) {
         where: { id: keluargaId },
         select: { wilayahId: true },
       });
-      if (!fam || fam.wilayahId !== user.wilayahId) {
+      if (!fam || !allowedWilayahIds.includes(fam.wilayahId)) {
         return NextResponse.json(
-          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah Anda.' },
+          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah tugas Anda.' },
           { status: 403 }
         );
       }
     }
-    if (dasawismaId && dasawismaId !== user.wilayahId) {
+    if (dasawismaId && !allowedWilayahIds.includes(dasawismaId)) {
       return NextResponse.json(
-        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah Dasawisma Anda.' },
+        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah tugas Anda.' },
         { status: 403 }
       );
+    }
+    if (rtId && rtId !== 'all') {
+      const match = await prisma.wilayah.findFirst({
+        where: {
+          id: { in: allowedWilayahIds },
+          rt: rtId,
+        },
+      });
+      if (!match) {
+        return NextResponse.json(
+          { error: 'Akses ditolak: RT tersebut berada di luar wilayah tugas Anda.' },
+          { status: 403 }
+        );
+      }
     }
   }
 

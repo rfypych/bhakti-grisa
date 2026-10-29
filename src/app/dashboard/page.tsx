@@ -38,7 +38,9 @@ export default async function DashboardPage({
       prisma.keluarga.findMany({
         where: { statusData: { not: 'ARSIP' } },
         include: {
-          anggota: true,
+          anggota: {
+            include: { peristiwaVital: true },
+          },
           wilayah: true,
           hatinyaPkk: true,
           industriRumahTangga: true,
@@ -146,7 +148,31 @@ export default async function DashboardPage({
             pekerjaan: typeof a.pekerjaan === 'string' ? a.pekerjaan : 'WIRASWASTA',
             isBalita: ageYears < 5,
             isLansia: ageYears >= 60,
-            isIbuHamil: false,
+            isIbuHamil: (() => {
+              if (a.jenisKelamin !== 'P') return false;
+              const events = (a as any).peristiwaVital || [];
+              if (!events.length) return false;
+              let lastPregnancyDate: Date | null = null;
+              let concluded = false;
+              const sorted = [...events].sort(
+                (x: any, y: any) => new Date(x.tanggalPeristiwa).getTime() - new Date(y.tanggalPeristiwa).getTime()
+              );
+              for (const ev of sorted) {
+                if (ev.jenisPeristiwa === 'KEHAMILAN') {
+                  lastPregnancyDate = new Date(ev.tanggalPeristiwa);
+                  concluded = false;
+                } else if (
+                  lastPregnancyDate &&
+                  (ev.jenisPeristiwa === 'PERSALINAN_MELAHIRKAN' ||
+                    ev.jenisPeristiwa === 'NIFAS' ||
+                    ev.jenisPeristiwa === 'KELAHIRAN_BAYI' ||
+                    ev.jenisPeristiwa === 'KEMATIAN_IBU')
+                ) {
+                  concluded = true;
+                }
+              }
+              return Boolean(lastPregnancyDate && !concluded);
+            })(),
             isIbuMenyusui: false,
             isButaAksara: Boolean(a.tigaButa),
             isDisabilitas: Boolean(a.disabilitas),

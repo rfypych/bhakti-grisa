@@ -666,6 +666,7 @@ export function PublicFormulir({
         nama: a.nama.trim() || (idx === 0 ? form.namaKepalaKeluarga.trim() : `Anggota ${idx + 1}`),
         nik: a.nik.trim(),
         isNikSementara: Boolean(a.isVirtualNik || a.nik.trim().startsWith('TEMP-') || !a.nik.trim()),
+        isIbuHamil: Boolean(a.isIbuHamil),
         hubunganKeluarga: a.hubungan,
         jenisKelamin: a.jenisKelamin,
         tempatLahir: a.tempatLahir || 'Ngawi',

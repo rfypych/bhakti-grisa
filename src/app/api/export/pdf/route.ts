@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateOfficialPdf, ExportPdfJenis, PDF_EXPORT_CONFIGS } from '@/lib/pdfExport';
-import { getSessionUser } from '@/lib/auth';
+import { getSessionUser, getScopeWilayahIds } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
 export const runtime = 'nodejs';
@@ -48,11 +48,12 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Enforce RBAC territorial scoping
-  if (user.peran === 'KADER_RT') {
+  // Enforce RBAC territorial scoping (KADER_RT, PENGURUS_RW, PENGURUS_DUSUN)
+  const allowedWilayahIds = await getScopeWilayahIds(user);
+  if (allowedWilayahIds !== null) {
     if (jenis === 'rekap-desa') {
       return NextResponse.json(
-        { error: 'Akses ditolak: Kader RT tidak memiliki wewenang untuk mengunduh rekapitulasi desa.' },
+        { error: 'Akses ditolak: Anda tidak memiliki wewenang untuk mengunduh rekapitulasi seluruh desa.' },
         { status: 403 }
       );
     }
@@ -61,16 +62,16 @@ export async function GET(request: NextRequest) {
         where: { id: keluargaId },
         select: { wilayahId: true },
       });
-      if (!fam || fam.wilayahId !== user.wilayahId) {
+      if (!fam || !allowedWilayahIds.includes(fam.wilayahId)) {
         return NextResponse.json(
-          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah Anda.' },
+          { error: 'Akses ditolak: Anda hanya dapat mengunduh data warga di wilayah tugas Anda.' },
           { status: 403 }
         );
       }
     }
-    if (wilayahId && wilayahId !== user.wilayahId) {
+    if (wilayahId && !allowedWilayahIds.includes(wilayahId)) {
       return NextResponse.json(
-        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah Anda.' },
+        { error: 'Akses ditolak: Anda hanya dapat mengunduh data di wilayah tugas Anda.' },
         { status: 403 }
       );
     }

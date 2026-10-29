@@ -238,7 +238,7 @@ export function PublicLogin({
             <div className="pt-4 border-t border-separator-border flex items-center justify-between text-caption-1-regular text-text-tertiary">
               <span className="inline-flex items-center gap-1.5">
                 <Lock className="size-3.5" />
-                Otentikasi RBAC Berjenjang
+                Otentikasi Berjenjang Sesuai Peran Petugas
               </span>
               <span>TP PKK Desa Grudo</span>
             </div>
